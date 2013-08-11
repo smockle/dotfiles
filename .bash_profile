@@ -5,8 +5,12 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Heroku to $PATH
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Forget repeated and spaced commands.
+# Make repeated commands not show up in history.
+# Make commands preceeded by a space not show up in history.
 export HISTCONTROL=ignoreboth
+
+# Make specific commands not show up in history.
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 # Set wget download location
 alias wget='wget -P ~/Downloads'
