@@ -1,10 +1,13 @@
+[alias]
+	co = checkout
+
+[core]
+	quotepath = false
+	excludesfile = ~/.gitignore
+
+[credential]
+	helper = osxkeychain
+
 [user]
 	name = Clay Miller
 	email = clay@smockle.com
-[credential]
-	helper = osxkeychain
-[core]
-	quotepath = false
-	excludesfile = /Users/clay/.gitignore
-[alias]
-	co = checkout

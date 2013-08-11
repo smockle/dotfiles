@@ -6,7 +6,7 @@
 # Please forward any additions, corrections or comments by email to
 # hosts@someonewhocares.org
 
-# Last updated: Aug 2nd, 2013 at 02:13
+# Last updated: Aug 6th, 2013 at 12:26
 
 # Use this file to prevent your computer from connecting to selected
 # internet hosts. This is an easy and effective way to protect you from 
@@ -65,7 +65,7 @@
 255.255.255.255	broadcasthost
 ::1		localhost
 127.0.0.1 	local
-127.0.0.1 debug.auburn.edu
+fe80::1%lo0     localhost
 #</localhost>
 
 #<shock-sites>
@@ -10072,6 +10072,88 @@
 127.0.0.1 zyrtec.3.p2l.info
 127.0.0.1 zyrtec.4.p2l.info
 #</wiki-spam-sites>
+
+#<Phorm-sites>
+
+# Phorm contextual advertising sites
+127.0.0.1 a.oix.com
+127.0.0.1 a.oix.net
+127.0.0.1 a.openinternetexchange.com
+127.0.0.1 a.phormlabs.com
+127.0.0.1 a.webwise.com
+127.0.0.1 a.webwise.net
+127.0.0.1 b.oix.net
+127.0.0.1 b.webwise.net
+127.0.0.1 br.phorm.com
+127.0.0.1 bt.phorm.com
+127.0.0.1 bt.webwise.com
+127.0.0.1 c.webwise.com
+127.0.0.1 c.webwise.net
+127.0.0.1 d.oix.com
+127.0.0.1 d.phormlabs.com
+127.0.0.1 ig.fp.oix.net
+127.0.0.1 invite.gezinti.com
+127.0.0.1 kentsucks.youcanoptout.com
+127.0.0.1 kr.phorm.com
+127.0.0.1 mail.youcanoptout.com
+127.0.0.1 mail.youcanoptout.net
+127.0.0.1 mail.youcanoptout.org
+127.0.0.1 monitor.phorm.com
+127.0.0.1 mx01.openinternetexchange.com
+127.0.0.1 mx01.openinternetexchange.net
+127.0.0.1 mx01.webwise.com
+127.0.0.1 mx03.phorm.com
+127.0.0.1 navegador.oi.com.br
+127.0.0.1 navegador.telefonica.com.br
+127.0.0.1 ns1.oix.com
+127.0.0.1 ns1.openinternetexchange.com
+127.0.0.1 ns1.phorm.com
+127.0.0.1 ns2.oix.com
+127.0.0.1 ns2.openinternetexchange.com
+127.0.0.1 ns2.phorm.com
+127.0.0.1 ns2.youcanoptout.com
+127.0.0.1 ns3.openinternetexchange.com
+127.0.0.1 oi.webnavegador.com.br
+127.0.0.1 oix-stage.net
+127.0.0.1 oix.phorm.com
+127.0.0.1 oixcrv-lab.net
+127.0.0.1 oixcrv-stage.net
+127.0.0.1 oixcrv.net
+127.0.0.1 oixpre-stage.net
+127.0.0.1 oixpre.net
+127.0.0.1 oixssp-lab.net
+127.0.0.1 oixssp.net
+127.0.0.1 openinternetexchange.com
+127.0.0.1 openinternetexchange.net
+127.0.0.1 phorm.kr
+127.0.0.1 phormlabs.com
+127.0.0.1 prm-ext.phorm.com
+127.0.0.1 romdiscover.com
+127.0.0.1 rtc.romdiscover.com
+127.0.0.1 stats.oix.com
+127.0.0.1 stopphoulplay.com
+127.0.0.1 stopphoulplay.net
+127.0.0.1 telefonica.webnavegador.com.br
+127.0.0.1 terra.fp.oix.net
+127.0.0.1 ui.oix.net
+127.0.0.1 w.oix.net
+127.0.0.1 webnavegador.com.br
+127.0.0.1 webwise.com
+127.0.0.1 webwise.net
+127.0.0.1 www.gezinti.com
+127.0.0.1 www.gozatar.com
+127.0.0.1 www.oix.com
+127.0.0.1 www.openinternetexchange.com
+127.0.0.1 www.phormlabs.com
+127.0.0.1 www.stopphoulplay.com
+127.0.0.1 www.youcanoptout.com
+127.0.0.1 www.youcanoptout.net
+127.0.0.1 www.youcanoptout.org
+127.0.0.1 xxyyzz.youcanoptout.com
+127.0.0.1 youcanoptout.com
+127.0.0.1 youcanoptout.net
+127.0.0.1 youcanoptout.org
+#</Phorm-sites>
 
 # Acknowledgements
 # I'd like to thank the following people for submitting sites, and
