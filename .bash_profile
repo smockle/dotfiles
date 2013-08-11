@@ -37,7 +37,8 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
 # Update `ruby`, `brew` and `npm`, and their installed packages.
-alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; gem update'
+# Update /etc/hosts.
+alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; gem update; wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts; dscacheutil -flushcache'
 
 # Set `wget` download location.
 alias wget='wget -P ~/Downloads'
