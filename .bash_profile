@@ -5,6 +5,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add `heroku` to `$PATH`.
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# Add `psql` to `$PATH`.
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+
 # Make repeated commands not show up in history.
 # Make commands preceeded by a space not show up in history.
 export HISTCONTROL=ignoreboth
