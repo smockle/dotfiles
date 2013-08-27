@@ -52,6 +52,10 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 # OS X has no `sha1sum`, so use `shasum` as a fallback.
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
 # Add tab completion for `rvm`.
 source ~/.rvm/scripts/rvm
 
