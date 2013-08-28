@@ -56,6 +56,9 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
+# Use `git diff` instead of `diff`.
+alias diff='git diff'
+
 # Add tab completion for `rvm`.
 source ~/.rvm/scripts/rvm
 
