@@ -1,0 +1,3 @@
+ControlMaster auto
+ControlPath .ssh/%r@%h:%p
+ControlPersist yes
