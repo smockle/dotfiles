@@ -1,3 +1,4 @@
-ControlMaster auto
-ControlPath .ssh/%r@%h:%p
-ControlPersist yes
+# ControlMaster auto
+# ControlPath /tmp/%r@%h:%p
+# ControlPersist yes
+# ServerAliveInterval 120
