@@ -43,6 +43,9 @@ alias trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -r
 # Update /etc/hosts.
 alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; rvm requirements; rvm get head; rvm requirements; rvm install 2.0.0; rvm use 2.0.0; rvm default 2.0.0; gem update; heroku update; wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts; dscacheutil -flushcache'
 
+# Set `curl` download location.
+alias curl="cd ~/Downloads && curl $1"
+
 # Set `wget` download location.
 alias wget='wget -P ~/Downloads'
 
