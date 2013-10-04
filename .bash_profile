@@ -38,7 +38,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Empty the Trash on all mounted volumes and the main HDD.
 # Clear Apple’s System Logs to improve shell startup speed.
 # Delete Transmit favorites.
-alias trash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; rm "/Users/clay/Library/Application Support/Transmit/Favorites/*"'
+alias trash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; rm ~/Library/Application\ Support/Transmit/Favorites/*'
 
 # Update `ruby`, `brew` and `npm`, and their installed packages.
 # Update /etc/hosts.
