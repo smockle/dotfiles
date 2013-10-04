@@ -37,14 +37,16 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Clear Apple’s System Logs to improve shell startup speed.
-alias trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+# Delete Transmit favorites.
+alias trash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; rm "/Users/clay/Library/Application Support/Transmit/Favorites/*"'
 
 # Update `ruby`, `brew` and `npm`, and their installed packages.
 # Update /etc/hosts.
 alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; rvm requirements; rvm get head; rvm requirements; rvm install 2.0.0; rvm use 2.0.0; rvm default 2.0.0; gem update; heroku update; wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts; dscacheutil -flushcache'
 
 # Set `curl` download location.
-alias curl="cd ~/Downloads && curl $1"
+_curl() { (cd ~/Downloads && curl $*) }
+alias curl='_curl'
 
 # Set `wget` download location.
 alias wget='wget -P ~/Downloads'
