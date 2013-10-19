@@ -37,13 +37,56 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Clear Apple’s System Logs to improve shell startup speed.
-# Delete Transmit favorites.
-alias trash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; rm ~/Library/Application\ Support/Transmit/Favorites/*'
+trash() {
+  sudo rm -rfv /Volumes/*/.Trashes
+  sudo rm -rfv ~/.Trash
+  sudo rm -rfv /private/var/log/asl/*.asl
+}
 
-# Update `ruby`, `brew` and `npm`, and their installed packages.
-# Update /etc/hosts.
-alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; rvm requirements; rvm get head; rvm requirements; rvm install 2.0.0; rvm use 2.0.0; rvm default 2.0.0; gem update; heroku update; wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts; dscacheutil -flushcache'
+# Update Homebrew and Homebrew packages.
+_update_brew() {
+  brew update
+  brew upgrade
+  brew cleanup
+}
 
+# Update the Node Package Manager and Node packages.
+_update_npm() {
+  npm update npm -g
+  npm update -g
+}
+
+# Update the Ruby Version Manager and Ruby.
+_update_rvm() {
+  rvm requirements
+  rvm get head
+  rvm requirements
+  rvm install 2.0.0
+  rvm use 2.0.0
+  rvm default 2.0.0
+}
+
+# Update Ruby gems and the Heroku toolbelt.
+_update_gems() {
+  gem update
+  heroku update
+}
+
+# Update hosts file.
+_update_hosts() {
+  wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts
+  dscacheutil -flushcache
+}
+
+# Update system.
+update() {
+  _update_brew
+  _update_npm
+  _update_rvm
+  _update_gems
+  _update_hosts
+}
+  
 # Set `curl` download location.
 _curl() { (cd ~/Downloads && curl $*) }
 alias curl='_curl'
