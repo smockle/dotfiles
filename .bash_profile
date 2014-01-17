@@ -2,11 +2,17 @@
 export PATH="$PATH:/opt/local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Add `$(brew --prefix)/bin` to `$PATH`.
+export PATH="$(brew --prefix)/bin:$PATH"
+
 # Add `heroku` to `$PATH`.
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Add `psql` to `$PATH`.
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+export PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
+
+# Add `stapler` to `$PATH`.
+export PATH="$HOME/Projects/stapler:$PATH"
 
 # Make repeated commands not show up in history.
 # Make commands preceeded by a space not show up in history.
@@ -93,6 +99,9 @@ alias curl='_curl'
 
 # Set `wget` download location.
 alias wget='wget -P ~/Downloads'
+
+# Perform bundle operations.
+alias buns='bundle install && bundle update'
 
 # OS X has no `md5sum`, so use `md5` as a fallback.
 command -v md5sum > /dev/null || alias md5sum="md5"
