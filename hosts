@@ -6,7 +6,7 @@
 # Please forward any additions, corrections or comments by email to
 # hosts@someonewhocares.org
 
-# Last updated: Oct 11th, 2013 at 08:10
+# Last updated: Jan 7th, 2014 at 11:17
 
 # Use this file to prevent your computer from connecting to selected
 # internet hosts. This is an easy and effective way to protect you from 
@@ -62,12 +62,12 @@
 # your information back to a company.
 
 #<localhost>
-127.0.0.1 	localhost
-127.0.0.1 	localhost.localdomain
+127.0.0.1	localhost
+127.0.0.1	localhost.localdomain
 255.255.255.255	broadcasthost
 ::1		localhost
-127.0.0.1 	local
-fe80::1%lo0     localhost
+127.0.0.1	local
+fe80::1%lo0	localhost
 #</localhost>
 
 #<shock-sites>
@@ -120,6 +120,7 @@ fe80::1%lo0     localhost
 127.0.0.1 fuck.org
 127.0.0.1 funnelchair.com
 127.0.0.1 goatse.bz
+127.0.0.1 goatse.ru
 127.0.0.1 goatsegirl.org
 127.0.0.1 hai2u.com
 127.0.0.1 homewares.org
@@ -196,6 +197,7 @@ fe80::1%lo0     localhost
 127.0.0.1 www.fuck.org
 127.0.0.1 www.funnelchair.com
 127.0.0.1 www.goatse.bz
+127.0.0.1 www.goatse.ru
 127.0.0.1 www.goatsegirl.org
 127.0.0.1 www.hai2u.com
 127.0.0.1 www.homewares.org
@@ -313,6 +315,7 @@ fe80::1%lo0     localhost
 #</maybe-spy>
 
 #127.0.0.1 ll.a.hulu.com	# Uncomment to block Hulu. 
+#127.0.0.1 metrics.ticketmaster.com	# interferes with logging in to ticketmaster.com
 #127.0.0.1 t2.hulu.com		# Uncomment to block Hulu. 
 #127.0.0.1 track.hulu.com	# Uncomment to block Hulu. 
 127.0.0.1 006.free-counter.co.uk
@@ -450,7 +453,6 @@ fe80::1%lo0     localhost
 127.0.0.1 clicks.m4n.nl
 127.0.0.1 clicks.natwest.com
 127.0.0.1 clicks.rbs.co.uk
-127.0.0.1 clicks.toteme.com
 127.0.0.1 clickspring.net	#used by a spyware product called PurityScan
 127.0.0.1 clicktrack.onlineemailmarketing.com
 127.0.0.1 clicktracks.webmetro.com
@@ -734,6 +736,7 @@ fe80::1%lo0     localhost
 127.0.0.1 fl01.ct2.comclick.com
 127.0.0.1 flycast.com
 127.0.0.1 forbescollect.247realmedia.com
+127.0.0.1 formalyzer.com
 127.0.0.1 foxcounter.com
 127.0.0.1 free-counter.5u.com
 127.0.0.1 free.xxxcounter.com
@@ -747,7 +750,6 @@ fe80::1%lo0     localhost
 127.0.0.1 gator.com
 127.0.0.1 gcounter.hosting4u.net
 127.0.0.1 gd.mlb.com
-127.0.0.1 gemius.pl
 127.0.0.1 geocounter.net
 127.0.0.1 gkkzngresullts.com
 127.0.0.1 go-in-search.net
@@ -829,7 +831,6 @@ fe80::1%lo0     localhost
 127.0.0.1 linkcounter.pornosite.com
 127.0.0.1 linktrack.bravenet.com
 127.0.0.1 livestats.atlanta-airport.com
-127.0.0.1 loading321.com
 127.0.0.1 loc1.hitsprocessor.com
 127.0.0.1 log.btopenworld.com
 127.0.0.1 log.clickstream.co.za
@@ -933,7 +934,6 @@ fe80::1%lo0     localhost
 127.0.0.1 metrics.thefrisky.com
 127.0.0.1 metrics.thenation.com
 127.0.0.1 metrics.theweathernetwork.com
-127.0.0.1 metrics.ticketmaster.com
 127.0.0.1 metrics.tmz.com
 127.0.0.1 metrics.toyota.com
 127.0.0.1 metrics.tulsaworld.com
@@ -965,7 +965,6 @@ fe80::1%lo0     localhost
 127.0.0.1 nl.nedstatbasic.net
 127.0.0.1 nl.sitestat.com
 127.0.0.1 o.addthis.com
-127.0.0.1 oasc03049.247realmedia.com
 127.0.0.1 objects.tremormedia.com
 127.0.0.1 okcounter.com
 127.0.0.1 omniture.theglobeandmail.com
@@ -1450,6 +1449,7 @@ fe80::1%lo0     localhost
 127.0.0.1 www.emaildeals.biz
 127.0.0.1 www.estats4all.com
 127.0.0.1 www.fastcounter.linkexchange.nl
+127.0.0.1 www.formalyzer.com
 127.0.0.1 www.foxcounter.com
 127.0.0.1 www.freestats.com
 127.0.0.1 www.fxcounters.com
@@ -1565,7 +1565,6 @@ fe80::1%lo0     localhost
 127.0.0.1 abruzzoinitaly.co.uk
 127.0.0.1 acglgoa.com
 127.0.0.1 acim.moqhixoz.cn
-127.0.0.1 adexprts.com
 127.0.0.1 adshufffle.com
 127.0.0.1 adwitty.com
 127.0.0.1 adwords.google.lloymlincs.com
@@ -1611,7 +1610,6 @@ fe80::1%lo0     localhost
 127.0.0.1 cleanchain.net
 127.0.0.1 click.get-answers-fast.com
 127.0.0.1 clien.net
-127.0.0.1 clk.relestar.com
 127.0.0.1 cnbc.com-article906773.us
 127.0.0.1 co8vd.cn
 127.0.0.1 cra-arc-gc-ca.noads.biz
@@ -1734,7 +1732,6 @@ fe80::1%lo0     localhost
 127.0.0.1 pilltabletsrxbargain.net
 127.0.0.1 powabcyfqe.com
 127.0.0.1 premium-live-scan.com
-127.0.0.1 privitize.com
 127.0.0.1 products-gold.net
 127.0.0.1 proflashdata.com			# Facebook trojan
 127.0.0.1 protectionupdatecenter.com
@@ -1769,6 +1766,7 @@ fe80::1%lo0     localhost
 127.0.0.1 supernaturalart.com
 127.0.0.1 superprotection10.com
 127.0.0.1 sverd.net
+127.0.0.1 tahoesup.com
 127.0.0.1 tattooshaha.info			# Facebook trojan
 127.0.0.1 test.ishvara-yoga.com
 127.0.0.1 thedatesafe.com			# Facebook trojan
@@ -1786,7 +1784,6 @@ fe80::1%lo0     localhost
 127.0.0.1 toolbarsale.biz
 127.0.0.1 toolbarweb.biz
 127.0.0.1 traffic.adwitty.com
-127.0.0.1 trafsearchonline.com
 127.0.0.1 trialreg.com
 127.0.0.1 tvshowslist.com
 127.0.0.1 twitter.login.kevanshome.org
@@ -1885,7 +1882,6 @@ fe80::1%lo0     localhost
 127.0.0.1 www.tattooshaha.info			# Facebook trojan
 127.0.0.1 www.te81.net
 127.0.0.1 www.thedatesafe.com			# Facebook trojan
-127.0.0.1 www.trafsearchonline.com
 127.0.0.1 www.trucktirehotline.com
 127.0.0.1 www.tvshowslist.com
 127.0.0.1 www.upi6.pillsstore-c.com		# Facebook trojan
@@ -2936,9 +2932,11 @@ fe80::1%lo0     localhost
 #</maybe-ads>
 
 # ads
+#127.0.0.1 140cc.v.fwmrm.net	#interferes with Comedy Central videos
 #127.0.0.1 ad.hulu.com		# Uncomment to block Hulu.
 #127.0.0.1 adf.ly
 #127.0.0.1 ads.hulu.com		# Uncomment to block Hulu.
+#127.0.0.1 iadsdk.apple.com	#may interfere with iTunes radio
 127.0.0.1 0101011.com
 127.0.0.1 0d79ed.r.axf8.net
 127.0.0.1 0pn.ru
@@ -2950,8 +2948,6 @@ fe80::1%lo0     localhost
 127.0.0.1 104231.dtiblog.com
 127.0.0.1 123.fluxads.com
 127.0.0.1 123specialgifts.com
-127.0.0.1 140cc.v.fwmrm.net
-127.0.0.1 1und1.ivwbox.de
 127.0.0.1 2-art-coliseum.com
 127.0.0.1 2.adbrite.com
 127.0.0.1 2.marketbanker.com
@@ -2983,6 +2979,7 @@ fe80::1%lo0     localhost
 127.0.0.1 961.com
 127.0.0.1 9cf9.v.fwmrm.net
 127.0.0.1 a.0day.kiev.ua
+127.0.0.1 a.ad.playstation.net
 127.0.0.1 a.admaxserver.com
 127.0.0.1 a.adorika.net
 127.0.0.1 a.adready.com
@@ -3109,6 +3106,7 @@ fe80::1%lo0     localhost
 127.0.0.1 ad.kataweb.it
 127.0.0.1 ad.krutilka.ru
 127.0.0.1 ad.leadcrunch.com
+127.0.0.1 ad.lgappstv.com
 127.0.0.1 ad.linkexchange.com
 127.0.0.1 ad.linksynergy.com
 127.0.0.1 ad.mastermedia.ru
@@ -3252,13 +3250,13 @@ fe80::1%lo0     localhost
 127.0.0.1 adcode.adengage.com
 127.0.0.1 adcontent.gamespy.com
 127.0.0.1 adcontent.reedbusiness.com
+127.0.0.1 adcontent.videoegg.com
 127.0.0.1 adcontroller.unicast.com
 127.0.0.1 adcount.ohmynews.com
 127.0.0.1 adcreative.tribuneinteractive.com
 127.0.0.1 adcycle.footymad.net
 127.0.0.1 adcycle.icpeurope.net
 127.0.0.1 addelivery.thestreet.com
-127.0.0.1 addfreestats.com
 127.0.0.1 addthis.com
 127.0.0.1 addthiscdn.com
 127.0.0.1 adecn.com
@@ -3361,6 +3359,7 @@ fe80::1%lo0     localhost
 127.0.0.1 adjuggler.net
 127.0.0.1 adjuggler.yourdictionary.com
 127.0.0.1 adkontekst.pl
+127.0.0.1 adm.fwmrm.net
 127.0.0.1 adm.shacknews.com
 127.0.0.1 adman.freeze.com
 127.0.0.1 adman.in.gr
@@ -3390,6 +3389,7 @@ fe80::1%lo0     localhost
 127.0.0.1 adnet.com
 127.0.0.1 adnet.de
 127.0.0.1 adnetwork.nextgen.net
+127.0.0.1 adnetwork.rovicorp.com
 127.0.0.1 adnetxchange.com
 127.0.0.1 adng.ascii24.com
 127.0.0.1 adnxs.com
@@ -3411,6 +3411,8 @@ fe80::1%lo0     localhost
 127.0.0.1 adremote.timeinc.net
 127.0.0.1 adriver.ru
 127.0.0.1 adroll.com
+127.0.0.1 adrotate.se
+127.0.0.1 adrotator.se
 127.0.0.1 ads-de.spray.net
 127.0.0.1 ads-dev.youporn.com
 127.0.0.1 ads-direct.prodigy.net
@@ -3450,6 +3452,7 @@ fe80::1%lo0     localhost
 127.0.0.1 ads.adshareware.net
 127.0.0.1 ads.adsinimages.com
 127.0.0.1 ads.adsonar.com
+127.0.0.1 ads.adsrvmedia.com
 127.0.0.1 ads.adtegrity.net
 127.0.0.1 ads.adtiger.de
 127.0.0.1 ads.adultfriendfinder.com
@@ -4104,6 +4107,7 @@ fe80::1%lo0     localhost
 127.0.0.1 ads.yimg.com.edgesuite.net
 127.0.0.1 ads.yldmgrimg.net
 127.0.0.1 ads.youporn.com
+127.0.0.1 ads.youtube.com
 127.0.0.1 ads.zap2it.com
 127.0.0.1 ads.zdnet.com
 127.0.0.1 ads0.okcupid.com
@@ -4617,6 +4621,7 @@ fe80::1%lo0     localhost
 127.0.0.1 adsmart.com
 127.0.0.1 adsmart.net
 127.0.0.1 adsnew.userfriendly.org
+127.0.0.1 adsniper.ru
 127.0.0.1 adsoftware.com
 127.0.0.1 adsoldier.com
 127.0.0.1 adson.awempire.com
@@ -4781,6 +4786,7 @@ fe80::1%lo0     localhost
 127.0.0.1 akamai.invitemedia.com
 127.0.0.1 ako.cc
 127.0.0.1 al1.sharethis.com
+127.0.0.1 alert.police-patrol-agent.com
 127.0.0.1 all.orfr.adgtw.orangeads.fr
 127.0.0.1 alliance.adbureau.net
 127.0.0.1 altfarm.mediaplex.com
@@ -4879,6 +4885,7 @@ fe80::1%lo0     localhost
 127.0.0.1 azcentra.app.ur.gcion.com
 127.0.0.1 azoogleads.com
 127.0.0.1 b.ads2.msn.com
+127.0.0.1 b.am15.net
 127.0.0.1 b.as-us.falkag.net
 127.0.0.1 b.liquidustv.com
 127.0.0.1 b.myspace.com
@@ -5029,7 +5036,6 @@ fe80::1%lo0     localhost
 127.0.0.1 bigbrandpromotions.com
 127.0.0.1 bigbrandrewards.com
 127.0.0.1 biggestgiftrewards.com
-127.0.0.1 bild.ivwbox.de
 127.0.0.1 billing.speedboink.com
 127.0.0.1 bitburg.adtech.de
 127.0.0.1 bitburg.adtech.fr
@@ -5083,6 +5089,7 @@ fe80::1%lo0     localhost
 127.0.0.1 bwp.news.com
 127.0.0.1 c.actiondesk.com
 127.0.0.1 c.adroll.com
+127.0.0.1 c.am10.ru
 127.0.0.1 c.ar.msn.com
 127.0.0.1 c.as-us.falkag.net
 127.0.0.1 c.at.msn.com
@@ -5223,6 +5230,7 @@ fe80::1%lo0     localhost
 127.0.0.1 cgm.adbureau.ne
 127.0.0.1 cgm.adbureau.net
 127.0.0.1 chainsawoffer.com
+127.0.0.1 chartbeat.com
 127.0.0.1 checkintocash.data.7bpeople.com
 127.0.0.1 cherryhi.app.ur.gcion.com
 127.0.0.1 chkpt.zdnet.com
@@ -5388,6 +5396,7 @@ fe80::1%lo0     localhost
 127.0.0.1 crowdignite.com
 127.0.0.1 crux.songline.com
 127.0.0.1 crwdcntrl.net
+127.0.0.1 cs.prd.msys.playstation.net
 127.0.0.1 cserver.mii.instacontent.net
 127.0.0.1 csh.actiondesk.com
 127.0.0.1 csm.rotator.hadj7.adjuggler.net
@@ -5563,9 +5572,9 @@ fe80::1%lo0     localhost
 127.0.0.1 family-offer.com
 127.0.0.1 farm.plista.com
 127.0.0.1 fatcatrewards.com
-127.0.0.1 faz.ivwbox.de
 127.0.0.1 fbcdn-creative-a.akamaihd.net
 127.0.0.1 fbfreegifts.com
+127.0.0.1 fbi.gov.id402037057-8235504608.d9680.com
 127.0.0.1 fc.webmasterpro.de
 127.0.0.1 fcg.casino770.com
 127.0.0.1 fdimages.fairfax.com.au
@@ -5581,6 +5590,7 @@ fe80::1%lo0     localhost
 127.0.0.1 finance-offer.com
 127.0.0.1 finanzmeldungen.com
 127.0.0.1 finder.cox.net
+127.0.0.1 fixbonus.com
 127.0.0.1 floatingads.madisonavenue.com
 127.0.0.1 floridat.app.ur.gcion.com
 127.0.0.1 flowers-offer.com
@@ -5766,6 +5776,7 @@ fe80::1%lo0     localhost
 127.0.0.1 go.adee.bbelements.com
 127.0.0.1 go.adlt.bbelements.com
 127.0.0.1 go.adlv.bbelements.com
+127.0.0.1 go.admulti.com
 127.0.0.1 go.adnet.bbelements.com
 127.0.0.1 go.arbo.bbelements.com
 127.0.0.1 go.arbopl.bbelements.com
@@ -5870,9 +5881,12 @@ fe80::1%lo0     localhost
 127.0.0.1 i.trkjmp.com
 127.0.0.1 iacas.adbureau.net
 127.0.0.1 iad.anm.co.uk
+127.0.0.1 iadc.qwapi.com
 127.0.0.1 ib.adnxs.com
+127.0.0.1 ibis.lgappstv.com
 127.0.0.1 icon.clickthru.net
 127.0.0.1 id11938.luxup.ru
+127.0.0.1 id5576.al21.luxup.ru
 127.0.0.1 idearc.tt.omtrdc.net
 127.0.0.1 idpix.media6degrees.com
 127.0.0.1 ieee.adbureau.net
@@ -6003,7 +6017,6 @@ fe80::1%lo0     localhost
 127.0.0.1 itrackerpro.com
 127.0.0.1 itsfree123.com
 127.0.0.1 itxt.vibrantmedia.com
-127.0.0.1 ivwbox.de
 127.0.0.1 iwantmy-freelaptop.com
 127.0.0.1 iwantmyfree-laptop.com
 127.0.0.1 iwantmyfreecash.com
@@ -6050,7 +6063,6 @@ fe80::1%lo0     localhost
 127.0.0.1 keys.dmtracker.com
 127.0.0.1 keywordblocks.com
 127.0.0.1 keywords.adtlgc.com
-127.0.0.1 kicker.ivwbox.de
 127.0.0.1 kitaramarketplace.com
 127.0.0.1 kitaramedia.com
 127.0.0.1 kitaratrk.com
@@ -6079,6 +6091,7 @@ fe80::1%lo0     localhost
 127.0.0.1 l.5min.com
 127.0.0.1 l.linkpulse.com
 127.0.0.1 l.yieldmanager.net
+127.0.0.1 ladyclicks.ru
 127.0.0.1 lanzar.publicidadweb.com
 127.0.0.1 laptopreportcard.com
 127.0.0.1 laptoprewards.com
@@ -6176,6 +6189,7 @@ fe80::1%lo0     localhost
 127.0.0.1 marketing.888.com
 127.0.0.1 marriottinternationa.tt.omtrdc.net
 127.0.0.1 mastertracks.be
+127.0.0.1 matomy.adk2.co
 127.0.0.1 matrix.mediavantage.de
 127.0.0.1 maxads.ruralpress.com
 127.0.0.1 maxadserver.corusradionetwork.com
@@ -6321,7 +6335,6 @@ fe80::1%lo0     localhost
 127.0.0.1 network.realmedia.com
 127.0.0.1 network.realtechnetwork.net
 127.0.0.1 networkads.net
-127.0.0.1 netzmarkt.ivwbox.de
 127.0.0.1 new-ads.eurogamer.net
 127.0.0.1 new.smartcontext.pl
 127.0.0.1 newads.cmpnet.com
@@ -6357,7 +6370,6 @@ fe80::1%lo0     localhost
 127.0.0.1 nsads4.us.publicus.com
 127.0.0.1 nspmotion.com
 127.0.0.1 ntbanner.digitalriver.com
-127.0.0.1 ntv.ivwbox.de
 127.0.0.1 nx-adv0005.247realmedia.com
 127.0.0.1 nxs.kidcolez.cn
 127.0.0.1 nxtscrn.adbureau.net
@@ -6404,7 +6416,6 @@ fe80::1%lo0     localhost
 127.0.0.1 onlineads.magicvalley.com
 127.0.0.1 onlinebestoffers.net
 127.0.0.1 onocollect.247realmedia.com
-127.0.0.1 onvis.ivwbox.de
 127.0.0.1 open.4info.net
 127.0.0.1 openad.infobel.com
 127.0.0.1 openad.travelnow.com
@@ -6452,6 +6463,7 @@ fe80::1%lo0     localhost
 127.0.0.1 pagead3.googlesyndication.com
 127.0.0.1 pages.etology.com
 127.0.0.1 paime.com
+127.0.0.1 panel.adtify.pl
 127.0.0.1 paperg.com
 127.0.0.1 partner.ah-ha.com
 127.0.0.1 partner.ceneo.pl
@@ -6468,6 +6480,7 @@ fe80::1%lo0     localhost
 127.0.0.1 paulsnetwork.com
 127.0.0.1 pb.tynt.com
 127.0.0.1 pbid.pro-market.net
+127.0.0.1 pcads.ru
 127.0.0.1 pei-ads.playboy.com
 127.0.0.1 people-choice-sites.com
 127.0.0.1 personalcare-offer.com
@@ -6585,6 +6598,7 @@ fe80::1%lo0     localhost
 127.0.0.1 publishing.kalooga.com
 127.0.0.1 pubshop.img.uol.com.br
 127.0.0.1 purgecolon.net
+127.0.0.1 px10.net
 127.0.0.1 q.azcentral.com
 127.0.0.1 q.b.h.cltomedia.info
 127.0.0.1 qip.magna.ru
@@ -6696,6 +6710,7 @@ fe80::1%lo0     localhost
 127.0.0.1 russ-shalavy.ru
 127.0.0.1 rv.adcpx.v1.de.eusem.adaos-ads.net
 127.0.0.1 rya.rockyou.com
+127.0.0.1 s.admulti.com
 127.0.0.1 s.amazon-adsystem.com
 127.0.0.1 s.as-us.falkag.net
 127.0.0.1 s.atemda.com
@@ -6754,7 +6769,6 @@ fe80::1%lo0     localhost
 127.0.0.1 secure.ace-tag.advertising.com
 127.0.0.1 secure.addthis.com
 127.0.0.1 secure.bidvertiserr.com
-127.0.0.1 secure.eloqua.com
 127.0.0.1 secure.gaug.es
 127.0.0.1 secure.webconnect.net
 127.0.0.1 secureads.ft.com
@@ -6854,8 +6868,11 @@ fe80::1%lo0     localhost
 127.0.0.1 smart.besonders.ru
 127.0.0.1 smartadserver
 127.0.0.1 smartadserver.com
+127.0.0.1 smartclip.com
+127.0.0.1 smartclip.net
 127.0.0.1 smartcontext.pl
 127.0.0.1 smartinit.webads.nl
+127.0.0.1 smartshare.lgtvsdp.com
 127.0.0.1 smile.modchipstore.com
 127.0.0.1 smm.sitescout.com
 127.0.0.1 smokersopinionpoll.com
@@ -6888,7 +6905,6 @@ fe80::1%lo0     localhost
 127.0.0.1 speed.pointroll.com # Microsoft
 127.0.0.1 speedboink.com
 127.0.0.1 speedclicks.ero-advertising.com
-127.0.0.1 spiegel.ivwbox.de
 127.0.0.1 spin.spinbox.net
 127.0.0.1 spinbox.com
 127.0.0.1 spinbox.consumerreview.com
@@ -6904,6 +6920,7 @@ fe80::1%lo0     localhost
 127.0.0.1 sports-offer.com
 127.0.0.1 sports-offer.net
 127.0.0.1 sports-premiumblvd.com
+127.0.0.1 spotxchange.com
 127.0.0.1 sq2trk2.com
 127.0.0.1 srs.targetpoint.com
 127.0.0.1 ssads.osdn.com
@@ -7056,6 +7073,7 @@ fe80::1%lo0     localhost
 127.0.0.1 tps31.doubleverify.com
 127.0.0.1 tr.wl.webads.nl
 127.0.0.1 track-apmebf.cj.akadns.net
+127.0.0.1 track.adbooth.net
 127.0.0.1 track.bigbrandpromotions.com
 127.0.0.1 track.e7r.com.br
 127.0.0.1 track.omgpl.com
@@ -7131,6 +7149,7 @@ fe80::1%lo0     localhost
 127.0.0.1 usatravel-specials.net
 127.0.0.1 usemax.de
 127.0.0.1 ut.addthis.com
+127.0.0.1 utarget.ru
 127.0.0.1 utils.media-general.com
 127.0.0.1 utils.mediageneral.com
 127.0.0.1 v.fwmrm.net
@@ -7173,9 +7192,109 @@ fe80::1%lo0     localhost
 127.0.0.1 vu.veoxa.com
 127.0.0.1 vzarabotke.ru
 127.0.0.1 w.ic.tynt.com
+127.0.0.1 w1.am15.net
 127.0.0.1 w1.webcompteur.com
+127.0.0.1 w10.am15.net
 127.0.0.1 w10.centralmediaserver.com
+127.0.0.1 w100.am15.net
+127.0.0.1 w11.am15.net
 127.0.0.1 w11.centralmediaserver.com
+127.0.0.1 w12.am15.net
+127.0.0.1 w13.am15.net
+127.0.0.1 w14.am15.net
+127.0.0.1 w15.am15.net
+127.0.0.1 w16.am15.net
+127.0.0.1 w17.am15.net
+127.0.0.1 w18.am15.net
+127.0.0.1 w19.am15.net
+127.0.0.1 w2.am15.net
+127.0.0.1 w20.am15.net
+127.0.0.1 w21.am15.net
+127.0.0.1 w22.am15.net
+127.0.0.1 w23.am15.net
+127.0.0.1 w24.am15.net
+127.0.0.1 w25.am15.net
+127.0.0.1 w26.am15.net
+127.0.0.1 w27.am15.net
+127.0.0.1 w28.am15.net
+127.0.0.1 w29.am15.net
+127.0.0.1 w3.am15.net
+127.0.0.1 w30.am15.net
+127.0.0.1 w31.am15.net
+127.0.0.1 w32.am15.net
+127.0.0.1 w33.am15.net
+127.0.0.1 w34.am15.net
+127.0.0.1 w35.am15.net
+127.0.0.1 w36.am15.net
+127.0.0.1 w37.am15.net
+127.0.0.1 w38.am15.net
+127.0.0.1 w39.am15.net
+127.0.0.1 w4.am15.net
+127.0.0.1 w40.am15.net
+127.0.0.1 w41.am15.net
+127.0.0.1 w42.am15.net
+127.0.0.1 w43.am15.net
+127.0.0.1 w44.am15.net
+127.0.0.1 w45.am15.net
+127.0.0.1 w46.am15.net
+127.0.0.1 w47.am15.net
+127.0.0.1 w48.am15.net
+127.0.0.1 w49.am15.net
+127.0.0.1 w5.am15.net
+127.0.0.1 w50.am15.net
+127.0.0.1 w51.am15.net
+127.0.0.1 w52.am15.net
+127.0.0.1 w53.am15.net
+127.0.0.1 w54.am15.net
+127.0.0.1 w55.am15.net
+127.0.0.1 w56.am15.net
+127.0.0.1 w57.am15.net
+127.0.0.1 w58.am15.net
+127.0.0.1 w59.am15.net
+127.0.0.1 w6.am15.net
+127.0.0.1 w60.am15.net
+127.0.0.1 w61.am15.net
+127.0.0.1 w62.am15.net
+127.0.0.1 w63.am15.net
+127.0.0.1 w64.am15.net
+127.0.0.1 w65.am15.net
+127.0.0.1 w66.am15.net
+127.0.0.1 w67.am15.net
+127.0.0.1 w68.am15.net
+127.0.0.1 w69.am15.net
+127.0.0.1 w7.am15.net
+127.0.0.1 w70.am15.net
+127.0.0.1 w71.am15.net
+127.0.0.1 w72.am15.net
+127.0.0.1 w73.am15.net
+127.0.0.1 w74.am15.net
+127.0.0.1 w75.am15.net
+127.0.0.1 w76.am15.net
+127.0.0.1 w77.am15.net
+127.0.0.1 w78.am15.net
+127.0.0.1 w79.am15.net
+127.0.0.1 w8.am15.net
+127.0.0.1 w80.am15.net
+127.0.0.1 w81.am15.net
+127.0.0.1 w82.am15.net
+127.0.0.1 w83.am15.net
+127.0.0.1 w84.am15.net
+127.0.0.1 w85.am15.net
+127.0.0.1 w86.am15.net
+127.0.0.1 w87.am15.net
+127.0.0.1 w88.am15.net
+127.0.0.1 w89.am15.net
+127.0.0.1 w9.am15.net
+127.0.0.1 w90.am15.net
+127.0.0.1 w91.am15.net
+127.0.0.1 w92.am15.net
+127.0.0.1 w93.am15.net
+127.0.0.1 w94.am15.net
+127.0.0.1 w95.am15.net
+127.0.0.1 w96.am15.net
+127.0.0.1 w97.am15.net
+127.0.0.1 w98.am15.net
+127.0.0.1 w99.am15.net
 127.0.0.1 wahoha.com
 127.0.0.1 warp.crystalad.com
 127.0.0.1 wdm29.com
@@ -7219,6 +7338,7 @@ fe80::1%lo0     localhost
 127.0.0.1 www.7bpeople.com
 127.0.0.1 www.7cnbcnews.com
 127.0.0.1 www.805m.com
+127.0.0.1 www.888.com
 127.0.0.1 www.888casino.com
 127.0.0.1 www.888poker.com
 127.0.0.1 www.961.com
@@ -7331,6 +7451,7 @@ fe80::1%lo0     localhost
 127.0.0.1 www.bargainbeautybuys.com
 127.0.0.1 www.bbelements.com
 127.0.0.1 www.bestshopperrewards.com
+127.0.0.1 www.bet365.com
 127.0.0.1 www.bidtraffic.com
 127.0.0.1 www.bidvertiser.com
 127.0.0.1 www.bigbrandpromotions.com
@@ -7375,6 +7496,7 @@ fe80::1%lo0     localhost
 127.0.0.1 www.cell-phone-giveaways.com
 127.0.0.1 www.cellphoneincentives.com
 127.0.0.1 www.chainsawoffer.com
+127.0.0.1 www.chartbeat.com
 127.0.0.1 www.choicedealz.com
 127.0.0.1 www.choicesurveypanel.com
 127.0.0.1 www.christianbusinessadvertising.com
@@ -7465,7 +7587,6 @@ fe80::1%lo0     localhost
 127.0.0.1 www.entertainment-rewardpath.com
 127.0.0.1 www.entertainment-specials.com
 127.0.0.1 www.eshopads2.com
-127.0.0.1 www.etoro.com
 127.0.0.1 www.euros4click.de
 127.0.0.1 www.exclusivegiftcards.com
 127.0.0.1 www.eyeblaster-bs.com
@@ -7638,6 +7759,7 @@ fe80::1%lo0     localhost
 127.0.0.1 www.konversation.com
 127.0.0.1 www.kreaffiliation.com
 127.0.0.1 www.kuhdi.com
+127.0.0.1 www.ladyclicks.ru
 127.0.0.1 www.laptopreportcard.com
 127.0.0.1 www.laptoprewards.com
 127.0.0.1 www.laptoprewardsgroup.com
@@ -7826,6 +7948,8 @@ fe80::1%lo0     localhost
 127.0.0.1 www.textsrv.com
 127.0.0.1 www.tgpmanager.com
 127.0.0.1 www.thatrendsystem.com
+127.0.0.1 www.the-binary-options-guide.com
+127.0.0.1 www.the-binary-theorem.com
 127.0.0.1 www.the-path-gateway.com
 127.0.0.1 www.the-smart-stop.com
 127.0.0.1 www.theuseful.com
@@ -7858,7 +7982,9 @@ fe80::1%lo0     localhost
 127.0.0.1 www.treeloot.com
 127.0.0.1 www.trendnews.com
 127.0.0.1 www.trendsonline.biz
+127.0.0.1 www.trendsonline.me
 127.0.0.1 www.trendsonline.mobi
+127.0.0.1 www.trndsys.mobi
 127.0.0.1 www.tutop.com
 127.0.0.1 www.tuttosessogratis.org
 127.0.0.1 www.ukbanners.com
@@ -7997,6 +8123,8 @@ fe80::1%lo0     localhost
 127.0.0.1 xpcs.ads.yahoo.com
 127.0.0.1 xstatic.nk-net.pl
 127.0.0.1 y.cdn.adblade.com
+127.0.0.1 yadro.ru
+127.0.0.1 yieldmanagement.adbooth.net
 127.0.0.1 yieldmanager.net
 127.0.0.1 ym.adnxs.com
 127.0.0.1 yodleeinc.tt.omtrdc.net
@@ -8016,6 +8144,7 @@ fe80::1%lo0     localhost
 127.0.0.1 ypn-js.overture.com
 127.0.0.1 ysiu.freenation.com
 127.0.0.1 ytaahg.vo.llnwd.net
+127.0.0.1 yumenetworks.com
 127.0.0.1 yx-in-f108.1e100.net
 127.0.0.1 z.blogads.com
 127.0.0.1 z.ceotrk.com
@@ -8871,6 +9000,7 @@ fe80::1%lo0     localhost
 # European network of tracking sites
 127.0.0.1 0ivwbox.de
 127.0.0.1 1ivwbox.de
+127.0.0.1 1und1.ivwbox.de
 127.0.0.1 2ivwbox.de
 127.0.0.1 3ivwbox.de
 127.0.0.1 4ivwbox.de
@@ -8883,12 +9013,14 @@ fe80::1%lo0     localhost
 127.0.0.1 9vwbox.de
 127.0.0.1 aivwbox.de
 127.0.0.1 avwbox.de
+127.0.0.1 bild.ivwbox.de
 127.0.0.1 bivwbox.de
 127.0.0.1 civwbox.de
 127.0.0.1 divwbox.de
 127.0.0.1 eevwbox.de
 127.0.0.1 eivwbox.de
 127.0.0.1 evwbox.de
+127.0.0.1 faz.ivwbox.de
 127.0.0.1 fivwbox.de
 127.0.0.1 givwbox.de
 127.0.0.1 hivwbox.de
@@ -9042,17 +9174,22 @@ fe80::1%lo0     localhost
 127.0.0.1 iyvwbox.de
 127.0.0.1 jivwbox.de
 127.0.0.1 jvwbox.de
+127.0.0.1 kicker.ivwbox.de
 127.0.0.1 kivwbox.de
 127.0.0.1 kvwbox.de
 127.0.0.1 livwbox.de
 127.0.0.1 mivwbox.de
+127.0.0.1 netzmarkt.ivwbox.de
 127.0.0.1 nivwbox.de
+127.0.0.1 ntv.ivwbox.de
 127.0.0.1 oivwbox.de
+127.0.0.1 onvis.ivwbox.de
 127.0.0.1 ovwbox.de
 127.0.0.1 pivwbox.de
 127.0.0.1 qivwbox.de
 127.0.0.1 rivwbox.de
 127.0.0.1 sivwbox.de
+127.0.0.1 spiegel.ivwbox.de
 127.0.0.1 tivwbox.de
 127.0.0.1 uivwbox.de
 127.0.0.1 uvwbox.de
