@@ -92,7 +92,7 @@ update() {
   _update_gems
   _update_hosts
 }
-  
+
 # Set `curl` download location.
 _curl() { (cd ~/Downloads && curl $*) }
 alias curl='_curl'
@@ -121,3 +121,17 @@ source ~/.rvm/scripts/rvm
 
 # Add tab completion for `brew`.
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+
+# Add tab completion for `yo`.
+# https://gist.github.com/natchiketa/6095984
+function _yo_generator_complete_() {
+	local local_modules=$(if [ -d node_modules ]; then echo "node_modules:"; fi)
+	local usr_local_modules=$(if [ -d /usr/local/lib/node_modules ]; then echo "/usr/local/lib/node_modules:"; fi)
+	local win_roam_modules=$(if [ -d $(which yo)/../node_modules ]; then echo "$(which yo)/../node_modules:"; fi)
+	local node_dirs="${local_modules}${usr_local_modules}${win_roam_modules}${NODE_PATH}"
+	local generators_all=$(for dir in $(echo $node_dirs | tr ":" "\n"); do command ls -1 $dir | grep ^generator- | cut -c11-; done)
+	local word=${COMP_WORDS[COMP_CWORD]}
+	local generators_filtered=$(if [ -z "$word" ]; then echo "$generators_all"; else echo "$generators_all" | grep $word; fi)
+	COMPREPLY=($generators_filtered)
+}
+complete -F _yo_generator_complete_ yo

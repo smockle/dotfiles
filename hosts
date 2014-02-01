@@ -6,7 +6,7 @@
 # Please forward any additions, corrections or comments by email to
 # hosts@someonewhocares.org
 
-# Last updated: Jan 7th, 2014 at 11:17
+# Last updated: Jan 18th, 2014 at 12:02
 
 # Use this file to prevent your computer from connecting to selected
 # internet hosts. This is an easy and effective way to protect you from 
@@ -1897,6 +1897,7 @@ fe80::1%lo0	localhost
 127.0.0.1 www.webwise.org
 127.0.0.1 www.wewillrocknow.com
 127.0.0.1 www.willysy.com
+127.0.0.1 www1.bmo.com.hotfrio.com.br
 127.0.0.1 www1.firesavez5.com
 127.0.0.1 www1.firesavez6.com
 127.0.0.1 www1.realsoft34.com
