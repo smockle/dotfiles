@@ -67,9 +67,9 @@ _update_rvm() {
   rvm requirements
   rvm get head
   rvm requirements
-  rvm install 2.0.0
-  rvm use 2.0.0
-  rvm default 2.0.0
+  rvm install 2.1.0
+  rvm use 2.1.0
+  rvm default 2.1.0
 }
 
 # Update Ruby gems and the Heroku toolbelt.
