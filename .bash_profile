@@ -78,6 +78,10 @@ _update_gems() {
   heroku update
 }
 
+_update_osx() {
+  sudo softwareupdate -i -a
+}
+
 # Update hosts file.
 _update_hosts() {
   wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts
@@ -91,6 +95,7 @@ update() {
   _update_npm
   _update_rvm
   _update_gems
+  _update_osx
   _update_hosts
 }
 
