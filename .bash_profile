@@ -81,6 +81,7 @@ _update_gems() {
 # Update hosts file.
 _update_hosts() {
   wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts
+  cp -f ~/Projects/dotfiles/hosts /etc/hosts
   dscacheutil -flushcache
 }
 
@@ -103,6 +104,9 @@ alias wget='wget -P ~/Downloads'
 # Perform bundle operations.
 alias buns='bundle install && bundle update'
 
+# Flush DNS cache.
+alias flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+
 # OS X has no `md5sum`, so use `md5` as a fallback.
 command -v md5sum > /dev/null || alias md5sum="md5"
 
@@ -115,6 +119,9 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 # Use `git diff` instead of `diff`.
 alias diff='git diff'
+
+# Add tab completion for `sudo`.
+complete -cf sudo
 
 # Add tab completion for `rvm`.
 source ~/.rvm/scripts/rvm
