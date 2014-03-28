@@ -1,3 +1,6 @@
+# Set default editor to nano.
+export EDITOR=nano
+
 # Add `rvm` to `$PATH`.
 export PATH="$PATH:/opt/local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
