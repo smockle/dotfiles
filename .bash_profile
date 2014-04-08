@@ -115,6 +115,9 @@ alias buns='bundle install && bundle update'
 # Flush DNS cache.
 alias flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
+# Add hub alias
+eval "$(hub alias -s)"
+
 # OS X has no `md5sum`, so use `md5` as a fallback.
 command -v md5sum > /dev/null || alias md5sum="md5"
 
@@ -135,7 +138,9 @@ complete -cf sudo
 source ~/.rvm/scripts/rvm
 
 # Add tab completion for `brew`.
-source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
 
 # Add tab completion for `yo`.
 # https://gist.github.com/natchiketa/6095984
