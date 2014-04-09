@@ -9,7 +9,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$(brew --prefix)/bin:$PATH"
 
 # Add `heroku` to `$PATH`.
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 
 # Add `psql` to `$PATH`.
 export PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
@@ -104,7 +104,7 @@ update() {
 
 # Set `curl` download location.
 _curl() { (cd ~/Downloads && curl $*) }
-alias curl='_curl'
+# alias curl='_curl'
 
 # Set `wget` download location.
 alias wget='wget -P ~/Downloads'
@@ -127,6 +127,9 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Use `hk` instead of `heroku`.
+alias heroku='hk'
 
 # Use `git diff` instead of `diff`.
 alias diff='git diff'
