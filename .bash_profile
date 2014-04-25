@@ -1,6 +1,9 @@
 # Set default editor to nano.
 export EDITOR=nano
 
+# Add ~/bin to $PATH
+export PATH="$PATH:$HOME/bin"
+
 # Add `rvm` to `$PATH`.
 export PATH="$PATH:/opt/local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -52,6 +55,11 @@ trash() {
   sudo rm -rfv /private/var/log/asl/*.asl
 }
 
+# Update monkeydo.
+_update_monkeydo() {
+  monkeydo update
+}
+
 # Update Homebrew and Homebrew packages.
 _update_brew() {
   brew update
@@ -94,6 +102,7 @@ _update_hosts() {
 
 # Update system.
 update() {
+  _update_monkeydo
   _update_brew
   _update_npm
   _update_rvm

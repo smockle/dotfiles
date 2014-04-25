@@ -1,6 +1,8 @@
 [alias]
 	co = checkout
     issues = !ghi
+    accept-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
+    accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -23,3 +25,5 @@
 	smudge = git-media-smudge %f
 [push]
 	default = simple
+[ghi]
+	token = !security find-internet-password -a smockle -s github.com -l 'ghi token' -w
