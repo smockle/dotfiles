@@ -1,0 +1,10 @@
+7-Zip
+Brackets
+Cmder
+Firefox
+Git for Windows (msysgit)
+git-credential-winstore
+MySQL
+Node.js
+Ruby
+Visual Studio
