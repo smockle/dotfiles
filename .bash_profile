@@ -146,9 +146,6 @@ if [[ $platform != 'windows' ]]; then
     # Add ~/bin to $PATH
     export PATH="$PATH:$HOME/bin"
 
-    # Add rvm to $PATH
-    export PATH="$PATH:$HOME/.rvm/bin"
-
     # Add $(brew --prefix)/bin to $PATH.
     export PATH="$(brew --prefix)/bin:$PATH"
 
@@ -157,6 +154,9 @@ if [[ $platform != 'windows' ]]; then
 
     # Add stapler to $PATH.
     export PATH="$HOME/Projects/stapler:$PATH"
+    
+    # Add rvm to $PATH
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
     # Update the Ruby Version Manager and Ruby.
     _update_rvm() {
