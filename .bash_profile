@@ -103,7 +103,7 @@ fi
 
 if [[ $platform == 'osx' ]]; then
     # Add psql to $PATH.
-    # export PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
+    export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
     # Update Homebrew and Homebrew packages.
     _update_brew() {
@@ -152,6 +152,9 @@ if [[ $platform != 'windows' ]]; then
     # Add heroku to $PATH.
     # export PATH="/usr/local/heroku/bin:$PATH"
 
+    # Add travis to $PATH.
+    [ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
+
     # Add stapler to $PATH.
     export PATH="$HOME/Projects/stapler:$PATH"
     
@@ -180,6 +183,10 @@ if [[ $platform != 'windows' ]]; then
 
     # Add tab completion for sudo.
     complete -cf sudo
+    
+    # Start fasd
+    #eval "$(fasd --init auto)"
+    #alias cd="fasd_cd -d"
 fi
 
 
