@@ -84,8 +84,7 @@ if [[ $platform == 'windows' ]]; then
     # Open files from the command line in Brackets.
     brackets() {
       ifile=''
-      if [ $1 == */c/* ] || [ $1 == *c:* ]
-      then
+      if [[ $1 == */c/* || $1 == *c:* ]]; then
         ifile+=$1
       else
         ifile+=`echo -n $(pwd)`
@@ -93,6 +92,9 @@ if [[ $platform == 'windows' ]]; then
       fi
       /c/Program\ Files\ \(x86\)/Brackets/Brackets.exe "$ifile"
     }
+    
+    # Open Visual Studio from the command line.
+    alias vs='/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 12.0/Common7/IDE/devenv.exe'
 fi
 
 
