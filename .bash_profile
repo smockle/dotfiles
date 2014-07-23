@@ -86,11 +86,14 @@ complete -o default -F _gulp_completions gulp
 if [[ $platform == 'windows' ]]; then
     cd ~
     
+    # ifconfig does not exist in Git Bash (Windows).
+    alias ifconfig='ipconfig'
+
     # more does not exist in Git Bash (Windows).
     alias more='less'
 
-    # ifconfig does not exist in Git Bash (Windows).
-    alias ifconfig='ipconfig'
+    # open does not exist in Git Bash (Windows).
+    alias open='start'
 
     # Open files from the command line in Brackets.
     brackets() {
@@ -142,8 +145,10 @@ if [[ $platform == 'osx' ]]; then
     
     # Show/hide hidden files in Finder
     alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-
     alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+    
+    # Open Brackets from the command line.
+    alias brackets="open /Applications/Brackets.app"
 fi
 
 
