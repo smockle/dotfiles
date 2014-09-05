@@ -45,8 +45,7 @@ _update_monkeydo() {
 
 # Update the Node Package Manager and Node packages.
 _update_npm() {
-  npm update npm -g
-  npm update -g
+  npm -g install npm@latest
 }
 
 # Update Ruby gems and the Heroku toolbelt.
@@ -127,6 +126,12 @@ if [[ $platform == 'osx' ]]; then
       brew upgrade
       brew cleanup
     }
+    
+    # Update Python utilities.
+    _update_python() {
+      pip install --upgrade setuptools
+      pip install --upgrade pip
+    }
 
     _update_osx() {
       sudo softwareupdate -i -a
@@ -177,6 +182,7 @@ if [[ $platform != 'windows' ]]; then
     export PATH="$HOME/Projects/stapler:$PATH"
     
     # Add rvm to $PATH
+    export PATH="$PATH:$HOME/.rvm/bin"
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
     # Update the Ruby Version Manager and Ruby.
@@ -218,6 +224,7 @@ update() {
   _update_monkeydo
   if [[ $platform == 'osx' ]]; then
     _update_brew
+    _update_python
   fi
   _update_npm
   if [[ $platform != 'windows' ]]; then
