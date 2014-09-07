@@ -27,3 +27,5 @@
 	default = simple
 [ghi]
 	token = !security find-internet-password -a smockle -s github.com -l 'ghi token' -w
+[help]
+	autocorrect = -1
