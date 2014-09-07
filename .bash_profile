@@ -125,6 +125,7 @@ if [[ $platform == 'osx' ]]; then
       brew update
       brew upgrade
       brew cleanup
+      brew cask cleanup
     }
     
     # Update Python utilities.
