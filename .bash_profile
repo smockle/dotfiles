@@ -210,8 +210,17 @@ if [[ $platform != 'windows' ]]; then
     complete -cf sudo
     
     # Start fasd
-    #eval "$(fasd --init auto)"
-    #alias cd="fasd_cd -d"
+    eval "$(fasd --init auto)"
+    _cd() {
+      if [[ -d $1 ]]; then
+          cd "$1"
+      elif [[ -f $1 ]]; then
+          cd $(dirname "$1")
+      else
+          fasd_cd -d "$1"
+      fi
+    }
+    alias cd="_cd"
 fi
 
 
