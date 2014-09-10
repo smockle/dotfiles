@@ -117,6 +117,11 @@ fi
 
 
 if [[ $platform == 'osx' ]]; then
+    # Enable brew's bash completion
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
+
     # Add psql to $PATH.
     export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
