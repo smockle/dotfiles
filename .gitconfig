@@ -13,7 +13,7 @@
 	excludesfile = ~/.gitignore
 
 [credential]
-	helper = "!h() { if [[ $platform == \"osx\" ]]; then osxkeychain; elif [[ $platform == \"windows\" ]]; then git-credential-winstore.exe; fi; }; h"
+	helper = osxkeychain
 
 [user]
 	name = Clay Miller
