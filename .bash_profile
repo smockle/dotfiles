@@ -67,7 +67,7 @@ alias diff='git diff'
 
 # Enable tab completion for gulp
 eval "$(gulp --completion=bash)"
-function _gulp_completions() {
+_gulp_completions() {
   # The currently-being-completed word.
   local cur="${COMP_WORDS[COMP_CWORD]}"
   #Grab tasks
@@ -96,12 +96,12 @@ if [[ $platform == 'windows' ]]; then
 
     # Open files from the command line in Brackets.
     brackets() {
-      ifile=''
-      if [[ $1 == */c/* || $1 == *c:* ]]; then
-        ifile+=$1
+      ifile = ''
+      if [[ "$1" == */c/* || "$1" == *c:* ]]; then
+        ifile += "$1"
       else
-        ifile+=`echo -n $(pwd)`
-        ifile+=/$1
+        ifile += $(echo -n $(pwd))
+        ifile += /"$1"
       fi
       /c/Program\ Files\ \(x86\)/Brackets/Brackets.exe "$ifile"
     }
