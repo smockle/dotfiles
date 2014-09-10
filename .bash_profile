@@ -88,13 +88,10 @@ if [[ $platform == 'windows' ]]; then
     . ~/Projects/dotfiles/z.sh
     _cd() {
       if [[ -d $1 ]]; then
-          echo "cd (d) "$1""
-          cd "$1"
+          command cd "$1"
       elif [[ -f $1 ]]; then
-          echo "cd (f) "$1""
-          cd $(dirname "$1")
+          command cd $(dirname "$1")
       else
-          echo "z "$1""
           z "$1"
       fi
     }
