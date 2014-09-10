@@ -85,6 +85,18 @@ complete -o default -F _gulp_completions gulp
 if [[ $platform == 'windows' ]]; then
     cd ~
     
+    . ~/Projects/dotfiles/z.sh
+    _cd() {
+      if [[ -d $1 ]]; then
+          cd "$1"
+      elif [[ -f $1 ]]; then
+          cd $(dirname "$1")
+      else
+          z "$1"
+      fi
+    }
+    alias cd="_cd"
+    
     # ifconfig does not exist in Git Bash (Windows).
     alias ifconfig='ipconfig'
 
