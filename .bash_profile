@@ -118,8 +118,8 @@ fi
 
 if [[ $platform == 'osx' ]]; then
     # Enable brew's bash completion
-    if [ -f `brew --prefix`/etc/bash_completion ]; then
-        . `brew --prefix`/etc/bash_completion
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
     fi
 
     # Add psql to $PATH.
@@ -216,7 +216,7 @@ if [[ $platform != 'windows' ]]; then
     
     # Start fasd
     eval "$(fasd --init auto)"
-    _cd() {
+    _shibboleth_cd() {
       if [[ -d $1 ]]; then
           cd "$1"
       elif [[ -f $1 ]]; then
@@ -225,7 +225,7 @@ if [[ $platform != 'windows' ]]; then
           fasd_cd -d "$1"
       fi
     }
-    alias cd="_cd"
+    alias cd="_shibboleth_cd"
 fi
 
 
