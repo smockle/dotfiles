@@ -5,7 +5,7 @@
 platform=''
 case "$OSTYPE" in
   solaris*) platform='solaris' ;;
-  darwin*)  platform='osx' ;; 
+  darwin*)  platform='osx' ;;
   linux*)   platform='linux' ;;
   bsd*)     platform='bsd' ;;
   *)        platform='windows' ;;
@@ -44,8 +44,21 @@ _update_monkeydo() {
 }
 
 # Update the Node Package Manager and Node packages.
+# https://gist.github.com/othiym23/4ac31155da23962afd0e
+_update_npm_bloody() {
+  npm -g install npm@latest
+  for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f3)
+  do
+      npm -g install "$package"
+  done
+}
+
 _update_npm() {
   npm -g install npm@latest
+  for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f3)
+  do
+      npm -g install "$package"
+  done
 }
 
 # Update Ruby gems and the Heroku toolbelt.
@@ -84,7 +97,7 @@ complete -o default -F _gulp_completions gulp
 
 if [[ $platform == 'windows' ]]; then
     cd ~
-    
+
     # ifconfig does not exist in Git Bash (Windows).
     alias ifconfig='ipconfig'
 
@@ -105,7 +118,7 @@ if [[ $platform == 'windows' ]]; then
       fi
       /c/Program\ Files\ \(x86\)/Brackets/Brackets.exe "$ifile"
     }
-    
+
     # Open Visual Studio from the command line.
     alias vs='/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 12.0/Common7/IDE/devenv.exe'
 fi
@@ -132,7 +145,7 @@ if [[ $platform == 'osx' ]]; then
       brew cleanup
       brew cask cleanup
     }
-    
+
     # Update Python utilities.
     _update_python() {
       pip install --upgrade setuptools
@@ -153,11 +166,11 @@ if [[ $platform == 'osx' ]]; then
 
     # Flush DNS cache.
     alias flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-    
+
     # Show/hide hidden files in Finder
     alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
     alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-    
+
     # Open Brackets from the command line.
     alias brackets="open /Applications/Brackets.app"
 fi
@@ -186,7 +199,7 @@ if [[ $platform != 'windows' ]]; then
 
     # Add stapler to $PATH.
     export PATH="$HOME/Projects/stapler:$PATH"
-    
+
     # Add rvm to $PATH
     export PATH="$PATH:$HOME/.rvm/bin"
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -213,7 +226,7 @@ if [[ $platform != 'windows' ]]; then
 
     # Add tab completion for sudo.
     complete -cf sudo
-    
+
     # Start fasd
     eval "$(fasd --init auto)"
     _shibboleth_cd() {
