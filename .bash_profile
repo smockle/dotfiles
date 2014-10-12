@@ -2,6 +2,7 @@
 ## PLATFORM-INDEPENDENT
 ##
 
+
 platform=''
 case "$OSTYPE" in
   solaris*) platform='solaris' ;;
@@ -10,6 +11,12 @@ case "$OSTYPE" in
   bsd*)     platform='bsd' ;;
   *)        platform='windows' ;;
 esac
+
+# Set default editor to nano
+export EDITOR=nano
+
+# Add ~/bin to $PATH
+export PATH="$PATH:$HOME/bin"
 
 # Make repeated commands not show up in history.
 # Make commands preceeded by a space not show up in history.
@@ -23,9 +30,6 @@ export LESS_TERMCAP_md="$ORANGE"
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less -X"
-
-# Always enable colored grep output.
-export GREP_OPTIONS="--color=auto"
 
 # Detect which ls flavor is in use.
 if ls --color > /dev/null 2>&1; then # GNU ls
@@ -80,15 +84,28 @@ alias diff='git diff'
 
 # Enable tab completion for gulp
 eval "$(gulp --completion=bash)"
-_gulp_completions() {
-  # The currently-being-completed word.
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  #Grab tasks
-  local compls=$(gulp --tasks-simple)
-  # Tell complete what stuff to show.
-  COMPREPLY=($(compgen -W "$compls" -- "$cur"))
+# _gulp_completions() {
+#   # The currently-being-completed word.
+#   local cur="${COMP_WORDS[COMP_CWORD]}"
+#   #Grab tasks
+#   local compls=$(gulp --tasks-simple)
+#   # Tell complete what stuff to show.
+#   COMPREPLY=($(compgen -W "$compls" -- "$cur"))
+# }
+# complete -o default -F _gulp_completions gulp
+
+# Start fasd
+eval "$(fasd --init auto)"
+_shibboleth_cd() {
+  if [[ -d $1 ]]; then
+      cd "$1"
+  elif [[ -f $1 ]]; then
+      cd "$(dirname "$1")"
+  else
+      fasd_cd -d "$1"
+  fi
 }
-complete -o default -F _gulp_completions gulp
+
 
 ##
 ## WINDOWS-SPECIFIC
@@ -96,7 +113,13 @@ complete -o default -F _gulp_completions gulp
 
 
 if [[ $platform == 'windows' ]]; then
-    cd ~
+    command cd ~
+
+    # Add node, npm and more to $PATH
+    export PATH="C:\ProgramData\chocolatey\lib\nodejs.commandline.0.10.32\tools:$PATH"
+
+    # Add git-credential-winstore to $PATH
+    export PATH="C:\ProgramData\chocolatey\lib\git-credential-winstore.1.2.0.0\lib\net40-Client:$PATH"
 
     # ifconfig does not exist in Git Bash (Windows).
     alias ifconfig='ipconfig'
@@ -106,18 +129,6 @@ if [[ $platform == 'windows' ]]; then
 
     # open does not exist in Git Bash (Windows).
     alias open='start'
-
-    # Open files from the command line in Brackets.
-    brackets() {
-      ifile = ''
-      if [[ "$1" == */c/* || "$1" == *c:* ]]; then
-        ifile += "$1"
-      else
-        ifile += $(echo -n $(pwd))
-        ifile += /"$1"
-      fi
-      /c/Program\ Files\ \(x86\)/Brackets/Brackets.exe "$ifile"
-    }
 
     # Open Visual Studio from the command line.
     alias vs='/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 12.0/Common7/IDE/devenv.exe'
@@ -130,9 +141,12 @@ fi
 
 
 if [[ $platform == 'osx' ]]; then
+    # Add $(brew --prefix)/bin to $PATH.
+    export PATH="$(brew --prefix)/bin:$PATH"
+
     # Enable brew's bash completion
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
+    if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+        . "$(brew --prefix)/etc/bash_completion"
     fi
 
     # Add psql to $PATH.
@@ -182,14 +196,8 @@ fi
 
 
 if [[ $platform != 'windows' ]]; then
-    # Set default editor to nano
-    export EDITOR=nano
-
-    # Add ~/bin to $PATH
-    export PATH="$PATH:$HOME/bin"
-
-    # Add $(brew --prefix)/bin to $PATH.
-    export PATH="$(brew --prefix)/bin:$PATH"
+    # Always enable colored grep output.
+    export GREP_OPTIONS="--color=auto"
 
     # Add heroku to $PATH.
     # export PATH="/usr/local/heroku/bin:$PATH"
@@ -198,7 +206,7 @@ if [[ $platform != 'windows' ]]; then
     [ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
 
     # Add stapler to $PATH.
-    export PATH="$HOME/Projects/stapler:$PATH"
+    # export PATH="$HOME/Projects/stapler:$PATH"
 
     # Add rvm to $PATH
     export PATH="$PATH:$HOME/.rvm/bin"
@@ -226,19 +234,6 @@ if [[ $platform != 'windows' ]]; then
 
     # Add tab completion for sudo.
     complete -cf sudo
-
-    # Start fasd
-    eval "$(fasd --init auto)"
-    _shibboleth_cd() {
-      if [[ -d $1 ]]; then
-          cd "$1"
-      elif [[ -f $1 ]]; then
-          cd $(dirname "$1")
-      else
-          fasd_cd -d "$1"
-      fi
-    }
-    alias cd="_shibboleth_cd"
 fi
 
 
@@ -246,6 +241,7 @@ fi
 ## CROSS-PLATFORM
 ##
 
+alias cd='_shibboleth_cd'
 
 # Update system.
 update() {
