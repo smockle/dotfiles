@@ -15,6 +15,9 @@ esac
 # Set default editor to nano
 export EDITOR=nano
 
+# Set default tidy config file
+export HTML_TIDY="$HOME/.tidyrc"
+
 # Add ~/bin to $PATH
 export PATH="$PATH:$HOME/bin"
 
