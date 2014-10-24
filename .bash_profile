@@ -190,6 +190,22 @@ if [[ $platform == 'osx' ]]; then
 
     # Open Brackets from the command line.
     alias brackets="open /Applications/Brackets.app"
+
+    # Copy DeSmuME save file to OpenEmu.
+    _desmume_to_openemu() {
+      command cd "$HOME/Library/Application Support/OpenEmu/DeSmuME/Battery Saves/"
+      mv "Pokémon White Version.dsv" "Pokémon White Version.dsv.bak$(ls -1 | wc -l | tr -d ' ')"
+      cp "$HOME/Library/Application Support/DeSmuME/0.9.10/Battery/Pokémon White Version.dsv" .
+    }
+    alias dto="_desmume_to_openemu"
+
+    # Copy OpenEmu save file to DeSmuME.
+    _openemu_to_desmume() {
+      command cd "$HOME/Library/Application Support/DeSmuME/0.9.10/Battery/"
+      rm "Pokémon White Version.dsv"
+      cp "$HOME/Library/Application Support/OpenEmu/DeSmuME/Battery Saves/Pokémon White Version.dsv" .
+    }
+    alias otd="_openemu_to_desmume"
 fi
 
 
