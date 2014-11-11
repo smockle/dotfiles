@@ -72,6 +72,7 @@ _update_npm() {
 _update_gems() {
   gem update
   heroku update
+  heroku plugins:update
 }
 
 if [[ $platform == 'windows' ]]; then
