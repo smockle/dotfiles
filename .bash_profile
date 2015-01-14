@@ -75,13 +75,13 @@ _update_gems() {
   heroku plugins:update
 }
 
-# if [[ $platform == 'windows' ]]; then
-#     # Add hub alias
-#     alias git='hub'
-# else
-#     # Add hub alias
-#     eval "$(hub alias -s)"
-# fi
+if [[ $platform == 'windows' ]]; then
+    # Add hub alias
+    alias git='hub'
+else
+    # Add hub alias
+    eval "$(hub alias -s)"
+fi
 
 # Use git diff instead of diff.
 alias diff='git diff'
