@@ -126,6 +126,13 @@ if [[ $platform == 'osx' ]]; then
     . "$(brew --prefix)/etc/bash_completion"
   fi
 
+  # Set $ATOM_PATH
+  if [[ -d "$HOME/Applications/Atom.app" ]]; then
+    export ATOM_PATH="$HOME/Applications"
+  elif [[ -d "/Applications/Atom.app" ]]; then
+    export ATOM_PATH="/Applications"
+  fi
+
   # Add psql to $PATH.
   export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
