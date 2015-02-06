@@ -222,6 +222,39 @@ _shibboleth_cd() {
 }
 alias cd='_shibboleth_cd'
 
+verbose() {
+  _shibboleth_cd_verbose() {
+    _shibboleth_cd "$@" && ls -a
+  }
+  alias cd='_shibboleth_cd_verbose'
+  echo "Maximum verbosity"
+}
+
+brief() {
+  _shibboleth_cd_brief() {
+    _shibboleth_cd "$@" && ls
+  }
+  alias cd='_shibboleth_cd_brief'
+  echo "Medium verbosity"
+}
+
+superbrief() {
+  alias cd='_shibboleth_cd'
+  echo "Low verbosity"
+}
+
+splash() {
+  echo "But nothing happened."
+}
+
+mud_sport() {
+  echo "Electricity's power was weakened!"
+}
+
+xyzzy() {
+  echo "A hollow voice says, 'Fool.'"
+}
+
 # Update system.
 update() {
   _update_monkeydo
