@@ -1,8 +1,9 @@
 [alias]
 	co = checkout
-    issues = !ghi
-    accept-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
-    accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
+  issues = !ghi
+  accept-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
+  accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
+	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr)'"
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
