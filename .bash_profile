@@ -247,13 +247,11 @@ splash() {
   echo "But nothing happened."
 }
 
-mud_sport() {
-  echo "Electricity's power was weakened!"
-}
-
 xyzzy() {
   echo "A hollow voice says, 'Fool.'"
 }
+
+alias wait="echo \"Time passes.\" && wait"
 
 # Update system.
 update() {
