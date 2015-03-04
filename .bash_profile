@@ -84,8 +84,10 @@ git() {
   # safer than `git config --global push.default current`.
   "push")
     BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-    if [[ $(git config "branch.$BRANCH_NAME.merge") = '' ]]; then
+    if [[ -z $(git config "branch.$BRANCH_NAME.merge") && -z "$@" ]]; then
       hub push --set-upstream origin "$BRANCH_NAME"
+    elif [[ -z $(git config "branch.$BRANCH_NAME.merge") ]]; then
+      hub push --set-upstream "$@"
     else
       hub push "$@"
     fi
