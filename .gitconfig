@@ -21,13 +21,14 @@
 [user]
 	name = Clay Miller
 	email = clay@smockle.com
+	signingkey = 6EB4C794
 [github]
 	user = smockle
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [push]
-	default = simple
+	default = current
 [ghi]
 	token = !security find-internet-password -a smockle -s github.com -l 'ghi token' -w
 [help]
