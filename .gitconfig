@@ -5,7 +5,6 @@
 	accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
 	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr) %Cblue<%an>%Creset'"
 	diff = "diff --word-diff"
-	push = "!f() { [[ $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") = '' ]] && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD) || git push }; f"
 	pr = "pull-request"
 
 [color]
