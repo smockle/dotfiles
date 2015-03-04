@@ -1,10 +1,11 @@
 [alias]
 	co = checkout
-  issues = !ghi
-  accept-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
-  accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
+	issues = !ghi
+	accept-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
+	accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
 	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr) %Cblue<%an>%Creset'"
 	diff = "diff --word-diff"
+	push = "!f() { [[ $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") = '' ]] && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD) || git push }; f"
 	pr = "pull-request"
 
 [color]
@@ -28,7 +29,7 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [push]
-	default = current
+	default = simple
 [ghi]
 	token = !security find-internet-password -a smockle -s github.com -l 'ghi token' -w
 [help]
