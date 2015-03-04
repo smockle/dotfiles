@@ -75,13 +75,27 @@ _update_gems() {
   heroku plugins:update
 }
 
-if [[ $platform == 'windows' ]]; then
-    # Add hub alias
-    alias git='hub'
-else
-    # Add hub alias
-    eval "$(hub alias -s)"
-fi
+# Add hub alias.
+git() {
+  command=$1
+  shift 1
+  case $command in
+  # Create a new branch with the same name if one does not exist,
+  # safer than `git config --global push.default current`.
+  "push")
+    BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+    if [[ $(git config "branch.$BRANCH_NAME.merge") = '' ]]; then
+      hub push --set-upstream origin "$BRANCH_NAME"
+    else
+      hub push "$@"
+    fi
+  ;;
+  *)
+    hub "${command}" "$@"
+  ;;
+  esac
+  return $?
+}
 
 # Use git diff instead of diff.
 alias diff='git diff'
@@ -197,6 +211,11 @@ if [[ $platform != 'windows' ]]; then
     dscacheutil -flushcache
   }
 
+  # Download and import GPG public keys for everyone I track on https://keybase.io.
+  _update_keys() {
+    keybase list-tracking | xargs -I_ curl https://keybase.io/_/key.asc | gpg --import
+  }
+
   # Set wget download location.
   alias wget='wget -P ~/Downloads'
 
@@ -270,5 +289,6 @@ update() {
   fi
   if [[ $platform != 'windows' ]]; then
     _update_hosts
+    _update_keys
   fi
 }
