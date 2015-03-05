@@ -28,6 +28,9 @@ fi
 rm ~/.hushlogin
 ln -s ~/Projects/dotfiles/.hushlogin ~/.hushlogin
 
+rm ~/.inputrc
+ln -s ~/Projects/dotfiles/.inputrc ~/.inputrc
+
 rm ~/.irbrc
 ln -s ~/Projects/dotfiles/.irbrc ~/.irbrc
 
