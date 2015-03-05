@@ -28,6 +28,9 @@ export HISTCONTROL=ignoreboth
 # Make specific commands not show up in history.
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
+# Make commands in one terminal instantly available to commands in another.
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="$ORANGE"
 
