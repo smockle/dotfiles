@@ -9,6 +9,8 @@ case "$OSTYPE" in
   *)        platform='windows' ;;
 esac
 
+rm ~/.bash_prompt
+ln -s ~/Projects/dotfiles/.bash_prompt ~/.bash_prompt
 
 rm ~/.bash_profile
 ln -s ~/Projects/dotfiles/.bash_profile ~/.bash_profile

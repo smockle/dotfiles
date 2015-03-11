@@ -2,7 +2,7 @@
 ## PLATFORM-INDEPENDENT
 ##
 
-source .bash_prompt
+[ -r ".bash_prompt" ] && [ -f ".bash_prompt" ] && source ".bash_prompt"
 
 platform=''
 case "$OSTYPE" in
@@ -29,8 +29,11 @@ export HISTCONTROL=ignoreboth
 # Make specific commands not show up in history.
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
+# Ellipsize directory path in prompt, when necessary.
+export PROMPT_DIRTRIM=2
+
 # Make commands in one terminal instantly available to commands in another.
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $(eval "echo ${MYPSDIR}")"
 
 # Use color output for less.
 export LESS=-RX
