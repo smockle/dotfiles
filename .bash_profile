@@ -2,6 +2,7 @@
 ## PLATFORM-INDEPENDENT
 ##
 
+source .bash_prompt
 
 platform=''
 case "$OSTYPE" in
@@ -31,11 +32,14 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # Make commands in one terminal instantly available to commands in another.
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+# Use color output for less.
+export LESS=-RX
+
 # Highlight section titles in manual pages.
-export LESS_TERMCAP_md="$ORANGE"
+export LESS_TERMCAP_md=$orange
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER="less -X"
+export MANPAGER="less"
 
 # Detect which ls flavor is in use.
 if ls --color > /dev/null 2>&1; then # GNU ls
@@ -245,6 +249,14 @@ _shibboleth_cd() {
   fi
 }
 alias cd='_shibboleth_cd'
+
+mdn() {
+  if [[ $platform == 'windows' ]]; then
+    start "http://mdn.io/$(echo "$@")"
+  else
+    open "http://mdn.io/$(echo "$@")"
+  fi
+}
 
 verbose() {
   _shibboleth_cd_verbose() {
