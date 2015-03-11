@@ -1,7 +1,4 @@
-# Shell prompt based on the Solarized Dark theme.
-# Screenshot: http://i.imgur.com/EkEtphC.png
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
-# iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
@@ -106,7 +103,6 @@ fi;
 
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\h\007\]";
-PS1+="\n";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${gray}\] in ";
 PS1+="\[${green}\]\w"; # working directory
