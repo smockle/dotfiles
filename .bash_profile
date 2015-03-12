@@ -2,7 +2,7 @@
 ## PLATFORM-INDEPENDENT
 ##
 
-[ -r ".bash_prompt" ] && [ -f ".bash_prompt" ] && source ".bash_prompt"
+[ -r "$HOME/.bash_prompt" ] && [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
 
 platform=''
 case "$OSTYPE" in
@@ -37,7 +37,7 @@ export PROMPTED=false
 export PROMPT_COMMAND="history -a; history -c; history -r; if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
 
 # Use color output for less.
-export LESS=-RX
+export LESS=-RXE
 
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md=$orange
