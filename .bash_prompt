@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
