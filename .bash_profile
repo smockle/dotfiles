@@ -36,7 +36,7 @@ export PROMPT_DIRTRIM=2
 
 # Make commands in one terminal instantly available to commands in another.
 export PROMPTED=false
-export PROMPT_COMMAND="history -a; history -c; history -r; if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
+export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
 
 # Use color output for less.
 export LESS=-RXE
