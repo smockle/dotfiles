@@ -244,6 +244,8 @@ fi
 
 # Start fasd
 eval "$(fasd --init auto)"
+
+# Predictive cd
 _shibboleth_cd() {
   if [[ -d $1 ]]; then
     command cd "$1"
@@ -254,6 +256,34 @@ _shibboleth_cd() {
   fi
 }
 alias cd='_shibboleth_cd'
+
+# Predictive ls
+_shibboleth_ls() {
+  ARGS="${@}"
+  LAST_ARG="${@: -1}"
+  if [[ -z "$LAST_ARG" ]]; then
+    # echo "No argument given. List the current directory."
+    ls "$@"
+  elif [[ -d "$LAST_ARG" ]]; then
+    # echo "Last argument is a directory. List it."
+    ls "$@"
+  elif [[ -f "$LAST_ARG" ]]; then
+    # echo "Last argument is a file. List the directory that contains it."
+    ls "$(dirname "$LAST_ARG")"
+  elif [[ "${LAST_ARG::1}" = "-" ]]; then
+    # echo "Last argument is an option. List the current directory."
+    ls "$@"
+  elif [[ "$ARGS" = "$LAST_ARG" ]]; then
+    # echo "No option given. List the specified directory."
+    echo "${green}$(fasd -d "$LAST_ARG")${reset}"
+    ls "$(fasd -d "$LAST_ARG")"
+  else
+    # echo "Option given. List the specified directory."
+    echo "${green}$(fasd -d "$LAST_ARG")${reset}"
+    ls "${ARGS% *}" "$(fasd -d "$LAST_ARG")"
+  fi
+}
+alias ls='_shibboleth_ls'
 
 mdn() {
   if [[ $platform == 'windows' ]]; then
