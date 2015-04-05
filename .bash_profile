@@ -261,6 +261,11 @@ alias cd='_shibboleth_cd'
 _shibboleth_ls() {
   ARGS="${@}"
   LAST_ARG="${@: -1}"
+  OPTS=""
+  if [[ "$ARGS" != "$LAST_ARG" ]]; then
+    OPTS="${ARGS% *}"
+  fi
+
   if [[ -z "$LAST_ARG" ]]; then
     # echo "No argument given. List the current directory."
     ls "$@"
@@ -269,21 +274,64 @@ _shibboleth_ls() {
     ls "$@"
   elif [[ -f "$LAST_ARG" ]]; then
     # echo "Last argument is a file. List the directory that contains it."
+    echo "${green}$(dirname "$LAST_ARG")${reset}"
     ls "$(dirname "$LAST_ARG")"
   elif [[ "${LAST_ARG::1}" = "-" ]]; then
-    # echo "Last argument is an option. List the current directory."
+    # echo "Last argument is an option. Fallback to command ls."
     ls "$@"
-  elif [[ "$ARGS" = "$LAST_ARG" ]]; then
-    # echo "No option given. List the specified directory."
+  elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
+    # echo "Last argument is a directory. List it."
     echo "${green}$(fasd -d "$LAST_ARG")${reset}"
-    ls "$(fasd -d "$LAST_ARG")"
+    ls $OPTS "$(fasd -d "$LAST_ARG")"
+  elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
+    # echo "Last argument is a file. List the directory that contains it."
+    echo "${green}$(dirname "$(fasd -f "$LAST_ARG")")${reset}"
+    ls $OPTS "$(dirname "$(fasd -f "$LAST_ARG")")"
   else
-    # echo "Option given. List the specified directory."
-    echo "${green}$(fasd -d "$LAST_ARG")${reset}"
-    ls "${ARGS% *}" "$(fasd -d "$LAST_ARG")"
+    # echo "Fallback to command ls."
+    ls "$@"
   fi
 }
 alias ls='_shibboleth_ls'
+
+# Predictive less
+_shibboleth_less() {
+  ARGS="${@}"
+  LAST_ARG="${@: -1}"
+  OPTS=""
+  if [[ "$ARGS" != "$LAST_ARG" ]]; then
+    OPTS="${ARGS% *}"
+  fi
+
+  if [[ -z "$LAST_ARG" ]]; then
+    # echo "No argument given. List the current directory."
+    echo "${green}. is a directory${reset}"
+    ls .
+  elif [[ -d "$LAST_ARG" ]]; then
+    # echo "Last argument is a directory. List it."
+    echo "${green}$LAST_ARG is a directory${reset}"
+    ls "$LAST_ARG"
+  elif [[ -f "$LAST_ARG" ]]; then
+    # echo "Last argument is a file. Display its contents."
+    less "$@"
+  elif [[ "${LAST_ARG::1}" = "-" ]]; then
+    # echo "Last argument is an option. Fallback to command less."
+    less "$@"
+  elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
+    # echo "List the specified directory."
+    echo "${green}$(fasd -d "$LAST_ARG")${reset}"
+    ls "$(fasd -d "$LAST_ARG")"
+  elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
+    # echo "Last argument is a file. Display its contents."
+    echo "${green}$(fasd -f "$LAST_ARG")${reset}"
+    less $OPTS "$(fasd -f "$LAST_ARG")"
+  else
+    # echo "Fallback to command less."
+    less "$@"
+  fi
+}
+alias less='_shibboleth_less'
+alias more='less'
 
 mdn() {
   if [[ $platform == 'windows' ]]; then
