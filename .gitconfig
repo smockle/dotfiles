@@ -6,6 +6,7 @@
 	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr) %Cblue<%an>%Creset'"
 	diff = "diff --word-diff"
 	pr = "pull-request"
+	open = browse
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
