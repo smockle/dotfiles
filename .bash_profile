@@ -247,12 +247,36 @@ eval "$(fasd --init auto)"
 
 # Predictive cd
 _shibboleth_cd() {
-  if [[ -d $1 ]]; then
-    command cd "$1"
-  elif [[ -f $1 ]]; then
-    command cd "$(dirname "$1")"
+  ARGS="${@}"
+  LAST_ARG="${@: -1}"
+  OPTS=""
+  if [[ "$ARGS" != "$LAST_ARG" ]]; then
+    OPTS="${ARGS% *}"
+  fi
+
+  if [[ -z "$LAST_ARG" ]]; then
+    # echo "No argument given. Fallback to command cd."
+    cd "$@"
+  elif [[ -d "$LAST_ARG" ]]; then
+    # echo "Last argument is a directory. Change to it.
+    cd "$@"
+  elif [[ -f "$LAST_ARG" ]]; then
+    # echo "Last argument is a file. Change to the directory that contains it."
+    cd $OPTS "$(dirname "$LAST_ARG")"
+  elif [[ "${LAST_ARG::1}" = "-" ]]; then
+    # echo "Last argument is an option. Fallback to command cd."
+    cd "$@"
+  elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
+    # echo "Last argument is a directory. Change to it.
+    # echo "${green}$(fasd -d "$LAST_ARG")${reset}"
+    cd $OPTS "$(fasd -d "$LAST_ARG")"
+  elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
+    # echo "Last argument is a file. Change to the directory that contains it."
+    # echo "${green}$(dirname "$(fasd -f "$LAST_ARG")")${reset}"
+    cd $OPTS "$(dirname "$(fasd -f "$LAST_ARG")")"
   else
-    fasd_cd -d "$1"
+    # echo "Fallback to command cd."
+    cd "$@"
   fi
 }
 alias cd='_shibboleth_cd'
@@ -332,6 +356,36 @@ _shibboleth_less() {
 }
 alias less='_shibboleth_less'
 alias more='less'
+
+# Teach open about the Internet
+_shibboleth_open() {
+  ARGS="${@}"
+  LAST_ARG="${@: -1}"
+  OPTS=""
+  if [[ "$ARGS" != "$LAST_ARG" ]]; then
+    OPTS="${ARGS% *}"
+  fi
+
+  if [[ -z $@ ]]; then
+    # echo "No argument given. Fallback to command open."
+    open "$@"
+  elif [[ -e "$LAST_ARG" ]]; then
+    # echo "Last argument is a file or directory. Open it."
+    open "$@"
+  elif [[ "${LAST_ARG::1}" = "-" ]]; then
+    # echo "Last argument is an option. Fallback to command open."
+    open "$@"
+  elif ([[ ${LAST_ARG,,} == *".co"* ]] ||
+        [[ ${LAST_ARG,,} == *".me"* ]] ||
+        [[ ${LAST_ARG,,} == *".net"* ]] ||
+        [[ ${LAST_ARG,,} == *".gov"* ]] ||
+        [[ ${LAST_ARG,,} == *".io"* ]]) &&
+        [[ ! ${LAST_ARG,,} == *"http"* ]]; then
+    # echo "Last argument is a website. Open it."
+    open $OPTS "http://${LAST_ARG}"
+  fi
+}
+alias open='_shibboleth_open'
 
 mdn() {
   if [[ $platform == 'windows' ]]; then
