@@ -377,12 +377,17 @@ _shibboleth_open() {
     open "$@"
   elif ([[ ${LAST_ARG,,} == *".co"* ]] ||
         [[ ${LAST_ARG,,} == *".me"* ]] ||
+        [[ ${LAST_ARG,,} == *".org"* ]] ||
         [[ ${LAST_ARG,,} == *".net"* ]] ||
         [[ ${LAST_ARG,,} == *".gov"* ]] ||
-        [[ ${LAST_ARG,,} == *".io"* ]]) &&
+        [[ ${LAST_ARG,,} == *".io"* ]] ||
+        [[ ${LAST_ARG,,} == *"localhost"* ]]) &&
         [[ ! ${LAST_ARG,,} == *"http"* ]]; then
     # echo "Last argument is a website. Open it."
     open $OPTS "http://${LAST_ARG}"
+  else
+    # echo "Fallback to command open."
+    open "$@"
   fi
 }
 alias open='_shibboleth_open'
