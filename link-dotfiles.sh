@@ -47,3 +47,6 @@ ln -s ~/Projects/dotfiles/.sshconfig ~/.sshconfig
 
 rm ~/.tidyrc
 ln -s ~/Projects/dotfiles/.tidyrc ~/.tidyrc
+
+rm ~/.ssh/config
+ln -s ~/Projects/dotfiles/.ssh/config ~/.ssh/config
