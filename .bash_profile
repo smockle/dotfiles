@@ -256,27 +256,27 @@ _shibboleth_cd() {
 
   if [[ -z "$LAST_ARG" ]]; then
     # echo "No argument given. Fallback to command cd."
-    cd "$@"
+    command cd "$@"
   elif [[ -d "$LAST_ARG" ]]; then
     # echo "Last argument is a directory. Change to it.
-    cd "$@"
+    command cd "$@"
   elif [[ -f "$LAST_ARG" ]]; then
     # echo "Last argument is a file. Change to the directory that contains it."
-    cd $OPTS "$(dirname "$LAST_ARG")"
+    command cd $OPTS "$(dirname "$LAST_ARG")"
   elif [[ "${LAST_ARG::1}" = "-" ]]; then
     # echo "Last argument is an option. Fallback to command cd."
-    cd "$@"
+    command cd "$@"
   elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
     # echo "Last argument is a directory. Change to it.
     # echo "${green}$(fasd -d "$LAST_ARG")${reset}"
-    cd $OPTS "$(fasd -d "$LAST_ARG")"
+    command cd $OPTS "$(fasd -d "$LAST_ARG")"
   elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
     # echo "Last argument is a file. Change to the directory that contains it."
     # echo "${green}$(dirname "$(fasd -f "$LAST_ARG")")${reset}"
-    cd $OPTS "$(dirname "$(fasd -f "$LAST_ARG")")"
+    command cd $OPTS "$(dirname "$(fasd -f "$LAST_ARG")")"
   else
     # echo "Fallback to command cd."
-    cd "$@"
+    command cd "$@"
   fi
 }
 alias cd='_shibboleth_cd'
