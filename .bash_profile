@@ -59,8 +59,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # Set Go environment variables
 export GOPATH="$HOME/.go"
-export GOROOT
-GOROOT="$(dirname "$(which go)")"
+export PATH="$PATH:$GOPATH/bin"
 
 # Update monkeydo.
 _update_monkeydo() {
