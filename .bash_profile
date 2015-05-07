@@ -455,3 +455,44 @@ update() {
     _update_keys
   fi
 }
+
+# Remove all Docker images, containers and/or volumes.
+docker-clean() {
+  eval "$(docker-machine env)"
+  command=$1
+  case $command in
+  "images")
+    echo "${green}Removing Docker images.${reset}"
+    if [[ ! -z $(docker images -q) ]]; then
+      docker rmi $(docker images -q)
+    fi
+  ;;
+  "containers")
+    echo "${green}Removing Docker containers.${reset}"
+    if [[ ! -z "$(docker ps -a -q)" ]]; then
+      docker rm "$(docker ps -a -q)"
+    fi
+  ;;
+  "volumes")
+    echo "${green}Removing Docker volumes.${reset}"
+    docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+  ;;
+  *)
+    echo "${green}Removing Docker volumes.${reset}"
+    docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+
+    echo ""
+    echo "${green}Removing Docker images.${reset}"
+    if [[ ! -z $(docker images -q) ]]; then
+      docker rmi $(docker images -q)
+    fi
+
+    echo ""
+    echo "${green}Removing Docker containers.${reset}"
+    if [[ ! -z "$(docker ps -a -q)" ]]; then
+      docker rm "$(docker ps -a -q)"
+    fi
+  ;;
+  esac
+  return $?
+}
