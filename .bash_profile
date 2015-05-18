@@ -150,6 +150,10 @@ fi
 
 
 if [[ $platform == 'osx' ]]; then
+  # Source nvm
+  source ~/.nvm/nvm.sh
+  [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+
   # Add $(brew --prefix)/bin to $PATH.
   export PATH="$(brew --prefix)/bin:$PATH"
 
