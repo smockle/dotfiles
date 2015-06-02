@@ -154,6 +154,9 @@ if [[ $platform == 'osx' ]]; then
   source ~/.nvm/nvm.sh
   [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
+  # Set NVM mirror
+  # export NVM_NODEJS_ORG_MIRROR=npm.taobao.org/mirrors/node/
+
   # Add $(brew --prefix)/bin to $PATH.
   export PATH="$(brew --prefix)/bin:$PATH"
 
