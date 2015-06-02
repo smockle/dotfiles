@@ -61,6 +61,9 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 export GOPATH="$HOME/.go"
 export PATH="$PATH:$GOPATH/bin"
 
+# Set Node environment variables
+export NODE_REPL_HISTORY_FILE="$HOME/.node_history"
+
 # Update monkeydo.
 _update_monkeydo() {
   monkeydo update
