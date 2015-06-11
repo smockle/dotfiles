@@ -480,7 +480,7 @@ docker-clean() {
   "containers")
     echo "${green}Removing Docker containers.${reset}"
     if [[ ! -z "$(docker ps -a -q)" ]]; then
-      docker rm "$(docker ps -a -q)"
+      docker rm $(docker ps -a -q)
     fi
   ;;
   "volumes")
@@ -500,7 +500,7 @@ docker-clean() {
     echo ""
     echo "${green}Removing Docker containers.${reset}"
     if [[ ! -z "$(docker ps -a -q)" ]]; then
-      docker rm "$(docker ps -a -q)"
+      docker rm $(docker ps -a -q)
     fi
   ;;
   esac
