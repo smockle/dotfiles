@@ -24,7 +24,7 @@ ln -s ~/Projects/dotfiles/.gemrc ~/.gemrc
 rm ~/.gitconfig
 ln -s ~/Projects/dotfiles/.gitconfig ~/.gitconfig
 if [[ $platform == 'windows' ]]; then
-  git config --global credential.helper "!'C:\\Users\\Clay\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'"
+  git config --global credential.helper "!'%USERPROFILE%\\bin\\git-credential-winstore.exe'"
 fi
 
 rm ~/.hushlogin
