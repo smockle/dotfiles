@@ -130,12 +130,6 @@ alias diff='git diff'
 if [[ $platform == 'windows' ]]; then
   command cd ~
 
-  # Add fasd to $PATH
-  export PATH="/c/Users/Clay/Projects/fasd:$PATH"
-
-  # Add hub to $PATH
-  export PATH="/c/Program Files/hub:$PATH"
-
   # ifconfig does not exist in Git Bash (Windows).
   alias ifconfig='ipconfig'
 
@@ -159,6 +153,8 @@ if [[ $platform == 'osx' ]]; then
 
   # Set NVM mirror
   # export NVM_NODEJS_ORG_MIRROR=npm.taobao.org/mirrors/node/
+  export NVM_NODEJS_ORG_MIRROR=https://nodejs.org/dist
+  export NVM_IOJS_ORG_MIRROR=https://iojs.org/dist
 
   # Add $(brew --prefix)/bin to $PATH.
   export PATH="$(brew --prefix)/bin:$PATH"
@@ -232,18 +228,6 @@ if [[ $platform != 'windows' ]]; then
     rvm default 2.1
   }
 
-  # Update hosts file.
-  _update_hosts() {
-    wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts
-    sudo cp -f ~/Projects/dotfiles/hosts /etc/hosts
-    dscacheutil -flushcache
-  }
-
-  # Download and import GPG public keys for everyone I track on https://keybase.io.
-  _update_keys() {
-    keybase list-tracking | xargs -I_ curl https://keybase.io/_/key.asc | gpg --import
-  }
-
   # Set wget download location.
   alias wget='wget -P ~/Downloads'
 
@@ -258,6 +242,24 @@ fi
 
 # Start fasd
 eval "$(fasd --init auto)"
+
+# Update hosts file.
+_update_hosts() {
+  wget -N -P ~/Projects/dotfiles http://someonewhocares.org/hosts/hosts
+
+  if [[ $platform == 'osx' ]]; then
+    sudo cp -f ~/Projects/dotfiles/hosts /etc/hosts
+    dscacheutil -flushcache
+  elif [[ $platform == 'windows' ]]; then
+    sudo move "C:\Windows\System32\drivers\etc\hosts" "C:\Windows\System32\drivers\etc\hosts.bak"
+    sudo copy "C:\Users\clay\Projects\dotfiles\hosts" "C:\Windows\System32\drivers\etc\hosts"
+  fi
+}
+
+# Download and import GPG public keys for everyone I track on https://keybase.io.
+_update_keys() {
+  keybase list-tracking | xargs -I_ curl https://keybase.io/_/key.asc | gpg --import
+}
 
 # Predictive cd
 _shibboleth_cd() {
@@ -447,8 +449,8 @@ alias wait="echo \"Time passes.\" && wait"
 
 # Update system.
 update() {
-  _update_monkeydo
   if [[ $platform == 'osx' ]]; then
+    _update_monkeydo
     _update_brew
     _update_python
   fi
@@ -460,10 +462,8 @@ update() {
   if [[ $platform == 'osx' ]]; then
     _update_osx
   fi
-  if [[ $platform != 'windows' ]]; then
-    _update_hosts
-    _update_keys
-  fi
+  _update_hosts
+  _update_keys
 }
 
 # Remove all Docker images, containers and/or volumes.
