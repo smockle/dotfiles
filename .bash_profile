@@ -72,18 +72,18 @@ _update_monkeydo() {
 # Update the Node Package Manager and Node packages.
 # https://gist.github.com/othiym23/4ac31155da23962afd0e
 _update_npm_bloody() {
-  npm -g install npm@next
+  npm i -g npm@next
   for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f3)
   do
-    npm -g install "$package"
+    npm i -g "$package"
   done
 }
 
 _update_npm() {
-  npm -g install npm@latest
+  npm i -g npm@3.0-latest
   for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f3)
   do
-    npm -g install "$package"
+    npm i -g "$package"
   done
 }
 
