@@ -174,6 +174,10 @@ if [[ $platform == 'osx' ]]; then
   # Add psql to $PATH.
   export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
+  # Add chefdk to $PATH.
+  # Works around https://github.com/chef/chef-dk/issues/419.
+  export PATH="/opt/chefdk/bin:$PATH"
+
   # Update Homebrew and Homebrew packages.
   _update_brew() {
     brew update
