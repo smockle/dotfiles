@@ -134,6 +134,7 @@ if [[ $platform == 'windows' ]]; then
   export NVMW_HOME="C:\\Users\\clay\\.nvmw\\"
   nvmw use iojs > /dev/null
   alias node='iojs'
+  alias npm="$HOME/.nvmw/iojs/latest/npm.cmd"
   export PATH="$HOME/.nvmw/iojs/latest:$PATH"
 
   # ifconfig does not exist in Git Bash (Windows).
