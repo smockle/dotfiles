@@ -131,7 +131,9 @@ if [[ $platform == 'windows' ]]; then
   command cd ~
 
   # Add nvmw to $PATH.
-  export PATH="$HOME/.nvmw:$PATH"
+  export NVMW_HOME="C:\\Users\\clay\\.nvmw\\"
+  nvmw use iojs
+  export PATH="$HOME/.nvmw/iojs/latest:$PATH"
 
   # ifconfig does not exist in Git Bash (Windows).
   alias ifconfig='ipconfig'
