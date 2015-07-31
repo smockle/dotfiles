@@ -412,6 +412,70 @@ _shibboleth_open() {
 }
 alias open='_shibboleth_open'
 
+# From http://stackoverflow.com/a/21951256/1923134
+abspath() {
+  local thePath
+
+  if [[ ! "$1" =~ ^/ ]];then
+    thePath="$PWD/$1"
+  else
+    thePath="$1"
+  fi
+
+  echo "$thePath"|(
+    IFS=/
+    read -a parr
+    declare -a outp
+    for i in "${parr[@]}"; do
+      case "$i" in
+      ''|.) continue ;;
+      ..)
+        len=${#outp[@]}
+        if ((len==0));then
+          continue
+        else
+          unset outp[$((len-1))]
+        fi
+        ;;
+      *)
+        len=${#outp[@]}
+        outp[$len]="$i"
+        ;;
+      esac
+    done
+    echo /"${outp[*]}"
+  )
+}
+
+_shibboleth_ln() {
+  if [[ $platform != 'windows' ]]; then
+    command ln "$@"
+  else
+    # 1. Enable symlinks for all 'Users':
+    # Start -> Run -> "secpol.msc"
+    # Add 'Users' to Security Settings -> Local Policies -> User Rights Assignment -> "Create symbolic links"
+
+    # HACK: Since users in the 'Administrator' group cannot run 'mklink'
+    # 2. Enable guest account:
+    # Start -> Run -> "secpol.msc"
+    # Enable 'Guest' account at Security Settings -> Local Policies -> Security Options -> "Accounts: Guest account status"
+    # Add 'Everyone' to Security Settings -> Local Policies -> User Rights Assignment -> "Access this computer from the network"
+    # Remove 'Guest' from Security Settings -> Local Policies -> User Rights Assignment -> "Deny access to this computer from the network"
+    # Remove 'Guest' from Security Settings -> Local Policies -> User Rights Assignemnt -> "Deny log on locally"
+
+    # 3. Grant access to source/target files/directories:
+    # Add 'Everyone' to Right click file/directory -> Properties -> Security -> Edit -> Add…
+    # Set 'Full Control' permissions for 'Everyone'
+
+    IFS=-
+    set "$@"
+    SOURCE="$(abspath "$1" | sed 's|^/\([a-z]\)/|\1:/|' | sed 's|/|\\|g')"
+    TARGET="$(abspath "$2" | sed 's|^/\([a-z]\)/|\1:/|' | sed 's|/|\\|g')"
+    cmd <<< runas /user:guest "cmd /c mklink \"$TARGET\" \"$SOURCE\"" > /dev/null
+  fi
+}
+alias ln='_shibboleth_ln'
+
 mdn() {
   if [[ $platform == 'windows' ]]; then
     start "http://mdn.io/$(echo "$@")"
