@@ -471,7 +471,7 @@ _shibboleth_ln() {
     set "$@"
     SOURCE="$(abspath "$1" | sed 's|^/\([a-z]\)/|\1:/|' | sed 's|/|\\|g')"
     TARGET="$(abspath "$2" | sed 's|^/\([a-z]\)/|\1:/|' | sed 's|/|\\|g')"
-    cmd <<< runas /user:guest "cmd /c mklink \"$TARGET\" \"$SOURCE\"" > /dev/null
+    cmd <<< runas /user:guest "cmd /c mklink \\\"$TARGET\\\" \\\"$SOURCE\\\"" > /dev/null
   fi
 }
 alias ln='_shibboleth_ln'
