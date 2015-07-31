@@ -130,6 +130,9 @@ alias diff='git diff'
 if [[ $platform == 'windows' ]]; then
   command cd ~
 
+  # Add nvmw to $PATH.
+  export PATH="$HOME/.nvmw:$PATH"
+
   # ifconfig does not exist in Git Bash (Windows).
   alias ifconfig='ipconfig'
 
