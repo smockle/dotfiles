@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##
-## PLATFORM-INDEPENDENT
+## PLATFORM-INEPENDENT
 ##
 
 [ -r "$HOME/.bash_prompt" ] && [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
@@ -80,7 +80,7 @@ _update_npm_bloody() {
 }
 
 _update_npm() {
-  npm i -g npm@3.0-latest
+  npm i -g npm@3
   for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f3)
   do
     npm i -g "$package"
@@ -132,8 +132,6 @@ if [[ $platform == 'windows' ]]; then
 
   # Add nvmw to $PATH.
   export NVMW_HOME="C:\\Users\\clay\\.nvmw\\"
-  nvmw use iojs > /dev/null
-  alias node='iojs'
   alias npm="$HOME/.nvmw/iojs/latest/npm.cmd"
   export PATH="$HOME/.nvmw/iojs/latest:$PATH"
 
