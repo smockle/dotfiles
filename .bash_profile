@@ -223,19 +223,8 @@ if [[ $platform != 'windows' ]]; then
   # Add travis to $PATH.
   [ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
 
-  # Add rvm to $PATH
-  export PATH="$PATH:$HOME/.rvm/bin"
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-  # Update the Ruby Version Manager and Ruby.
-  _update_rvm() {
-    rvm requirements
-    rvm get head
-    rvm requirements
-    rvm install 2.1
-    rvm use 2.1
-    rvm default 2.1
-  }
+  # Set up rbenv
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
   # Set wget download location.
   alias wget='wget -P ~/Downloads'
@@ -528,9 +517,6 @@ update() {
     _update_python
   fi
   _update_npm
-  if [[ $platform != 'windows' ]]; then
-    _update_rvm
-  fi
   _update_gems
   if [[ $platform == 'osx' ]]; then
     _update_osx
