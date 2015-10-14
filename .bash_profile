@@ -85,6 +85,7 @@ _update_npm() {
 # Update Ruby gems and the Heroku toolbelt.
 _update_gems() {
   gem update
+  brew upgrade heroku-toolbelt
   heroku update
   heroku plugins:update
 }
