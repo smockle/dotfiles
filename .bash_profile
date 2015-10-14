@@ -64,11 +64,6 @@ export PATH="$PATH:$GOPATH/bin"
 # Set Node environment variables
 export NODE_REPL_HISTORY_FILE="$HOME/.node_history"
 
-# Update monkeydo.
-_update_monkeydo() {
-  monkeydo update
-}
-
 # Update the Node Package Manager and Node packages.
 # https://gist.github.com/othiym23/4ac31155da23962afd0e
 _update_npm_bloody() {
@@ -512,7 +507,6 @@ alias wait="echo \"Time passes.\" && wait"
 # Update system.
 update() {
   if [[ $platform == 'osx' ]]; then
-    _update_monkeydo
     _update_brew
     _update_python
   fi
