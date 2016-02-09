@@ -149,7 +149,8 @@ fi
 
 if [[ $platform == 'osx' ]]; then
   # Source nvm
-  source ~/.nvm/nvm.sh
+  export NVM_DIR=~/.nvm
+  source "$NVM_DIR/nvm.sh"
   [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
   # Set NVM mirror
