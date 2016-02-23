@@ -65,8 +65,15 @@ atom-text-editor::shadow .gutter .line-number.git-line-modified { border-left-co
 // - Gutter - removed
 atom-text-editor .gutter .line-number.git-line-removed:before,
 atom-text-editor::shadow .gutter .line-number.git-line-removed:before { border-left-color: @red; }
+// - Gutter - warnings
+atom-text-editor::shadow .linter-highlight.warning:not(.line-number),
+.linter-highlight.warning:not(.line-number) { background-color: @yellow; }
 // - Gutter - errors
-atom-text-editor::shadow .linter-highlight.error:not(.line-number), .linter-highlight.error:not(.line-number) { background-color: @red; }
+atom-text-editor::shadow .linter-highlight.error:not(.line-number),
+.linter-highlight.error:not(.line-number) { background-color: @red; }
+// - Underlines - warnings
+atom-text-editor::shadow .linter-highlight.warning .region,
+.linter-highlight.warning .region { border-bottom-color: @yellow; }
 // - Underlines - errors
 atom-text-editor::shadow .linter-highlight.error .region,
 .linter-highlight.error .region { border-bottom-color: @red; }
