@@ -29,6 +29,15 @@ atom-text-editor::shadow {
     .entity.other.attribute-name.html { font-style: italic; }
 }
 
+// Include gutter warnings/errors in line number highlight
+atom-text-editor::shadow .gutter[gutter-name="linter"],
+:host .gutter[gutter-name="linter"] {
+  background-color: transparent;
+  margin-left: -1em;
+  .custom-decorations { background-color: transparent !important; }
+}
+atom-text-editor::shadow .line-number { padding-right: 1em; }
+
 // Oceanic Next overrides:
 @red: #EC5F67;
 @green: #99C794;
