@@ -1,0 +1,81 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed.
+ *
+ * If you are unfamiliar with LESS, you can read more about it here:
+ * http://www.lesscss.orgs
+ */
+
+// @import "packages/file-icons/features/no-colours";
+.icon-file-text, .icon-file-directory, .icon-file-media, .icon-book, .pane ul.tab-bar li.tab .title {
+  &:before { color: inherit !important; }
+}
+
+// Properly align icons in tree view
+.tree-view .entry > .header > .name:before,
+.tree-view .entry > .name:before { display: inline-block !important; }
+
+.tree-view-resizer { width: auto !important; }
+
+// Hide icons in tabs
+.title:before { display: none; }
+
+atom-text-editor::shadow {
+    // Italicize comments
+    .comment { font-style: italic; }
+    // Italicize HTML attributes
+    .entity.other.attribute-name.html { font-style: italic; }
+}
+
+// Oceanic Next overrides:
+@red: #EC5F67;
+@green: #99C794;
+@blue: #6699CC;
+@yellow: #FAC863;
+// - Tree View - added
+.list-group li:not(.list-nested-item).status-added,
+.list-tree li:not(.list-nested-item).status-added,
+.list-group li.list-nested-item.status-added > .list-item,
+.list-tree li.list-nested-item.status-added > .list-item,
+.list-group li:not(.list-nested-item).selected.status-added,
+.list-tree li:not(.list-nested-item).selected.status-added,
+.list-group li.list-nested-item.selected.status-added > .list-item,
+.list-tree li.list-nested-item.selected.status-added > .list-item { color: @green; }
+// - Tree View - modified
+.list-group li:not(.list-nested-item).status-modified,
+.list-tree li:not(.list-nested-item).status-modified,
+.list-group li.list-nested-item.status-modified > .list-item,
+.list-tree li.list-nested-item.status-modified > .list-item,
+.list-group li:not(.list-nested-item).selected.status-modified,
+.list-tree li:not(.list-nested-item).selected.status-modified,
+.list-group li.list-nested-item.selected.status-modified > .list-item,
+.list-tree li.list-nested-item.selected.status-modified > .list-item { color: @yellow; }
+// - Tab Bar - active
+.tab-bar .tab::before { background: @blue; }
+// - Tab Bar - close icon
+.tab-bar .tab.modified .close-icon { color: @blue; }
+// - Gutter - added
+atom-text-editor .gutter .line-number.git-line-added,
+atom-text-editor::shadow .gutter .line-number.git-line-added { border-left-color: @green; }
+// - Gutter - modified
+atom-text-editor .gutter .line-number.git-line-modified,
+atom-text-editor::shadow .gutter .line-number.git-line-modified { border-left-color: @yellow; }
+// - Gutter - removed
+atom-text-editor .gutter .line-number.git-line-removed:before,
+atom-text-editor::shadow .gutter .line-number.git-line-removed:before { border-left-color: @red; }
+// - Gutter - errors
+atom-text-editor::shadow .linter-highlight.error:not(.line-number), .linter-highlight.error:not(.line-number) { background-color: @red; }
+// - Underlines - errors
+atom-text-editor::shadow .linter-highlight.error .region,
+.linter-highlight.error .region { border-bottom-color: @red; }
+// - Underlines - bracket match
+atom-text-editor::shadow .bracket-matcher .region,
+.bracket-matcher .region { border-bottom-color: @green; }
+// - Footer - errors
+atom-text-editor::shadow .linter-highlight.status-error,
+.linter-highlight.status-error { color: @red; }
+// - Footer - Travis CI status
+.travis-ci-status .fail { color: @red; }
+.travis-ci-status .success { color: @green; }
