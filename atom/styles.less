@@ -91,9 +91,14 @@ atom-text-editor::shadow .linter-highlight.error .region,
 // - Underlines - bracket match
 atom-text-editor::shadow .bracket-matcher .region,
 .bracket-matcher .region { border-bottom-color: @green; }
+// - Footer - no errors
+atom-text-editor::shadow .linter-highlight.status-success,
+.linter-highlight.status-success { color: @green }
 // - Footer - errors
 atom-text-editor::shadow .linter-highlight.status-error,
 .linter-highlight.status-error { color: @red; }
 // - Footer - Travis CI status
 .travis-ci-status .fail { color: @red; }
 .travis-ci-status .success { color: @green; }
+// - Footer - package updates
+.package-updates-status-view { color: @blue }
