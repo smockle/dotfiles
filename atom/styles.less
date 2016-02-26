@@ -102,3 +102,37 @@ atom-text-editor::shadow .linter-highlight.status-error,
 .travis-ci-status .success { color: @green; }
 // - Footer - package updates
 .package-updates-status-view { color: @blue }
+// - Settings - inputs
+atom-text-editor[mini].is-focused,
+atom-text-editor[mini].is-focused::shadow {
+  border-color: @blue;
+  box-shadow: 0 0 0 1px @blue;
+}
+// - Settings - cursor
+atom-text-editor[mini] .cursor,
+atom-text-editor[mini]::shadow .cursor { border-color: @blue; }
+// - Settings - checkboxes
+.settings-view input[type="checkbox"]:checked {
+  background-color: @green;
+  &:hover { background-color: lighten(@green, 7%); }
+}
+// - Settings - links
+.settings-view .link {
+  color: @blue;
+  &:hover { color: lighten(@blue, 5%); }
+}
+// - Settings - buttons
+.settings-view {
+  .btn.btn-primary,
+  .btn.btn-info,
+  .btn.selected,
+  .btn.btn-default.selected {
+    background-color: @blue;
+    background-image: linear-gradient(@blue, darken(@blue, 5%));
+    &:hover {
+      background-color: lighten(@blue, 5%);
+      background-image: linear-gradient(lighten(@blue, 5%), @blue);
+    }
+  }
+  .package-card .meta-controls .status-indicator { background: @green; }
+}
