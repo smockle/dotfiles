@@ -18,4 +18,5 @@
 #
 
 ".platform-darwin":
-  "cmd-O": "fuzzy-finder:toggle-file-finder"
+  "cmd-O": "nuclide-quick-open:find-anything-via-omni-search"
+#  "cmd-O": "fuzzy-finder:toggle-file-finder"

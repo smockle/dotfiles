@@ -17,7 +17,8 @@
 .tree-view .entry > .header > .name:before,
 .tree-view .entry > .name:before { display: inline-block !important; }
 
-.tree-view-resizer { width: auto !important; }
+// Resize tree view to fit content
+// .tree-view-resizer { width: auto !important; }
 
 // Hide icons in tabs
 .title:before { display: none; }
@@ -36,7 +37,7 @@ atom-text-editor::shadow .gutter[gutter-name="linter"],
   margin-left: -1em;
   .custom-decorations { background-color: transparent !important; }
 }
-atom-text-editor::shadow .line-number { padding-right: 1em; }
+// atom-text-editor::shadow .line-number { padding-right: 1em; }
 
 // Oceanic Next overrides:
 @red: #EC5F67;
@@ -135,4 +136,23 @@ atom-text-editor[mini]::shadow .cursor { border-color: @blue; }
     }
   }
   .package-card .meta-controls .status-indicator { background: @green; }
+}
+
+// Nuclide overrides
+// - Gutter
+atom-text-editor::shadow .gutter[gutter-name="nuclide-diagnostics-gutter"] { order: 1; }
+atom-text-editor::shadow .gutter[gutter-name="nuclide-breakpoint"] {
+  // margin-right: 0.5em;
+  order: 2;
+}
+atom-text-editor::shadow .gutter[gutter-name="line-number"] { order: 3; }
+atom-text-editor::shadow .nuclide-diagnostics-gutter-ui-gutter-warning {
+  color: @yellow;
+  position: relative;
+  top: -1px;
+}
+atom-text-editor::shadow .nuclide-diagnostics-gutter-ui-gutter-error {
+  color: @red;
+  position: relative;
+  top: -1px;
 }

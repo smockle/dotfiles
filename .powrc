@@ -1,2 +1,0 @@
-source "$rvm_path/scripts/rvm"
-rvm use `cat .ruby-version`
