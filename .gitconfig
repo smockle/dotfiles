@@ -1,8 +1,5 @@
 [alias]
 	co = checkout
-	issues = !ghi
-	accept-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
-	accept-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
 	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr) %Cblue<%an>%Creset'"
 	diff = "diff --word-diff"
 	pr = "pull-request"
@@ -23,21 +20,26 @@
 	name = Clay Miller
 	email = clay@smockle.com
 	signingkey = 6EB4C794
+
 [github]
 	user = smockle
+
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+
 [push]
 	default = simple
-[ghi]
-	token = !security find-internet-password -a smockle -s github.com -l 'ghi token' -w
+
 [help]
 	autocorrect = -1
+
 [hub]
 	protocol = https
+
 [fetch]
 	prune = true
+
 [gitlab]
 	url = https://gitlab.com
 	token = !security find-generic-password -a smockle -l 'gitlab token' -w
