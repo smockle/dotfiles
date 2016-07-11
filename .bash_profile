@@ -22,12 +22,8 @@ eval "$(fasd --init auto)"
 
 # NVM
 export NVM_DIR=~/.nvm
-source "$NVM_DIR/nvm.sh"
+[ -d "$NVM_DIR" ] && source "$NVM_DIR/nvm.sh"
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-
-# RBENV
-# Set up rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # SUDO
 # Add tab completion for sudo.
@@ -45,6 +41,11 @@ export PATH="$PATH:$HOME/bin"
 # BREW
 # Add $(brew --prefix)/bin to $PATH.
 command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&2; }
+
+# RBENV
+# Set up rbenv
+[ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # TRAVIS
 # Add travis to $PATH.
