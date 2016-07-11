@@ -8,6 +8,41 @@
  * http://www.lesscss.orgs
  */
 
+// Use ligatures for special symbols
+ atom-text-editor::shadow {
+  .keyword.operator.comparison,
+  .keyword.operator.logical,
+  .keyword.operator.relational,
+  .keyword.operator.augmented,
+  .keyword.operator.class,
+  .keyword.operator.list,
+  .variable + .keyword.operator.arithmetic,
+  .type.function.arrow,
+  .comment.double-slash > .punctuation.comment,
+  .comment.block > .punctuation.comment,
+  .markup.heading.marker,
+  .table .border.header,
+  .punctuation.separator.key-value.ruby,
+  .punctuation.tag.xml,
+  .punctuation.tag.begin,
+  .punctuation.tag.end,
+  .punctuation.embedded.begin,
+  .heredoc > .punctuation.string.begin,
+  .pseudo-element > .punctuation.entity,
+  .punctuation.separator.namespace,
+  .punctuation.terminator.case-clause {
+    font-family: "Fira Code";
+    line-height: 1.4;
+  }
+}
+// Disable ligatures on active line
+atom-text-editor::shadow .cursor-line {
+  text-rendering: auto;
+}
+atom-text-editor::shadow .line:not(.cursor-line) {
+  text-rendering: optimizeLegibility;
+}
+
 // @import "packages/file-icons/features/no-colours";
 .icon-file-text, .icon-file-directory, .icon-file-media, .icon-book, .pane ul.tab-bar li.tab .title {
   &:before { color: inherit !important; }
@@ -48,7 +83,7 @@ atom-text-editor::shadow .gutter[gutter-name="linter"],
 .tree-view::before { background: @blue; }
 // - Tree View - added
 .list-group li:not(.list-nested-item).status-added,
-.list-tree li:not(.list-nested-item).status-added,
+.list-tree li:not(.list-nested-item).status-added,n
 .list-group li.list-nested-item.status-added > .list-item,
 .list-tree li.list-nested-item.status-added > .list-item,
 .list-group li:not(.list-nested-item).selected.status-added,
