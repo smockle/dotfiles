@@ -44,7 +44,7 @@ export PATH="$PATH:$HOME/bin"
 
 # BREW
 # Add $(brew --prefix)/bin to $PATH.
-export PATH="$(brew --prefix)/bin:$PATH"
+command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&2; }
 
 # TRAVIS
 # Add travis to $PATH.
