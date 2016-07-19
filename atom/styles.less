@@ -16,6 +16,7 @@
   .keyword.operator.augmented,
   .keyword.operator.class,
   .keyword.operator.list,
+  .keyword.operator.spread,
   .variable + .keyword.operator.arithmetic,
   .type.function.arrow,
   .comment.double-slash > .punctuation.comment,
@@ -23,25 +24,29 @@
   .markup.heading.marker,
   .table .border.header,
   .punctuation.separator.key-value.ruby,
+  .punctuation.tag.html,
   .punctuation.tag.xml,
+  .JSXEndTagStart,
+  .punctuation.tag.jsx ~ .punctuation.tag.jsx,
   .punctuation.tag.begin,
   .punctuation.tag.end,
-  .punctuation.embedded.begin,
+  .interpolated .punctuation.embedded.begin,
   .heredoc > .punctuation.string.begin,
   .pseudo-element > .punctuation.entity,
   .punctuation.separator.namespace,
   .punctuation.terminator.case-clause {
     font-family: "Fira Code";
     line-height: 1.4;
+    text-rendering: optimizeLegibility;
   }
 }
 // Disable ligatures on active line
-atom-text-editor::shadow .cursor-line {
-  text-rendering: auto;
-}
-atom-text-editor::shadow .line:not(.cursor-line) {
-  text-rendering: optimizeLegibility;
-}
+// atom-text-editor::shadow .cursor-line {
+//   text-rendering: auto;
+// }
+// atom-text-editor::shadow .line:not(.cursor-line) {
+//   text-rendering: optimizeLegibility;
+// }
 
 // @import "packages/file-icons/features/no-colours";
 .icon-file-text, .icon-file-directory, .icon-file-media, .icon-book, .pane ul.tab-bar li.tab .title {
