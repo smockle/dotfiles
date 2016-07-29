@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "OperatorMono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 11,
+    "editor.formatOnType": true,
+
+    "npm-intellisense.scanDevDependencies": true,
+ 
+    "tslint.validateWithDefaultConfig": true,
+
+    "vsicons.icons": "/Users/clay/.vscode-insiders/icons.zip"
+}

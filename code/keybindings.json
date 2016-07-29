@@ -1,0 +1,4 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+{ "key": "shift+cmd+o",                 "command": "workbench.action.quickOpen" }
+]
