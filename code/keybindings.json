@@ -1,5 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
 { "key": "shift+cmd+o",                 "command": "workbench.action.quickOpen" },
-{ "key": "cmd+\\",                      "command": "workbench.action.toggleSidebarVisibility" }
+{ "key": "cmd+\\",                      "command": "workbench.action.toggleSidebarVisibility" },
+{ "key": "alt+cmd+w",                   "command": "workbench.action.closeOtherEditors" }
 ]
