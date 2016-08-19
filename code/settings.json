@@ -7,6 +7,12 @@
 
     "npm-intellisense.scanDevDependencies": true,
  
+    "scss.validate": false,
+    "stylelint.enable": true,
+    "stylelint.config": {
+        "extends": "stylelint-config-standard"
+    },
+
     "tslint.validateWithDefaultConfig": true,
 
     "vsicons.icons": "/Users/clay/.vscode-insiders/icons.zip"
