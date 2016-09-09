@@ -6,12 +6,12 @@
     "editor.formatOnType": true,
 
     "npm-intellisense.scanDevDependencies": true,
- 
+
     "scss.validate": false,
     "stylelint.enable": true,
-    "stylelint.config": {
-        "extends": "stylelint-config-standard"
-    },
+
+    "trailing-spaces.highlightCurrentLine": false,
+    "trailing-spaces.trimOnSave": true,
 
     "tslint.validateWithDefaultConfig": true,
 
