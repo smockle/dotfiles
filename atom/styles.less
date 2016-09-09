@@ -17,6 +17,7 @@
   .keyword.operator.class,
   .keyword.operator.list,
   .keyword.operator.spread,
+  .keyword.operator.tsx,
   .variable + .keyword.operator.arithmetic,
   .type.function.arrow,
   .comment.double-slash > .punctuation.comment,
@@ -84,6 +85,38 @@ atom-text-editor::shadow .gutter[gutter-name="linter"],
 @green: #99C794;
 @blue: #6699CC;
 @yellow: #FAC863;
+.tooltip {
+  @tip-background-color: #16232a;
+  .tooltip-inner {
+    background-color: @tip-background-color;
+    box-shadow: 0 0 10px @tip-background-color;
+    color: white;
+  }
+  &.top .tooltip-arrow {
+    border-top-color: @tip-background-color;
+  }
+  &.top-left .tooltip-arrow {
+    border-top-color: @tip-background-color;
+  }
+  &.top-right .tooltip-arrow {
+    border-top-color: @tip-background-color;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: @tip-background-color;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: @tip-background-color;
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: @tip-background-color;
+  }
+  &.bottom-left .tooltip-arrow {
+    border-bottom-color: @tip-background-color;
+  }
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: @tip-background-color;
+  }
+}
 // - Tree View - active
 .tree-view::before { background: @blue; }
 // - Tree View - added
@@ -141,6 +174,12 @@ atom-text-editor::shadow .linter-highlight.status-error,
 // - Footer - Travis CI status
 .travis-ci-status .fail { color: @red; }
 .travis-ci-status .success { color: @green; }
+// - Footer - Atom Typescript
+.atomts .icon-microscope,
+.atomts .icon-microscope + span { color: @blue; }
+.atomts .btn.selected { background-color: @blue; }
+.atomts .text-success { color: @green; }
+.atomts .text-error { color: @red; }
 // - Footer - package updates
 .package-updates-status-view { color: @blue }
 // - Settings - inputs
