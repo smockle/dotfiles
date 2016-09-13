@@ -13,7 +13,5 @@
     "trailing-spaces.highlightCurrentLine": false,
     "trailing-spaces.trimOnSave": true,
 
-    "tslint.validateWithDefaultConfig": true,
-
-    "vsicons.icons": "/Users/clay/.vscode-insiders/icons.zip"
+    "tslint.validateWithDefaultConfig": true
 }
