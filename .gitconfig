@@ -43,6 +43,3 @@
 [gitlab]
 	url = https://gitlab.com
 	token = !security find-generic-password -a smockle -l 'gitlab token' -w
-
-[remote "origin"]
-	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
