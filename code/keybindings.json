@@ -2,5 +2,7 @@
 [
 { "key": "shift+cmd+o",                 "command": "workbench.action.quickOpen" },
 { "key": "cmd+\\",                      "command": "workbench.action.toggleSidebarVisibility" },
-{ "key": "alt+cmd+w",                   "command": "workbench.action.closeOtherEditors" }
+{ "key": "alt+cmd+w",                   "command": "workbench.action.closeOtherEditors", "when": "!searchInputBoxFocus || !searchViewletVisible" },
+{ "key": "cmd+shift+[",                 "command": "workbench.action.previousEditor" },
+{ "key": "cmd+shift+]",                 "command": "workbench.action.nextEditor" }
 ]
