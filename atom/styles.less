@@ -177,9 +177,22 @@ atom-text-editor::shadow .linter-highlight.status-error,
 // - Footer - Atom Typescript
 .atomts .icon-microscope,
 .atomts .icon-microscope + span { color: @blue; }
-.atomts .btn.selected { background-color: @blue; }
+.atomts .icon-microscope + span { display: none; }
+.atomts .btn-group .btn,
+.atomts .btn-group .btn:hover {
+  color: rgba(153, 173, 184, 0.6);
+  background: rgba(37, 60, 72, 0.33);
+  outline: none;
+}
+.atomts .btn-group .btn.selected {
+  color: #d5dde2;
+  background-color: #253c48;
+  // background-color: @blue;
+}
 .atomts .text-success { color: @green; }
 .atomts .text-error { color: @red; }
+.atomts-panel-header { max-width: 100%; }
+.linter-message-item:not(.badge) { flex-grow: 1; }
 // - Footer - package updates
 .package-updates-status-view { color: @blue }
 // - Settings - inputs
