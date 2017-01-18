@@ -102,6 +102,9 @@ export MANPAGER="less"
 ## COMMAND ALIASES
 ##
 
+# ATOM BETA
+alias atom='atom-beta'
+alias apm='apm-beta'
 
 # CD
 # Predictive cd
