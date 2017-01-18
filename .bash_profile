@@ -106,6 +106,22 @@ export MANPAGER="less"
 alias atom='atom-beta'
 alias apm='apm-beta'
 
+# BREW
+brew() {
+  command=$1
+  shift 1
+  case $command in
+  # Remove installed depedencies that are no longer used.
+  "unbrew")
+    command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|curl|fasd|flow|git|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
+  ;;
+  *)
+    command brew "${command}" "$@"
+  ;;
+  esac
+  return $?
+}
+
 # CD
 # Predictive cd
 __cd__() {
