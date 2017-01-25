@@ -38,8 +38,8 @@
 }
 .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row1,
 .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 {
-  flex: 1 1;
-  flex-basis: 50%;
+  flex: 1 1 !important;
+  flex-basis: unset !important;
   flex-wrap: nowrap !important;
 }
 .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-tabs {
@@ -47,15 +47,24 @@
   margin-right: 0;
   min-width: 247px;
 }
+.work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-tabs ul {
+  display: flex;
+}
 @media (max-width: 1024px) {
   .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-areaPathContainer,
-  .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-iterationPathContainer {
+  .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-iterationPathContainer,
+  .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-coreContent-controls-container {
     display: none !important;
   }
 }
 .triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-areaPathContainer,
-.triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-iterationPathContainer {
+.triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-iterationPathContainer,
+.triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-coreContent-controls-container {
   display: none !important;
+}
+.work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-coreContent-controls-container {
+  flex: 1 1 !important;
+  flex-basis: unset !important;
 }
 /* Description & Comments */
 .form-grid .section1.form-section.wide-section.section,
@@ -82,7 +91,7 @@
 .form-grid .wrapping-container .section2.form-section.section {
   width: 100% !important;
 }
-
+.form-grid .wrapping-container .section2 [id="\31 75"],
 .form-grid .wrapping-container .section3,
 .form-grid .wrapping-container .section4 {
   display: none !important;
