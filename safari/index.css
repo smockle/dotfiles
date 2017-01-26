@@ -57,6 +57,9 @@
     display: none !important;
   }
 }
+.hub-view .hub-splitter:not(.collapsed) .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-areaPathContainer,
+.hub-view .hub-splitter:not(.collapsed) .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-iterationPathContainer,
+.hub-view .hub-splitter:not(.collapsed) .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-coreContent-controls-container,
 .triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-areaPathContainer,
 .triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-iterationPathContainer,
 .triage-view .work-item-form-main .work-item-form-coreContent .work-item-form-coreContent-row2 .work-item-form-coreContent-controls-container {
