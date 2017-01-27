@@ -1,3 +1,14 @@
+/* Header Line 2: Hide items */
+.vsts-header table.header-table.l2 .header-row {
+  display: none;
+}
+.vsts-header + .content-section {
+  top: 40px !important;
+}
+.vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item.selected::after, .vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item-container>.menu-item.selected::after {
+  border: 0;
+  display: none;
+}
 /* White Toolbar: Hide items */
 .hub-view:not(.triage-view) .hub-title {
   height: 37px;
