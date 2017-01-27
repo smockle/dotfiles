@@ -5,6 +5,9 @@
 .vsts-header + .content-section {
   top: 40px !important;
 }
+.full-screen-mode .vsts-header + .content-section {
+  top: 0 !important;
+}
 .vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item.selected::after, .vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item-container>.menu-item.selected::after {
   border: 0;
   display: none;
