@@ -181,6 +181,14 @@ git() {
       hub push "$@"
     fi
   ;;
+  # Check other host if no repo exists at default host.
+  "clone")
+    hub clone "$@"
+    if [ $? -eq 1 ]
+    then
+      GITHUB_HOST=$(git config --global hub.host) hub clone "$@"
+    fi
+  ;;
   # Remove all local branches that have been merged into master.
   # http://stackoverflow.com/a/17029936/1923134
   "unbranch")
