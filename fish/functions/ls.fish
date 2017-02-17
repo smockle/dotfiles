@@ -4,9 +4,9 @@ function ls
     set_color green
     echo (dirname "$argv[-1]")
     set_color normal
-    command ls (dirname "$argv[-1]")
+    command ls -G (dirname "$argv[-1]")
   else
     # echo "Fallback to command ls."
-    command ls $argv
+    command ls -G $argv
   end
 end
