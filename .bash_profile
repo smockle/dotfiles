@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-
 ##
 ## SOURCES
 ##
-
 
 # BASH
 # Style prompt
@@ -29,11 +27,9 @@ export NVM_DIR=~/.nvm
 # Add tab completion for sudo.
 complete -cf sudo
 
-
 ##
 ## PATH
 ##
-
 
 # Add ~/bin to $PATH
 export PATH="$PATH:$HOME/bin"
@@ -51,11 +47,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Add travis to $PATH.
 [ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
 
-
 ##
 ## SETTINGS
 ##
-
 
 # ATOM
 # Set $ATOM_PATH
@@ -96,7 +90,6 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # MAN
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less"
-
 
 ##
 ## COMMAND ALIASES
@@ -330,11 +323,9 @@ alias open='__open__'
 # Set wget download location.
 alias wget='wget -P ~/Downloads'
 
-
 ##
 ## CUSTOM COMMANDS
 ##
-
 
 # CD
 verbose() {
