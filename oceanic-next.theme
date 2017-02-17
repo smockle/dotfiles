@@ -4,7 +4,7 @@ Default				= { Colour="#f0f0f0" }
 PreProcessor	= Default
 Canvas				= { Colour="#000000" }
 Number				= { Colour="#F99157" }
-Escape				= { Colour="#ff5fd7" }
+Escape				= { Colour="#ff00ff" }
 Interpolation	= Escape
 String				= { Colour="#00ff00" }
 StringPreProc	= String
@@ -16,8 +16,8 @@ Operator			= { Colour="#f0f0f0" }
 Keywords = {
   { Colour="#C594C5" },
   { Colour="#00ffff" },
-  { Colour="#61aeef" },
-  { Colour="#FAC863" },
+  { Colour="#5284C3" },
+  { Colour="#ffff00" },
 }
 
 -- Keywords =
@@ -35,6 +35,6 @@ Keywords = {
 -- #ffffff gray
 -- #f0f0f0 white
 
--- #61aeef blue
+-- #5284C3 blue
 -- #F99157 orange
 -- #ff5fd7 magenta
