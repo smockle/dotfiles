@@ -283,42 +283,6 @@ alias less='__less__'
 # MORE
 alias more='less'
 
-# OPEN
-# Teach open about the Internet
-__open__() {
-  ARGS="${@}"
-  LAST_ARG="${@: -1}"
-  OPTS=""
-  if [[ "$ARGS" != "$LAST_ARG" ]]; then
-    OPTS="${ARGS% *}"
-  fi
-
-  if [[ -z $@ ]]; then
-    # echo "No argument given. Fallback to command open."
-    open "$@"
-  elif [[ -e "$LAST_ARG" ]]; then
-    # echo "Last argument is a file or directory. Open it."
-    open "$@"
-  elif [[ "${LAST_ARG::1}" == "-" ]]; then
-    # echo "Last argument is an option. Fallback to command open."
-    open "$@"
-  elif ([[ ${LAST_ARG,,} == *".co"* ]] ||
-        [[ ${LAST_ARG,,} == *".me"* ]] ||
-        [[ ${LAST_ARG,,} == *".org"* ]] ||
-        [[ ${LAST_ARG,,} == *".net"* ]] ||
-        [[ ${LAST_ARG,,} == *".gov"* ]] ||
-        [[ ${LAST_ARG,,} == *".io"* ]] ||
-        [[ ${LAST_ARG,,} == *"localhost"* ]]) &&
-        [[ ! ${LAST_ARG,,} == *"http"* ]]; then
-    # echo "Last argument is a website. Open it."
-    open $OPTS "http://${LAST_ARG}"
-  else
-    # echo "Fallback to command open."
-    open "$@"
-  fi
-}
-alias open='__open__'
-
 ##
 ## CUSTOM COMMANDS
 ##g
