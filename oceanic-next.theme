@@ -1,0 +1,40 @@
+Description="Oceanic Next"
+
+Default				= { Colour="#f0f0f0" }
+PreProcessor	= Default
+Canvas				= { Colour="#000000" }
+Number				= { Colour="#F99157" }
+Escape				= { Colour="#ff5fd7" }
+Interpolation	= Escape
+String				= { Colour="#00ff00" }
+StringPreProc	= String
+BlockComment	= { Colour="#ffffff" , Italic=true}
+LineComment		= BlockComment
+LineNum				= BlockComment
+Operator			= { Colour="#f0f0f0" }
+
+Keywords = {
+  { Colour="#C594C5" },
+  { Colour="#00ffff" },
+  { Colour="#61aeef" },
+  { Colour="#FAC863" },
+}
+
+-- Keywords =
+--   if, throw in js
+--   array in json
+--   key in json
+--   TypeError, RangeError in js
+
+-- #000000 background
+-- #ff0000 red
+-- #00ff00 green
+-- #ffff00 yellow
+-- #00ffff cyan
+-- #ff00ff purple
+-- #ffffff gray
+-- #f0f0f0 white
+
+-- #61aeef blue
+-- #F99157 orange
+-- #ff5fd7 magenta
