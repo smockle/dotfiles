@@ -14,10 +14,6 @@ if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
   . "$(brew --prefix)/etc/bash_completion"
 fi
 
-# FASD
-# Start fasd
-eval "$(fasd --init auto)"
-
 # NVM
 export NVM_DIR=~/.nvm
 [ -d "$NVM_DIR" ] && source "$NVM_DIR/nvm.sh"
@@ -106,7 +102,7 @@ brew() {
   case $command in
   # Remove installed depedencies that are no longer used.
   "unbrew")
-    command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|curl|fasd|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
+    command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|curl|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
   ;;
   *)
     command brew "${command}" "$@"
@@ -116,7 +112,6 @@ brew() {
 }
 
 # CD
-# Predictive cd
 __cd__() {
   ARGS="${@}"
   LAST_ARG="${@: -1}"
@@ -137,14 +132,6 @@ __cd__() {
   elif [[ "${LAST_ARG::1}" == "-" ]]; then
     # echo "Last argument is an option. Fallback to command cd."
     command cd "$@"
-  elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
-    # echo "Last argument is a directory. Change to it.
-    # echo "${green}$(fasd -d "$LAST_ARG")${reset}"
-    command cd $OPTS "$(fasd -d "$LAST_ARG")"
-  elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
-    # echo "Last argument is a file. Change to the directory that contains it."
-    # echo "${green}$(dirname "$(fasd -f "$LAST_ARG")")${reset}"
-    command cd $OPTS "$(dirname "$(fasd -f "$LAST_ARG")")"
   else
     # echo "Fallback to command cd."
     command cd "$@"
@@ -204,7 +191,7 @@ if ls --color > /dev/null 2>&1; then # GNU ls
 else # OS X ls
   alias ls="command ls -G"
 fi
-# Predictive ls
+
 __ls__() {
   ARGS="${@}"
   LAST_ARG="${@: -1}"
@@ -226,14 +213,6 @@ __ls__() {
   elif [[ "${LAST_ARG::1}" == "-" ]]; then
     # echo "Last argument is an option. Fallback to command ls."
     ls "$@"
-  elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
-    # echo "Last argument is a directory. List it."
-    echo "${green}$(fasd -d "$LAST_ARG")${reset}"
-    ls $OPTS "$(fasd -d "$LAST_ARG")"
-  elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
-    # echo "Last argument is a file. List the directory that contains it."
-    echo "${green}$(dirname "$(fasd -f "$LAST_ARG")")${reset}"
-    ls $OPTS "$(dirname "$(fasd -f "$LAST_ARG")")"
   else
     # echo "Fallback to command ls."
     ls "$@"
@@ -242,7 +221,6 @@ __ls__() {
 alias ls='__ls__'
 
 # LESS
-# Predictive less
 __less__() {
   ARGS="${@}"
   LAST_ARG="${@: -1}"
@@ -265,14 +243,6 @@ __less__() {
   elif [[ "${LAST_ARG::1}" == "-" ]]; then
     # echo "Last argument is an option. Fallback to command less."
     less "$@"
-  elif [[ ! -z "$(fasd -d "$LAST_ARG")" ]]; then
-    # echo "List the specified directory."
-    echo "${green}$(fasd -d "$LAST_ARG")${reset}"
-    ls "$(fasd -d "$LAST_ARG")"
-  elif [[ ! -z "$(fasd -f "$LAST_ARG")" ]]; then
-    # echo "Last argument is a file. Display its contents."
-    echo "${green}$(fasd -f "$LAST_ARG")${reset}"
-    less $OPTS "$(fasd -f "$LAST_ARG")"
   else
     # echo "Fallback to command less."
     less "$@"
