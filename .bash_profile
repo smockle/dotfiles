@@ -129,18 +129,9 @@ __cd__() {
     OPTS="${ARGS% *}"
   fi
 
-  if [[ -z "$LAST_ARG" ]]; then
-    # echo "No argument given. Fallback to command cd."
-    command cd "$@"
-  elif [[ -d "$LAST_ARG" ]]; then
-    # echo "Last argument is a directory. Change to it.
-    command cd "$@"
-  elif [[ -f "$LAST_ARG" ]]; then
+  if [[ -f "$LAST_ARG" ]]; then
     # echo "Last argument is a file. Change to the directory that contains it."
     command cd $OPTS "$(dirname "$LAST_ARG")"
-  elif [[ "${LAST_ARG::1}" == "-" ]]; then
-    # echo "Last argument is an option. Fallback to command cd."
-    command cd "$@"
   else
     # echo "Fallback to command cd."
     command cd "$@"
@@ -209,19 +200,10 @@ __ls__() {
     OPTS="${ARGS% *}"
   fi
 
-  if [[ -z "$LAST_ARG" ]]; then
-    # echo "No argument given. List the current directory."
-    ls "$@"
-  elif [[ -d "$LAST_ARG" ]]; then
-    # echo "Last argument is a directory. List it."
-    ls "$@"
-  elif [[ -f "$LAST_ARG" ]]; then
+  if [[ -f "$LAST_ARG" ]]; then
     # echo "Last argument is a file. List the directory that contains it."
     echo "${green}$(dirname "$LAST_ARG")${reset}"
     ls "$(dirname "$LAST_ARG")"
-  elif [[ "${LAST_ARG::1}" == "-" ]]; then
-    # echo "Last argument is an option. Fallback to command ls."
-    ls "$@"
   else
     # echo "Fallback to command ls."
     ls "$@"
@@ -246,12 +228,6 @@ __less__() {
     # echo "Last argument is a directory. List it."
     echo "${green}$LAST_ARG is a directory${reset}"
     ls "$LAST_ARG"
-  elif [[ -f "$LAST_ARG" ]]; then
-    # echo "Last argument is a file. Display its contents."
-    less "$@"
-  elif [[ "${LAST_ARG::1}" == "-" ]]; then
-    # echo "Last argument is an option. Fallback to command less."
-    less "$@"
   else
     # echo "Fallback to command less."
     less "$@"
