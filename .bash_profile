@@ -319,13 +319,9 @@ __open__() {
 }
 alias open='__open__'
 
-# WGET
-# Set wget download location.
-alias wget='wget -P ~/Downloads'
-
 ##
 ## CUSTOM COMMANDS
-##
+##g
 
 # CD
 verbose() {
@@ -335,6 +331,7 @@ verbose() {
   alias cd='__cd__verbose'
   echo "Maximum verbosity"
 }
+
 brief() {
   __cd__brief() {
     __cd__ "$@" && ls
@@ -342,6 +339,7 @@ brief() {
   alias cd='__cd__brief'
   echo "Medium verbosity"
 }
+
 superbrief() {
   alias cd='__cd__'
   echo "Low verbosity"
