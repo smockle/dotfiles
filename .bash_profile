@@ -58,13 +58,17 @@ fi
 # BASH
 # Set default editor to nano
 export EDITOR=nano
+
 # Make repeated commands not show up in history.
 # Make commands preceeded by a space not show up in history.
 export HISTCONTROL=ignoreboth
+
 # Make specific commands not show up in history.
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
 # Ellipsize directory path in prompt, when necessary.
 export PROMPT_DIRTRIM=2
+
 # Display a newline before new prompts
 export PROMPTED=false
 export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
@@ -74,8 +78,13 @@ export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROM
 export GREP_OPTIONS="--color=auto"
 
 # LESS
+# Apply syntax highlighting
+hilite=$(which highlight)
+export LESSOPEN="| $hilite %s --out-format xterm256 --quiet --force "
+
 # Use color output for less.
 export LESS=-RXE
+
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md=$orange
 
