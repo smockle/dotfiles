@@ -80,7 +80,7 @@ export GREP_OPTIONS="--color=auto"
 # LESS
 # Apply syntax highlighting
 hilite=$(which highlight)
-export LESSOPEN="| $hilite %s --out-format xterm256 --quiet --force "
+export LESSOPEN="| $hilite %s --out-format xterm256 --quiet --force --style oceanic-next "
 
 # Use color output for less.
 export LESS=-RXE
