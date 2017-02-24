@@ -9,43 +9,44 @@
  */
 
 // Use ligatures for special symbols
- atom-text-editor::shadow {
-  .keyword.operator.comparison,
-  .keyword.operator.logical,
-  .keyword.operator.relational,
-  .keyword.operator.augmented,
-  .keyword.operator.class,
-  .keyword.operator.list,
-  .keyword.operator.spread,
-  .keyword.operator.tsx,
-  .variable + .keyword.operator.arithmetic,
-  .type.function.arrow,
-  .comment.double-slash > .punctuation.comment,
-  .comment.block > .punctuation.comment,
-  .markup.heading.marker,
-  .table .border.header,
-  .punctuation.separator.key-value.ruby,
-  .punctuation.tag.html,
-  .punctuation.tag.xml,
+ atom-text-editor.editor {
+  .syntax--keyword.syntax--operator.syntax--comparison,
+  .syntax--keyword.syntax--operator.syntax--logical,
+  .syntax--keyword.syntax--operator.syntax--relational,
+  .syntax--keyword.syntax--operator.syntax--augmented,
+  .syntax--keyword.syntax--operator.syntax--class,
+  .syntax--keyword.syntax--operator.syntax--list,
+  .syntax--keyword.syntax--operator.syntax--spread,
+  .syntax--keyword.syntax--operator.syntax--tsx,
+  .syntax--variable + .syntax--keyword.syntax--operator.syntax--arithmetic,
+  .syntax--type.syntax--function.syntax--arrow,
+  .syntax--comment.syntax--double-slash > .syntax--punctuation.syntax--comment,
+  .syntax--comment.syntax--block > .syntax--punctuation.syntax--comment,
+  .syntax--markup.syntax--heading.syntax--marker,
+  .syntax--table .syntax--border.syntax--header,
+  .syntax--punctuation.syntax--separator.syntax--key-value.syntax--ruby,
+  .syntax--punctuation.syntax--tag.syntax--html,
+  .syntax--punctuation.syntax--tag.syntax--xml,
   .JSXEndTagStart,
-  .punctuation.tag.jsx ~ .punctuation.tag.jsx,
-  .punctuation.tag.begin,
-  .punctuation.tag.end,
-  .interpolated .punctuation.embedded.begin,
-  .heredoc > .punctuation.string.begin,
-  .pseudo-element > .punctuation.entity,
-  .punctuation.separator.namespace,
-  .punctuation.terminator.case-clause {
+  .syntax--JSXEndTagStart,
+  .syntax--punctuation.syntax--tag.syntax--jsx ~ .syntax--punctuation.syntax--tag.syntax--jsx,
+  .syntax--punctuation.syntax--tag.syntax--begin,
+  .syntax--punctuation.syntax--tag.syntax--end,
+  .syntax--interpolated .syntax--punctuation.syntax--embedded.syntax--begin,
+  .syntax--heredoc > .syntax--punctuation.syntax--string.syntax--begin,
+  .syntax--pseudo-element > .syntax--punctuation.syntax--entity,
+  .syntax--punctuation.syntax--separator.syntax--namespace,
+  .syntax--punctuation.syntax--terminator.syntax--case-clause {
     font-family: "Fira Code";
     line-height: 1.4;
     text-rendering: optimizeLegibility;
   }
 }
 // Disable ligatures on active line
-// atom-text-editor::shadow .cursor-line {
+// atom-text-editor.editor .cursor-line {
 //   text-rendering: auto;
 // }
-// atom-text-editor::shadow .line:not(.cursor-line) {
+// atom-text-editor.editor .line:not(.cursor-line) {
 //   text-rendering: optimizeLegibility;
 // }
 
@@ -64,21 +65,12 @@
 // Hide icons in tabs
 .title:before { display: none; }
 
-atom-text-editor::shadow {
+atom-text-editor.editor {
     // Italicize comments
-    .comment { font-style: italic; }
+    .syntax--comment { font-style: italic; }
     // Italicize HTML attributes
-    .entity.other.attribute-name.html { font-style: italic; }
+    .syntax--entity.syntax--other.syntax--attribute-name.syntax--html { font-style: italic; }
 }
-
-// Include gutter warnings/errors in line number highlight
-atom-text-editor::shadow .gutter[gutter-name="linter"],
-:host .gutter[gutter-name="linter"] {
-  background-color: transparent;
-  margin-left: -1em;
-  .custom-decorations { background-color: transparent !important; }
-}
-// atom-text-editor::shadow .line-number { padding-right: 1em; }
 
 // Oceanic Next overrides:
 @red: #EC5F67;
@@ -143,33 +135,33 @@ atom-text-editor::shadow .gutter[gutter-name="linter"],
 .tab-bar .tab.modified .close-icon { color: @blue; }
 // - Gutter - added
 atom-text-editor .gutter .line-number.git-line-added,
-atom-text-editor::shadow .gutter .line-number.git-line-added { border-left-color: @green; }
+atom-text-editor.editor .gutter .line-number.git-line-added { border-left-color: @green; }
 // - Gutter - modified
 atom-text-editor .gutter .line-number.git-line-modified,
-atom-text-editor::shadow .gutter .line-number.git-line-modified { border-left-color: @yellow; }
+atom-text-editor.editor .gutter .line-number.git-line-modified { border-left-color: @yellow; }
 // - Gutter - removed
 atom-text-editor .gutter .line-number.git-line-removed:before,
-atom-text-editor::shadow .gutter .line-number.git-line-removed:before { border-left-color: @red; }
+atom-text-editor.editor .gutter .line-number.git-line-removed:before { border-left-color: @red; }
 // - Gutter - warnings
-atom-text-editor::shadow .linter-highlight.warning:not(.line-number),
+atom-text-editor.editor .linter-highlight.warning:not(.line-number),
 .linter-highlight.warning:not(.line-number) { background-color: @yellow; }
 // - Gutter - errors
-atom-text-editor::shadow .linter-highlight.error:not(.line-number),
+atom-text-editor.editor .linter-highlight.error:not(.line-number),
 .linter-highlight.error:not(.line-number) { background-color: @red; }
 // - Underlines - warnings
-atom-text-editor::shadow .linter-highlight.warning .region,
+atom-text-editor.editor .linter-highlight.warning .region,
 .linter-highlight.warning .region { border-bottom-color: @yellow; }
 // - Underlines - errors
-atom-text-editor::shadow .linter-highlight.error .region,
+atom-text-editor.editor .linter-highlight.error .region,
 .linter-highlight.error .region { border-bottom-color: @red; }
 // - Underlines - bracket match
-atom-text-editor::shadow .bracket-matcher .region,
+atom-text-editor.editor .bracket-matcher .region,
 .bracket-matcher .region { border-bottom-color: @green; }
 // - Footer - no errors
-atom-text-editor::shadow .linter-highlight.status-success,
+atom-text-editor.editor .linter-highlight.status-success,
 .linter-highlight.status-success { color: @green }
 // - Footer - errors
-atom-text-editor::shadow .linter-highlight.status-error,
+atom-text-editor.editor .linter-highlight.status-error,
 .linter-highlight.status-error { color: @red; }
 // - Footer - Travis CI status
 .travis-ci-status .fail { color: @red; }
@@ -197,13 +189,13 @@ atom-text-editor::shadow .linter-highlight.status-error,
 .package-updates-status-view { color: @blue }
 // - Settings - inputs
 atom-text-editor[mini].is-focused,
-atom-text-editor[mini].is-focused::shadow {
+atom-text-editor[mini].editor.is-focused {
   border-color: @blue;
   box-shadow: 0 0 0 1px @blue;
 }
 // - Settings - cursor
 atom-text-editor[mini] .cursor,
-atom-text-editor[mini]::shadow .cursor { border-color: @blue; }
+atom-text-editor[mini].editor .cursor { border-color: @blue; }
 // - Settings - checkboxes
 .settings-view input[type="checkbox"]:checked {
   background-color: @green;
@@ -232,19 +224,39 @@ atom-text-editor[mini]::shadow .cursor { border-color: @blue; }
 
 // Nuclide overrides
 // - Gutter
-atom-text-editor::shadow .gutter[gutter-name="nuclide-diagnostics-gutter"] { order: 1; }
-atom-text-editor::shadow .gutter[gutter-name="nuclide-breakpoint"] {
-  // margin-right: 0.5em;
+// Include gutter warnings/errors in line number highlight
+atom-text-editor.editor .gutter-container { position: relative; }
+atom-text-editor.editor .gutter[gutter-name="line-number"] {
+  align-self: flex-start;
+  order: 1;
+  .line-number { padding-left: 1.5em; }
+  .line-number.git-line-added,
+  .line-number.git-line-removed,
+  .line-number.git-line-modified { padding-left: ~"calc(1.5em - 2px)"; }
+}
+atom-text-editor.editor .gutter[gutter-name="nuclide-diagnostics-gutter"] {
+  background-color: transparent;
   order: 2;
+  position: absolute;
+  left: 0.75em;
+  z-index: 2;
+  .custom-decorations { background-color: transparent !important; }
+  .nuclide-diagnostics-gutter-ui-gutter-warning,
+  .nuclide-diagnostics-gutter-ui-gutter-error {
+    position: relative;
+    top: 1px;
+    &::before { content: "\f052"; }
+  }
+  .nuclide-diagnostics-gutter-ui-gutter-warning { color: @yellow; }
+  .nuclide-diagnostics-gutter-ui-gutter-error { color: @red; }
 }
-atom-text-editor::shadow .gutter[gutter-name="line-number"] { order: 3; }
-atom-text-editor::shadow .nuclide-diagnostics-gutter-ui-gutter-warning {
-  color: @yellow;
-  position: relative;
-  top: -1px;
+atom-text-editor.editor .gutter[gutter-name="linter"],
+:host .gutter[gutter-name="linter"] {
+  background-color: transparent;
+  margin-left: -1em;
+  .custom-decorations { background-color: transparent !important; }
 }
-atom-text-editor::shadow .nuclide-diagnostics-gutter-ui-gutter-error {
-  color: @red;
-  position: relative;
-  top: -1px;
+atom-text-editor.editor .gutter[gutter-name="nuclide-diagnostics-gutter"] ~ atom-text-editor.editor .gutter[gutter-name="linter"] {
+  display: none;
 }
+atom-text-editor.editor .gutter[gutter-name="nuclide-breakpoint"] { order: 3; }
