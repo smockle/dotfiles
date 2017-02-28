@@ -29,6 +29,10 @@ export PATH="$PATH:$HOME/bin"
 # Add $(brew --prefix)/bin to $PATH.
 command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&2; }
 
+# NVS
+export NVS_HOME="$HOME/.nvs"
+[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
+
 # RBENV
 # Set up rbenv
 [ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"
