@@ -14,11 +14,6 @@ if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
   . "$(brew --prefix)/etc/bash_completion"
 fi
 
-# NVM
-export NVM_DIR=~/.nvm
-[ -d "$NVM_DIR" ] && source "$NVM_DIR/nvm.sh"
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-
 # SUDO
 # Add tab completion for sudo.
 complete -cf sudo

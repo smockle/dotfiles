@@ -12,10 +12,6 @@ if command -v brew >/dev/null
   set -x PATH $brew_prefix/bin $PATH
 end
 
-# NODE
-# Add node, npm, nvm to $PATH
-bass source ~/.nvm/nvm.sh --no-use ';' nvm >/dev/null
-
 ##
 ## SETTINGS
 ##
