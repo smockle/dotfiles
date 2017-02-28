@@ -33,11 +33,6 @@ command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&
 export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
-# RBENV
-# Set up rbenv
-[ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 # TRAVIS
 # Add travis to $PATH.
 [ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
