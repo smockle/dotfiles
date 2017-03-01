@@ -232,6 +232,37 @@ alias less='__less__'
 # MORE
 alias more='less'
 
+# NVS
+eval "_$(declare -f nvs)"
+nvs() {
+  command=$1
+  shift 1
+  case $command in
+  "upgrade")
+    # Store old version
+    local OLD=$(_nvs ls | grep '>' | tr -d '>#')
+    local LTS='node/6'
+    # Determine new version to install
+    NEW='latest'
+    if [ "$(echo $OLD | grep $LTS)" ]; then
+      NEW='lts'
+    fi
+    # Install and use new version
+    _nvs add $NEW && _nvs use $NEW
+    # Compare old and new versions
+    NEW=$(_nvs ls | grep '>' | tr -d '>#')
+    if [ "$NEW" != "$OLD" ]; then
+      # Migrate old version to new version, uninstall old version, and link new version
+      _nvs migrate $OLD $NEW && _nvs rm $OLD && _nvs link
+    fi;
+  ;;
+  *)
+    _nvs "${command}" "$@"
+  ;;
+  esac
+  return $?
+}
+
 ##
 ## CUSTOM COMMANDS
 ##g
