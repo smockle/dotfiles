@@ -246,6 +246,8 @@ nvs() {
     NEW='latest'
     if [ "$(echo $OLD | grep $LTS)" ]; then
       NEW='lts'
+    elif [ "$(echo $OLD | grep 'chakracore')" ]; then
+      NEW='chakracore'
     fi
     # Install and use new version
     _nvs add $NEW && _nvs use $NEW
