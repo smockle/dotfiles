@@ -4,5 +4,8 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable smart dashes
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Hide desktop icons
+defaults write com.apple.finder CreateDesktop -bool false
+
 # Resize Tweetbot font to match system font
 defaults write com.tapbots.TweetbotMac fontSize 14
