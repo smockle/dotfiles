@@ -27,6 +27,14 @@ defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGro
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 defaults write com.apple.SafariTechnologyPreview ShowFullURLInSmartSearchField -bool true
 
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu -bool true
+defaults write com.apple.SafariTechnologyPreview WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
 # Keyboard shortcuts:
 # Command @
 # Control ^
