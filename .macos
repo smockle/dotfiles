@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Global: Disable smart quotes
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
