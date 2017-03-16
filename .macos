@@ -10,5 +10,9 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # Hide desktop icons
 defaults write com.apple.finder CreateDesktop -bool false
 
+# Save screenshots to ~/Downloads
+defaults write com.apple.screencapture location ~/Downloads
+# then run `killall SystemUIServer`
+
 # Resize Tweetbot font to match system font
 defaults write com.tapbots.TweetbotMac fontSize 14
