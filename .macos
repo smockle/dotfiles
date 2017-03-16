@@ -35,6 +35,10 @@ defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu -bool true
 defaults write com.apple.SafariTechnologyPreview WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
+# Enable “Do Not Track” in Safari
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+defaults write com.apple.SafariTechnologyPreview SendDoNotTrackHTTPHeader -bool true
+
 # Keyboard shortcuts:
 # Command @
 # Control ^
