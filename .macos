@@ -10,19 +10,28 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # Hide desktop icons
 defaults write com.apple.finder CreateDesktop -bool false
 
-# Customize Finder keyboard shortcuts
-# Command @
-# Control ^
-# Option  ~
-# Shift   $
-# Tab     \\U21e5
-defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$o'; 'Hide Sidebar' = '@\\\\'; 'Hide Status Bar' = '@~s'; 'Show Sidebar' = '@\\\\'; 'Show Status Bar' = '@~s'; }"
-# then run `defaults read com.apple.universalaccess com.apple.custommenu.apps`
-# if `com.apple.finder` is not present, run `defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "com.apple.finder"`
-
 # Save screenshots to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 # then run `killall SystemUIServer`
 
 # Resize Tweetbot font to match system font
 defaults write com.tapbots.TweetbotMac fontSize 14
+
+# Keyboard shortcuts
+
+# Command @
+# Control ^
+# Option  ~
+# Shift   $
+# Tab     \\U21e5
+
+# General pattern:
+# run `defaults write <x> NSUserKeyEquivalents "{ 'a' = 'b'; }"`
+# then run `defaults read com.apple.universalaccess com.apple.custommenu.apps`
+# if `<x>` is not present, run `defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "<x>"`
+
+# Customize Finder keyboard shortcuts
+defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$o'; 'Hide Sidebar' = '@\\\\'; 'Hide Status Bar' = '@~s'; 'Show Sidebar' = '@\\\\'; 'Show Status Bar' = '@~s'; }"
+
+# Customize Skype for Business keyboard shortcuts
+defaults write com.microsoft.SkypeForBusiness NSUserKeyEquivalents "{ 'Skype Home' = '@t'; }"
