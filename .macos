@@ -17,6 +17,16 @@ defaults write com.apple.screencapture location ~/Downloads
 # Resize Tweetbot font to match system font
 defaults write com.tapbots.TweetbotMac fontSize 14
 
+# Press Tab to highlight each item on a web page in Safari
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+defaults write com.apple.SafariTechnologyPreview WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
+# Show the full URL in the address bar in Safari
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.SafariTechnologyPreview ShowFullURLInSmartSearchField -bool true
+
 # Keyboard shortcuts:
 # Command @
 # Control ^
