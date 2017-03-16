@@ -1,33 +1,32 @@
-# Disable smart quotes
+# Global: Disable smart quotes
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
-# Disable smart dashes
+# Global: Disable smart dashes
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# Sort folders before files in Finder
+# Finder: Sort folders before files
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
-# Hide desktop icons
+# Finder: Hide desktop icons
 defaults write com.apple.finder CreateDesktop -bool false
 
-# Save screenshots to ~/Downloads
-defaults write com.apple.screencapture location ~/Downloads
-# then run `killall SystemUIServer`
+# Finder: Customize keyboard shortcuts
+defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$o'; 'Hide Sidebar' = '@\\\\'; 'Hide Status Bar' = '@~s'; 'Show Sidebar' = '@\\\\'; 'Show Status Bar' = '@~s'; }"
 
-# Resize Tweetbot font to match system font
-defaults write com.tapbots.TweetbotMac fontSize 14
+# Outlook: Customize keyboard shortcuts
+defaults write com.microsoft.Outlook NSUserKeyEquivalents "{ 'Sidebar' = '@\\\\'; }"
 
-# Press Tab to highlight each item on a web page in Safari
+# Safari: Press Tab to highlight each item on a web page
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 defaults write com.apple.SafariTechnologyPreview WebKitTabToLinksPreferenceKey -bool true
 defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 
-# Show the full URL in the address bar in Safari
+# Safari: Show the full URL in the address bar
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 defaults write com.apple.SafariTechnologyPreview ShowFullURLInSmartSearchField -bool true
 
-# Enable the Develop menu and the Web Inspector in Safari
+# Safari: Enable the Develop menu and the Web Inspector
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
@@ -35,9 +34,19 @@ defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu -bool true
 defaults write com.apple.SafariTechnologyPreview WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
-# Enable “Do Not Track” in Safari
+# Safari: Enable “Do Not Track”
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 defaults write com.apple.SafariTechnologyPreview SendDoNotTrackHTTPHeader -bool true
+
+# Screen Capture: Save screenshots to ~/Downloads
+defaults write com.apple.screencapture location ~/Downloads
+# then run `killall SystemUIServer`
+
+# Skype for Business: Customize keyboard shortcuts
+defaults write com.microsoft.SkypeForBusiness NSUserKeyEquivalents "{ 'Skype Home' = '@t'; }"
+
+# Tweetbot: Resize font to match system font
+defaults write com.tapbots.TweetbotMac fontSize 14
 
 # Keyboard shortcuts:
 # Command @
@@ -50,12 +59,3 @@ defaults write com.apple.SafariTechnologyPreview SendDoNotTrackHTTPHeader -bool 
 # run `defaults write <x> NSUserKeyEquivalents "{ 'a' = 'b'; }"`
 # then run `defaults read com.apple.universalaccess com.apple.custommenu.apps`
 # if `<x>` is not present, run `defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "<x>"`
-
-# Customize Finder keyboard shortcuts
-defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$o'; 'Hide Sidebar' = '@\\\\'; 'Hide Status Bar' = '@~s'; 'Show Sidebar' = '@\\\\'; 'Show Status Bar' = '@~s'; }"
-
-# Customize Skype for Business keyboard shortcuts
-defaults write com.microsoft.SkypeForBusiness NSUserKeyEquivalents "{ 'Skype Home' = '@t'; }"
-
-# Customize Outlook keyboard shortcuts
-defaults write com.microsoft.Outlook NSUserKeyEquivalents "{ 'Sidebar' = '@\\\\'; }"
