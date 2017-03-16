@@ -10,6 +10,14 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # Hide desktop icons
 defaults write com.apple.finder CreateDesktop -bool false
 
+# Customize Finder keyboard shortcuts
+# Command @
+# Control ^
+# Option  ~
+# Shift   $
+# Tab     \\U21e5
+defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$o'; 'Hide Sidebar' = '@\\\\'; 'Hide Status Bar' = '@~s'; 'Show Sidebar' = '@\\\\'; 'Show Status Bar' = '@~s'; }"
+
 # Save screenshots to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 # then run `killall SystemUIServer`
