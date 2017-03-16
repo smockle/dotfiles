@@ -17,6 +17,10 @@ defaults write com.apple.finder CreateDesktop -bool false
 # Finder: Customize keyboard shortcuts
 defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$o'; 'Hide Sidebar' = '@\\\\'; 'Hide Status Bar' = '@~s'; 'Show Sidebar' = '@\\\\'; 'Show Status Bar' = '@~s'; }"
 
+# Google Chrome: Use the system-native print preview dialog
+defaults write com.google.Chrome DisablePrintPreview -bool true
+defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+
 # Outlook: Customize keyboard shortcuts
 defaults write com.microsoft.Outlook NSUserKeyEquivalents "{ 'Sidebar' = '@\\\\'; }"
 
