@@ -17,8 +17,7 @@ defaults write com.apple.screencapture location ~/Downloads
 # Resize Tweetbot font to match system font
 defaults write com.tapbots.TweetbotMac fontSize 14
 
-# Keyboard shortcuts
-
+# Keyboard shortcuts:
 # Command @
 # Control ^
 # Option  ~
@@ -35,3 +34,6 @@ defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$
 
 # Customize Skype for Business keyboard shortcuts
 defaults write com.microsoft.SkypeForBusiness NSUserKeyEquivalents "{ 'Skype Home' = '@t'; }"
+
+# Customize Outlook keyboard shortcuts
+defaults write com.microsoft.Outlook NSUserKeyEquivalents "{ 'Sidebar' = '@\\\\'; }"
