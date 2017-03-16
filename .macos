@@ -7,6 +7,10 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Finder: Sort folders before files
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
+# Finder: Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# then `killall Finder`
+
 # Finder: Hide desktop icons
 defaults write com.apple.finder CreateDesktop -bool false
 
