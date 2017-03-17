@@ -7,8 +7,6 @@
 # BASH
 # Style prompt
 [ -r "$HOME/.bash_prompt" ] && [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
-# Ensure external scripts use a less-destructive rm
-export BASH_ENV="$HOME/.bashenv"
 
 # BREW
 # Enable brew's bash completion
@@ -25,7 +23,15 @@ complete -cf sudo
 ##
 
 # Add ~/bin to $PATH
-export PATH="$PATH:$HOME/bin"
+# Includes coreutils rm
+export PATH="$HOME/bin:$PATH"
+
+# Add ~/man to $MANPATH
+# Includes coreutils rm
+export MANPATH="$HOME/man:$MANPATH"
+
+# Ensure external scripts use a less-destructive rm
+export BASH_ENV="$HOME/.bashenv"
 
 # BREW
 # Add $(brew --prefix)/bin to $PATH.
@@ -269,7 +275,7 @@ nvs() {
 
 # RM
 # Use a less-destructive rm
-alias rm="grm -I"
+alias rm="rm -I"
 
 ##
 ## CUSTOM COMMANDS

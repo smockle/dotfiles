@@ -1,2 +1,2 @@
 shopt -s expand_aliases
-alias rm='grm -I'
+alias rm='rm -I'
