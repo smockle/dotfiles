@@ -7,6 +7,8 @@
 # BASH
 # Style prompt
 [ -r "$HOME/.bash_prompt" ] && [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
+# Ensure external scripts use a less-destructive rm
+export BASH_ENV="$HOME/.bashenv"
 
 # BREW
 # Enable brew's bash completion
@@ -105,7 +107,7 @@ brew() {
   case $command in
   # Remove installed depedencies that are no longer used.
   "unbrew")
-    command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|curl|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
+    command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|coreutils|curl|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
   ;;
   *)
     command brew "${command}" "$@"
@@ -264,6 +266,10 @@ nvs() {
   esac
   return $?
 }
+
+# RM
+# Use a less-destructive rm
+alias rm="grm -I"
 
 ##
 ## CUSTOM COMMANDS
