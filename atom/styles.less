@@ -9,7 +9,7 @@
  */
 
 // Use ligatures for special symbols
- atom-text-editor.editor {
+atom-text-editor.editor {
   .syntax--keyword.syntax--operator.syntax--comparison,
   .syntax--keyword.syntax--operator.syntax--logical,
   .syntax--keyword.syntax--operator.syntax--relational,
@@ -255,9 +255,10 @@ atom-text-editor.editor .gutter[gutter-name="linter-ui-default"],
   background-color: transparent;
   margin-left: 0.5em;
   position: absolute;
-  .custom-decorations { background-color: transparent !important; }
+  .custom-decorations,
+  .line-number.cursor-line { background-color: transparent !important; }
 }
-atom-text-editor.editor .gutter[gutter-name="nuclide-diagnostics-gutter"] ~ atom-text-editor.editor .gutter[gutter-name="linter"] {
+atom-text-editor.editor .gutter[gutter-name="nuclide-diagnostics-gutter"] ~ atom-text-editor.editor .gutter[gutter-name="linter-ui-default"] {
   display: none;
 }
 atom-text-editor.editor .gutter[gutter-name="nuclide-breakpoint"] { order: 3; }
