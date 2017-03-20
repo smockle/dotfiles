@@ -309,6 +309,15 @@ get_keys() {
   keybase list-tracking | xargs -I_ curl https://keybase.io/_/key.asc | gpg --import
 }
 
+# TIMEOUT
+# Like `timeout` from GNU Coreutils, but with support for subsecond timeouts.
+# Requires Bash 4.x
+# http://stackoverflow.com/a/28804252/1923134
+# FIXME: Broken kill exit code:
+__timeout() { ( set +b; sleep "$1" & "${@:2}" & wait -n; r=$?; kill -9 `jobs -p`; exit $r; ) }
+# FIXME: Broken kill timeout:
+limit() { ( set +b; { sleep "$1"; exit 137; } & "${@:2}" & wait -n; r=$?; kill -9 `jobs -p`; exit $r; ) }
+
 # TRASH
 # Empty the Trash on all mounted volumes and the main HDD.
 # Clear Apple’s System Logs to improve shell startup speed.
