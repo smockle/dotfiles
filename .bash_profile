@@ -23,11 +23,11 @@ complete -cf sudo
 ##
 
 # Add ~/bin to $PATH
-# Includes coreutils rm
+# Includes coreutils rm & timeout
 export PATH="$HOME/bin:$PATH"
 
 # Add ~/man to $MANPATH
-# Includes coreutils rm
+# Includes coreutils rm & timeout
 export MANPATH="$HOME/man:$MANPATH"
 
 # Ensure external scripts use a less-destructive rm
