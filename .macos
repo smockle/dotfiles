@@ -51,6 +51,9 @@ defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGro
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 defaults write com.apple.SafariTechnologyPreview SendDoNotTrackHTTPHeader -bool true
 
+# Screen Capture: Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
 # Screen Capture: Save screenshots to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 # then run `killall SystemUIServer`
