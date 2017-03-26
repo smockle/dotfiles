@@ -157,6 +157,21 @@ atom-text-editor.editor .linter-highlight.error .region,
 // - Underlines - bracket match
 atom-text-editor.editor .bracket-matcher .region,
 .bracket-matcher .region { border-bottom-color: @green; }
+// Footer - Linter
+.linter-status-count span:nth-of-type(1),
+.linter-status-count .highlight-error {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.linter-status-count span:nth-of-type(2),
+.linter-status-count .highlight-warning {
+  border-radius: 0;
+}
+.linter-status-count span:nth-of-type(3),
+.linter-status-count .highlight-info {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 // - Footer - no errors
 atom-text-editor.editor .linter-highlight.status-success,
 .linter-highlight.status-success { color: @green }
