@@ -4,8 +4,7 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 11,
     "editor.formatOnType": true,
-
-    "npm-intellisense.scanDevDependencies": true,
+    "editor.scrollBeyondLastLine": false,
 
     "scss.validate": false,
     "stylelint.enable": true,
@@ -13,5 +12,45 @@
     "trailing-spaces.highlightCurrentLine": false,
     "trailing-spaces.trimOnSave": true,
 
-    "tslint.validateWithDefaultConfig": true
+    "tslint.validateWithDefaultConfig": true,
+
+    "window.nativeTabs": true,
+    "workbench.activityBar.visible": false,
+    "workbench.editor.tabCloseButton": "left",
+    "workbench.iconTheme": "vscode-icon-theme",
+    "workbench.colorTheme": "Oceanic Next Italic",
+    // Hover                #1E313B
+    // Editor Background    #1B2B34
+    // Sidebar Background   #16232A
+    // Text                 #99ADB8
+    // Blue                 #6699CC
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#16232A",
+        "activityBar.foreground": "#99ADB8",
+        "activityBarBadge.background": "#6699CC",
+        "contrastBorder": "#101A1F",
+        "editor.background": "#1B2B34",
+        "editorGroup.background": "#16232A",
+        "editorGroupHeader.tabsBackground": "#16232A",
+        "editorWidget.background": "#16232A",
+        "input.background": "#111A20",
+        "input.foreground": "#D5DDE2",
+        "editorLineNumber.foreground": "#CDD3DE96",
+        "list.activeSelectionBackground": "#1E313B",
+        "list.inactiveSelectionBackground": "#1E313B",
+        "list.focusBackground": "#1E313B",
+        "list.hoverBackground": "#16232A",
+        "panel.background": "#16232A",
+        "tab.activeBackground": "#1B2B34",
+        "tab.inactiveBackground": "#16232A",
+        "tab.activeForeground": "#99ADB8",
+        "titleBar.activeBackground": "#16232A",
+        "scrollbar.shadow": "#00000000",
+        "sideBar.background": "#16232A",
+        "sideBarSectionHeader.background": "#1B2B34",
+        "statusBar.background": "#16232A",
+        "statusBar.foreground": "#99ADB8",
+        "statusBarItem.hoverBackground": "#1E313B",
+        "widget.shadow": "#00000000"
+    }
 }
