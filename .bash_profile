@@ -10,8 +10,10 @@
 
 # BREW
 # Enable brew's bash completion
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-  . "$(brew --prefix)/etc/bash_completion"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    . "$(brew --prefix)/etc/bash_completion"
+  fi
 fi
 
 # SUDO
@@ -28,14 +30,25 @@ export PATH="$HOME/bin:$PATH"
 
 # Add ~/man to $MANPATH
 # Includes coreutils rm & timeout
-export MANPATH="$HOME/man:$MANPATH"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export MANPATH="$HOME/man:$MANPATH"
+fi
 
 # Ensure external scripts use a less-destructive rm
-export BASH_ENV="$HOME/.bashenv"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export BASH_ENV="$HOME/.bashenv"
+fi
 
 # BREW
 # Add $(brew --prefix)/bin to $PATH.
-command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&2; }
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&2; }
+fi
+
+# HUB
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export PATH="$HOME/Projects/hub/bin:$PATH"
+fi
 
 # NVS
 export NVS_HOME="$HOME/.nvs"
@@ -43,7 +56,9 @@ export NVS_HOME="$HOME/.nvs"
 
 # TRAVIS
 # Add travis to $PATH.
-[ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  [ -f /Users/clay/.travis/travis.sh ] && source /Users/clay/.travis/travis.sh
+fi
 
 ##
 ## SETTINGS
@@ -51,10 +66,12 @@ export NVS_HOME="$HOME/.nvs"
 
 # ATOM
 # Set $ATOM_PATH
-if [[ -d "$HOME/Applications/Atom.app" ]]; then
-  export ATOM_PATH="$HOME/Applications"
-elif [[ -d "/Applications/Atom.app" ]]; then
-  export ATOM_PATH="/Applications"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [[ -d "$HOME/Applications/Atom.app" ]]; then
+    export ATOM_PATH="$HOME/Applications"
+  elif [[ -d "/Applications/Atom.app" ]]; then
+    export ATOM_PATH="/Applications"
+  fi
 fi
 
 # BASH
@@ -77,7 +94,9 @@ export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROM
 
 # GREP
 # Always enable colored grep output.
-export GREP_OPTIONS="--color=auto"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export GREP_OPTIONS="--color=auto"
+fi
 
 # LESS
 # Apply syntax highlighting
@@ -103,24 +122,28 @@ export MANPAGER="less"
 ##
 
 # ATOM BETA
-alias atom='atom-beta'
-alias apm='apm-beta'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias atom='atom-beta'
+  alias apm='apm-beta'
+fi
 
 # BREW
-brew() {
-  command=$1
-  shift 1
-  case $command in
-  # Remove installed depedencies that are no longer used.
-  "unbrew")
-    command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
-  ;;
-  *)
-    command brew "${command}" "$@"
-  ;;
-  esac
-  return $?
-}
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  brew() {
+    command=$1
+    shift 1
+    case $command in
+    # Remove installed depedencies that are no longer used.
+    "unbrew")
+      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
+    ;;
+    *)
+      command brew "${command}" "$@"
+    ;;
+    esac
+    return $?
+  }
+fi
 
 # CD
 __cd__() {
@@ -272,15 +295,19 @@ superbrief() {
 
 # KEYBASE
 # Download and import GPG public keys for everyone I track on https://keybase.io.
-get_keys() {
-  keybase list-tracking | xargs -I_ curl https://keybase.io/_/key.asc | gpg --import
-}
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  get_keys() {
+    keybase list-tracking | xargs -I_ curl https://keybase.io/_/key.asc | gpg --import
+  }
+fi
 
 # TRASH
 # Empty the Trash on all mounted volumes and the main HDD.
 # Clear Apple’s System Logs to improve shell startup speed.
-trash() {
-  sudo rm -rfv /Volumes/*/.Trashes
-  sudo rm -rfv ~/.Trash
-  sudo rm -rfv /private/var/log/asl/*.asl
-}
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  trash() {
+    sudo rm -rfv /Volumes/*/.Trashes
+    sudo rm -rfv ~/.Trash
+    sudo rm -rfv /private/var/log/asl/*.asl
+  }
+fi
