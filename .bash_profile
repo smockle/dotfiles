@@ -42,7 +42,7 @@ fi
 # BREW
 # Add $(brew --prefix)/bin to $PATH.
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/bin:$PATH" >&2; }
+  command -v brew >/dev/null 2>&1 && { export PATH="$(brew --prefix)/sbin:$(brew --prefix)/bin:$PATH" >&2; }
 fi
 
 # HUB
@@ -135,7 +135,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     case $command in
     # Remove installed depedencies that are no longer used.
     "unbrew")
-      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|flow|git|highlight|hub|mongodb|photoshop-jpegxr|photoshop-webp|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
+      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|flow|git|highlight|hub|photoshop-jpegxr|photoshop-webp|ruby|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
     ;;
     *)
       command brew "${command}" "$@"
