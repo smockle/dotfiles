@@ -201,6 +201,7 @@ git() {
   ;;
   # Fetch unfetched changes (changes in remote master which do not exist in local master).
   "sync")
+    git stash
     git checkout master
     if [ $(command git remote | grep upstream) ]; then
       git pull upstream master
@@ -208,6 +209,7 @@ git() {
       git pull origin master
     fi;
     git push && git unbranch
+    git stash pop
   ;;
   "diff")
     hub diff --color "$@" | diff-so-fancy
