@@ -163,6 +163,11 @@ __cd__() {
   fi
 }
 alias cd='__cd__'
+# NVS
+# Must come after CD
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  nvs auto on
+fi
 
 # DIFF
 # Use git diff instead of diff.
