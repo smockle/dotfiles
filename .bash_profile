@@ -199,6 +199,16 @@ git() {
   "unbranch")
     git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
   ;;
+  # Fetch unfetched changes (changes in remote master which do not exist in local master).
+  "sync")
+    git checkout master
+    if [ $(command git remote | grep upstream) ]; then
+      git pull upstream master
+    elif [ $(command git remote | grep origin) ]; then
+      git pull origin master
+    fi;
+    git push && git unbranch
+  ;;
   "diff")
     hub diff --color "$@" | diff-so-fancy
   ;;
