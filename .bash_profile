@@ -205,7 +205,7 @@ git() {
   # Remove all local branches that have been merged into master.
   # http://stackoverflow.com/a/17029936/1923134
   "unbranch")
-    git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d && git remote | xargs -I{} sh -c 'git remote prune {}'
+    git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d && git remote | xargs git remote prune
   ;;
   # Fetch unfetched changes (changes in remote master which do not exist in local master).
   "sync")
