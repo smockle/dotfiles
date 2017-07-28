@@ -138,7 +138,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     case $command in
     # Remove installed depedencies that are no longer used.
     "unbrew")
-      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|git|highlight|hub|photoshop-jpegxr|photoshop-webp|ruby|watchman|wget)' | cut -d':' -f1 | xargs command brew uninstall
+      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|git|highlight|hub|photoshop-jpegxr|photoshop-webp|ruby|watchman|wget|yarn)' | cut -d':' -f1 | xargs command brew uninstall
     ;;
     *)
       command brew "${command}" "$@"
