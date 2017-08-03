@@ -53,9 +53,10 @@ fi
 # NVS
 export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  nvs auto &>/dev/null
-fi
+
+# RUBY
+# Use system Ruby to install gems in a non-system location
+export GEM_HOME="/usr/local/bin"
 
 # TRAVIS
 # Add travis to $PATH.
@@ -138,7 +139,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     case $command in
     # Remove installed depedencies that are no longer used.
     "unbrew")
-      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|bind|coreutils|curl|git|highlight|hub|photoshop-jpegxr|photoshop-webp|ruby|watchman|wget|yarn)' | cut -d':' -f1 | xargs command brew uninstall
+      command brew list | xargs -I{} sh -c 'printf "{}: "; echo `command brew uses --installed --recursive {}`;' | grep -vE '(bash|bash-completion|coreutils|curl|git|highlight|hub|photoshop-jpegxr|photoshop-webp|watchman|wget|yarn)' | cut -d':' -f1 | xargs command brew uninstall
     ;;
     *)
       command brew "${command}" "$@"
@@ -166,11 +167,6 @@ __cd__() {
   fi
 }
 alias cd='__cd__'
-# NVS
-# Must come after CD
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  nvs auto on
-fi
 
 # DIFF
 # Use git diff instead of diff.
