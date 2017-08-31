@@ -283,9 +283,12 @@ alias more='less'
 # Use a less-destructive rm
 alias rm="rm -I"
 
+## VISUAL STUDIO CODE INSIDERS
+alias code="code-insiders"
+
 ##
 ## CUSTOM COMMANDS
-##g
+##
 
 # CD
 verbose() {
