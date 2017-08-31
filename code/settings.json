@@ -15,11 +15,15 @@
     "workbench.editor.tabCloseButton": "left",
 
     // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
-    "workbench.editor.showIcons": true,
+    "workbench.editor.showIcons": false,
 
     // Specifies the color theme used in the workbench.
     "workbench.colorTheme": "Bimbo Theme",
 
     // Enables native title bar.
-    "window.nativeTabs": true
+    "window.nativeTabs": true,
+
+    // Controls SCSS validation and problem severities.
+    // Enables or disables all validations
+    "scss.validate": false
 }
