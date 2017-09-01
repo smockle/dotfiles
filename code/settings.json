@@ -22,13 +22,16 @@
   "workbench.editor.tabCloseButton": "left",
 
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
-  "workbench.editor.showIcons": false,
+  "workbench.editor.showIcons": true,
 
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "none",
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Bimbo Theme",
+
+  // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
+  "workbench.iconTheme": "seti",
 
   // Enables native title bar.
   "window.nativeTabs": true,
