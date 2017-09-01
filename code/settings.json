@@ -35,6 +35,12 @@
   // Enables or disables all validations
   "scss.validate": false,
 
+  // Controls the font size in pixels of the terminal.
+  "terminal.integrated.fontSize": 11,
+
+  // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
+  "terminal.integrated.lineHeight": 1.6,
+
   // Enables running the version of Flow defined in a package.json.
   "flow.useNPMPackagedFlow": true,
 
