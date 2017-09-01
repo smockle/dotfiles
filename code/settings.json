@@ -1,29 +1,53 @@
 {
-    // Controls the font size in pixels.
-    "editor.fontSize": 11,
+  // Controls the font size in pixels.
+  "editor.fontSize": 11,
 
-    // Controls the font family.
-    "editor.fontFamily": "'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
+  // Controls the font family.
+  "editor.fontFamily":
+    "'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
 
-    // Controls if the editor will scroll beyond the last line
-    "editor.scrollBeyondLastLine": false,
+  // Controls if the editor will scroll beyond the last line
+  "editor.scrollBeyondLastLine": false,
 
-    // Enables font ligatures
-    "editor.fontLigatures": true,
+  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  "editor.formatOnSave": true,
 
-    // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
-    "workbench.editor.tabCloseButton": "left",
+  // Enables font ligatures
+  "editor.fontLigatures": true,
 
-    // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
-    "workbench.editor.showIcons": false,
+  // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
+  "workbench.editor.tabCloseButton": "left",
 
-    // Specifies the color theme used in the workbench.
-    "workbench.colorTheme": "Bimbo Theme",
+  // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
+  "workbench.editor.showIcons": false,
 
-    // Enables native title bar.
-    "window.nativeTabs": true,
+  // Specifies the color theme used in the workbench.
+  "workbench.colorTheme": "Bimbo Theme",
 
-    // Controls SCSS validation and problem severities.
-    // Enables or disables all validations
-    "scss.validate": false
+  // Enables native title bar.
+  "window.nativeTabs": true,
+
+  // Controls CSS validation and problem severities.
+  // Enables or disables all validations
+  "css.validate": false,
+
+  // Controls SCSS validation and problem severities.
+  // Enables or disables all validations
+  "scss.validate": false,
+
+  // Enables running the version of Flow defined in a package.json.
+  "flow.useNPMPackagedFlow": true,
+
+  // Controls if prettier-vscode uses prettier-eslint.
+  "prettier.eslintIntegration": true,
+
+  // Enables prettier for languages.
+  "prettier.javascriptEnable": [],
+  "prettier.typescriptEnable": [],
+  "prettier.cssEnable": [],
+  "prettier.jsonEnable": [],
+  "prettier.graphqlEnable": [],
+
+  // Enables stylelint.
+  "stylelint.enable": true
 }
