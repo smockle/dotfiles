@@ -283,6 +283,13 @@ alias more='less'
 # Use a less-destructive rm
 alias rm="rm -I"
 
+## UPDATE TERMINAL CWD
+if [ `(type update_terminal_cwd | grep -q 'shell function' | wc -l) 2> /dev/null` -eq 0 ]; then
+    update_terminal_cwd() {
+        return
+    }
+fi
+
 ## VISUAL STUDIO CODE INSIDERS
 alias code="code-insiders"
 
