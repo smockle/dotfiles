@@ -1,9 +1,33 @@
-// Place your key bindings in this file to overwrite the defaults
 [
-    {"key": "shift+cmd+o", "command": "workbench.action.quickOpen"},
-    {"key": "cmd+\\", "command": "workbench.action.toggleSidebarVisibility"},
-    {"key": "alt+cmd+w", "command": "workbench.action.closeOtherEditors", "when": "!searchInputBoxFocus || !searchViewletVisible" },
-    {"key": "cmd+shift+[", "command": "workbench.action.previousEditor"},
-    {"key": "cmd+shift+]", "command": "workbench.action.nextEditor"},
-    {"key": "alt+cmd+i", "command": "workbench.action.toggleDevTools"}
+  // Place your key bindings in this file to overwrite the defaults
+  { "key": "shift+cmd+o", "command": "workbench.action.quickOpen" },
+  { "key": "cmd+\\", "command": "workbench.action.toggleSidebarVisibility" },
+  {
+    "key": "alt+cmd+w",
+    "command": "workbench.action.closeOtherEditors",
+    "when": "!searchInputBoxFocus || !searchViewletVisible"
+  },
+  { "key": "cmd+shift+[", "command": "workbench.action.previousEditor" },
+  { "key": "cmd+shift+]", "command": "workbench.action.nextEditor" },
+  { "key": "alt+cmd+i", "command": "workbench.action.toggleDevTools" },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+]",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  }
 ]
