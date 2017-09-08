@@ -6,6 +6,13 @@
   "editor.fontFamily":
     "'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
 
+  // Controls how lines should wrap. Can be:
+  //  - 'off' (disable wrapping),
+  //  - 'on' (viewport wrapping),
+  //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
+  //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
+  "editor.wordWrap": "on",
+
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": false,
 
