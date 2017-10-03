@@ -94,7 +94,11 @@ export PROMPT_DIRTRIM=2
 
 # Display a newline before new prompts
 export PROMPTED=false
-export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
+if [[ $PROMPT_COMMAND == 'if [[ $PROMPTED = true ]];'* ]]; then
+  export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true;"
+else
+  export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
+fi
 
 # GREP
 # Always enable colored grep output.
