@@ -16,6 +16,9 @@
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": false,
 
+  // Controls if the minimap is shown
+  "editor.minimap.enabled": false,
+
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": false,
 
