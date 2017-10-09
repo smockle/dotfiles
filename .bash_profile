@@ -26,10 +26,14 @@ complete -cf sudo
 
 # Add ~/bin to $PATH
 # Includes coreutils rm & timeout
+# ln -s /usr/local/opt/coreutils/libexec/gnubin/rm ~/bin/rm
+# ln -s /usr/local/opt/coreutils/libexec/gnubin/timeout ~/bin/timeout
 export PATH="$HOME/bin:$PATH"
 
 # Add ~/man to $MANPATH
 # Includes coreutils rm & timeout
+# ln -s /usr/local/opt/coreutils/libexec/gnuman/rm ~/man/rm
+# ln -s /usr/local/opt/coreutils/libexec/gnuman/timeout ~/man/timeout
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export MANPATH="$HOME/man:$MANPATH"
 fi
