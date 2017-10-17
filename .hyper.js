@@ -41,7 +41,7 @@ module.exports = {
 
     // Custom CSS to include in the terminal window
     termCSS:
-      ".xterm {line-height: 15px} .xterm-rows > div {display: block; line-height: 13px}",
+      ".xterm {line-height: 17px} .xterm-rows > div {display: block; line-height: 15px}",
 
     // CSS padding values for the space around each term
     padding: "6px 8px",
