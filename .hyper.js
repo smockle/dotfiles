@@ -4,98 +4,94 @@
 
 module.exports = {
   config: {
-    // default font size in pixels for all tabs
-    fontSize: 15,
+    // Choose either "stable" for receiving highly polished,
+    // or "canary" for less polished but more frequent updates
+    updateChannel: "stable",
 
-    // font family with optional fallbacks
-    fontFamily: '"Operator Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    // The default size in pixels for the terminal
+    fontSize: 11,
 
-    // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(248,28,229,0.8)',
+    // The font family to use with optional fallbacks
+    fontFamily:
+      '"Operator Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
-    // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'BEAM',
+    // The font family to use for the UI with optional fallbacks
+    // uiFontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto",
 
-    // set to true for blinking cursor
+    // The color of the caret in the terminal
+    cursorColor: "#D4D4D4",
+
+    // The shape of the caret in the terminal. Available options are: 'BEAM', 'UNDERLINE', 'BLOCK'
+    cursorShape: "BEAM",
+
+    // If true, cursor will blink
     cursorBlink: true,
 
-    // color of the text
-    foregroundColor: '#fff',
+    // The color of the main text of the terminal
+    foregroundColor: "#D4D4D4",
 
-    // terminal background color
-    backgroundColor: '#000',
+    // The color and opacity of the window and main terminal background
+    backgroundColor: "#252B2E",
 
-    // border color (window, tabs)
-    borderColor: '#333',
+    // The color of the main window border and tab bar
+    borderColor: "#333",
 
-    // custom css to embed in the main window
-    css: '',
+    // Custom CSS to include in the main window
+    css: "",
 
-    // custom css to embed in the terminal window
-    termCSS: '',
+    // Custom CSS to include in the terminal window
+    termCSS:
+      ".xterm {line-height: 15px} .xterm-rows > div {display: block; line-height: 13px}",
 
-    // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
-    // default: `false` on Linux, `true` on Windows (ignored on macOS)
-    showHamburgerMenu: '',
+    // CSS padding values for the space around each term
+    padding: "6px 8px",
 
-    // set to `false` if you want to hide the minimize, maximize and close buttons
-    // additionally, set to `'left'` if you want them on the left, like in Ubuntu
-    // default: `true` on windows and Linux (ignored on macOS)
-    showWindowControls: '',
-
-    // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '6px 8px',
-
-    // the full list. if you're going to provide the full color palette,
-    // including the 6 x 6 color cubes and the grayscale map, just provide
-    // an array here instead of a color map object
+    // A list of overrides for the color palette. The names of the keys represent the "ANSI 16", which can all be seen in the default config.
     colors: {
-      black: '#000000',
-      red: '#ff0000',
-      green: '#33ff00',
-      yellow: '#ffff00',
-      blue: '#0066ff',
-      magenta: '#cc00ff',
-      cyan: '#00ffff',
-      white: '#d0d0d0',
-      lightBlack: '#808080',
-      lightRed: '#ff0000',
-      lightGreen: '#33ff00',
-      lightYellow: '#ffff00',
-      lightBlue: '#0066ff',
-      lightMagenta: '#cc00ff',
-      lightCyan: '#00ffff',
-      lightWhite: '#ffffff'
+      black: "#7F7F7F",
+      red: "#E15A60",
+      green: "#99C794",
+      yellow: "#FAC863",
+      blue: "#6699CC",
+      magenta: "#C594C5",
+      cyan: "#5FB3B3",
+      white: "#D4D4D4",
+      lightBlack: "#7F7F7F",
+      lightRed: "#E15A60",
+      lightGreen: "#99C794",
+      lightYellow: "#FAC863",
+      lightBlue: "#6699CC",
+      lightMagenta: "#C594C5",
+      lightCyan: "#5FB3B3",
+      lightWhite: "#FFFFFF"
     },
 
-    // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
-    // if left empty, your system's login shell will be used by default
-    // make sure to use a full path if the binary name doesn't work
-    // (e.g `C:\\Windows\\System32\\bash.exe` instead of just `bash.exe`)
-    // if you're using powershell, make sure to remove the `--login` below
-    shell: '',
+    // A path to a custom shell to run when Hyper starts a new session
+    shell: "",
 
-    // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
-    // by default ['--login'] will be used
-    shellArgs: ['--login'],
+    // Override the npm registry URL to use when installing plugins
+    // npmRegistry: "",
 
-    // for environment variables
-    env: {},
+    // The default width/height in pixels of a new window e.g. [540, 380]
+    // windowSize: null,
 
-    // set to false for no bell
-    bell: false,
+    // If true, selected text will automatically be copied to the clipboard
+    // copyOnSelect: false,
 
-    // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    // System bell configuration. Available options are: "SOUND", false
+    bell: false
 
-    // if true, on right click selected text will be copied or pasted if no
-    // selection is present (true by default on Windows)
-    // quickEdit: true
+    // The URL of the bell sound to use, used only if "bell" is set to "SOUND"
+    // bellSoundURL: "lib-resource:hterm/audio/bell",
 
-    // URL to custom bell
-    // bellSoundURL: 'http://example.com/bell.mp3',
+    // Change the behaviour of modifier keys to act as meta key
+    // modifierKeys: { cmdIsMeta: false, altIsMeta: false },
 
-    // for advanced config flags please refer to https://hyper.is/#cfg
+    // Change the visibility of the hamburger menu. Available options are: true, false
+    // showHamburgerMenu: "",
+
+    // Change the position/visibility of the window controls. Available options are: true, false, "left"
+    // showWindowControls: ""
   },
 
   // a list of plugins to fetch and install from npm
@@ -104,16 +100,15 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [
-    "hypercwd",
-    "hyperterm-paste",
-    "hyperlinks",
-    "hyperterm-oceanic-next",
-    "hyperterm-mactabs"
-  ],
+  plugins: ["hyperterm-paste", "hyperlinks"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
+  localPlugins: [],
+
+  keymaps: {
+    // Example
+    // 'window:devtools': 'cmd+alt+o',
+  }
 };
