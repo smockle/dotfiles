@@ -31,7 +31,7 @@ module.exports = {
     foregroundColor: "#D4D4D4",
 
     // The color and opacity of the window and main terminal background
-    backgroundColor: "#252B2E",
+    backgroundColor: "#242B2E",
 
     // The color of the main window border and tab bar
     borderColor: "#333",
