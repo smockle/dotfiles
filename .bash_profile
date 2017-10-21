@@ -58,6 +58,9 @@ fi
 export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
+# PYTHON
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+
 # RUBY
 # Use system Ruby to install gems in a non-system location
 export GEM_HOME="/usr/local/bin"

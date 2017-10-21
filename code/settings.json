@@ -1,10 +1,10 @@
 {
   // Controls the font size in pixels.
-  "editor.fontSize": 11,
+  "editor.fontSize": 12,
 
   // Controls the font family.
   "editor.fontFamily":
-    "'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
+    "'Operator Mono Lig', 'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
 
   // Controls how lines should wrap. Can be:
   //  - 'off' (disable wrapping),
