@@ -37,7 +37,7 @@ module.exports = {
     borderColor: "#333",
 
     // Custom CSS to include in the main window
-    css: ".terminal {font-weight: 500}",
+    css: "@media (min-resolution: 2dppx) { .terminal {font-weight: 500} }",
 
     // Custom CSS to include in the terminal window
     termCSS:
