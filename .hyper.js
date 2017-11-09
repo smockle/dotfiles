@@ -48,7 +48,7 @@ module.exports = {
 
     // A list of overrides for the color palette. The names of the keys represent the "ANSI 16", which can all be seen in the default config.
     colors: {
-      black: "#7F7F7F",
+      black: "#242B2E",
       red: "#E15A60",
       green: "#99C794",
       yellow: "#FAC863",
