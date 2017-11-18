@@ -98,5 +98,8 @@
   // Style to use for the whole tag
   "highlight-matching-tag.style": {
     "border": "1px solid #6D7375"
-  }
+  },
+
+  // Enables commit signing with GPG.
+  "git.enableCommitSigning": true
 }
