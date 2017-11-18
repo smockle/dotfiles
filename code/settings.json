@@ -49,6 +49,12 @@
   // Enables native title bar.
   "window.nativeTabs": true,
 
+  // Controls if the explorer should ask for confirmation when deleting a file via the trash.
+  "explorer.confirmDelete": false,
+
+  // Controls if the explorer should ask for confirmation to move files and folders via drag and drop.
+  "explorer.confirmDragAndDrop": false,
+
   // Controls CSS validation and problem severities.
   // Enables or disables all validations
   "css.validate": false,
@@ -92,6 +98,5 @@
   // Style to use for the whole tag
   "highlight-matching-tag.style": {
     "border": "1px solid #6D7375"
-  },
-  "explorer.confirmDragAndDrop": false
+  }
 }
