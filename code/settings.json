@@ -85,21 +85,6 @@
   // Enables stylelint.
   "stylelint.enable": true,
 
-  // Style to use for left side of tag
-  "highlight-matching-tag.leftStyle": {
-    "borderColor": "transparent"
-  },
-
-  // Style to use for right side of tag
-  "highlight-matching-tag.rightStyle": {
-    "borderColor": "transparent"
-  },
-
-  // Style to use for the whole tag
-  "highlight-matching-tag.style": {
-    "border": "1px solid #6D7375"
-  },
-
   // Enables commit signing with GPG.
   "git.enableCommitSigning": true
 }
