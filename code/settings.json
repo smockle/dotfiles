@@ -37,12 +37,6 @@
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "none",
 
-  // Specifies the color theme used in the workbench.
-  "workbench.colorTheme": "Cobalt Next",
-
-  // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
-  "workbench.iconTheme": "seti",
-
   // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "none",
 
