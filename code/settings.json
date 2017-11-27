@@ -37,6 +37,26 @@
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "none",
 
+  // Overrides colors from the currently selected color theme.
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlack": "#1e1e1e",
+    "terminal.ansiBlue": "#569cd6",
+    "terminal.ansiBrightBlack": "#808080",
+    "terminal.ansiBrightBlue": "#9cdcfe",
+    "terminal.ansiBrightCyan": "#4ec9b0",
+    "terminal.ansiBrightGreen": "#608b4e",
+    "terminal.ansiBrightMagenta": "#c586c0",
+    "terminal.ansiBrightRed": "#ce9178",
+    "terminal.ansiBrightWhite": "#d4d4d4",
+    "terminal.ansiBrightYellow": "#dcdcaa",
+    "terminal.ansiCyan": "#4ec9b0",
+    "terminal.ansiGreen": "#608b4e",
+    "terminal.ansiMagenta": "#c586c0",
+    "terminal.ansiRed": "#ce9178",
+    "terminal.ansiWhite": "#d4d4d4",
+    "terminal.ansiYellow": "#dcdcaa"
+  },
+
   // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "none",
 
@@ -58,10 +78,10 @@
   "scss.validate": false,
 
   // Controls the font size in pixels of the terminal.
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 13,
 
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
-  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.lineHeight": 1.3,
 
   // Enables running the version of Flow defined in a package.json.
   "flow.useNPMPackagedFlow": true,
