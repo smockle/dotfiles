@@ -295,10 +295,12 @@ alias more='less'
 alias rm="rm -I"
 
 ## UPDATE TERMINAL CWD
-if [ `(type update_terminal_cwd | grep -q 'shell function' | wc -l) 2> /dev/null` -eq 0 ]; then
+if [ `(type update_terminal_cwd | grep 'shell function' | wc -l) 2> /dev/null` -eq 0 ]; then
+  if [ `(type update_terminal_cwd | grep 'is a function' | wc -l) 2> /dev/null` -eq 0 ]; then
     update_terminal_cwd() {
         return
     }
+  fi
 fi
 
 ## VISUAL STUDIO CODE INSIDERS
