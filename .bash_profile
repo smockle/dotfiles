@@ -340,6 +340,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   }
 fi
 
+# ROT13
+alias rot13='f(){ echo "$@" | tr "[A-Za-z" "[N-ZA-Mn-za-m]"; unset -f f; }; f'
+
 # TRASH
 # Empty the Trash on all mounted volumes and the main HDD.
 # Clear Apple’s System Logs to improve shell startup speed.
