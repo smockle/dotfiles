@@ -33,5 +33,5 @@ body > #lga *,
 
 .vc-diff-viewer .text-diff-container {
   font-family: "Operator Mono SSm Lig", "Operator Mono SSm", "Operator Mono Lig",
-    "Operator Mono", Consolas, Courier New, monospace;
+    "Operator Mono", Consolas, Courier New, monospace !important;
 }
