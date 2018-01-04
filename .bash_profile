@@ -229,6 +229,17 @@ git() {
   "diff")
     hub diff --color "$@" | diff-so-fancy
   ;;
+  # Add support for opening VSTS repos
+  "open")
+    DOMAIN=$(git ls-remote --get-url | sed 's#//#/#' | cut -d'/' -f2);
+    if [[ "$DOMAIN" == *visualstudio* ]]; then
+      REPO=$(git ls-remote --get-url);
+      BRANCH=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} | sed 's#origin/##;s#upstream/##;s#/#%2F#g');
+      open "$REPO?version=GB$BRANCH";
+    else
+      hub open "$@"
+    fi
+  ;;
   *)
     hub "${command}" "$@"
   ;;
