@@ -1,42 +1,30 @@
 {
   // Controls the font size in pixels.
   "editor.fontSize": 12,
-
   // Controls the font family.
-  "editor.fontFamily":
-    "'Operator Mono Lig', 'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
-
+  "editor.fontFamily": "'Operator Mono Lig', 'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
   // Controls how lines should wrap. Can be:
   //  - 'off' (disable wrapping),
   //  - 'on' (viewport wrapping),
   //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
   //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "on",
-
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": false,
-
   // Controls if the minimap is shown
   "editor.minimap.enabled": false,
-
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": false,
-
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
-  "editor.formatOnSave": false,
-
+  "editor.formatOnSave": true,
   // Enables font ligatures
   "editor.fontLigatures": true,
-
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "left",
-
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
   "workbench.editor.showIcons": true,
-
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "none",
-
   // Overrides colors from the currently selected color theme.
   "workbench.colorCustomizations": {
     "terminal.ansiBlack": "#1e1e1e",
@@ -56,49 +44,38 @@
     "terminal.ansiWhite": "#d4d4d4",
     "terminal.ansiYellow": "#dcdcaa"
   },
-
   // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "none",
-
   // Enables native title bar.
   "window.nativeTabs": true,
-
   // Controls if the explorer should ask for confirmation when deleting a file via the trash.
   "explorer.confirmDelete": false,
-
   // Controls if the explorer should ask for confirmation to move files and folders via drag and drop.
   "explorer.confirmDragAndDrop": false,
-
   // Controls CSS validation and problem severities.
   // Enables or disables all validations
   "css.validate": false,
-
   // Controls SCSS validation and problem severities.
   // Enables or disables all validations
   "scss.validate": false,
-
   // Controls the font size in pixels of the terminal.
   "terminal.integrated.fontSize": 13,
-
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1.3,
-
   // Enables running the version of Flow defined in a package.json.
   "flow.useNPMPackagedFlow": true,
-
+  // Require a 'prettierconfig' to format
+  "prettier.requireConfig": true,
   // Controls if prettier-vscode uses prettier-eslint.
   "prettier.eslintIntegration": true,
-
-  // Enables prettier for languages.
-  "prettier.javascriptEnable": [],
-  "prettier.typescriptEnable": [],
-  "prettier.cssEnable": [],
-  "prettier.jsonEnable": [],
-  "prettier.graphqlEnable": [],
-
   // Enables stylelint.
   "stylelint.enable": true,
-
+  // Whether auto fetching is enabled
+  "git.autofetch": true,
+  // Confirm before synchronizing git repositories
+  "git.confirmSync": false,
   // Enables commit signing with GPG.
-  "git.enableCommitSigning": true
+  "git.enableCommitSigning": true,
+  // Tracks whether the extension should display the Welcome message after the initial installation.
+  "team.showWelcomeMessage": false
 }
