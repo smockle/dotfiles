@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
+
+prompt_git() {
+	local s='';
+	local branchName='';
+
+	# Check if the current directory is in a Git repository.
+	if [ $(command git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
+
+		# check if the current directory is in .git before running git checks
+		if [ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+
+			# Ensure the index is up to date.
+			command git update-index --really-refresh -q &>/dev/null;
+
+			# Check for unfetched changes (changes in remote master which do not exist in local master).
+			local localhash='HEAD';
+			local remotehash='HEAD';
+			local connected=$(timeout 1s git ls-remote &>/dev/null; echo $?)
+			if test $connected -eq 0 && [ $(command git remote | grep upstream) ]; then
+				localhash=$(command git rev-parse master);
+				remotehash=$(command git ls-remote `command git remote get-url upstream` | head -1 | cut -f1);
+			elif test $connected -eq 0 && [ $(command git remote | grep origin) ]; then
+				localhash=$(command git rev-parse master);
+				remotehash=$(command git ls-remote `command git remote get-url origin` | head -1 | cut -f1);
+			fi;
+			if [ $localhash != $remotehash ]; then
+				s+='^';
+			fi;
+
+			# Check for uncommitted changes in the index.
+			if ! $(command git diff --quiet --ignore-submodules --cached); then
+				s+='+';
+			fi;
+
+			# Check for unstaged changes.
+			if ! $(command git diff-files --quiet --ignore-submodules --); then
+				s+='!';
+			fi;
+
+			# Check for untracked files.
+			if [ -n "$(command git ls-files --others --exclude-standard)" ]; then
+				s+='?';
+			fi;
+
+			# Check for stashed files.
+			if $(command git rev-parse --verify refs/stash &>/dev/null); then
+				s+='$';
+			fi;
+
+		fi;
+
+		# Get the short symbolic ref.
+		# If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
+		# Otherwise, just give up.
+		branchName="$(command git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+			command git rev-parse --short HEAD 2> /dev/null || \
+			echo '(unknown)')";
+
+		[ -n "${s}" ] && s=" [${s}]";
+
+		echo -e "${1}${branchName}${blue}${s}";
+	else
+		return;
+	fi;
+}

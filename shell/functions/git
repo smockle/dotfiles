@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+git() {
+  command=$1
+  shift 1
+  case $command in
+
+  # Remove all local branches that have been merged into master.
+  # http://stackoverflow.com/a/17029936/1923134
+  "unbranch")
+    git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d && git remote | xargs git remote prune
+  ;;
+
+  # Fetch unfetched changes (changes in remote master which do not exist in local master).
+  "sync")
+    git stash
+    git checkout master
+    if [ $(command git remote | grep upstream) ]; then
+      git pull upstream master
+    elif [ $(command git remote | grep origin) ]; then
+      git pull origin master
+    fi;
+    git push && git unbranch
+    git stash pop
+  ;;
+
+  "diff")
+    hub diff --color "$@" | diff-so-fancy
+  ;;
+
+  # Add support for opening VSTS repos
+  "open")
+    DOMAIN=$(git ls-remote --get-url | sed 's#//#/#' | cut -d'/' -f2);
+    if [[ "$DOMAIN" == *visualstudio* ]]; then
+      REPO=$(git ls-remote --get-url);
+      BRANCH=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} | sed 's#origin/##;s#upstream/##;s#/#%2F#g');
+      open "$REPO?version=GB$BRANCH";
+    else
+      hub open "$@"
+    fi
+  ;;
+
+  *)
+    hub "${command}" "$@"
+  ;;
+  
+  esac
+  return $?
+}

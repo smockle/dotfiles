@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# PATH
+# Directories to be prepended to PATH
+declare -a bindirs_to_prepend=(
+  "$HOME/bin" # Add select brew-installed GNU core utilities,
+  "$(brew --prefix)/sbin"
+  "$(brew --prefix)/bin"
+)
+
+# Prepend directories to PATH
+for index in ${!bindirs_to_prepend[*]}; do
+  if [ -d ${bindirs_to_prepend[$index]} ]; then
+    # If these directories exist, then prepend them to existing PATH
+    PATH="${bindirs_to_prepend[$index]}:$PATH"
+  fi
+done
+
+unset bindirs_to_prepend
+export PATH
+
+# MANPATH
+# Add select brew-installed GNU core utilities
+if [ -d ${mandirs_to_prepend[$index]} ]; then
+  # If these directories exist, then prepend them to existing PATH
+  MANPATH="$HOME/man:$MANPATH" 
+fi
+
+export MANPATH
