@@ -1,29 +1,49 @@
 #!/usr/bin/env bash
 
 update() {
+  command=$1
+  shift 1
+  case $command in
+
   # npm
-  echo "Updating npm modules…"
-  npm i -g npm@latest && npm update -g
-  printf "npm modules are up-to-date.\n\n"
+  "npm")
+    echo "Updating npm modules…"
+    npm i -g npm@latest && npm update -g
+    printf "npm modules are up-to-date.\n\n"
+  ;;
 
   # Homebrew
-  echo "Updating Homebrew packages…"
-  brew update && brew upgrade && brew cask upgrade
-  printf "Homebrew packages are up-to-date.\n\n"
+  "brew")
+    echo "Updating Homebrew packages…"
+    brew update && brew upgrade && brew cask upgrade
+    printf "Homebrew packages are up-to-date.\n\n"
+  ;;
 
   # Visual Studio Code
-  echo "Updating Visual Studio Code extensions…"
-  code-insiders --list-extensions | grep -v "romanresh.testcafe-test-runner" | xargs -I {} sh -c 'code-insiders --uninstall-extension {} && code-insiders --install-extension {}'
-  printf "Visual Studio Code extensions are up-to-date.\n\n"
+  "code")
+    echo "Updating Visual Studio Code extensions…"
+    code-insiders --list-extensions | grep -v "romanresh.testcafe-test-runner" | xargs -I {} sh -c 'code-insiders --uninstall-extension {} && code-insiders --install-extension {}'
+    printf "Visual Studio Code extensions are up-to-date.\n\n"
+  ;;
 
   # macOS
-  echo "Updating macOS applications…"
-  status=$(softwareupdate -l 2>&1)
-  if [[ $status == *"Done."* ]] || [[ $status == *"No new software available"* ]] || [[ $status == *"No updates are available"* ]]; then
-    echo "macOS applications are up-to-date."
-    unset status
-  else
-    echo "Enter your password to finish installing updates and restart your computer."
-    sudo sh -c "softwareupdate -ia && reboot"
-  fi
+  "macos")
+    echo "Updating macOS applications…"
+    status=$(softwareupdate -l 2>&1)
+    if [[ $status == *"Done."* ]] || [[ $status == *"No new software available"* ]] || [[ $status == *"No updates are available"* ]]; then
+      echo "macOS applications are up-to-date."
+      unset status
+    else
+      echo "Enter your password to finish installing updates and restart your computer."
+      sudo sh -c "softwareupdate -ia && reboot"
+    fi
+  ;;
+
+  # Update everything
+  *)
+    update npm && update brew && update code && update macos
+  ;;
+  
+  esac
+  return $?
 }
