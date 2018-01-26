@@ -5,6 +5,11 @@ echo "Installing packages via Homebrew…"
 bash "${HOME}/Projects/dotfiles/bin/brew.sh"
 printf "Installation complete.\n\n"
 
+# Install global npm modules
+echo "Installing modules via npm…"
+bash "${HOME}/Projects/dotfiles/bin/npm.sh"
+printf "Installation complete.\n\n"
+
 # Force create/replace symlinks
 echo "Creating symlinks…"
 bash "${HOME}/Projects/dotfiles/bin/link.sh"
