@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+update() {
+  # NPM
+  echo "Updating npm modules…"
+  npm i -g npm@latest && npm update -g
+  printf "npm modules are up-to-date.\n\n"
+
+  # BREW
+  echo "Updating brew packages…"
+  brew update && brew upgrade && brew cask upgrade
+  printf "Brew packages are up-to-date.\n\n"
+
+  # MACOS
+  echo "Updating macOS applications…"
+  status=$(softwareupdate -l 2>&1)
+  if [[ $status == *"Done."* ]] || [[ $status == *"No new software available"* ]] || [[ $status == *"No updates are available"* ]]; then
+    echo "macOS applications are up-to-date."
+    unset status
+  else
+    echo "Enter your password to finish installing updates and restart your computer."
+    sudo sh -c "softwareupdate -ia && reboot"
+  fi
+}
