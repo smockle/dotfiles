@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
 
 update() {
-  # NPM
+  # npm
   echo "Updating npm modules…"
   npm i -g npm@latest && npm update -g
   printf "npm modules are up-to-date.\n\n"
 
-  # BREW
-  echo "Updating brew packages…"
+  # Homebrew
+  echo "Updating Homebrew packages…"
   brew update && brew upgrade && brew cask upgrade
-  printf "Brew packages are up-to-date.\n\n"
+  printf "Homebrew packages are up-to-date.\n\n"
 
-  # MACOS
+  # Visual Studio Code
+  echo "Updating Visual Studio Code extensions…"
+  code-insiders --list-extensions | grep -v "romanresh.testcafe-test-runner" | xargs -I {} sh -c 'code-insiders --uninstall-extension {} && code-insiders --install-extension {}'
+  printf "Visual Studio Code extensions are up-to-date.\n\n"
+
+  # macOS
   echo "Updating macOS applications…"
   status=$(softwareupdate -l 2>&1)
   if [[ $status == *"Done."* ]] || [[ $status == *"No new software available"* ]] || [[ $status == *"No updates are available"* ]]; then
