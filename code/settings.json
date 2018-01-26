@@ -16,7 +16,7 @@
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": false,
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   // Enables font ligatures
   "editor.fontLigatures": true,
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
@@ -77,5 +77,6 @@
   // Enables commit signing with GPG.
   "git.enableCommitSigning": true,
   // Tracks whether the extension should display the Welcome message after the initial installation.
-  "team.showWelcomeMessage": false
+  "team.showWelcomeMessage": false,
+  "window.zoomLevel": 0
 }

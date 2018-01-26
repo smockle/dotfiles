@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+__less__() {
+  ARGS="${@}"
+  LAST_ARG="${@: -1}"
+  OPTS=""
+  if [[ "$ARGS" != "$LAST_ARG" ]]; then
+    OPTS="${ARGS% *}"
+  fi
+
+  if [[ -z "$LAST_ARG" ]]; then
+    # echo "No argument given. List the current directory."
+    echo "${green}. is a directory${reset}"
+    ls .
+
+  elif [[ -d "$LAST_ARG" ]]; then
+    # echo "Last argument is a directory. List it."
+    echo "${green}$LAST_ARG is a directory${reset}"
+    ls "$LAST_ARG"
+
+  else
+    # echo "Fallback to command less."
+    less "$@"
+  fi
+}
+alias less='__less__'

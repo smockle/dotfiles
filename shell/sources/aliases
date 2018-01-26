@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Visual Studio Code Insiders
+alias code="code-insiders"
+
+# Use git diff instead of diff
+alias diff="git diff"
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+
+# Use colors in ls
+alias ls="command ls -G"
+
+# More is less
+alias more="less"
+
+# Use a less-destructive rm
+alias rm="rm -I"

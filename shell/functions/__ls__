@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+__ls__() {
+  ARGS="${@}"
+  LAST_ARG="${@: -1}"
+  OPTS=""
+  if [[ "$ARGS" != "$LAST_ARG" ]]; then
+    OPTS="${ARGS% *}"
+  fi
+
+  if [[ -f "$LAST_ARG" ]]; then
+    # echo "Last argument is a file. Page through it."
+    echo "${green}$LAST_ARG is a file${reset}"
+    less "$LAST_ARG"
+
+  else
+    # echo "Fallback to command ls."
+    ls "$@"
+  fi
+}
+alias ls='__ls__'

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Clear Apple’s System Logs to improve shell startup speed.
+trash() {
+  sudo rm -rfv /Volumes/*/.Trashes
+  sudo rm -rfv ~/.Trash
+  sudo rm -rfv /private/var/log/asl/*.asl
+}
