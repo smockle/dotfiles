@@ -2,7 +2,7 @@
 
 # Brew
 brew update
-brew install bash bash-completion coreutils git hub node@8 wget
+brew install bash bash-completion coreutils git gnupg gpg-agent hub node@8 pinentry-mac wget
 
 # Cask
 brew tap caskroom/versions
