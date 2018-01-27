@@ -9,6 +9,7 @@ sourceall() {
       $HOME/Projects/dotfiles/shell/functions/* # Functions
       $HOME/Projects/dotfiles/shell/.bash_prompt # Custom bash prompt
       $(brew --prefix)/etc/bash_completion # Bash completion (installed via Homebrew)
+      $HOME/Projects/dotfiles/gpg/gpg-agent.sh # Ensure gpg-agent is running
     )
 
     # if these files are readable, source them

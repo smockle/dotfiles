@@ -13,6 +13,11 @@ ln -fs "/usr/local/opt/coreutils/libexec/gnuman/timeout" "${HOME}/man/timeout"
 ln -fs "${HOME}/Projects/dotfiles/git/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${HOME}/Projects/dotfiles/git/.gitignore" "${HOME}/.gitignore"
 
+# GPG
+mkdir -p "${HOME}/.gnupg"
+ln -fs "${HOME}/Projects/dotfiles/gpg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
+ln -fs "${HOME}/Projects/dotfiles/gpg/gpg.conf" "${HOME}/.gnupg/gpg.conf"
+
 # SHELL
 ln -fs "${HOME}/Projects/dotfiles/shell/.bash_profile" "${HOME}/.bash_profile"
 ln -fs "${HOME}/Projects/dotfiles/shell/.bash_prompt" "${HOME}/.bash_prompt"
