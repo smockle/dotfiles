@@ -10,6 +10,6 @@
 if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
     export GPG_AGENT_INFO=~/.gnupg/S.gpg-agent:1489:1
 else
-    gpg-agent --daemon
+    gpg-agent --daemon >/dev/null 2>&1
     export GPG_TTY=$(tty)
 fi
