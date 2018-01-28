@@ -1,6 +1,8 @@
 {
   // Controls the font size in pixels.
   "editor.fontSize": 12,
+  // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 2,
   // Controls the font family.
   "editor.fontFamily": "'Operator Mono Lig', 'Operator Mono', Menlo, Monaco, 'Courier New', monospace",
   // Controls how lines should wrap. Can be:
@@ -16,7 +18,7 @@
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": false,
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   // Enables font ligatures
   "editor.fontLigatures": true,
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
@@ -65,7 +67,7 @@
   // Enables running the version of Flow defined in a package.json.
   "flow.useNPMPackagedFlow": true,
   // Require a 'prettierconfig' to format
-  "prettier.requireConfig": true,
+  "prettier.requireConfig": false,
   // Controls if prettier-vscode uses prettier-eslint.
   "prettier.eslintIntegration": true,
   // Enables stylelint.
