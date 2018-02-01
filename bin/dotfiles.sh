@@ -19,3 +19,8 @@ printf "Symlinks created.\n\n"
 echo "Setting macOS defaults…"
 bash "${HOME}/Projects/dotfiles/bin/defaults.sh"
 echo "Defaults set."
+
+# Install Visual Studio Code extensions
+echo "Installing Visual Studio Code extensions…"
+bash "${HOME}/Projects/dotfiles/bin/code.sh"
+echo "Visual Studio Code extensions installed."
