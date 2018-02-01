@@ -9,6 +9,9 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Dock: Disable bouncing
 defaults write com.apple.dock no-bouncing -bool true
 
+# Dock: Minimize windows into application icon
+defaults write com.apple.dock minimize-to-application -bool true
+
 # Finder: Sort folders before files
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
