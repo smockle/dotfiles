@@ -6,6 +6,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Global: Disable smart dashes
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Global: Use dark menu bar and Dock
+defaults write NSGlobalDomain AppleInterfaceStyle Dark
+
 # Dock: Disable bouncing
 defaults write com.apple.dock no-bouncing -bool true
 
