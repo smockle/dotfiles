@@ -24,7 +24,7 @@ declare -a work_extensions=(
 install_code_extensions() {
   local extensions=("$@")
   for extension in "${extensions[@]}"; do
-    code-insiders --uninstall-extension "${extension}" && code-insiders --install-extension "${extension}"
+    code --uninstall-extension "${extension}" && code --install-extension "${extension}"
   done
 }
 
