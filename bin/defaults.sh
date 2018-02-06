@@ -30,7 +30,6 @@ defaults write com.apple.finder NSUserKeyEquivalents "{ 'Go to Folder...' = '@\$
 
 # Google Chrome: Use the system-native print preview dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
-defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 
 # Safari: Press Tab to highlight each item on a web page
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true

@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Visual Studio Code Insiders
-alias code="code-insiders"
-
 # Use git diff instead of diff
 alias diff="git diff"
 

@@ -9,9 +9,9 @@ brew install bash bash-completion coreutils git gnupg gpg-agent hub node@8 pinen
 
 ## Cask
 brew tap caskroom/versions
-brew cask install bartender docker google-chrome-canary spectacle visual-studio-code-insiders
+brew cask install bartender docker google-chrome spectacle visual-studio-code
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox now steam
 else
-  brew cask install firefoxnightly iina microsoft-teams onedrive
+  brew cask install firefox iina microsoft-teams onedrive
 fi
