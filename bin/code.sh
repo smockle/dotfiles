@@ -17,6 +17,7 @@ declare -a personal_extensions=(
   flowtype.flow-for-vscode
 )
 declare -a work_extensions=(
+  mrmlnc.vscode-scss
   ms-vsts.team
   romanresh.testcafe-test-runner
 )
