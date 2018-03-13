@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install global npm modules
-npm i -g @smockle/contrast diff-so-fancy eslint flow-bin
+npm i -g @smockle/contrast diff-so-fancy
 
 # When running `npm init`, suggest the MIT license (default: ISC license)
 npm config set init-license "MIT"

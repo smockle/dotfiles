@@ -6,7 +6,6 @@ PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
 declare -a extensions=(
   EditorConfig.EditorConfig
   ms-vsliveshare.vsliveshare
-  dbaeumer.vscode-eslint
   eg2.tslint
   mikestead.dotenv
   msjsdiag.debugger-for-chrome
@@ -14,7 +13,6 @@ declare -a extensions=(
 )
 declare -a personal_extensions=(
   esbenp.prettier-vscode
-  flowtype.flow-for-vscode
 )
 declare -a work_extensions=(
   mrmlnc.vscode-scss
