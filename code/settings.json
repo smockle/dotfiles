@@ -68,8 +68,6 @@
   "flow.useNPMPackagedFlow": true,
   // Require a 'prettierconfig' to format
   "prettier.requireConfig": false,
-  // Controls if prettier-vscode uses prettier-eslint.
-  "prettier.eslintIntegration": true,
   // Enables stylelint.
   "stylelint.enable": true,
   // Whether auto fetching is enabled
