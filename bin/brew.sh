@@ -7,7 +7,7 @@ PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
 brew update
 brew install bash bash-completion coreutils git gnupg gpg-agent hub node@8 pinentry-mac watchman wget
 if [ $PERSONAL -eq 0 ]; then
-  brew install awscli travis
+  brew install travis
 fi
 
 ## Cask
