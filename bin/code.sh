@@ -13,8 +13,6 @@ declare -a personal_extensions=(
   esbenp.prettier-vscode
 )
 declare -a work_extensions=(
-  eg2.tslint
-  mrmlnc.vscode-scss
   ms-vsts.team
   romanresh.testcafe-test-runner
 )
