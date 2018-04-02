@@ -1,0 +1,14 @@
+{
+  "name": "set-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "set-theme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clay Miller <clay@smockle.com> (https://smockle.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "comment-json": "^1.1.3"
+  }
+}
