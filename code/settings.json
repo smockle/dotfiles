@@ -27,43 +27,6 @@
   "workbench.editor.showIcons": true,
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "none",
-  // Overrides colors from the currently selected color theme.
-  "workbench.colorCustomizations": {
-    "terminal.ansiBlack": "#000000",
-    "terminal.ansiBlue": "#0451a5",
-    "terminal.ansiBrightBlack": "#6F6F6F",
-    "terminal.ansiBrightBlue": "#0451a5",
-    "terminal.ansiBrightCyan": "#267f99",
-    "terminal.ansiBrightGreen": "#008000",
-    "terminal.ansiBrightMagenta": "#af00db",
-    "terminal.ansiBrightRed": "#a31515",
-    "terminal.ansiBrightWhite": "#ffffff",
-    "terminal.ansiBrightYellow": "#795E26",
-    "terminal.ansiCyan": "#267f99",
-    "terminal.ansiGreen": "#008000",
-    "terminal.ansiMagenta": "#af00db",
-    "terminal.ansiRed": "#a31515",
-    "terminal.ansiWhite": "#ffffff",
-    "terminal.ansiYellow": "#795E26"
-  },
-  // "workbench.colorCustomizations": {
-  //   "terminal.ansiBlack": "#1e1e1e",
-  //   "terminal.ansiBlue": "#569cd6",
-  //   "terminal.ansiBrightBlack": "#808080",
-  //   "terminal.ansiBrightBlue": "#9cdcfe",
-  //   "terminal.ansiBrightCyan": "#4ec9b0",
-  //   "terminal.ansiBrightGreen": "#608b4e",
-  //   "terminal.ansiBrightMagenta": "#c586c0",
-  //   "terminal.ansiBrightRed": "#ce9178",
-  //   "terminal.ansiBrightWhite": "#d4d4d4",
-  //   "terminal.ansiBrightYellow": "#dcdcaa",
-  //   "terminal.ansiCyan": "#4ec9b0",
-  //   "terminal.ansiGreen": "#608b4e",
-  //   "terminal.ansiMagenta": "#c586c0",
-  //   "terminal.ansiRed": "#ce9178",
-  //   "terminal.ansiWhite": "#d4d4d4",
-  //   "terminal.ansiYellow": "#dcdcaa"
-  // },
   // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "none",
   // Enables native title bar.
@@ -96,6 +59,23 @@
   "git.enableCommitSigning": true,
   // Tracks whether the extension should display the Welcome message after the initial installation.
   "team.showWelcomeMessage": false,
-  "window.zoomLevel": 0,
-  "workbench.colorTheme": "Default Light+"
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlack": "#1e1e1e",
+    "terminal.ansiBlue": "#569cd6",
+    "terminal.ansiBrightBlack": "#808080",
+    "terminal.ansiBrightBlue": "#9cdcfe",
+    "terminal.ansiBrightCyan": "#4ec9b0",
+    "terminal.ansiBrightGreen": "#608b4e",
+    "terminal.ansiBrightMagenta": "#c586c0",
+    "terminal.ansiBrightRed": "#ce9178",
+    "terminal.ansiBrightWhite": "#d4d4d4",
+    "terminal.ansiBrightYellow": "#dcdcaa",
+    "terminal.ansiCyan": "#4ec9b0",
+    "terminal.ansiGreen": "#608b4e",
+    "terminal.ansiMagenta": "#c586c0",
+    "terminal.ansiRed": "#ce9178",
+    "terminal.ansiWhite": "#d4d4d4",
+    "terminal.ansiYellow": "#dcdcaa"
+  },
+  "workbench.colorTheme": "Default Dark+"
 }
