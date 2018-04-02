@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set_themes() {
-  if [[ `date +%H` -lt 7 ]] || [[ `date +%H` -gt 17 ]]; then
+  if [[ `date +%-H` -lt 7 ]] || [[ `date +%-H` -gt 17 ]]; then
     osascript "${HOME}/Projects/dotfiles/shell/themes/set-theme.scpt" "Dark+"
     node "${HOME}/Projects/dotfiles/code/themes/set-theme.js" "Default Dark+"
   else
