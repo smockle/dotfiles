@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Clay Miller <clay@smockle.com> (https://smockle.com/)",
+  "author": "Clay Miller <clay@smockle.com> (https://www.smockle.com/)",
   "license": "MIT",
   "dependencies": {
     "comment-json": "^1.1.3"
