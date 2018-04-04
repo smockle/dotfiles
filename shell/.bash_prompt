@@ -35,9 +35,6 @@ set_prompts() {
 		yellow="\e[1;33m";
   fi
 
-	# Update color schemes
-	set_themes
-
   # Highlight the user name when logged in as root.
   if [[ "${USER}" == "root" ]]; then
     userStyle="${red}";
