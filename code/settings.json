@@ -45,20 +45,14 @@
   "terminal.integrated.fontSize": 13,
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1.3,
-  // Enables running the version of Flow defined in a package.json.
-  "flow.useNPMPackagedFlow": true,
   // Require a 'prettierconfig' to format
   "prettier.requireConfig": false,
-  // Enables stylelint.
-  "stylelint.enable": true,
   // Whether auto fetching is enabled
   "git.autofetch": true,
   // Confirm before synchronizing git repositories
   "git.confirmSync": false,
   // Enables commit signing with GPG.
   "git.enableCommitSigning": true,
-  // Tracks whether the extension should display the Welcome message after the initial installation.
-  "team.showWelcomeMessage": false,
   "workbench.colorCustomizations": {
     "terminal.ansiBlack": "#1e1e1e",
     "terminal.ansiBlue": "#569cd6",
