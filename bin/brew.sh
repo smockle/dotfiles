@@ -12,7 +12,7 @@ fi
 
 ## Cask
 brew tap caskroom/versions
-brew cask install bartender google-chrome spectacle visual-studio-code
+brew cask install bartender spectacle visual-studio-code
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox
 else
