@@ -7,6 +7,8 @@
   "editor.tabSize": 2,
   // Controls whether the editor should render indent guides
   "editor.renderIndentGuides": false,
+  // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
+  "editor.cursorStyle": "line-thin",
   // Controls the font family.
   "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   // Controls how lines should wrap. Can be:
