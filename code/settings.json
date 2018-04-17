@@ -67,31 +67,94 @@
   // Adjust the appearance of the window title bar. Changes require a full restart to apply.
   "window.titleBarStyle": "native",
   "workbench.colorCustomizations": {
-    "editorLineNumber.foreground": "#AFAFAF",
-    "editorLineNumber.activeForeground": "#000000",
-    "editor.lineHighlightBackground": "#EDF5FF",
-    "statusBar.background": "#F6F6F6",
-    "statusBar.noFolderBackground": "#F6F6F6",
-    "statusBar.debuggingBackground": "#F6F6F6",
-    "editorGroupHeader.tabsBackground": "#F6F6F6",
-    "statusBar.foreground": "#424242",
-    "statusBar.border": "#CECECE",
-    "sideBar.border": "#CECECE",
-    "editorGroup.border": "#CECECE",
-    "editorGroupHeader.tabsBorder": "#CECECE",
-    "tab.border": "#CECECE",
-    "tab.inactiveForeground": "#424242",
-    "terminal.ansiBlue": "#3a00dc",
-    "terminal.ansiBrightBlue": "#3a00dc",
-    "terminal.ansiBrightCyan": "#3F6E74",
-    "terminal.ansiBrightGreen": "#008e00",
-    "terminal.ansiBrightMagenta": "#c800a4",
-    "terminal.ansiBrightRed": "#df0002",
-    "terminal.ansiBrightYellow": "#7d4726",
-    "terminal.ansiCyan": "#3F6E74",
-    "terminal.ansiGreen": "#008e00",
-    "terminal.ansiMagenta": "#c800a4",
-    "terminal.ansiRed": "#df0002",
-    "terminal.ansiYellow": "#7d4726"
-  }
+    "[Xcode_default]": {
+      "editorLineNumber.foreground": "#AFAFAF",
+      "editorLineNumber.activeForeground": "#000000",
+      "editor.lineHighlightBackground": "#EDF5FF",
+      "statusBar.background": "#F6F6F6",
+      "statusBar.noFolderBackground": "#F6F6F6",
+      "statusBar.debuggingBackground": "#F6F6F6",
+      "editorGroupHeader.tabsBackground": "#F6F6F6",
+      "statusBar.foreground": "#424242",
+      "statusBar.border": "#CECECE",
+      "sideBar.border": "#CECECE",
+      "editorGroup.border": "#CECECE",
+      "editorGroupHeader.tabsBorder": "#CECECE",
+      "tab.border": "#CECECE",
+      "tab.inactiveForeground": "#424242",
+      "terminal.ansiBlue": "#3a00dc",
+      "terminal.ansiBrightBlue": "#3a00dc",
+      "terminal.ansiBrightCyan": "#3F6E74",
+      "terminal.ansiBrightGreen": "#008e00",
+      "terminal.ansiBrightMagenta": "#c800a4",
+      "terminal.ansiBrightRed": "#df0002",
+      "terminal.ansiBrightYellow": "#7d4726",
+      "terminal.ansiCyan": "#3F6E74",
+      "terminal.ansiGreen": "#008e00",
+      "terminal.ansiMagenta": "#c800a4",
+      "terminal.ansiRed": "#df0002",
+      "terminal.ansiYellow": "#7d4726"
+    },
+    "[Default Dark+]": {
+      "terminal.ansiBlack": "#1e1e1e",
+      "terminal.ansiBlue": "#569cd6",
+      "terminal.ansiBrightBlack": "#808080",
+      "terminal.ansiBrightBlue": "#9cdcfe",
+      "terminal.ansiBrightCyan": "#4ec9b0",
+      "terminal.ansiBrightGreen": "#608b4e",
+      "terminal.ansiBrightMagenta": "#c586c0",
+      "terminal.ansiBrightRed": "#ce9178",
+      "terminal.ansiBrightWhite": "#d4d4d4",
+      "terminal.ansiBrightYellow": "#dcdcaa",
+      "terminal.ansiCyan": "#4ec9b0",
+      "terminal.ansiGreen": "#608b4e",
+      "terminal.ansiMagenta": "#c586c0",
+      "terminal.ansiRed": "#ce9178",
+      "terminal.ansiWhite": "#d4d4d4",
+      "terminal.ansiYellow": "#dcdcaa"
+    },
+    "[Default Light+]": {
+      "terminal.ansiBlack": "#000000",
+      "terminal.ansiBlue": "#0451a5",
+      "terminal.ansiBrightBlack": "#6F6F6F",
+      "terminal.ansiBrightBlue": "#0451a5",
+      "terminal.ansiBrightCyan": "#267f99",
+      "terminal.ansiBrightGreen": "#008000",
+      "terminal.ansiBrightMagenta": "#af00db",
+      "terminal.ansiBrightRed": "#a31515",
+      "terminal.ansiBrightWhite": "#ffffff",
+      "terminal.ansiBrightYellow": "#795E26",
+      "terminal.ansiCyan": "#267f99",
+      "terminal.ansiGreen": "#008000",
+      "terminal.ansiMagenta": "#af00db",
+      "terminal.ansiRed": "#a31515",
+      "terminal.ansiWhite": "#ffffff",
+      "terminal.ansiYellow": "#795E26"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "[Xcode_default]": {
+      "textMateRules": [
+        {
+          "scope": "keyword.other.unit.percentage.css",
+          "settings": {
+            "foreground": "#3a00dc"
+          }
+        },
+        {
+          "scope": "keyword.other.unit.px.css",
+          "settings": {
+            "foreground": "#3a00dc"
+          }
+        },
+        {
+          "scope": "keyword.other.unit.ms.css",
+          "settings": {
+            "foreground": "#3a00dc"
+          }
+        }
+      ]
+    }
+  },
+  "team.showWelcomeMessage": false
 }
