@@ -67,6 +67,16 @@
   "workbench.colorCustomizations": {
     "editorLineNumber.foreground": "#AFAFAF",
     "editorLineNumber.activeForeground": "#000000",
-    "editor.lineHighlightBackground": "#EDF5FF"
+    "editor.lineHighlightBackground": "#EDF5FF",
+    "statusBar.background": "#F6F6F6",
+    "statusBar.noFolderBackground": "#F6F6F6",
+    "statusBar.debuggingBackground": "#F6F6F6",
+    "editorGroupHeader.tabsBackground": "#F6F6F6",
+    "statusBar.foreground": "#424242",
+    "statusBar.border": "#CECECE",
+    "editorGroup.border": "#CECECE",
+    "editorGroupHeader.tabsBorder": "#CECECE",
+    "tab.border": "#CECECE",
+    "tab.inactiveForeground": "#424242"
   }
 }
