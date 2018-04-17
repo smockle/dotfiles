@@ -17,6 +17,8 @@
   //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
   //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "on",
+  // Controls if a border should be drawn around the overview ruler.
+  "editor.overviewRulerBorder": false,
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": false,
   // Controls if the minimap is shown
@@ -74,9 +76,10 @@
     "editorGroupHeader.tabsBackground": "#F6F6F6",
     "statusBar.foreground": "#424242",
     "statusBar.border": "#CECECE",
+    "sideBar.border": "#CECECE",
     "editorGroup.border": "#CECECE",
     "editorGroupHeader.tabsBorder": "#CECECE",
     "tab.border": "#CECECE",
-    "tab.inactiveForeground": "#424242"
+    "tab.inactiveForeground": "#424242",
   }
 }
