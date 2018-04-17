@@ -81,5 +81,17 @@
     "editorGroupHeader.tabsBorder": "#CECECE",
     "tab.border": "#CECECE",
     "tab.inactiveForeground": "#424242",
+    "terminal.ansiBlue": "#3a00dc",
+    "terminal.ansiBrightBlue": "#3a00dc",
+    "terminal.ansiBrightCyan": "#3F6E74",
+    "terminal.ansiBrightGreen": "#008e00",
+    "terminal.ansiBrightMagenta": "#c800a4",
+    "terminal.ansiBrightRed": "#df0002",
+    "terminal.ansiBrightYellow": "#7d4726",
+    "terminal.ansiCyan": "#3F6E74",
+    "terminal.ansiGreen": "#008e00",
+    "terminal.ansiMagenta": "#c800a4",
+    "terminal.ansiRed": "#df0002",
+    "terminal.ansiYellow": "#7d4726"
   }
 }
