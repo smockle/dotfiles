@@ -29,7 +29,6 @@
   "editor.formatOnSave": true,
   // Enables font ligatures
   "editor.fontLigatures": true,
-  // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "left",
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
   "workbench.editor.showIcons": false,
@@ -77,13 +76,13 @@
       "statusBar.noFolderBackground": "#F6F6F6",
       "statusBar.debuggingBackground": "#F6F6F6",
       "editorGroupHeader.tabsBackground": "#F6F6F6",
-      "statusBar.foreground": "#424242",
+      "statusBar.foreground": "#6c6c6c",
       "statusBar.border": "#CECECE",
       "sideBar.border": "#CECECE",
       "editorGroup.border": "#CECECE",
       "editorGroupHeader.tabsBorder": "#CECECE",
       "tab.border": "#CECECE",
-      "tab.inactiveForeground": "#424242",
+      "tab.inactiveForeground": "#6c6c6c",
       "terminal.ansiBlue": "#3a00dc",
       "terminal.ansiBrightBlue": "#3a00dc",
       "terminal.ansiBrightCyan": "#3F6E74",
@@ -198,7 +197,7 @@
           }
         },
         {
-          "scope": "keyword.control,keyword.operator.expression.typeof,keyword.operator.expression.instanceof,keyword.operator.new,storage.modifier,storage.type,storage.type.class,constant.language,variable.language.this,punctuation.decorator,meta.decorator variable.other.readwrite,variable.other.constant.property",
+          "scope": "keyword.control,keyword.control.import,keyword.operator.expression.typeof,keyword.operator.expression.instanceof,keyword.operator.new,storage.modifier,storage.type,storage.type.class,constant.language,variable.language.this,punctuation.decorator,meta.decorator variable.other.readwrite,variable.other.constant.property",
           "settings": {
             "foreground": "#AA0D91"
           }
