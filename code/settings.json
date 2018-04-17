@@ -66,6 +66,8 @@
   "workbench.colorTheme": "Xcode_default",
   // Adjust the appearance of the window title bar. Changes require a full restart to apply.
   "window.titleBarStyle": "native",
+  // Controls how the editor should render the current line highlight, possibilities are 'none', 'gutter', 'line', and 'all'.
+  "editor.renderLineHighlight": "all",
   "workbench.colorCustomizations": {
     "[Xcode_default]": {
       "editorLineNumber.foreground": "#AFAFAF",
