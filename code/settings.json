@@ -86,12 +86,12 @@
       "terminal.ansiBrightBlue": "#3a00dc",
       "terminal.ansiBrightCyan": "#3F6E74",
       "terminal.ansiBrightGreen": "#008e00",
-      "terminal.ansiBrightMagenta": "#c800a4",
+      "terminal.ansiBrightMagenta": "#AA0D91",
       "terminal.ansiBrightRed": "#df0002",
       "terminal.ansiBrightYellow": "#7d4726",
       "terminal.ansiCyan": "#3F6E74",
       "terminal.ansiGreen": "#008e00",
-      "terminal.ansiMagenta": "#c800a4",
+      "terminal.ansiMagenta": "#AA0D91",
       "terminal.ansiRed": "#df0002",
       "terminal.ansiYellow": "#7d4726"
     },
@@ -136,25 +136,62 @@
     "[Xcode_default]": {
       "textMateRules": [
         {
-          "scope": "keyword.other.unit.percentage.css",
+          "scope": "keyword.other.unit.px.css,keyword.other.unit.ms.css,keyword.other.unit.percentage.css",
           "settings": {
             "foreground": "#3a00dc"
           }
         },
         {
-          "scope": "keyword.other.unit.px.css",
+          "scope": "meta.definition.variable variable.other.readwrite",
           "settings": {
-            "foreground": "#3a00dc"
+            "foreground": "#000000"
           }
         },
         {
-          "scope": "keyword.other.unit.ms.css",
+          "scope": "variable.other.readwrite",
           "settings": {
-            "foreground": "#3a00dc"
+            "foreground": "#3F6E74"
+          }
+        },
+        {
+          "scope": "keyword.operator.type.annotation.tsx,keyword.operator.optional.tsx,keyword.operator.logical,keyword.operator.comparison,keyword.operator.assignment,keyword.operator.spread,keyword.operator.type,keyword.operator.ternary",
+          "settings": {
+            "foreground": "#000000"
+          },
+        },
+        {
+          "scope": "meta.type.annotation.tsx",
+          "settings": {
+            "foreground": "#790ead"
+          }
+        },
+        {
+          "scope": "variable.other.object",
+          "settings": {
+            "foreground": "#000000"
+          }
+        },
+        {
+          "scope": "variable.other.property,support.variable.property",
+          "settings": {
+            "foreground": "#790ead"
+          }
+        },
+        {
+          "scope": "punctuation.definition.block.tag.jsdoc,storage.type.class.jsdoc,variable.other.jsdoc",
+          "settings": {
+            "foreground": "#008e00"
+          }
+        },
+        {
+          "scope": "keyword.control,keyword.operator.expression.typeof,storage.modifier,storage.type,storage.type.class,constant.language,variable.language.this,variable.other.enummember",
+          "settings": {
+            "foreground": "#AA0D91"
           }
         }
       ]
     }
   },
-  "team.showWelcomeMessage": false
+  "team.showWelcomeMessage": false,
+  "workbench.editor.showTabs": false
 }
