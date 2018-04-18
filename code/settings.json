@@ -76,6 +76,7 @@
       "statusBar.noFolderBackground": "#F6F6F6",
       "statusBar.debuggingBackground": "#F6F6F6",
       "editorGroupHeader.tabsBackground": "#F6F6F6",
+      "sideBar.background": "#F6F6F6",
       "statusBar.foreground": "#767676",
       "statusBar.border": "#CECECE",
       "sideBar.border": "#CECECE",
@@ -212,5 +213,6 @@
     }
   },
   "team.showWelcomeMessage": false,
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "workbench.iconTheme": "vs-minimal"
 }
