@@ -62,7 +62,7 @@
   "git.confirmSync": false,
   // Enables commit signing with GPG.
   "git.enableCommitSigning": true,
-  "workbench.colorTheme": "Xcode_default",
+  "workbench.colorTheme": "Xcode Default Theme",
   // Adjust the appearance of the window title bar. Changes require a full restart to apply.
   "window.titleBarStyle": "native",
   // Controls how the editor should render the current line highlight, possibilities are 'none', 'gutter', 'line', and 'all'.
@@ -212,7 +212,6 @@
       ]
     }
   },
-  "team.showWelcomeMessage": false,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": true,
   "workbench.iconTheme": "vs-minimal"
 }

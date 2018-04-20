@@ -30,10 +30,10 @@ git() {
     git checkout master
     if [ $(command git remote | grep upstream) ]; then
       git fetch -a upstream
-      git pull upstream master
+      git pull upstream master --rebase
     elif [ $(command git remote | grep origin) ]; then
       git fetch -a origin
-      git pull origin master
+      git pull origin master --rebase
     fi;
     git push && git unbranch
     git stash pop
