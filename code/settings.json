@@ -30,6 +30,8 @@
   // Enables font ligatures
   "editor.fontLigatures": true,
   "workbench.editor.tabCloseButton": "left",
+  // Controls the sizing of editor tabs. Set to 'fit' to keep tabs always large enough to show the full editor label. Set to 'shrink' to allow tabs to get smaller when the available space is not enough to show all tabs at once.
+  "workbench.editor.tabSizing": "shrink",
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
   "workbench.editor.showIcons": false,
   // Controls the visibility of the activity bar in the workbench.
@@ -67,151 +69,9 @@
   "window.titleBarStyle": "native",
   // Controls how the editor should render the current line highlight, possibilities are 'none', 'gutter', 'line', and 'all'.
   "editor.renderLineHighlight": "all",
-  "workbench.colorCustomizations": {
-    "[Xcode_default]": {
-      "editorLineNumber.foreground": "#AFAFAF",
-      "editorLineNumber.activeForeground": "#000000",
-      "editor.lineHighlightBackground": "#EDF5FF",
-      "statusBar.background": "#F6F6F6",
-      "statusBar.noFolderBackground": "#F6F6F6",
-      "statusBar.debuggingBackground": "#F6F6F6",
-      "editorGroupHeader.tabsBackground": "#F6F6F6",
-      "sideBar.background": "#F6F6F6",
-      "statusBar.foreground": "#767676",
-      "statusBar.border": "#CECECE",
-      "sideBar.border": "#CECECE",
-      "editorGroup.border": "#CECECE",
-      "editorGroupHeader.tabsBorder": "#CECECE",
-      "tab.border": "#CECECE",
-      "tab.inactiveForeground": "#767676",
-      "terminal.ansiBlue": "#3a00dc",
-      "terminal.ansiBrightBlue": "#3a00dc",
-      "terminal.ansiBrightCyan": "#3F6E74",
-      "terminal.ansiBrightGreen": "#007400",
-      "terminal.ansiBrightMagenta": "#AA0D91",
-      "terminal.ansiBrightRed": "#C41A16",
-      "terminal.ansiBrightYellow": "#7d4726",
-      "terminal.ansiCyan": "#3F6E74",
-      "terminal.ansiGreen": "#007400",
-      "terminal.ansiMagenta": "#AA0D91",
-      "terminal.ansiRed": "#C41A16",
-      "terminal.ansiYellow": "#7d4726"
-    },
-    "[Default Dark+]": {
-      "terminal.ansiBlack": "#1e1e1e",
-      "terminal.ansiBlue": "#569cd6",
-      "terminal.ansiBrightBlack": "#808080",
-      "terminal.ansiBrightBlue": "#9cdcfe",
-      "terminal.ansiBrightCyan": "#4ec9b0",
-      "terminal.ansiBrightGreen": "#608b4e",
-      "terminal.ansiBrightMagenta": "#c586c0",
-      "terminal.ansiBrightRed": "#ce9178",
-      "terminal.ansiBrightWhite": "#d4d4d4",
-      "terminal.ansiBrightYellow": "#dcdcaa",
-      "terminal.ansiCyan": "#4ec9b0",
-      "terminal.ansiGreen": "#608b4e",
-      "terminal.ansiMagenta": "#c586c0",
-      "terminal.ansiRed": "#ce9178",
-      "terminal.ansiWhite": "#d4d4d4",
-      "terminal.ansiYellow": "#dcdcaa"
-    },
-    "[Default Light+]": {
-      "terminal.ansiBlack": "#000000",
-      "terminal.ansiBlue": "#0451a5",
-      "terminal.ansiBrightBlack": "#6F6F6F",
-      "terminal.ansiBrightBlue": "#0451a5",
-      "terminal.ansiBrightCyan": "#267f99",
-      "terminal.ansiBrightGreen": "#008000",
-      "terminal.ansiBrightMagenta": "#af00db",
-      "terminal.ansiBrightRed": "#a31515",
-      "terminal.ansiBrightWhite": "#ffffff",
-      "terminal.ansiBrightYellow": "#795E26",
-      "terminal.ansiCyan": "#267f99",
-      "terminal.ansiGreen": "#008000",
-      "terminal.ansiMagenta": "#af00db",
-      "terminal.ansiRed": "#a31515",
-      "terminal.ansiWhite": "#ffffff",
-      "terminal.ansiYellow": "#795E26"
-    }
-  },
-  "editor.tokenColorCustomizations": {
-    "[Xcode_default]": {
-      "textMateRules": [
-        {
-          "scope": "keyword.other.unit.px.css,keyword.other.unit.ms.css,keyword.other.unit.percentage.css",
-          "settings": {
-            "foreground": "#3a00dc"
-          }
-        },
-        {
-          "scope": "meta.definition.variable variable.other.readwrite",
-          "settings": {
-            "foreground": "#000000"
-          }
-        },
-        {
-          "scope": "variable.other.readwrite",
-          "settings": {
-            "foreground": "#3F6E74"
-          }
-        },
-        {
-          "scope": "keyword.operator.type.annotation.tsx,keyword.operator.type.annotation.ts,keyword.operator.optional.tsx,keyword.operator.optional.ts,keyword.operator.logical,keyword.operator.comparison,keyword.operator.assignment,keyword.operator.spread,keyword.operator.type,keyword.operator.ternary,keyword.operator.rest,keyword.operator.arithmetic,keyword.operator.relational,keyword.operator.increment,storage.type.function.arrow,keyword.operator.bitwise",
-          "settings": {
-            "foreground": "#000000"
-          },
-        },
-        {
-          "scope": "meta.type.annotation.tsx,meta.type.annotation.ts,entity.name.type.tsx,entity.name.type.ts",
-          "settings": {
-            "foreground": "#5C2699"
-          }
-        },
-        {
-          "scope": "variable.other.object",
-          "settings": {
-            "foreground": "#000000"
-          }
-        },
-        {
-          "scope": "variable.other.property,variable.other.object.property,support.variable.property",
-          "settings": {
-            "foreground": "#5C2699"
-          }
-        },
-        {
-          "scope": "variable.other.enummember,variable.scss,new.expr entity.name,variable.other.constant.object,meta.function-call",
-          "settings": {
-            "foreground": "#3F6E74"
-          }
-        },
-        {
-          "scope": "meta.function-call punctuation.accessor",
-          "settings": {
-            "foreground": "#000000"
-          }
-        },
-        {
-          "scope": "punctuation.definition.block.tag.jsdoc,storage.type.class.jsdoc,variable.other.jsdoc,comment",
-          "settings": {
-            "foreground": "#007400"
-          }
-        },
-        {
-          "scope": "keyword.control,keyword.control.import,keyword.operator.expression.typeof,keyword.operator.expression.instanceof,keyword.operator.new,storage.modifier,storage.type,storage.type.class,constant.language,variable.language.this,punctuation.decorator,meta.decorator variable.other.readwrite,variable.other.constant.property",
-          "settings": {
-            "foreground": "#AA0D91"
-          }
-        },
-        {
-          "scope": "string.quoted,string.template",
-          "settings": {
-            "foreground": "#C41A16"
-          }
-        }
-      ]
-    }
-  },
   "workbench.editor.showTabs": true,
-  "workbench.iconTheme": "vs-minimal"
+  "workbench.iconTheme": "vs-minimal",
+  "vscode_custom_css.imports": [
+    "file:///Users/clay/.vscode/extensions/smockle.xcode-default-theme-1.0.17/xcode-default-theme.css"
+  ]
 }
