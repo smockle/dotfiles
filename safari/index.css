@@ -32,6 +32,5 @@ body > #lga *,
 }
 
 .vc-diff-viewer .text-diff-container {
-  font-family: "Operator Mono SSm Lig", "Operator Mono SSm", "Operator Mono Lig",
-    "Operator Mono", Consolas, Courier New, monospace !important;
+  font-family: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace !important;
 }
