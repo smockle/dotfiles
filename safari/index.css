@@ -31,6 +31,30 @@ body > #lga *,
   opacity: 0;
 }
 
-.vc-diff-viewer .text-diff-container {
+.monaco-editor .view-lines,
+.vc-diff-viewer .text-diff-container,
+.margin-view-overlays {
   font-family: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace !important;
+  font-size: 11px !important;
+  line-height: 16px !important;
+  letter-spacing: 0 !important;
+}
+
+.margin-view-overlays > div,
+.monaco-editor .view-lines:not(:first-child) {
+  margin-top: -2px;
+}
+
+.view-overlays .current-line {
+  background-color: #eef5fe !important;
+  border: 0 !important;
+  height: 17px !important;
+  margin-top: -3px !important;
+}
+
+.view-overlays .cdr.bracket-match,
+.view-overlays .cdr.wordHighlightStrong,
+.view-overlays .cslr.selected-text,
+.monaco-editor .cursors-layer > .cursor {
+  height: 13px !important;
 }
