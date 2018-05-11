@@ -16,6 +16,7 @@
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.wordWrap": "on",
+  "workbench.colorTheme": "Xcode Default Theme",
   "workbench.editor.tabCloseButton": "left",
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
@@ -35,5 +36,5 @@
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
-  "window.restoreWindows": "folders"
+  "window.restoreWindows": "none",
 }
