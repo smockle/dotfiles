@@ -37,4 +37,5 @@
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
   "window.restoreWindows": "none",
+  "team.showWelcomeMessage": false,
 }
