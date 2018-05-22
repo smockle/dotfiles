@@ -7,7 +7,6 @@
   "editor.lineHeight": 16.4,
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.lineHeight": 1.25,
-
   // Editor: Interface
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
@@ -23,9 +22,8 @@
   "workbench.iconTheme": "vs-minimal",
   "window.nativeTabs": true,
   "window.titleBarStyle": "native",
-
   // Editor: Behavior
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -37,5 +35,5 @@
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
   "window.restoreWindows": "none",
-  "team.showWelcomeMessage": false,
+  "team.showWelcomeMessage": false
 }
