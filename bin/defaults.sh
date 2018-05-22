@@ -6,6 +6,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Global: Disable smart dashes
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Global: Disable system sounds
+defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
+
 # Dock: Disable bouncing
 defaults write com.apple.dock no-bouncing -bool true
 
@@ -56,12 +59,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Screen Capture: Save screenshots to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 # then run `killall SystemUIServer`
-
-# Skype for Business: Customize keyboard shortcuts
-defaults write com.microsoft.SkypeForBusiness NSUserKeyEquivalents "{ 'Skype Home' = '@t'; }"
-
-# Tweetbot: Resize font to match system font
-defaults write com.tapbots.TweetbotMac fontSize 14
 
 # Keyboard shortcuts:
 # Command @
