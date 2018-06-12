@@ -16,6 +16,7 @@ declare -a work_extensions=(
   eg2.tslint
   ms-vsliveshare.vsliveshare
   ms-vsts.team
+  PeterJausovec.vscode-docker
   romanresh.testcafe-test-runner
 )
 
