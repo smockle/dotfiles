@@ -12,9 +12,9 @@ fi
 
 ## Cask
 brew tap caskroom/versions
-brew cask install bartender spectacle visual-studio-code
+brew cask install bartender docker spectacle visual-studio-code
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox mono-mdk steam
 else
-  brew cask install docker google-chrome microsoft-teams onedrive powershell sketch
+  brew cask install google-chrome microsoft-teams onedrive powershell sketch
 fi
