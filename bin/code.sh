@@ -7,6 +7,7 @@ declare -a extensions=(
   EditorConfig.EditorConfig
   mikestead.dotenv
   msjsdiag.debugger-for-chrome
+  PeterJausovec.vscode-docker
   smockle.xcode-default-theme
 )
 declare -a personal_extensions=(
@@ -16,7 +17,6 @@ declare -a work_extensions=(
   eg2.tslint
   ms-vsliveshare.vsliveshare
   ms-vsts.team
-  PeterJausovec.vscode-docker
   romanresh.testcafe-test-runner
 )
 
