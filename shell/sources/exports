@@ -29,16 +29,5 @@ export MANPAGER="less"
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="${orange}"
 
-# Ensure external scripts use a less-destructive rm
-export BASH_ENV="$HOME/.bashenv"
-
 # Ellipsize directory path in prompt, when necessary.
 export PROMPT_DIRTRIM=2
-
-# Display a newline before new prompts
-export PROMPTED=false
-if [[ $PROMPT_COMMAND == 'if [[ $PROMPTED = true ]];'* ]]; then
-  export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true;"
-else
-  export PROMPT_COMMAND="if [[ \$PROMPTED = true ]]; then echo ''; fi; export PROMPTED=true; $PROMPT_COMMAND"
-fi

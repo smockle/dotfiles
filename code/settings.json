@@ -29,12 +29,8 @@
   "explorer.confirmDragAndDrop": false,
   "git.autofetch": true,
   "git.confirmSync": false,
-  "git.enableCommitSigning": true,
   "prettier.requireConfig": false,
-  "prettier.disableLanguages": [
-    "css",
-    "scss"
-  ],
+  "prettier.disableLanguages": ["css", "scss"],
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",

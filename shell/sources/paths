@@ -5,7 +5,6 @@
 declare -a bindirs_to_prepend=(
   "$(brew --prefix)/opt/node@8/bin" # Add brew-install node@8
   "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
-  "$HOME/bin" # Add select brew-installed GNU core utilities,
   "$(brew --prefix)/sbin"
   "$(brew --prefix)/bin"
 )
@@ -20,12 +19,3 @@ done
 
 unset bindirs_to_prepend
 export PATH
-
-# MANPATH
-# Add select brew-installed GNU core utilities
-if [ -d ${mandirs_to_prepend[$index]} ]; then
-  # If these directories exist, then prepend them to existing PATH
-  MANPATH="$HOME/man:$MANPATH" 
-fi
-
-export MANPATH

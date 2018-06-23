@@ -1,2 +1,0 @@
-shopt -s expand_aliases
-alias rm='rm -I'
