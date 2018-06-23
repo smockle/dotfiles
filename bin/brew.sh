@@ -9,7 +9,7 @@ brew install bash bash-completion git node@8 watchman
 
 ## Cask
 brew tap caskroom/versions
-brew cask install bartender docker spectacle visual-studio-code-insiders
+brew cask install 1password-beta bartender docker spectacle visual-studio-code-insiders
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox
 else
