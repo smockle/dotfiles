@@ -4,7 +4,7 @@
 PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
 
 # Install global npm modules
-npm i -g @smockle/contrast diff-so-fancy
+npm i -g diff-so-fancy
 if [ ! $PERSONAL -eq 0 ]; then
   npm i -g @mobile-center/clusterficks
 fi
@@ -16,6 +16,3 @@ npm config set init-license "MIT"
 npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
-
-# When running `npm version`, sign the git tag
-npm config set sign-git-tag true
