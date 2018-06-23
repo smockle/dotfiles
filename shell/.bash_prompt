@@ -47,4 +47,14 @@ set_prompts() {
 }
 
 set_prompts
+
+# Inspired by https://stackoverflow.com/a/14860632
+INITIAL_PROMPT_COMMAND="${PROMPT_COMMAND}"
+PROMPT_COMMAND='eval $INITIAL_PROMPT_COMMAND && (( PROMPT_CTR-- < 0 )) && {
+  PROMPT_COMMAND=$INITIAL_PROMPT_COMMAND
+  PS1="\n$PS1"
+  unset INITIAL_PROMPT_COMMAND
+  unset PROMPT_CTR
+}'
+
 unset set_prompts
