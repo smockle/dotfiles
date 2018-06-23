@@ -5,7 +5,6 @@ PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
 
 declare -a extensions=(
   EditorConfig.EditorConfig
-  mikestead.dotenv
   msjsdiag.debugger-for-chrome
   PeterJausovec.vscode-docker
   smockle.xcode-default-theme
@@ -23,10 +22,10 @@ declare -a work_extensions=(
 install_code_extensions() {
   local extensions=("$@")
   for extension in "${extensions[@]}"; do
-    if code --list-extensions | grep -q "${extension}"; then
-      code --uninstall-extension "${extension}" 
+    if code-insiders --list-extensions | grep -q "${extension}"; then
+      code-insiders --uninstall-extension "${extension}" 
     fi
-    code --install-extension "${extension}"
+    code-insiders --install-extension "${extension}"
   done
 }
 

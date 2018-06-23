@@ -8,59 +8,22 @@ git() {
   # Create a new branch with the same name if one does not exist,
   # safer than `git config --global push.default current`.
   "push")
-    BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-    if [[ -z $(git config "branch.$BRANCH_NAME.merge") && -z "$@" ]]; then
-      hub push --set-upstream origin "$BRANCH_NAME"
-    elif [[ -z $(git config "branch.$BRANCH_NAME.merge") ]]; then
-      hub push --set-upstream "$@"
+    BRANCH_NAME=$(command git rev-parse --abbrev-ref HEAD)
+    if [[ -z $(command git config "branch.$BRANCH_NAME.merge") && -z "$@" ]]; then
+      command git push --set-upstream origin "$BRANCH_NAME"
+    elif [[ -z $(command git config "branch.$BRANCH_NAME.merge") ]]; then
+      command git push --set-upstream "$@"
     else
-      hub push "$@"
+      command git push "$@"
     fi
-  ;;
-
-  # Remove all branches that have been merged into master.
-  # https://stackoverflow.com/a/18143078
-  "unbranch")
-    # Remove remote merged branches
-    git fetch --prune --all
-    git branch -r --merged | egrep -v "(^\*|master|dev)" | grep origin | sed 's/origin\///' | xargs -n 1 git push --delete origin
-    # Remove local merged branches
-    git branch --merged | egrep -v "(^\*|master|dev)" | xargs -n 1 git branch -d
-  ;;
-
-  # Fetch unfetched changes (changes in remote master which do not exist in local master).
-  "sync")
-    git stash
-    git checkout master
-    if [ $(command git remote | grep upstream) ]; then
-      git fetch -a upstream
-      git pull upstream master --rebase
-    elif [ $(command git remote | grep origin) ]; then
-      git fetch -a origin
-      git pull origin master --rebase
-    fi;
-    git push && git unbranch
-    git stash pop
   ;;
 
   "diff")
-    hub diff --color "$@" | diff-so-fancy
-  ;;
-
-  # Add support for opening VSTS repos
-  "open")
-    DOMAIN=$(git ls-remote --get-url | sed 's#//#/#' | cut -d'/' -f2);
-    if [[ "$DOMAIN" == *visualstudio* ]]; then
-      REPO=$(git ls-remote --get-url);
-      BRANCH=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} | sed 's#origin/##;s#upstream/##;s#/#%2F#g');
-      open "$REPO?version=GB$BRANCH";
-    else
-      hub open "$@"
-    fi
+    command git diff --color "$@" | diff-so-fancy
   ;;
 
   *)
-    hub "${command}" "$@"
+    command git "${command}" "$@"
   ;;
   
   esac

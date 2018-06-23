@@ -13,5 +13,5 @@ alias ls="command ls -G"
 # More is less
 alias more="less"
 
-# Use a less-destructive rm
-alias rm="rm -I"
+# Visual Studio Code Insiders
+alias code="code-insiders"

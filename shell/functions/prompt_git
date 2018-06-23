@@ -15,21 +15,6 @@ prompt_git() {
 			# Ensure the index is up to date.
 			command git update-index --really-refresh -q &>/dev/null;
 
-			# Check for unfetched changes (changes in remote master which do not exist in local master).
-			local localhash='HEAD';
-			local remotehash='HEAD';
-			local connected=$(timeout 1s git ls-remote &>/dev/null; echo $?)
-			if test $connected -eq 0 && [ $(command git remote | grep upstream) ]; then
-				localhash=$(command git rev-parse master);
-				remotehash=$(command git ls-remote `command git remote get-url upstream` | head -1 | cut -f1);
-			elif test $connected -eq 0 && [ $(command git remote | grep origin) ]; then
-				localhash=$(command git rev-parse master);
-				remotehash=$(command git ls-remote `command git remote get-url origin` | head -1 | cut -f1);
-			fi;
-			if [ $localhash != $remotehash ]; then
-				s+='^';
-			fi;
-
 			# Check for uncommitted changes in the index.
 			if ! $(command git diff --quiet --ignore-submodules --cached); then
 				s+='+';
