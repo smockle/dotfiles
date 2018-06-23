@@ -5,7 +5,6 @@ PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
 
 declare -a extensions=(
   EditorConfig.EditorConfig
-  mikestead.dotenv
   msjsdiag.debugger-for-chrome
   PeterJausovec.vscode-docker
   smockle.xcode-default-theme

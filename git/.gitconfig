@@ -1,7 +1,6 @@
 [alias]
 	co = checkout
 	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr) %Cblue<%an>%Creset'"
-	open = browse
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -32,15 +31,5 @@
 [help]
 	autocorrect = -1
 
-[hub]
-	protocol = https
-
 [fetch]
 	prune = true
-
-[gitlab]
-	url = https://gitlab.com
-	token = !security find-generic-password -a smockle -l 'gitlab token' -w
-
-[commit]
-	gpgsign = true
