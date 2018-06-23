@@ -31,6 +31,10 @@
   "git.confirmSync": false,
   "git.enableCommitSigning": true,
   "prettier.requireConfig": false,
+  "prettier.disableLanguages": [
+    "css",
+    "scss"
+  ],
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
