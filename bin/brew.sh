@@ -6,6 +6,9 @@ PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
 ## Brew
 brew update
 brew install bash bash-completion git node@8 watchman
+if [ $PERSONAL -ne 0 ]; then
+  brew install azure-cli
+fi
 
 ## Cask
 brew tap caskroom/versions
