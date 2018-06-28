@@ -16,5 +16,5 @@ brew cask install 1password-beta bartender docker spectacle visual-studio-code-i
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox
 else
-  brew cask install google-chrome microsoft-teams onedrive powershell sketch
+  brew cask install google-chrome microsoft-teams onedrive powershell sketch skype-for-business
 fi
