@@ -72,9 +72,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture location ~/Downloads
 # then run `killall SystemUIServer`
 
-# Spotlight: Disable indexing mounted volumes
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
 # Spotlight: Disable some categories
 defaults write com.apple.spotlight orderedItems -array \
 	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
