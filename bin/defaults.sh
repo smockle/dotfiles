@@ -9,9 +9,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Global: Disable system sounds
 defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
 
-# Calendar: Clear time zone dropdown options
-defaults delete ~/Library/Containers/com.apple.iCal/Data/Library/Preferences/com.apple.iCal.plist 'RecentlyUsedTimeZones'
-
 # Dock: Disable bouncing
 defaults write com.apple.dock no-bouncing -bool true
 
