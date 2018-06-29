@@ -9,6 +9,9 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Global: Disable system sounds
 defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
 
+# Calendar: Clear time zone dropdown options
+defaults delete ~/Library/Containers/com.apple.iCal/Data/Library/Preferences/com.apple.iCal.plist 'RecentlyUsedTimeZones'
+
 # Dock: Disable bouncing
 defaults write com.apple.dock no-bouncing -bool true
 
@@ -18,15 +21,11 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Dock: Size
 defaults write com.apple.dock tilesize -int 42
 
-# Dock
-killall Dock
-
 # Finder: Sort folders before files
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Finder: Show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-# then `killall Finder`
 
 # Finder: Hide desktop icons
 defaults write com.apple.finder CreateDesktop -bool false
@@ -40,34 +39,37 @@ sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 # Google Chrome: Use the system-native print preview dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
 
+# Mail: Only receive notifications from VIPs
+defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist MailUserNotificationScope -int 2
+# Create a new smart mailbox named "VIPs" with "Sender is VIP" AND "Message is unread"
+# defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist MailDockBadgeMailbox smartmailbox://SOME-LETTERS-AND-NUMBERS
+
+# Mail: View newest message in threads first
+defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist ConversationViewSortDescending -bool true
+
 # Safari: Press Tab to highlight each item on a web page
-defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
-defaults write com.apple.SafariTechnologyPreview WebKitTabToLinksPreferenceKey -bool true
-defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist WebKitTabToLinksPreferenceKey -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 
 # Safari: Show the full URL in the address bar
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-defaults write com.apple.SafariTechnologyPreview ShowFullURLInSmartSearchField -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist ShowFullURLInSmartSearchField -bool true
 
 # Safari: Enable the Develop menu and the Web Inspector
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu -bool true
-defaults write com.apple.SafariTechnologyPreview WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist IncludeDevelopMenu -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 # Safari: Enable “Do Not Track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-defaults write com.apple.SafariTechnologyPreview SendDoNotTrackHTTPHeader -bool true
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist SendDoNotTrackHTTPHeader -bool true
+
+# Safari: Clear downloads on success
+defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist DownloadsClearingPolicy -int 2
 
 # Screen Capture: Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
 # Screen Capture: Save screenshots to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
-# then run `killall SystemUIServer`
 
 # Spotlight: Disable some categories
 defaults write com.apple.spotlight orderedItems -array \
@@ -101,6 +103,11 @@ defaults write com.apple.spotlight orderedItems -array \
 killall mds > /dev/null 2>&1
 sudo mdutil -i on / > /dev/null
 sudo mdutil -E / > /dev/null
+
+# Restart other apps
+for app in "Dock" "Finder" "SystemUIServer" "Mail"; do
+    killall "$app" > /dev/null 2>&1
+done
 
 # Keyboard shortcuts:
 # Command @
