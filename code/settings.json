@@ -15,13 +15,24 @@
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
   "editor.wordWrap": "on",
+  // "workbench.colorCustomizations": {
+  //   "[Xcode Default Theme]": {
+  //     "editorGroupHeader.tabsBorder": "#C7C7C7",
+  //     "tab.activeBackground": "#D8E9FD",
+  //     "tab.activeForeground": "#3F8FEB",
+  //     "tab.activeBorder": "#B8C4D9",
+  //     "tab.inactiveBackground": "#F6F6F6",
+  //     "tab.inactiveForeground": "#4C4C4C",
+  //     "tab.border": "#D3D3D3"
+  //   }
+  // },
   "workbench.colorTheme": "Xcode Default Theme",
   "workbench.editor.tabCloseButton": "left",
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
   "workbench.iconTheme": "vs-minimal",
-  "window.nativeTabs": true,
-  "window.titleBarStyle": "native",
+  "window.nativeTabs": false,
+  "window.titleBarStyle": "custom",
   // Editor: Behavior
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
@@ -30,10 +41,14 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "prettier.requireConfig": false,
-  "prettier.disableLanguages": ["css", "scss"],
+  "prettier.disableLanguages": [
+    "css",
+    "scss"
+  ],
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
   "window.restoreWindows": "none",
-  "team.showWelcomeMessage": false
+  "team.showWelcomeMessage": false,
+  "workbench.activityBar.visible": true
 }
