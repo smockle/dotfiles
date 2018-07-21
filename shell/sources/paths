@@ -7,6 +7,7 @@ declare -a bindirs_to_prepend=(
   "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
   "$(brew --prefix)/sbin"
   "$(brew --prefix)/bin"
+  "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
 )
 
 # Prepend directories to PATH
