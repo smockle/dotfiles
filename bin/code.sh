@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Determine whether to install personal or work extensions
-PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
+PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 declare -a extensions=(
   EditorConfig.EditorConfig
