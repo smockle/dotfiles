@@ -23,10 +23,10 @@ declare -a work_extensions=(
 install_code_extensions() {
   local extensions=("$@")
   for extension in "${extensions[@]}"; do
-    if code-insiders --list-extensions | grep -q "${extension}"; then
-      code-insiders --uninstall-extension "${extension}" 
+    if code --list-extensions | grep -q "${extension}"; then
+      code --uninstall-extension "${extension}" 
     fi
-    code-insiders --install-extension "${extension}"
+    code --install-extension "${extension}"
   done
 }
 

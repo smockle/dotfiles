@@ -12,7 +12,7 @@ ln -fs "${HOME}/Projects/dotfiles/shell/.inputrc" "${HOME}/.inputrc"
 touch "${HOME}/.hushlogin"
 
 # Visual Studio Code
-VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code - Insiders/User"
+VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code/User"
 mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
 ln -fs "${HOME}/Projects/dotfiles/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
 ln -fs "${HOME}/Projects/dotfiles/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"

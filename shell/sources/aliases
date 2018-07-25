@@ -12,6 +12,3 @@ alias ls="command ls -G"
 
 # More is less
 alias more="less"
-
-# Visual Studio Code Insiders
-alias code="code-insiders"
