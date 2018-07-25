@@ -5,6 +5,7 @@ PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 declare -a extensions=(
   EditorConfig.EditorConfig
+  lehni.vscode-titlebar-less-macos
   msjsdiag.debugger-for-chrome
   PeterJausovec.vscode-docker
   smockle.xcode-default-theme
