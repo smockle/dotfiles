@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Determine whether to install personal or work modules
-PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
+PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 # Install global npm modules
 npm i -g diff-so-fancy

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Determine whether to install personal or work packages
-PERSONAL=$(! grep -Fq "xamarin" "${HOME}/.npmrc"; echo $?)
+PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 ## Brew
 brew update
