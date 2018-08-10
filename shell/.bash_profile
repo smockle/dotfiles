@@ -2,12 +2,12 @@
 
 sourceall() {
     declare -a files=(
-      $HOME/Projects/dotfiles/shell/sources/paths # Path modifications
-      $HOME/Projects/dotfiles/shell/sources/exports # Exports
-      $HOME/Projects/dotfiles/shell/sources/options # Options
-      $HOME/Projects/dotfiles/shell/sources/aliases # Aliases
-      $HOME/Projects/dotfiles/shell/functions/* # Functions
-      $HOME/Projects/dotfiles/shell/.bash_prompt # Custom bash prompt
+      $HOME/Developer/dotfiles/shell/sources/paths # Path modifications
+      $HOME/Developer/dotfiles/shell/sources/exports # Exports
+      $HOME/Developer/dotfiles/shell/sources/options # Options
+      $HOME/Developer/dotfiles/shell/sources/aliases # Aliases
+      $HOME/Developer/dotfiles/shell/functions/* # Functions
+      $HOME/Developer/dotfiles/shell/.bash_prompt # Custom bash prompt
       $(brew --prefix)/etc/bash_completion # Bash completion (installed via Homebrew)
     )
 
