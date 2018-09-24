@@ -4,7 +4,7 @@
 PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 # Install global npm modules
-npm i -g diff-so-fancy
+npm i -g diff-so-fancy svgo
 if [ ! $PERSONAL -eq 0 ]; then
   npm i -g @mobile-center/clusterficks
 fi
