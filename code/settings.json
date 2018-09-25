@@ -19,7 +19,7 @@
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.showIcons": false,
   "workbench.iconTheme": "vs-minimal",
-  "window.nativeTabs": false,
+  "window.nativeTabs": true,
   "window.titleBarStyle": "custom",
   // Editor: Behavior
   "editor.formatOnSave": true,
@@ -38,6 +38,5 @@
   "workbench.startupEditor": "newUntitledFile",
   "window.restoreWindows": "none",
   "team.showWelcomeMessage": false,
-  "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Xcode Default (Light)"
+  "workbench.activityBar.visible": true
 }
