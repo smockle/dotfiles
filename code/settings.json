@@ -4,6 +4,7 @@
   "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 12,
+  "editor.fontWeight": "500",
   "editor.lineHeight": 17,
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.lineHeight": 1.23,
@@ -29,14 +30,14 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "prettier.requireConfig": false,
-  "prettier.disableLanguages": [
-    "css",
-    "scss"
-  ],
+  "prettier.disableLanguages": ["css", "scss"],
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
   "window.restoreWindows": "none",
   "team.showWelcomeMessage": false,
-  "workbench.activityBar.visible": true
+  "workbench.activityBar.visible": false,
+  "workbench.editor.showTabs": false,
+  "workbench.colorTheme": "Xcode Default (Dark)",
+  "breadcrumbs.enabled": false
 }
