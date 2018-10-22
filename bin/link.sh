@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Automator
+if [ -d ~/Library/Mobile\ Documents/com~apple~Automator/Documents/Compress\ SVG.workflow ]; then
+  ln -fs ~/Library/Mobile\ Documents/com~apple~Automator/Documents/Compress\ SVG.workflow ~/Library/Services/
+fi
+
 # Git
 ln -fs "${HOME}/Developer/dotfiles/git/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${HOME}/Developer/dotfiles/git/.gitignore" "${HOME}/.gitignore"
