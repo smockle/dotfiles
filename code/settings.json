@@ -30,14 +30,17 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "prettier.requireConfig": false,
-  "prettier.disableLanguages": ["css", "scss"],
+  "prettier.disableLanguages": [
+    "css",
+    "scss"
+  ],
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
   "window.restoreWindows": "none",
   "team.showWelcomeMessage": false,
   "workbench.activityBar.visible": false,
-  "workbench.editor.showTabs": false,
-  "workbench.colorTheme": "Xcode Default (Dark)",
+  "workbench.editor.showTabs": true,
+  "workbench.colorTheme": "Xcode Default (Light)",
   "breadcrumbs.enabled": false
 }
