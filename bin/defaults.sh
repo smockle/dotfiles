@@ -36,32 +36,6 @@ sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 # Google Chrome: Use the system-native print preview dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
 
-# Mail: Only receive notifications from VIPs
-defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist MailUserNotificationScope -int 2
-# Create a new smart mailbox named "VIPs" with "Sender is VIP" AND "Message is unread"
-# defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist MailDockBadgeMailbox smartmailbox://SOME-LETTERS-AND-NUMBERS
-
-# Mail: View newest message in threads first
-defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist ConversationViewSortDescending -bool true
-
-# Safari: Press Tab to highlight each item on a web page
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist WebKitTabToLinksPreferenceKey -bool true
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
-
-# Safari: Show the full URL in the address bar
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist ShowFullURLInSmartSearchField -bool true
-
-# Safari: Enable the Develop menu and the Web Inspector
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist IncludeDevelopMenu -bool true
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-# Safari: Enable “Do Not Track”
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist SendDoNotTrackHTTPHeader -bool true
-
-# Safari: Clear downloads on success
-defaults write ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist DownloadsClearingPolicy -int 2
-
 # Screen Capture: Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
