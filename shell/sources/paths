@@ -3,7 +3,7 @@
 # PATH
 # Directories to be prepended to PATH
 declare -a bindirs_to_prepend=(
-  "$(brew --prefix)/opt/node@8/bin" # Add brew-install node@8
+  "$(brew --prefix)/opt/node@10/bin" # Add brew-install node@10
   "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
   "$(brew --prefix)/sbin"
   "$(brew --prefix)/bin"
