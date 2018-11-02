@@ -12,3 +12,6 @@ alias ls="command ls -G"
 
 # More is less
 alias more="less"
+
+# Use Code Insiders instead of Code
+alias code="code-insiders"

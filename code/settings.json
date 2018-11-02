@@ -22,8 +22,6 @@
   "workbench.iconTheme": "vs-minimal",
   "window.nativeTabs": true,
   "window.titleBarStyle": "custom",
-  // Editor: Behavior
-  "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
