@@ -9,7 +9,7 @@ brew install bash bash-completion git node@10 watchman
 if [ $PERSONAL -eq 0 ]; then
   brew install awscli
 else
-  brew install azure-cli
+  brew install azure-cli kubernetes-cli
 fi
 
 ## Cask
