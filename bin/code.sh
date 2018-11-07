@@ -12,6 +12,7 @@ declare -a personal_extensions=(
 )
 declare -a work_extensions=(
   msjsdiag.debugger-for-chrome
+  ms-vscode.vscode-typescript-tslint-plugin
   ms-vsliveshare.vsliveshare
 )
 
