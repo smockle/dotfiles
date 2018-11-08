@@ -18,5 +18,5 @@ brew cask install bartender docker google-chrome shifty spectacle visual-studio-
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox
 else
-  brew cask install firefox microsoft-teams parallels@13 paw powershell sketch skype-for-business
+  brew cask install firefox microsoft-teams parallels@13 paw powershell sketch
 fi
