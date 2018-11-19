@@ -40,5 +40,6 @@
   "workbench.activityBar.visible": false,
   "workbench.editor.showTabs": true,
   "breadcrumbs.enabled": false,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Xcode Default (Light)"
 }

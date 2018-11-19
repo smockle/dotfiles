@@ -12,3 +12,6 @@ alias ls="command ls -G"
 
 # More is less
 alias more="less"
+
+# Use Visual Studio Code Exploration instead of Stable
+alias code="code-exploration"
