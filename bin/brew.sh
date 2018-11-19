@@ -14,7 +14,7 @@ fi
 
 ## Cask
 brew tap caskroom/versions
-brew cask install bartender docker google-chrome shifty spectacle visual-studio-code
+brew cask install bartender docker google-chrome shifty spectacle
 if [ $PERSONAL -eq 0 ]; then
   brew cask install dropbox
 else

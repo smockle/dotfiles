@@ -20,7 +20,7 @@ echo "Setting macOS defaults…"
 bash "${HOME}/Developer/dotfiles/bin/defaults.sh"
 printf "Defaults set.\n\n"
 
-# Install Visual Studio Code extensions
-echo "Installing Visual Studio Code extensions…"
+# Install Visual Studio Code Exploration extensions
+echo "Installing Visual Studio Code Exploration extensions…"
 bash "${HOME}/Developer/dotfiles/bin/code.sh"
-echo "Visual Studio Code extensions installed."
+echo "Visual Studio Code Exploration extensions installed."
