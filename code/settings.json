@@ -39,6 +39,6 @@
   "team.showWelcomeMessage": false,
   "workbench.activityBar.visible": false,
   "workbench.editor.showTabs": true,
-  "workbench.colorTheme": "Xcode Default (Light)",
-  "breadcrumbs.enabled": false
+  "breadcrumbs.enabled": false,
+  "window.zoomLevel": 0
 }
