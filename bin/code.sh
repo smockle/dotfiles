@@ -7,6 +7,7 @@ declare -a extensions=(
   EditorConfig.EditorConfig
   smockle.xcode-default-theme
   muuvmuuv.vscode-sundial
+  VisualStudioExptTeam.vscodeintellicode
 )
 declare -a personal_extensions=(
   esbenp.prettier-vscode
