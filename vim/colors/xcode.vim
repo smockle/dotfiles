@@ -5,7 +5,8 @@
 " Set 'background' back to the default.  The value can't always be estimated
 " and is then guessed.
 hi clear Normal
-set bg&
+" The following line overrides :call AppleInterfaceStyle()
+" set bg&
 
 " Remove all existing highlighting and set the defaults.
 hi clear
@@ -44,7 +45,6 @@ highlight CursorColumn   ctermbg=7
 highlight CursorLine     cterm=underline
 highlight MatchParen     ctermbg=15
 highlight Constant       ctermfg=1
-highlight Special        ctermfg=0
 highlight Identifier     cterm=NONE ctermfg=5
 highlight Statement      ctermfg=5
 highlight PreProc        ctermfg=6
@@ -82,6 +82,7 @@ if &background == "light"
   highlight StatusLineNC ctermfg=8    ctermbg=7    cterm=NONE
   highlight VertSplit    ctermfg=8    ctermbg=7    cterm=NONE
   highlight SignColumn                ctermbg=7
+  highlight Special      ctermfg=0
 else
   highlight LineNr       ctermfg=8
   highlight Comment      ctermfg=8                 cterm=italic
@@ -95,4 +96,5 @@ else
   highlight StatusLineNC ctermfg=7    ctermbg=8    cterm=NONE
   highlight VertSplit    ctermfg=7    ctermbg=8    cterm=NONE
   highlight SignColumn                ctermbg=8
+  highlight Special      ctermfg=15
 endif
