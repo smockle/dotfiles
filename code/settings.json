@@ -41,5 +41,9 @@
   "workbench.editor.showTabs": true,
   "breadcrumbs.enabled": false,
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "Xcode Default (Dark)"
+  "workbench.colorTheme": "Xcode Default (Light)",
+  "sundial.dayTheme": "Xcode Default (Light)",
+  "sundial.nightTheme": "Xcode Default (Dark)",
+  "sundial.latitude": "37.3522",
+  "sundial.longitude": "-121.9583"
 }

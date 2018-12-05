@@ -23,9 +23,20 @@ set autoindent
 " equivalent to 'set sc'
 set showcmd
 
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
 " Enable syntax highlighting
 syntax on
 
 " Enable mouse in all modes
 set mouse=a
 
+" Use system clipboard
+" even works in Vim compiled without '+clipboard'
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
