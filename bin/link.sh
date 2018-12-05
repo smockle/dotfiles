@@ -5,6 +5,11 @@ if [ -d ~/Library/Mobile\ Documents/com~apple~Automator/Documents/Compress\ SVG.
   ln -fs ~/Library/Mobile\ Documents/com~apple~Automator/Documents/Compress\ SVG.workflow ~/Library/Services/
 fi
 
+# Vi
+mkdir -p ~/.vim/backups
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/undo
+
 # Git
 ln -fs "${HOME}/Developer/dotfiles/git/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${HOME}/Developer/dotfiles/git/.gitignore" "${HOME}/.gitignore"
