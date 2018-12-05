@@ -9,7 +9,7 @@ fi
 mkdir -p ~/.vim/backups
 mkdir -p ~/.vim/swaps
 mkdir -p ~/.vim/undo
-ln -fs "${HOME}/Developer/dotfiles/vim/colors" "${HOME}/.vim/colors"
+ln -fs "${HOME}/Developer/dotfiles/vim/colors" "${HOME}/.vim"
 ln -fs "${HOME}/Developer/dotfiles/vim/.vimrc" "${HOME}/.vimrc"
 
 # Git
