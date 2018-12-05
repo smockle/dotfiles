@@ -9,6 +9,8 @@ fi
 mkdir -p ~/.vim/backups
 mkdir -p ~/.vim/swaps
 mkdir -p ~/.vim/undo
+ln -fs "${HOME}/Developer/dotfiles/vim/colors" "${HOME}/.vim/colors"
+ln -fs "${HOME}/Developer/dotfiles/vim/.vimrc" "${HOME}/.vimrc"
 
 # Git
 ln -fs "${HOME}/Developer/dotfiles/git/.gitconfig" "${HOME}/.gitconfig"
@@ -19,7 +21,6 @@ ln -fs "${HOME}/Developer/dotfiles/shell/.bash_profile" "${HOME}/.bash_profile"
 ln -fs "${HOME}/Developer/dotfiles/shell/.bash_prompt" "${HOME}/.bash_prompt"
 ln -fs "${HOME}/Developer/dotfiles/shell/.bashrc" "${HOME}/.bashrc"
 ln -fs "${HOME}/Developer/dotfiles/shell/.inputrc" "${HOME}/.inputrc"
-ln -fs "${HOME}/Developer/dotfiles/shell/.vimrc" "${HOME}/.vimrc"
 touch "${HOME}/.hushlogin"
 
 # Visual Studio Code

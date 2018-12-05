@@ -1,5 +1,12 @@
 " http://vimhelp.appspot.com/usr_05.txt.html#usr_05.txt
 
+" Use the Xcode theme
+colorscheme xcode
+
+" Enable italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 " Disable Vi-compatibility
 " equivalent to 'set nocp'
 set nocompatible
