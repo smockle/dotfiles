@@ -7,7 +7,7 @@ PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 brew update
 brew install bash bash-completion git node@10 watchman
 if [ $PERSONAL -eq 0 ]; then
-  brew install awscli mosh
+  brew install awscli go mosh
 else
   brew install azure-cli kubernetes-cli
 fi
