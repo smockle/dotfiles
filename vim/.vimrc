@@ -1,5 +1,19 @@
 " http://vimhelp.appspot.com/usr_05.txt.html#usr_05.txt
 
+function! AppleInterfaceStyle()
+	let cmd='if [ `defaults read -g AppleInterfaceStyle 2>/dev/null` ]; then echo "Dark"; else echo "Light"; fi'
+	let apple_interface_style=substitute(system(cmd), '[\]\|[[:cntrl:]]', '', 'g')
+	if apple_interface_style == "Dark"
+    set background=dark
+	else
+		set background=light
+	endif
+endfunction
+
+if has("autocmd")
+	autocmd BufNewFile,BufRead * call AppleInterfaceStyle()
+endif
+
 " Use the Xcode theme
 colorscheme xcode
 
