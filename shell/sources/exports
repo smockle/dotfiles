@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Set default editor to nano
+# Set default editor to Vi
 export EDITOR=vi
 
 # Make repeated commands not show up in history.
@@ -31,3 +31,7 @@ export LESS_TERMCAP_md="${orange}"
 
 # Ellipsize directory path in prompt, when necessary.
 export PROMPT_DIRTRIM=2
+
+# Go
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
