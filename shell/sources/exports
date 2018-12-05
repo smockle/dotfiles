@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set default editor to nano
-export EDITOR=nano
+export EDITOR=vi
 
 # Make repeated commands not show up in history.
 # Make commands preceeded by a space not show up in history.
