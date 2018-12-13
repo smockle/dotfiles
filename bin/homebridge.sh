@@ -7,7 +7,7 @@ set -e
 sudo timedatectl set-timezone "America/Los_Angeles"
 
 # Use CloudFlare DNS servers
-if [[ ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf ]]; then
+if ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf; then
     sudo echo "static domain_name_servers=1.1.1.1 1.0.0.1" >> /etc/dhcpcd.conf
 fi
 
