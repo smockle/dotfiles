@@ -4,11 +4,11 @@
 # Directories to be prepended to PATH
 if [[ $OSTYPE == "darwin"* ]]; then
   declare -a bindirs_to_prepend=(
-    "$(brew --prefix)/opt/node@10/bin" # Add brew-install node@10
-    "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
-    "$(brew --prefix)/sbin"
-    "$(brew --prefix)/bin"
-    "$(brew --prefix golang)/libexec/bin" # Add brew-installed go (GOROOT)
+    "$(dirname $(dirname $(type -p brew)))/opt/node@10/bin" # Add brew-install node@10
+    "$(dirname $(dirname $(type -p brew)))/share/npm/bin" # Add npm-installed package bin
+    "$(dirname $(dirname $(type -p brew)))/sbin"
+    "$(dirname $(dirname $(type -p brew)))/bin"
+    "$(dirname $(dirname $(type -p brew)))/opt/go/libexec/bin" # Add brew-installed go (GOROOT)
     "${HOME}/.go/bin" # Add go-getted bin (GOPATH)
     "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
   )
