@@ -26,7 +26,7 @@ ln -fs "${HOME}/Developer/dotfiles/shell/.inputrc" "${HOME}/.inputrc"
 touch "${HOME}/.hushlogin"
 
 # SSH
-if [ ! -f "${HOME}/.ssh/config"]; then
+if [ ! -f "${HOME}/.ssh/config" ]; then
   mkdir -p "${HOME}/.ssh"
   cp "${HOME}/Developer/dotfiles/ssh/config" "${HOME}/.ssh/config"
 fi
