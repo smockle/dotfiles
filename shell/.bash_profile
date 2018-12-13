@@ -22,7 +22,7 @@ sourceall
 unset sourceall
 
 if command -v brew &>/dev/null; then
-  if [[ -r $(brew --prefix)/etc/bash_completion ]]; then # Bash completion (installed via Homebrew)
-    source $(brew --prefix)/etc/bash_completion
+  if [[ -r $(dirname $(dirname $(type -p brew)))/etc/bash_completion ]]; then # Bash completion (installed via Homebrew)
+    source $(dirname $(dirname $(type -p brew)))/etc/bash_completion
   fi
 fi
