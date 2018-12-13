@@ -5,11 +5,20 @@ PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 ## Brew
 brew update
-brew install bash bash-completion git node@10 watchman
+brew install bash bash-completion@2 git node@10 watchman
 if [ $PERSONAL -eq 0 ]; then
   brew install awscli go mosh
 else
   brew install azure-cli kubernetes-cli
+fi
+
+# Bash
+if [ -f $(dirname $(dirname $(type -p brew)))/bin/bash ]; then
+  if ! grep -qF -- "$(dirname $(dirname $(type -p brew)))/bin/bash" /etc/shells; then
+    echo "$(dirname $(dirname $(type -p brew)))/bin/bash" | sudo tee -a /etc/shells
+  fi
+  sudo chsh -s "$(dirname $(dirname $(type -p brew)))/bin/bash"
+  chsh -s "$(dirname $(dirname $(type -p brew)))/bin/bash"
 fi
 
 ## Cask
