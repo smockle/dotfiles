@@ -19,7 +19,7 @@ git() {
   ;;
 
   "diff")
-    if command -v diff-so-fancy; then
+    if command -v diff-so-fancy &>/dev/null; then
       command git diff --color "$@" | diff-so-fancy
     else
       command git diff --color "$@"
