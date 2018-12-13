@@ -1,0 +1,21 @@
+{
+  "bridge": {
+    "name": "Roomba Bridge",
+    "username": "$USERNAME",
+    "port": $PORT,
+    "pin": "$PIN"
+  },
+  "description": "SmartHome with Homebridge",
+  "accessories": [{
+    "accessory": "Roomba",
+    "name": "Roomba",
+    "model": "960",
+    "blid": "$BLID",
+    "robotpwd": "$PASSWORD",
+    "ipaddress": "$IP_ADDRESS",
+    "refreshMode": "keepAlive",
+    "pollingInterval": 30,
+    "cacheTTL": 30
+  }],
+  "platforms": []
+}

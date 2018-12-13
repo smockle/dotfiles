@@ -1,0 +1,32 @@
+{
+  "bridge": {
+    "name": "Xiaomi Air Purifier Bridge",
+    "username": "$USERNAME",
+    "port": $PORT,
+    "pin": "$PIN"
+  },
+  "description": "SmartHome with Homebridge",
+  "accessories": [],
+  "platforms": [{
+    "platform": "MiAirPurifierPlatform",
+    "deviceCfgs": [{
+      "type": "MiAirPurifier2S",
+      "ip": "$IP_ADDRESS",
+      "token": "$TOKEN",
+      "airPurifierDisable": false,
+      "airPurifierName": "Air Purifier",
+      "silentModeSwitchDisable": true,
+      "silentModeSwitchName": "Air Purifier Silent Mode Switch",
+      "temperatureDisable": true,
+      "temperatureName": "Temperature",
+      "humidityDisable": false,
+      "humidityName": "Humidity",
+      "buzzerSwitchDisable": true,
+      "buzzerSwitchName": "Air Purifier Buzzer Switch",
+      "ledBulbDisable": true,
+      "ledBulbName": "Air Purifier LED Switch",
+      "airQualityDisable": false,
+      "airQualityName": "Air Quality"
+    }]
+  }]
+}
