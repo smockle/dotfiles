@@ -21,7 +21,7 @@ sourceall() {
 sourceall
 unset sourceall
 
-if [[ $OSTYPE == "darwin"* ]]; then
+if command -v brew &>/dev/null; then
   if [[ -r $(brew --prefix)/etc/bash_completion ]]; then # Bash completion (installed via Homebrew)
     source $(brew --prefix)/etc/bash_completion
   fi
