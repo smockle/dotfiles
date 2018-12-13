@@ -19,7 +19,11 @@ git() {
   ;;
 
   "diff")
-    command git diff --color "$@" | diff-so-fancy
+    if command -v diff-so-fancy; then
+      command git diff --color "$@" | diff-so-fancy
+    else
+      command git diff --color "$@"
+    fi
   ;;
 
   "branch")
