@@ -2,23 +2,25 @@
 
 # PATH
 # Directories to be prepended to PATH
-declare -a bindirs_to_prepend=(
-  "$(brew --prefix)/opt/node@10/bin" # Add brew-install node@10
-  "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
-  "$(brew --prefix)/sbin"
-  "$(brew --prefix)/bin"
-  "$(brew --prefix golang)/libexec/bin" # Add brew-installed go (GOROOT)
-  "${HOME}/.go/bin" # Add go-getted bin (GOPATH)
-  "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
-)
+if [[ $OSTYPE == "darwin"* ]]; then
+  declare -a bindirs_to_prepend=(
+    "$(brew --prefix)/opt/node@10/bin" # Add brew-install node@10
+    "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
+    "$(brew --prefix)/sbin"
+    "$(brew --prefix)/bin"
+    "$(brew --prefix golang)/libexec/bin" # Add brew-installed go (GOROOT)
+    "${HOME}/.go/bin" # Add go-getted bin (GOPATH)
+    "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
+  )
 
-# Prepend directories to PATH
-for index in ${!bindirs_to_prepend[*]}; do
-  if [ -d ${bindirs_to_prepend[$index]} ]; then
-    # If these directories exist, then prepend them to existing PATH
-    PATH="${bindirs_to_prepend[$index]}:$PATH"
-  fi
-done
+  # Prepend directories to PATH
+  for index in ${!bindirs_to_prepend[*]}; do
+    if [ -d ${bindirs_to_prepend[$index]} ]; then
+      # If these directories exist, then prepend them to existing PATH
+      PATH="${bindirs_to_prepend[$index]}:$PATH"
+    fi
+  done
 
-unset bindirs_to_prepend
-export PATH
+  unset bindirs_to_prepend
+  export PATH
+fi
