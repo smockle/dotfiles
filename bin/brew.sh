@@ -17,8 +17,10 @@ if [ -f $(dirname $(dirname $(type -p brew)))/bin/bash ]; then
   if ! grep -qF -- "$(dirname $(dirname $(type -p brew)))/bin/bash" /etc/shells; then
     echo "$(dirname $(dirname $(type -p brew)))/bin/bash" | sudo tee -a /etc/shells
   fi
-  sudo chsh -s "$(dirname $(dirname $(type -p brew)))/bin/bash"
-  chsh -s "$(dirname $(dirname $(type -p brew)))/bin/bash"
+  if [ "$SHELL" != "$(dirname $(dirname $(type -p brew)))/bin/bash" ]; then
+    sudo chsh -s "$(dirname $(dirname $(type -p brew)))/bin/bash"
+    chsh -s "$(dirname $(dirname $(type -p brew)))/bin/bash"
+  fi
 fi
 
 ## Cask
