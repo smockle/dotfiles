@@ -34,4 +34,6 @@ export PROMPT_DIRTRIM=2
 
 # Go
 export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
+if [[ $OSTYPE == "darwin"* ]]; then
+	export GOROOT="$(brew --prefix golang)/libexec"
+fi
