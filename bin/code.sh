@@ -11,7 +11,6 @@ declare -a extensions=(
 )
 declare -a personal_extensions=(
   esbenp.prettier-vscode
-  ms-vscode.Go
 )
 declare -a work_extensions=(
   msjsdiag.debugger-for-chrome

@@ -8,8 +8,6 @@ if [[ $OSTYPE == "darwin"* ]]; then
     "$(dirname $(dirname $(type -p brew)))/share/npm/bin" # Add npm-installed package bin
     "$(dirname $(dirname $(type -p brew)))/sbin"
     "$(dirname $(dirname $(type -p brew)))/bin"
-    "$(dirname $(dirname $(type -p brew)))/opt/go/libexec/bin" # Add brew-installed go (GOROOT)
-    "${HOME}/.go/bin" # Add go-getted bin (GOPATH)
     "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
   )
 
