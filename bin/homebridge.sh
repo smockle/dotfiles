@@ -11,13 +11,6 @@ if ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf; 
     sudo echo "static domain_name_servers=1.1.1.1 1.0.0.1" >> /etc/dhcpcd.conf
 fi
 
-# Set up Kelvin
-if [ ! -f /var/lib/kelvin/config.json ]; then
-    echo "Setting up Kelvin…"
-    bash "${HOME}/Developer/dotfiles/homebridge/kelvin/kelvin.sh"
-    printf "Kelvin setup complete.\n\n"
-fi
-
 # Create Homebridge system user
 if [[ ! $(id -u homebridge 2>/dev/null) ]]; then 
     sudo useradd --system homebridge
