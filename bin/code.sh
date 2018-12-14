@@ -5,8 +5,8 @@ PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
 declare -a extensions=(
   EditorConfig.EditorConfig
+  LinusU.auto-dark-mode
   smockle.xcode-default-theme
-  muuvmuuv.vscode-sundial
   VisualStudioExptTeam.vscodeintellicode
 )
 declare -a personal_extensions=(
