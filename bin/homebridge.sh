@@ -11,6 +11,33 @@ if ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf; 
     sudo echo "static domain_name_servers=1.1.1.1 1.0.0.1" >> /etc/dhcpcd.conf
 fi
 
+# Configure unattended upgrades
+if [ -f /etc/apt/apt.conf.d/50unattended-upgrades ]; then
+    # Specify which packages can be updated
+    sudo sed -in '/^\s*Unattended-Upgrade::Origins-Pattern [{]\s*$/,/^[}][;]\s*$/c\
+    Unattended-Upgrade::Origins-Pattern {\
+        "origin=Debian,codename=${distro_codename},label=Debian-Security";\
+        "origin=Raspbian,codename=${distro_codename},label=Raspbian";\
+        "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";\
+        "origin=Node Source,codename=${distro_codename},label=Node Source";\
+    };\
+    ' /etc/apt/apt.conf.d/50unattended-upgrades
+
+    # Reboot automatically
+    sudo sed -i 's/^\/\/Unattended-Upgrade::Automatic-Reboot "false";/Unattended-Upgrade::Automatic-Reboot "true";/g' /etc/apt/apt.conf.d/50unattended-upgrades
+    sudo sed -i 's/^\/\/Unattended-Upgrade::Automatic-Reboot-Time "02:00";/Unattended-Upgrade::Automatic-Reboot-Time "02:00";/g' /etc/apt/apt.conf.d/50unattended-upgrades
+
+    # Autoremove dependencies
+    sudo sed -i 's/^\/\/Unattended-Upgrade::Remove-Unused-Dependencies "false";/Unattended-Upgrade::Remove-Unused-Dependencies "true";/g' /etc/apt/apt.conf.d/50unattended-upgrades
+fi
+if [ ! -f /etc/apt/apt.conf.d/20auto-upgrades ]; then
+    # Update package lists and packages
+sudo tee /etc/apt/apt.conf.d/20auto-upgrades << EOF
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+EOF
+fi
+
 # Create Homebridge system user
 if [[ ! $(id -u homebridge 2>/dev/null) ]]; then 
     sudo useradd --system homebridge
