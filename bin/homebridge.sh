@@ -15,13 +15,12 @@ fi
 if [ -f /etc/apt/apt.conf.d/50unattended-upgrades ]; then
     # Specify which packages can be updated
     sudo sed -in '/^\s*Unattended-Upgrade::Origins-Pattern [{]\s*$/,/^[}][;]\s*$/c\
-    Unattended-Upgrade::Origins-Pattern {\
-        "origin=Debian,codename=${distro_codename},label=Debian-Security";\
-        "origin=Raspbian,codename=${distro_codename},label=Raspbian";\
-        "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";\
-        "origin=Node Source,codename=${distro_codename},label=Node Source";\
-    };\
-    ' /etc/apt/apt.conf.d/50unattended-upgrades
+Unattended-Upgrade::Origins-Pattern {\
+    "origin=Debian,codename=${distro_codename},label=Debian-Security";\
+    "origin=Raspbian,codename=${distro_codename},label=Raspbian";\
+    "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";\
+    "origin=Node Source,codename=${distro_codename},label=Node Source";\
+};' /etc/apt/apt.conf.d/50unattended-upgrades
 
     # Reboot automatically
     sudo sed -i 's/^\/\/Unattended-Upgrade::Automatic-Reboot "false";/Unattended-Upgrade::Automatic-Reboot "true";/g' /etc/apt/apt.conf.d/50unattended-upgrades
