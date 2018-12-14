@@ -31,9 +31,3 @@ export LESS_TERMCAP_md="${orange}"
 
 # Ellipsize directory path in prompt, when necessary.
 export PROMPT_DIRTRIM=2
-
-# Go
-export GOPATH="${HOME}/.go"
-if command -v brew &>/dev/null; then
-	export GOROOT="$(dirname $(dirname $(type -p brew)))/opt/go/libexec"
-fi
