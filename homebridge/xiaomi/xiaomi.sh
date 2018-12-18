@@ -39,7 +39,6 @@ EOF
 
 # Create Homebridge config directory
 sudo mkdir -p /var/lib/homebridge-xiaomi-air-purifier
-sudo cp -Rf ~/.homebridge/persist /var/lib/homebridge-xiaomi-air-purifier
 sudo chmod -R 0777 /var/lib/homebridge-xiaomi-air-purifier
 
 # Copy config file

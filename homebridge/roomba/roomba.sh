@@ -39,7 +39,6 @@ EOF
 
 # Create Homebridge config directory
 sudo mkdir -p /var/lib/homebridge-roomba
-sudo cp -Rf ~/.homebridge/persist /var/lib/homebridge-roomba
 sudo chmod -R 0777 /var/lib/homebridge-roomba
 
 # Copy config file
