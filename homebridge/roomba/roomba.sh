@@ -22,6 +22,7 @@ EOF
 sudo tee /etc/systemd/system/homebridge-roomba.service << EOF
 [Unit]
 Description=Node.js HomeKit Server
+Wants=network-online.target
 After=syslog.target network-online.target
 
 [Service]
