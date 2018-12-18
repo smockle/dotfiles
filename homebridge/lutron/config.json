@@ -16,15 +16,15 @@
       },
       "accessories": [{
         "name": "Pico",
-        "type": "PICO_REMOTE",
+        "type": "PICO-REMOTE",
         "integrationID": 3
       }, {
         "name": "Pico",
-        "type": "PICO_REMOTE",
+        "type": "PICO-REMOTE",
         "integrationID": 4
       }, {
         "name": "Pico",
-        "type": "PICO_REMOTE",
+        "type": "PICO-REMOTE",
         "integrationID": 5
       }]
     }
