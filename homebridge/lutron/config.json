@@ -10,7 +10,10 @@
   "platforms": [
     {
       "platform": "LutronCasetaPlatform",
-      "bridgeConnection": "$IP_ADDRESS"
+      "bridgeConnection": {
+        "host": "$IP_ADDRESS",
+        "debug": true
+      }
     }
   ]
 }
