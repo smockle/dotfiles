@@ -9,7 +9,8 @@
   "accessories": [],
   "platforms": [
     {
-      "platform": "LutronCasetaPlatform"
+      "platform": "LutronCasetaPlatform",
+      "bridgeConnection": "$IP_ADDRESS"
     }
   ]
 }
