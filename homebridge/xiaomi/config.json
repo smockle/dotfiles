@@ -1,6 +1,6 @@
 {
   "bridge": {
-    "name": "Xiaomi Air Purifier Bridge",
+    "name": "Xiaomi Bridge",
     "username": "$USERNAME",
     "port": $PORT,
     "pin": "$PIN"

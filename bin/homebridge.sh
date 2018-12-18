@@ -45,9 +45,9 @@ fi
 
 # Add Lutron Caséta Bridge
 if [ ! -f /var/lib/homebridge-lutron/config.json ]; then
-    echo "Adding Lutron Caséta Bridge…"
+    echo "Adding Lutron Bridge…"
     bash "${HOME}/Developer/dotfiles/homebridge/lutron/lutron.sh"
-    printf "Lutron Caséta Bridge added.\n\n"
+    printf "Lutron Bridge added.\n\n"
 fi
 
 # Add Roomba Bridge
@@ -59,7 +59,7 @@ fi
 
 # Add Xiaomi Air Purifier Bridge
 if [ ! -f /var/lib/homebridge-xiaomi-air-purifier/config.json ]; then
-    echo "Adding Xiaomi Air Purifier Bridge…"
+    echo "Adding Xiaomi Bridge…"
     bash "${HOME}/Developer/dotfiles/homebridge/xiaomi/xiaomi.sh"
-    echo "Xiaomi Air Purififer Bridge added."
+    echo "Xiaomi Bridge added."
 fi

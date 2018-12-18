@@ -3,7 +3,7 @@ set -e
 
 # Import environment variables
 if [ ! -f "$(dirname "$(readlink -f "$0")")/.env" ]; then
-  echo "Missing .env file for Xiaomi Air Purifier Bridge. Exiting."
+  echo "Missing .env file for Xiaomi Bridge. Exiting."
   exit 1
 fi
 export $(cat "$(dirname "$(readlink -f "$0")")/.env" | xargs)
