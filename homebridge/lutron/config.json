@@ -13,7 +13,8 @@
       "bridgeConnection": {
         "host": "$IP_ADDRESS",
         "debug": true
-      }
+      },
+      "accessories": []
     }
   ]
 }
