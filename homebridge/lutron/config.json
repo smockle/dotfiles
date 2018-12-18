@@ -1,1 +1,15 @@
-{}
+{
+  "bridge": {
+    "name": "Lutron Caséta Bridge",
+    "username": "$USERNAME",
+    "port": $PORT,
+    "pin": "$PIN"
+  },
+  "description": "SmartHome with Homebridge",
+  "accessories": [],
+  "platforms": [
+    {
+      "platform": "LutronCasetaPlatform"
+    }
+  ]
+}
