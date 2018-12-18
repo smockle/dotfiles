@@ -14,7 +14,19 @@
         "host": "$IP_ADDRESS",
         "debug": true
       },
-      "accessories": []
+      "accessories": [{
+        "name": "Pico",
+        "type": "PICO_REMOTE",
+        "integrationID": 3
+      }, {
+        "name": "Pico",
+        "type": "PICO_REMOTE",
+        "integrationID": 4
+      }, {
+        "name": "Pico",
+        "type": "PICO_REMOTE",
+        "integrationID": 5
+      }]
     }
   ]
 }
