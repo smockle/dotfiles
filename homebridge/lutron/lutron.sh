@@ -12,7 +12,7 @@ export $(cat "$(dirname "$(readlink -f "$0")")/.env" | xargs)
 sudo tee /etc/default/homebridge-lutron << EOF
 # Defaults / Configuration options for homebridge
 # The following settings tells homebridge where to find the config.json file and where to persist the data (i.e. pairing and others)
-HOMEBRIDGE_OPTS=-U /var/lib/homebridge-lutron
+HOMEBRIDGE_OPTS=-D -U /var/lib/homebridge-lutron
 
 # If you uncomment the following line, homebridge will log more
 # You can display this via systemd's journalctl: journalctl -fu homebridge-lutron
