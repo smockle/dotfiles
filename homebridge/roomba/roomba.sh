@@ -2,7 +2,7 @@
 set -e
 
 # Import environment variables
-if [ ! -f .env ]; then
+if [ ! -f "$(dirname "$(readlink -f "$0")")/.env" ]; then
   echo "Missing .env file for Roomba Bridge. Exiting."
   exit 1
 fi
@@ -43,7 +43,7 @@ sudo cp -Rf ~/.homebridge/persist /var/lib/homebridge-roomba
 sudo chmod -R 0777 /var/lib/homebridge-roomba
 
 # Copy config file
-cd "${HOME}/Developer/dotfiles/homebridge/roomba"
+cd "$(dirname "$(readlink -f "$0")")"
 eval "tee config.json << EOF
 $(<config.json)
 EOF
