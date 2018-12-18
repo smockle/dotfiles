@@ -39,7 +39,6 @@ EOF
 
 # Create Homebridge config directory
 sudo mkdir -p /var/lib/homebridge-lutron
-sudo cp -Rf ~/.homebridge/persist /var/lib/homebridge-lutron
 sudo chmod -R 0777 /var/lib/homebridge-lutron
 
 # Copy config file
