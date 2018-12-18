@@ -15,15 +15,15 @@
         "debug": true
       },
       "accessories": [{
-        "name": "Pico",
+        "name": "$REMOTE_NAME_3",
         "type": "PICO-REMOTE",
         "integrationID": 3
       }, {
-        "name": "Pico",
+        "name": "$REMOTE_NAME_4",
         "type": "PICO-REMOTE",
         "integrationID": 4
       }, {
-        "name": "Pico",
+        "name": "$REMOTE_NAME_5",
         "type": "PICO-REMOTE",
         "integrationID": 5
       }]
