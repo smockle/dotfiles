@@ -12,7 +12,7 @@
       "platform": "LutronCasetaPlatform",
       "bridgeConnection": {
         "host": "$IP_ADDRESS",
-        "debug": true
+        "debug": false
       },
       "accessories": [{
         "name": "Remote3",
