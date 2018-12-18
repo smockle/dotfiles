@@ -43,6 +43,13 @@ if [[ ! $(id -u homebridge 2>/dev/null) ]]; then
     sudo useradd --system homebridge
 fi
 
+# Add Lutron Caséta Bridge
+if [ ! -f /var/lib/homebridge-lutron/config.json ]; then
+    echo "Adding Lutron Caséta Bridge…"
+    bash "${HOME}/Developer/dotfiles/homebridge/lutron/lutron.sh"
+    printf "Lutron Caséta Bridge added.\n\n"
+fi
+
 # Add Roomba Bridge
 if [ ! -f /var/lib/homebridge-roomba/config.json ]; then
     echo "Adding Roomba Bridge…"
