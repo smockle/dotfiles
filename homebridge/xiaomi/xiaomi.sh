@@ -6,7 +6,7 @@ if [ ! -f "$(dirname "$(readlink -f "$0")")/.env" ]; then
   echo "Missing .env file for Xiaomi Air Purifier Bridge. Exiting."
   exit 1
 fi
-export $(cat .env | xargs)
+export $(cat "$(dirname "$(readlink -f "$0")")/.env" | xargs)
 
 # Create systemd service config files
 sudo tee /etc/default/homebridge-xiaomi-air-purifier << EOF
