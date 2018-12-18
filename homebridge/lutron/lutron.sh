@@ -43,13 +43,13 @@ sudo cp -Rf ~/.homebridge/persist /var/lib/homebridge-lutron
 sudo chmod -R 0777 /var/lib/homebridge-lutron
 
 # Copy config file
-# cd "${HOME}/Developer/dotfiles/homebridge/lutron"
-# eval "tee config.json << EOF
-# $(<config.json)
-# EOF
-# " 2>/dev/null
-# sudo mv config.json /var/lib/homebridge-lutron/config.json
-# git checkout -- config.json
+cd "${HOME}/Developer/dotfiles/homebridge/lutron"
+eval "tee config.json << EOF
+$(<config.json)
+EOF
+" 2>/dev/null
+sudo mv config.json /var/lib/homebridge-lutron/config.json
+git checkout -- config.json
 
 # Enable the `homebridge` systemd service user to access files in /var/lib/homebridge-lutron
 sudo chown -R homebridge:homebridge /var/lib/homebridge-lutron
