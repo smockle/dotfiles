@@ -11,9 +11,6 @@ if ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf; 
     sudo echo "static domain_name_servers=1.1.1.1 1.0.0.1" >> /etc/dhcpcd.conf
 fi
 
-# Enable 'wait-online'
-sudo systemctl enable systemd-networkd-wait-online.service
-
 # Configure unattended upgrades
 if [ -f /etc/apt/apt.conf.d/50unattended-upgrades ]; then
     # Specify which packages can be updated
