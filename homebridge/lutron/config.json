@@ -15,16 +15,16 @@
         "debug": true
       },
       "accessories": [{
-        "name": "$REMOTE_NAME_3",
-        "type": "PICO-REMOTE",
+        "name": "Remote3",
+        "type": "PJ2-3BRL",
         "integrationID": 3
       }, {
-        "name": "$REMOTE_NAME_4",
-        "type": "PICO-REMOTE",
+        "name": "Remote4",
+        "type": "PJ2-2B",
         "integrationID": 4
       }, {
-        "name": "$REMOTE_NAME_5",
-        "type": "PICO-REMOTE",
+        "name": "Remote5",
+        "type": "PJ2-2B",
         "integrationID": 5
       }]
     }
