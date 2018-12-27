@@ -43,6 +43,6 @@
   "window.zoomLevel": 0,
   "autoDarkMode.darkTheme": "Xcode Default (Dark)",
   "autoDarkMode.lightTheme": "Xcode Default (Light)",
-  "workbench.colorTheme": "Xcode Default (Light)",
+  "workbench.colorTheme": "Xcode Default (Dark)",
   "javascript.updateImportsOnFileMove.enabled": "always"
 }
