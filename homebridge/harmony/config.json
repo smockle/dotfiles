@@ -1,0 +1,15 @@
+{
+  "bridge": {
+    "name": "Harmony Bridge",
+    "username": "$USERNAME",
+    "port": $PORT,
+    "pin": "$PIN"
+  },
+  "description": "SmartHome with Homebridge",
+  "accessories": [],
+  "platforms": [{
+    "platform": "HarmonyHubWebSocket",
+    "name": "Logitech Harmony Hub",
+    "hubIP": "$IP_ADDRESS"
+  }]
+}
