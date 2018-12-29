@@ -63,3 +63,10 @@ if [ ! -f /var/lib/homebridge-xiaomi-air-purifier/config.json ]; then
     bash "${HOME}/Developer/dotfiles/homebridge/xiaomi/xiaomi.sh"
     echo "Xiaomi Bridge added."
 fi
+
+# Add Logitech Harmony Bridge
+if [ ! -f /var/lib/homebridge-harmony/config.json ]; then
+    echo "Adding Harmony Bridge…"
+    bash "${HOME}/Developer/dotfiles/homebridge/harmony/harmony.sh"
+    echo "Harmony Bridge added."
+fi
