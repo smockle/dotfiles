@@ -57,8 +57,8 @@ if [ ! -f /var/lib/homebridge-roomba/config.json ]; then
     printf "Roomba Bridge added.\n\n"
 fi
 
-# Add Xiaomi Air Purifier Bridge
-if [ ! -f /var/lib/homebridge-xiaomi-air-purifier/config.json ]; then
+# Add Xiaomi Bridge
+if [ ! -f /var/lib/homebridge-xiaomi/config.json ]; then
     echo "Adding Xiaomi Bridge…"
     bash "${HOME}/Developer/dotfiles/homebridge/xiaomi/xiaomi.sh"
     echo "Xiaomi Bridge added."
