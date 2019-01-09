@@ -1,5 +1,4 @@
 {
-  // Typeface
   "editor.cursorStyle": "line-thin",
   "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
@@ -8,7 +7,6 @@
   "editor.lineHeight": 17,
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.lineHeight": 1.23,
-  // Editor: Interface
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.overviewRulerBorder": false,
@@ -28,10 +26,7 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "prettier.requireConfig": false,
-  "prettier.disableLanguages": [
-    "css",
-    "scss"
-  ],
+  "prettier.disableLanguages": ["css", "scss"],
   "tslint.autoFixOnSave": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "workbench.startupEditor": "newUntitledFile",
@@ -43,6 +38,7 @@
   "window.zoomLevel": 0,
   "autoDarkMode.darkTheme": "Xcode Default (Dark)",
   "autoDarkMode.lightTheme": "Xcode Default (Light)",
-  "workbench.colorTheme": "Xcode Default (Light)",
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "workbench.colorTheme": "Xcode Default (Dark)",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnSave": true
 }
