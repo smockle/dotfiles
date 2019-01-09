@@ -27,7 +27,8 @@ fi
 brew tap caskroom/versions
 brew cask install bartender docker google-chrome shifty spectacle visual-studio-code
 if [ $PERSONAL -eq 0 ]; then
-  brew cask install dropbox
+  brew tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver
+  brew cask install arduino dropbox wch-ch34x-usb-serial-driver
 else
   brew cask install firefox microsoft-teams parallels paw powershell sketch
 fi
