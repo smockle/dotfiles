@@ -11,6 +11,13 @@ if ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf; 
     sudo echo "static domain_name_servers=1.1.1.1 1.0.0.1" >> /etc/dhcpcd.conf
 fi
 
+# Disable SIM Access Profile (fixes bluetooth systemd service)
+if [ -f /etc/systemd/system/bluetooth.target.wants/bluetooth.service ]; then
+    sudo sed -i 's/^ExecStart=\/usr\/lib\/bluetooth\/bluetoothd/ExecStart=\/usr\/lib\/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+    sudo systemctl daemon-reload
+    sudo service bluetooth restart
+fi
+
 # Configure unattended upgrades
 if [ -f /etc/apt/apt.conf.d/50unattended-upgrades ]; then
     # Specify which packages can be updated
