@@ -12,8 +12,8 @@ if ! grep -qF -- "static domain_name_servers=1.1.1.1 1.0.0.1" /etc/dhcpcd.conf; 
 fi
 
 # Disable SIM Access Profile (fixes bluetooth systemd service)
-if [ -f /etc/systemd/system/bluetooth.target.wants/bluetooth.service ]; then
-    sudo sed -i 's/^ExecStart=\/usr\/lib\/bluetooth\/bluetoothd/ExecStart=\/usr\/lib\/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+if [ -f /etc/systemd/system/dbus-org.bluez.service ]; then
+    sudo sed -i 's/^ExecStart=\/usr\/lib\/bluetooth\/bluetoothd/ExecStart=\/usr\/lib\/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/dbus-org.bluez.service
     sudo systemctl daemon-reload
     sudo systemctl restart bluetooth
 fi
