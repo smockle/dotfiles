@@ -15,7 +15,7 @@ fi
 if [ -f /etc/systemd/system/bluetooth.target.wants/bluetooth.service ]; then
     sudo sed -i 's/^ExecStart=\/usr\/lib\/bluetooth\/bluetoothd/ExecStart=\/usr\/lib\/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/bluetooth.target.wants/bluetooth.service
     sudo systemctl daemon-reload
-    sudo service bluetooth restart
+    sudo systemctl restart bluetooth
 fi
 
 # Configure unattended upgrades
