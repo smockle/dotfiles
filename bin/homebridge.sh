@@ -70,3 +70,10 @@ if [ ! -f /var/lib/homebridge-harmony/config.json ]; then
     bash "${HOME}/Developer/dotfiles/homebridge/harmony/harmony.sh"
     echo "Harmony Bridge added."
 fi
+
+# Add TV Bridge
+if [ ! -f /var/lib/homebridge-tv/config.json ]; then
+    echo "Adding TV Bridge…"
+    bash "${HOME}/Developer/dotfiles/homebridge/tv/tv.sh"
+    echo "TV Bridge added."
+fi

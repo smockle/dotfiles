@@ -1,0 +1,15 @@
+{
+  "bridge": {
+    "name": "TV Bridge",
+    "username": "$USERNAME",
+    "port": $PORT,
+    "pin": "$PIN"
+  },
+  "description": "SmartHome with Homebridge",
+  "accessories": [
+    {
+      "accessory": "HarmonyTV",
+      "name": "HarmonyTV"
+    }
+  ]
+}
