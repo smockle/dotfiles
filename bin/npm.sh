@@ -20,7 +20,7 @@ EOF
   sudo chmod +x /etc/profile.d/npm-global.sh
   source /etc/profile
   npm i -g npm@latest
-  npm install -g homebridge homebridge-lutron-caseta-smockle homebridge-mi-airpurifier homebridge-roomba-stv miio homebridge-harmony homebridge-harmony-tv-smockle-temp
+  npm install -g homebridge homebridge-lutron-caseta-smockle homebridge-mi-airpurifier homebridge-roomba-stv miio homebridge-harmony homebridge-harmony-tv-smockle
 fi
 
 # When running `npm init`, suggest the MIT license (default: ISC license)
