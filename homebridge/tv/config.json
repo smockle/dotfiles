@@ -10,7 +10,7 @@
     {
       "accessory": "HarmonyTV",
       "name": "TV",
-      "host": "$HOST",
+      "host": "$IP_ADDRESS",
       "remoteId": "$REMOTE_ID",
       "deviceId": "$DEVICE_ID",
       "speakerId": "$SPEAKER_ID",
