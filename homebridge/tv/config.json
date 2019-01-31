@@ -13,7 +13,6 @@
       "host": "$IP_ADDRESS",
       "remoteId": "$REMOTE_ID",
       "deviceId": "$DEVICE_ID",
-      "speakerId": "$SPEAKER_ID",
       "commands": [
         {
           "action": "{\"command\":\"PowerToggle\",\"type\":\"IRCommand\",\"deviceId\":\"$DEVICE_ID\"}",
