@@ -9,7 +9,7 @@ brew install bash bash-completion@2 git node@10 watchman
 if [ $PERSONAL -eq 0 ]; then
   brew install awscli mosh
 else
-  brew install azure-cli kubernetes-cli
+  brew install azure-cli kubernetes-cli mono
 fi
 
 # Bash
@@ -30,5 +30,5 @@ if [ $PERSONAL -eq 0 ]; then
   brew tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver
   brew cask install arduino dropbox wch-ch34x-usb-serial-driver
 else
-  brew cask install firefox microsoft-teams parallels paw powershell sketch
+  brew cask install dotnet-sdk firefox microsoft-teams parallels paw powershell sketch
 fi
