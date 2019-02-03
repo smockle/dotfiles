@@ -6,6 +6,7 @@ PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 declare -a extensions=(
   EditorConfig.EditorConfig
   LinusU.auto-dark-mode
+  peterjausovec.vscode-docker
   smockle.xcode-default-theme
   VisualStudioExptTeam.vscodeintellicode
 )
@@ -14,6 +15,7 @@ declare -a personal_extensions=(
 )
 declare -a work_extensions=(
   msjsdiag.debugger-for-chrome
+  ms-vscode.csharp
   ms-vscode.vscode-typescript-tslint-plugin
   ms-vsliveshare.vsliveshare
 )

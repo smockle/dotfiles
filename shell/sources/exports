@@ -31,6 +31,3 @@ export LESS_TERMCAP_md="${orange}"
 
 # Ellipsize directory path in prompt, when necessary.
 export PROMPT_DIRTRIM=2
-
-# Periodically clean up after Homebrew
-export HOMEBREW_INSTALL_CLEANUP=1
