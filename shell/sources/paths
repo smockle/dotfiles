@@ -2,23 +2,21 @@
 
 # PATH
 # Directories to be prepended to PATH
-if [[ $OSTYPE == "darwin"* ]]; then
-  declare -a bindirs_to_prepend=(
-    "$(dirname $(dirname $(type -p brew)))/opt/node@10/bin" # Add brew-install node@10
-    "$(dirname $(dirname $(type -p brew)))/share/npm/bin" # Add npm-installed package bin
-    "$(dirname $(dirname $(type -p brew)))/sbin"
-    "$(dirname $(dirname $(type -p brew)))/bin"
-    "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
-  )
+declare -a bindirs_to_prepend=(
+  "$(dirname $(dirname $(type -p brew)))/opt/node@10/bin" # Add brew-install node@10
+  "$(dirname $(dirname $(type -p brew)))/share/npm/bin" # Add npm-installed package bin
+  "$(dirname $(dirname $(type -p brew)))/sbin"
+  "$(dirname $(dirname $(type -p brew)))/bin"
+  "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
+)
 
-  # Prepend directories to PATH
-  for index in ${!bindirs_to_prepend[*]}; do
-    if [ -d ${bindirs_to_prepend[$index]} ]; then
-      # If these directories exist, then prepend them to existing PATH
-      PATH="${bindirs_to_prepend[$index]}:$PATH"
-    fi
-  done
+# Prepend directories to PATH
+for index in ${!bindirs_to_prepend[*]}; do
+  if [ -d ${bindirs_to_prepend[$index]} ]; then
+    # If these directories exist, then prepend them to existing PATH
+    PATH="${bindirs_to_prepend[$index]}:$PATH"
+  fi
+done
 
-  unset bindirs_to_prepend
-  export PATH
-fi
+unset bindirs_to_prepend
+export PATH

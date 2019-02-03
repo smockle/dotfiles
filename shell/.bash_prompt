@@ -26,9 +26,6 @@ set_prompts() {
   else
     userStyle="${yellow}";
   fi;
-  if [[ $(uname -a | grep raspberrypi) ]]; then
-    userStyle="${violet}"
-  fi;
 
   # Highlight the hostname when connected via SSH.
   if [[ "${SSH_TTY}" ]]; then
