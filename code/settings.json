@@ -40,5 +40,5 @@
   "autoDarkMode.lightTheme": "Xcode Default (Light)",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.formatOnSave": true,
-  "workbench.colorTheme": "Xcode Default (Light)"
+  "workbench.colorTheme": "Xcode Default (Dark)"
 }

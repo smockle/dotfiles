@@ -31,3 +31,6 @@ export LESS_TERMCAP_md="${orange}"
 
 # Ellipsize directory path in prompt, when necessary.
 export PROMPT_DIRTRIM=2
+
+# Enable experimental Docker CLI features
+export DOCKER_CLI_EXPERIMENTAL="enabled"
