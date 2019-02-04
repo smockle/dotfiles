@@ -20,6 +20,11 @@ echo "Setting macOS defaults…"
 bash "${HOME}/Developer/dotfiles/bin/defaults.sh"
 printf "Defaults set.\n\n"
 
+# Configure Docker CLI
+echo "Configuring Docker CLI…"
+bash "${HOME}/Developer/dotfiles/bin/docker.sh"
+printf "Docker CLI configured.\n\n"
+
 # Install Visual Studio Code extensions
 echo "Installing Visual Studio Code extensions…"
 bash "${HOME}/Developer/dotfiles/bin/code.sh"
