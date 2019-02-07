@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+# shellcheck disable=SC2032
+git() {
+  command=$1
+  shift 1
+
+  # Create a new branch with the same name if one does not exist,
+  # safer than `git config --global push.default current`.
+  BRANCH_NAME=
+  if [ "${command}" == "push" ] && \
+     [ -n "$(command git config "branch.$(command git rev-parse --abbrev-ref HEAD).merge")" ]
+  then
+    # shellcheck disable=SC2068
+    command git push --set-upstream ${@:-$(a=(origin "${BRANCH_NAME}"); echo "${a[@]}")}
+    unset BRANCH_NAME
+    return $?
+  fi
+  unset BRANCH_NAME
+
+  # Remove merged & squash-merged branches
+  if [ "${command}" == "branch" ] && \
+     [ "${1}" == "prune" ]
+  then
+    command git branch --merged | egrep -v "(^\*|master|develop)" | xargs command git branch -D
+    command git fetch -a && command git branch -v | grep '\[gone\]' | cut -f3 -d' ' | xargs command git branch -D
+    return $?
+  fi
+
+  command git "${command}" "$@"
+  return $?
+}

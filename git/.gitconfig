@@ -1,13 +1,10 @@
 [alias]
 	co = checkout
-	log = "log --graph --pretty=format:'%C(auto)%h %s %Cgreen(%cr) %Cblue<%an>%Creset'"
 
 [color]
-	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
 
 [core]
-	quotepath = false
 	excludesfile = ~/.gitignore
 
 [credential]
@@ -21,17 +18,11 @@
 [github]
 	user = smockle
 
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-
-[push]
-	default = simple
-
-[help]
-	autocorrect = -1
+[pull]
+	rebase = true
 
 [fetch]
 	prune = true
-[pull]
-	rebase = true
+
+[help]
+	autocorrect = -1

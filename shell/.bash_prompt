@@ -1,38 +1,40 @@
 #!/usr/bin/env bash
 
+# Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
+prompt_git() {
+	! command git rev-parse --is-inside-work-tree &>/dev/null && return
+
+	local s='';
+	if [ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" == "false" ]; then
+		command git update-index --really-refresh -q &>/dev/null;
+		# [+] staged, uncommitted
+		! command git diff --quiet --ignore-submodules --cached && s+='+'
+		# [!] unstaged
+		! command git diff-files --quiet --ignore-submodules -- && s+='!'
+		# [?] untracked
+		[ -n "$(command git ls-files --others --exclude-standard)" ] && s+='?'
+		# [$] stashed
+		command git rev-parse --verify refs/stash &>/dev/null && s+='$'
+	fi
+	[ -n "${s}" ] && s=" [${s}]"
+
+	local branchName
+  branchName="$(command git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+		command git rev-parse --short HEAD 2> /dev/null || \
+		echo '(unknown)')"
+
+	echo -e "${1}${branchName}${blue}${s}"
+}
+
 set_prompts() {
   if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 		tput sgr0; # reset colors
-
-		bold=$(tput bold);
-		reset=$(tput sgr0);
-
-		black=$(tput setaf 0);
-		blue=$(tput setaf 4);
-		cyan=$(tput setaf 6);
-		gray=$(tput setaf 8);
-		green=$(tput setaf 2);
-		orange=$(tput setaf 3);
-		purple=$(tput setaf 5);
-		red=$(tput setaf 1);
-		violet=$(tput setaf 5);
-		white=$(tput setaf 15);
-		yellow=$(tput setaf 3);
+		bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 4); gray=$(tput setaf 8); green=$(tput setaf 2); red=$(tput setaf 1); violet=$(tput setaf 5); yellow=$(tput setaf 3);
+    # Unused colors: black=$(tput setaf 0); cyan=$(tput setaf 6); orange=$(tput setaf 3); purple=$(tput setaf 5); white=$(tput setaf 15);
   fi
 
   # Highlight the user name when logged in as root.
-  if [[ "${USER}" == "root" ]]; then
-    userStyle="${red}";
-  else
-    userStyle="${yellow}";
-  fi;
-
-  # Highlight the hostname when connected via SSH.
-  if [[ "${SSH_TTY}" ]]; then
-    hostStyle="${bold}${red}";
-  else
-    hostStyle="${yellow}";
-  fi;
+  [ "${USER}" == "root" ] && userStyle="${red}" || userStyle="${yellow}"
 
   # Set the terminal title to the current working directory
   PS1="\[\033]0;\h\007\]";
@@ -45,8 +47,8 @@ set_prompts() {
   PS1+='\[${reset}\]$ '; # `$` (and reset color)
   export PS1;
 }
-
 set_prompts
+unset set_prompts
 
 # Inspired by https://stackoverflow.com/a/14860632
 INITIAL_PROMPT_COMMAND="${PROMPT_COMMAND}"
@@ -56,5 +58,3 @@ PROMPT_COMMAND='eval $INITIAL_PROMPT_COMMAND && (( PROMPT_CTR-- < 0 )) && {
   unset INITIAL_PROMPT_COMMAND
   unset PROMPT_CTR
 }'
-
-unset set_prompts
