@@ -11,8 +11,8 @@ fi
 # brew
 brew tap caskroom/versions \
   ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
-brew install bash bash-completion@2 git node@10 watchman \
-  ${PERSONAL:+awscli} \
+brew install bash bash-completion@2 git node@10 shellcheck svgcleaner watchman \
+  ${PERSONAL:+awscli} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
 brew cask install bartender docker google-chrome shifty spectacle visual-studio-code \
   ${PERSONAL:+arduino} ${PERSONAL:+dropbox} ${PERSONAL:+wch-ch34x-usb-serial-driver} \
@@ -57,6 +57,11 @@ touch "${HOME}/.hushlogin"
 if [ ! -f "${HOME}/.ssh/config" ]; then
   mkdir -p "${HOME}/.ssh"
   cp "${DOTFILES_DIRECTORY}/ssh/config" "${HOME}/.ssh/config"
+fi
+
+# Finder
+if [ -d "${HOME}/Library/Mobile Documents/com~apple~Automator/Documents/Compress SVG.workflow" ]; then
+  ln -fs "${HOME}/Library/Mobile Documents/com~apple~Automator/Documents/Compress SVG.workflow" "${HOME}/Library/Services/"
 fi
 
 # Visual Studio Code

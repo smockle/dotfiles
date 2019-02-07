@@ -31,7 +31,7 @@
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "window.nativeTabs": true,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Xcode Default (Dark)",
+  "workbench.colorTheme": "Xcode Default (Light)",
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vs-minimal"
