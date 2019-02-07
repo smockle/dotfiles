@@ -29,8 +29,8 @@ prompt_git() {
 set_prompts() {
   if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 		tput sgr0; # reset colors
-		bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 4); gray=$(tput setaf 8); green=$(tput setaf 2); red=$(tput setaf 1); violet=$(tput setaf 5); yellow=$(tput setaf 3);
-    # Unused colors: black=$(tput setaf 0); cyan=$(tput setaf 6); orange=$(tput setaf 3); purple=$(tput setaf 5); white=$(tput setaf 15);
+		reset=$(tput sgr0); blue=$(tput setaf 4); gray=$(tput setaf 8); green=$(tput setaf 2); red=$(tput setaf 1); violet=$(tput setaf 5); yellow=$(tput setaf 3);
+    # Unused colors: bold=$(tput bold); black=$(tput setaf 0); cyan=$(tput setaf 6); orange=$(tput setaf 3); purple=$(tput setaf 5); white=$(tput setaf 15);
   fi
 
   # Highlight the user name when logged in as root.
