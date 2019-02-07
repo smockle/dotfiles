@@ -2,8 +2,11 @@
 set -eo pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
-WORK=$(grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
-PERSONAL=$((! WORK))
+if grep -Fq "AppCenter" "${HOME}/.npmrc"; then
+  WORK=0; unset PERSONAL;
+else
+  unset WORK; PERSONAL=0;
+fi
 
 # brew
 brew tap caskroom/versions \
