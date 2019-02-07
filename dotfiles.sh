@@ -75,3 +75,6 @@ code --install-extension EditorConfig.EditorConfig \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
+
+unset WORK
+unset PERSONAL
