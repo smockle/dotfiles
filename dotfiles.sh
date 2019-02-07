@@ -5,8 +5,6 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 WORK=$(grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 PERSONAL=$((! WORK))
 
-echo ${PERSONAL:+awscli} ${WORK:+azure-cli}
-
 # brew
 brew tap caskroom/versions \
   ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
@@ -35,7 +33,7 @@ ln -fs "${DOTFILES_DIRECTORY}/git/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${DOTFILES_DIRECTORY}/git/.gitignore" "${HOME}/.gitignore"
 
 # shell
-HOMEBREW_BASH_PATH="$(dirname $(dirname $(type -p brew)))/bin/bash"
+HOMEBREW_BASH_PATH="$(dirname "$(dirname "$(type -p brew)")")/bin/bash"
 if [ -f "${HOMEBREW_BASH_PATH}" ]; then
   if ! grep -qF -- "${HOMEBREW_BASH_PATH}" /etc/shells; then
     echo "${HOMEBREW_BASH_PATH}" | sudo tee -a /etc/shells
