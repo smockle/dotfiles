@@ -81,4 +81,7 @@ test -f "${HOMEBREW_BASH_COMPLETION}" && source "${HOMEBREW_BASH_COMPLETION}"
 unset HOMEBREW_BASH_COMPLETION
 
 # shellcheck source=/dev/null
+source "${HOME}/Developer/dotfiles/git/git"
+
+# shellcheck source=/dev/null
 source "${HOME}/.bash_prompt"

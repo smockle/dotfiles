@@ -25,9 +25,9 @@ npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
 
 # vi
-mkdir -p ~/.vim/backups
-mkdir -p ~/.vim/swaps
-mkdir -p ~/.vim/undo
+mkdir -p "${HOME}/.vim/backups"
+mkdir -p "${HOME}/.vim/swaps"
+mkdir -p "${HOME}/.vim/undo"
 ln -fs "${DOTFILES_DIRECTORY}/vim/colors" "${HOME}/.vim"
 ln -fs "${DOTFILES_DIRECTORY}/vim/.vimrc" "${HOME}/.vimrc"
 

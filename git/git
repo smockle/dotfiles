@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -eo pipefail
 
 git() {
   command=$1
@@ -7,9 +6,9 @@ git() {
 
   # Create a new branch with the same name if one does not exist,
   # safer than `git config --global push.default current`.
-  BRANCH_NAME=
+  BRANCH_NAME=$(command "git" rev-parse --abbrev-ref HEAD)
   if [ "${command}" == "push" ] && \
-     [ -n "$(command "git" config "branch.$(command "git" rev-parse --abbrev-ref HEAD).merge")" ]
+     [ -z "$(command "git" config "branch.${BRANCH_NAME}.merge")" ]
   then
     # shellcheck disable=SC2068
     command "git" push --set-upstream ${@:-$(a=(origin "${BRANCH_NAME}"); echo "${a[@]}")}
