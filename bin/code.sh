@@ -3,41 +3,16 @@
 # Determine whether to install personal or work extensions
 PERSONAL=$(! grep -Fq "AppCenter" "${HOME}/.npmrc"; echo $?)
 
-declare -a extensions=(
-  EditorConfig.EditorConfig
-  LinusU.auto-dark-mode
-  peterjausovec.vscode-docker
-  smockle.xcode-default-theme
-  VisualStudioExptTeam.vscodeintellicode
-)
-declare -a personal_extensions=(
-  esbenp.prettier-vscode
-)
-declare -a work_extensions=(
-  msjsdiag.debugger-for-chrome
-  ms-vscode.csharp
-  ms-vscode.vscode-typescript-tslint-plugin
-  ms-vsliveshare.vsliveshare
-)
-
-install_code_extensions() {
-  local extensions=("$@")
-  for extension in "${extensions[@]}"; do
-    if code --list-extensions | grep -q "${extension}"; then
-      code --uninstall-extension "${extension}" 
-    fi
-    code --install-extension "${extension}"
-  done
-}
-
-install_code_extensions "${extensions[@]}"
+code --install-extension EditorConfig.EditorConfig \
+     --install-extension LinusU.auto-dark-mode \
+     --install-extension peterjausovec.vscode-docker \
+     --install-extension smockle.xcode-default-theme \
+     --install-extension VisualStudioExptTeam.vscodeintellicode
 if [ $PERSONAL -eq 0 ]; then
-  install_code_extensions "${personal_extensions[@]}"
+  code --install-extension esbenp.prettier-vscode
 else
-  install_code_extensions "${work_extensions[@]}"
+  code --install-extension msjsdiag.debugger-for-chrome \
+       --install-extension ms-vscode.csharp \
+       --install-extension ms-vscode.vscode-typescript-tslint-plugin \
+       --install-extension ms-vsliveshare.vsliveshare
 fi
-
-unset extensions
-unset personal_extensions
-unset work_extensions
-unset install_code_extensions
