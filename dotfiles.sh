@@ -9,7 +9,7 @@ else
 fi
 
 # brew
-brew tap caskroom/versions \
+brew tap homebrew/cask-versions \
   ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
 brew install bash bash-completion@2 git node@10 shellcheck svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
