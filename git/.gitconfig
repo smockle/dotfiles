@@ -2,10 +2,21 @@
 	co = checkout
 
 [color]
-	ui = auto
+	ui = true
+
+[color "diff"]
+	old = red
+	new = green
+
+[color "diff-highlight"]
+	oldNormal = red
+	newNormal = green
+	oldHighlight = red reverse
+	newHighlight = green reverse
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RXE
 
 [credential]
 	helper = osxkeychain

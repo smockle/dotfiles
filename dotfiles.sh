@@ -11,7 +11,7 @@ fi
 # brew
 brew tap homebrew/cask-versions \
   ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
-brew install bash bash-completion@2 git node@10 shellcheck svgcleaner watchman \
+brew install bash bash-completion@2 diff-so-fancy git node@10 shellcheck svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
 brew cask install bartender docker google-chrome shifty spectacle visual-studio-code \
