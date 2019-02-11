@@ -21,6 +21,7 @@
   "editor.wordWrap": "on",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
   "git.autofetch": true,
   "git.confirmSync": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -34,5 +35,5 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vs-minimal",
-  "workbench.colorTheme": "Xcode Default (Light)"
+  "workbench.colorTheme": "Xcode Default (Dark)"
 }
