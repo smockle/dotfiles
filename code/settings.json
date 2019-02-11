@@ -1,6 +1,7 @@
 {
   "autoDarkMode.darkTheme": "Xcode Default (Dark)",
   "autoDarkMode.lightTheme": "Xcode Default (Light)",
+  "csharp.referencesCodeLens.enabled": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
   },
