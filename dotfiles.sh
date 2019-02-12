@@ -74,8 +74,10 @@ code --install-extension EditorConfig.EditorConfig \
      --install-extension LinusU.auto-dark-mode \
      --install-extension peterjausovec.vscode-docker \
      --install-extension smockle.xcode-default-theme \
+     --install-extension timonwong.shellcheck \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      ${PERSONAL:+$(x=(--install-extension esbenp.prettier-vscode); echo "${x[@]}")} \
+     ${PERSONAL:+$(x=(--install-extension ginfuru.ginfuru-vscode-jekyll-syntax); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension msjsdiag.debugger-for-chrome); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")} \
