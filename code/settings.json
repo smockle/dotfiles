@@ -1,6 +1,6 @@
 {
-  "autoDarkMode.darkTheme": "Xcode Default (Dark)",
-  "autoDarkMode.lightTheme": "Xcode Default (Light)",
+  "autoDarkMode.darkTheme": "Xcode Partial (Dark)",
+  "autoDarkMode.lightTheme": "Xcode Partial (Light)",
   "csharp.referencesCodeLens.enabled": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
@@ -36,5 +36,29 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vs-minimal",
-  "workbench.colorTheme": "Xcode Default (Dark)"
+  "workbench.colorTheme": "Xcode Partial (Light)",
+  "editor.tokenColorCustomizations": {
+    "[Xcode Partial (Light)]": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "foreground": "#536579",
+            "fontStyle": "italic"
+          }
+        }
+      ]
+    },
+    "[Xcode Partial (Dark)]": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "foreground": "#6C7986",
+            "fontStyle": "italic"
+          }
+        }
+      ]
+    }
+  }
 }
