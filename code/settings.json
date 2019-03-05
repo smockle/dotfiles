@@ -10,7 +10,6 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 12,
   "editor.fontWeight": "500",
-  "editor.formatOnSave": true,
   "editor.lineHeight": 17,
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
@@ -20,6 +19,13 @@
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
@@ -30,13 +36,11 @@
   "prettier.requireConfig": false,
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.lineHeight": 1.23,
-  "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "window.nativeTabs": true,
   "workbench.activityBar.visible": false,
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vs-minimal",
-  "workbench.colorTheme": "Xcode Partial (Dark)",
   "editor.tokenColorCustomizations": {
     "[Xcode Partial (Light)]": {
       "textMateRules": [
@@ -66,5 +70,6 @@
         }
       ]
     }
-  }
+  },
+  "workbench.colorTheme": "Xcode Partial (Light)"
 }

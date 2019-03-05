@@ -11,12 +11,17 @@ fi
 # brew
 brew tap homebrew/cask-versions \
   ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
-brew install bash bash-completion@2 diff-so-fancy git node@10 shellcheck svgcleaner watchman \
+brew install bash bash-completion@2 diff-so-fancy git mas node@10 shellcheck svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
-  ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
+  ${WORK:+azure-cli} ${WORK:+carthage} ${WORK:+kubernetes-cli} ${WORK:+mono}
 brew cask install bartender docker google-chrome shifty visual-studio-code \
   ${PERSONAL:+arduino} ${PERSONAL:+dropbox} ${PERSONAL:+wch-ch34x-usb-serial-driver} \
-  ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+parallels} ${WORK:+paw} ${WORK:+powershell} ${WORK:+sketch}
+  ${WORK:+dotnet-sdk} ${WORK:+java} ${WORK:+microsoft-teams} ${WORK:+parallels} ${WORK:+paw} ${WORK:+powershell} ${WORK:+sketch}
+
+# mas
+mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` 497799835`#Xcode` \
+  1333542190`#1Password7` 904280696`#Things3` 441258766`#Magnet` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
+  ${WORK:+803453959}`#Slack` ${WORK:+1295203466}`#MicrosoftRemoteDesktop` ${WORK:+823766827}`#OneDrive` ${WORK:+462054704}`#MicrosoftWord`
 
 # npm
 npm config set init-license "MIT"
@@ -71,17 +76,20 @@ ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIREC
 ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
 unset VISUAL_STUDIO_CODE_DIRECTORY
 code --install-extension EditorConfig.EditorConfig \
+     --install-extension esbenp.prettier-vscode \
      --install-extension LinusU.auto-dark-mode \
-     --install-extension peterjausovec.vscode-docker \
+     --install-extension PeterJausovec.vscode-docker \
      --install-extension smockle.xcode-default-theme \
      --install-extension timonwong.shellcheck \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
-     ${PERSONAL:+$(x=(--install-extension esbenp.prettier-vscode); echo "${x[@]}")} \
      ${PERSONAL:+$(x=(--install-extension ginfuru.ginfuru-vscode-jekyll-syntax); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension msjsdiag.debugger-for-chrome); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
+     ${WORK:+$(x=(--install-extension ms-vscode.PowerShell); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
+     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
+     ${WORK:+$(x=(--install-extension redhat.vscode-xml); echo "${x[@]}")}
 
 unset WORK
 unset PERSONAL
