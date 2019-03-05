@@ -6,6 +6,12 @@ export DOCKER_CLI_EXPERIMENTAL="enabled"
 # Set default editor to Vi
 export EDITOR=vi
 
+# Set JAVA_HOME
+if [ -x /usr/libexec/java_home ]; then
+  JAVA_HOME="$(/usr/libexec/java_home)"
+  export JAVA_HOME
+fi
+
 # Make repeated commands not show up in history.
 # Make commands preceeded by a space not show up in history.
 export HISTCONTROL=ignoreboth
