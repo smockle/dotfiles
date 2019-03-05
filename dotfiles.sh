@@ -14,7 +14,7 @@ brew tap homebrew/cask-versions \
 brew install bash bash-completion@2 diff-so-fancy git node@10 shellcheck svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
-brew cask install bartender docker google-chrome shifty spectacle visual-studio-code \
+brew cask install bartender docker google-chrome shifty visual-studio-code \
   ${PERSONAL:+arduino} ${PERSONAL:+dropbox} ${PERSONAL:+wch-ch34x-usb-serial-driver} \
   ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+parallels} ${WORK:+paw} ${WORK:+powershell} ${WORK:+sketch}
 

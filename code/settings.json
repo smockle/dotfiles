@@ -36,7 +36,7 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vs-minimal",
-  "workbench.colorTheme": "Xcode Partial (Light)",
+  "workbench.colorTheme": "Xcode Partial (Dark)",
   "editor.tokenColorCustomizations": {
     "[Xcode Partial (Light)]": {
       "textMateRules": [
@@ -51,6 +51,12 @@
     },
     "[Xcode Partial (Dark)]": {
       "textMateRules": [
+        {
+          "scope": "source",
+          "settings": {
+            "foreground": "#D4D4D4"
+          }
+        },
         {
           "scope": "comment",
           "settings": {
