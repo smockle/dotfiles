@@ -7,7 +7,7 @@ export DOCKER_CLI_EXPERIMENTAL="enabled"
 export EDITOR=vi
 
 # Set JAVA_HOME
-if [ -x /usr/libexec/java_home ]; then
+if /usr/libexec/java_home &>/dev/null; then
   JAVA_HOME="$(/usr/libexec/java_home)"
   export JAVA_HOME
 fi
