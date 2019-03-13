@@ -88,8 +88,7 @@ code --install-extension EditorConfig.EditorConfig \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.PowerShell); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")} \
-     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
-     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
+     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension redhat.vscode-xml); echo "${x[@]}")}
 
 unset WORK
