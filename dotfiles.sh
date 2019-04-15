@@ -12,11 +12,11 @@ fi
 brew tap homebrew/cask-versions \
   ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
 brew install bash bash-completion@2 diff-so-fancy git mas node@10 shellcheck svgcleaner watchman \
-  ${PERSONAL:+awscli} ${PERSONAL:+travis} \
+  ${PERSONAL:+awscli} ${PERSONAL:+nmap} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+carthage} ${WORK:+kubernetes-cli} ${WORK:+mono}
 brew cask install bartender docker google-chrome shifty visual-studio-code \
   ${PERSONAL:+arduino} ${PERSONAL:+dropbox} ${PERSONAL:+wch-ch34x-usb-serial-driver} \
-  ${WORK:+dotnet-sdk} ${WORK:+java} ${WORK:+microsoft-teams} ${WORK:+parallels} ${WORK:+paw} ${WORK:+powershell} ${WORK:+sketch}
+  ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+parallels} ${WORK:+paw} ${WORK:+powershell} ${WORK:+sketch}
 
 # mas
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` 497799835`#Xcode` \
@@ -88,8 +88,7 @@ code --install-extension EditorConfig.EditorConfig \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.PowerShell); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")} \
-     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")} \
-     ${WORK:+$(x=(--install-extension redhat.vscode-xml); echo "${x[@]}")}
+     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
 
 unset WORK
 unset PERSONAL
