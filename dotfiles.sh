@@ -9,13 +9,12 @@ else
 fi
 
 # brew
-brew tap homebrew/cask-versions \
-  ${PERSONAL:+mengbo/ch340g-ch34g-ch34x-mac-os-x-driver}
+brew tap homebrew/cask-versions
 brew install bash bash-completion@2 diff-so-fancy git mas node@10 shellcheck svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+nmap} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+carthage} ${WORK:+kubernetes-cli} ${WORK:+mono}
-brew cask install bartender docker google-chrome shifty visual-studio-code \
-  ${PERSONAL:+arduino} ${PERSONAL:+dropbox} ${PERSONAL:+wch-ch34x-usb-serial-driver} \
+brew cask install bartender docker google-chrome hazel shifty visual-studio-code \
+  ${PERSONAL:+dropbox} \
   ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+parallels} ${WORK:+paw} ${WORK:+powershell} ${WORK:+sketch}
 
 # mas
@@ -80,10 +79,8 @@ code --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
      --install-extension LinusU.auto-dark-mode \
      --install-extension PeterJausovec.vscode-docker \
-     --install-extension smockle.xcode-default-theme \
      --install-extension timonwong.shellcheck \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
-     ${PERSONAL:+$(x=(--install-extension ginfuru.ginfuru-vscode-jekyll-syntax); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension msjsdiag.debugger-for-chrome); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.PowerShell); echo "${x[@]}")} \

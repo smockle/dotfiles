@@ -1,6 +1,6 @@
 {
-  "autoDarkMode.darkTheme": "Xcode Partial (Dark)",
-  "autoDarkMode.lightTheme": "Xcode Partial (Light)",
+  "autoDarkMode.darkTheme": "Dark+ (default dark)",
+  "autoDarkMode.lightTheme": "Light+ (default light)",
   "csharp.referencesCodeLens.enabled": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
@@ -71,5 +71,11 @@
       ]
     }
   },
-  "workbench.colorTheme": "Xcode Partial (Dark)"
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Dark+ (default dark)"
 }
