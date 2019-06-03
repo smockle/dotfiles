@@ -1,6 +1,4 @@
 {
-  "autoDarkMode.darkTheme": "Dark+ (default dark)",
-  "autoDarkMode.lightTheme": "Light+ (default light)",
   "csharp.referencesCodeLens.enabled": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
@@ -17,7 +15,6 @@
   "editor.renderIndentGuides": false,
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
-  "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
@@ -41,41 +38,17 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vs-minimal",
-  "editor.tokenColorCustomizations": {
-    "[Xcode Partial (Light)]": {
-      "textMateRules": [
-        {
-          "scope": "comment",
-          "settings": {
-            "foreground": "#536579",
-            "fontStyle": "italic"
-          }
-        }
-      ]
-    },
-    "[Xcode Partial (Dark)]": {
-      "textMateRules": [
-        {
-          "scope": "source",
-          "settings": {
-            "foreground": "#D4D4D4"
-          }
-        },
-        {
-          "scope": "comment",
-          "settings": {
-            "foreground": "#6C7986",
-            "fontStyle": "italic"
-          }
-        }
-      ]
-    }
+  "[csharp]": {
+    "editor.formatOnSave": true
   },
+  "editor.tabSize": 2,
+  "omnisharp.useEditorFormattingSettings": false,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "editor.formatOnSave": true,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "liveshare.featureSet": "insiders",
+  "omnisharp.enableRoslynAnalyzers": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.colorTheme": "Dark+ (default dark)"
+  }
 }
