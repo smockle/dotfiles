@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 git() {
   command=$1
@@ -7,7 +7,7 @@ git() {
   # Create a new branch with the same name if one does not exist,
   # safer than `git config --global push.default current`.
   BRANCH_NAME=$(command "git" rev-parse --abbrev-ref HEAD)
-  if [ "${command}" == "push" ] && \
+  if [[ "${command}" == "push" ]] && \
      [ -z "$(command "git" config "branch.${BRANCH_NAME}.merge")" ]
   then
     # shellcheck disable=SC2068
@@ -18,7 +18,7 @@ git() {
   unset BRANCH_NAME
 
   # Remove merged & squash-merged branches
-  if [ "${command}" == "branch" ] && \
+  if [[ "${command}" == "branch" ]] && \
      [ "${1}" == "prune" ]
   then
     command "git" branch --merged | grep -E -v "(^\*|master|develop)" | xargs command "git" branch -D

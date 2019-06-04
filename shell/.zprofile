@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Enable experimental Docker CLI features
 export DOCKER_CLI_EXPERIMENTAL="enabled"
@@ -6,22 +6,17 @@ export DOCKER_CLI_EXPERIMENTAL="enabled"
 # Set default editor to Vi
 export EDITOR=vi
 
-# Set JAVA_HOME
-if /usr/libexec/java_home &>/dev/null; then
-  JAVA_HOME="$(/usr/libexec/java_home)"
-  export JAVA_HOME
-fi
-
-# Make repeated commands not show up in history.
-# Make commands preceeded by a space not show up in history.
-export HISTCONTROL=ignoreboth
+# Skip repeated commands in history.
+setopt histignoredups
 
 # Increase the maximum number of lines contained in the history file
 # (default is 500)
+export HISTSIZE=10000
 export HISTFILESIZE=10000
+export HISTFILE=~/.zhistory
 
 # Homebrew path prefix
-HOMEBREW_PREFIX=$(dirname "$(dirname "$(type -p brew)")")
+HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
 export HOMEBREW_PREFIX
 
 # Always use color output for ls.
@@ -31,8 +26,8 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 export LESS=-RXE
 
 # Highlight section titles in manual pages.
-[ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null && LESS_TERMCAP_md=$(tput setaf 3)
-export LESS_TERMCAP_md
+# [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null && LESS_TERMCAP_md=$(tput setaf 3)
+# export LESS_TERMCAP_md
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="less"
@@ -50,23 +45,21 @@ declare -a PATH_ADDITIONS=(
   "${HOMEBREW_PREFIX}/bin"
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
 )
-for i in ${!PATH_ADDITIONS[*]}; do
-  if [ -d "${PATH_ADDITIONS[$i]}" ]; then
-    PATH="${PATH_ADDITIONS[$i]}:$PATH"
+for p in $PATH_ADDITIONS; do
+  if [ -d "${p}" ]; then
+    PATH="${p}:$PATH"
   fi
 done
 unset PATH_ADDITIONS
 export PATH
 
-# Check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob
+unsetopt CASE_GLOB
 
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell
+# Use the string that has already been typed as the prefix for searching
+# through commands (i.e. more intelligent Up/Down-arrow behavior)
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 # Use git diff instead of diff
 alias diff="git diff"
@@ -77,17 +70,8 @@ alias grep='grep --color=auto'
 # Use colors in ls
 alias ls="command ls -G"
 
-# Tab completion for sudo
-complete -cf sudo
-
-# Tab completion for bash (installed via Homebrew)
-HOMEBREW_BASH_COMPLETION="${HOMEBREW_PREFIX}/share/bash-completion/bash_completion"
-# shellcheck source=/dev/null
-test -f "${HOMEBREW_BASH_COMPLETION}" && source "${HOMEBREW_BASH_COMPLETION}"
-unset HOMEBREW_BASH_COMPLETION
-
-# shellcheck source=/dev/null
+# Use custom git subfunctions
 source "${HOME}/Developer/dotfiles/git/git"
 
-# shellcheck source=/dev/null
-source "${HOME}/.bash_prompt"
+# Set prompt
+source "${HOME}/.zprompt"

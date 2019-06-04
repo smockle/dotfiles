@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -eo pipefail
+#!/usr/bin/env zsh
+setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 if grep -Fq "AppCenter" "${HOME}/.npmrc"; then
@@ -10,14 +10,14 @@ fi
 
 # brew
 brew tap homebrew/cask-versions
-brew install bash bash-completion@2 diff-so-fancy git mas node@10 shellcheck svgcleaner watchman \
+brew install diff-so-fancy git mas node@10 svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
 brew cask install docker google-chrome-canary hazel visual-studio-code \
   ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+paw} ${WORK:+powershell}
 
 # mas
-mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` 497799835`#Xcode` \
+mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
   1333542190`#1Password7` 904280696`#Things3` 441258766`#Magnet` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
   ${PERSONAL:880001334}`#Reeder3` ${PERSONAL:+924726344}`#Deliveries` ${PERSONAL:+1384080005}`#Tweetbot` ${PERSONAL:+775737590}`#iAWriter` \
   ${WORK:+1295203466}`#MicrosoftRemoteDesktop` ${WORK:+823766827}`#OneDrive` ${WORK:+462054704}`#MicrosoftWord` ${WORK:+803453959}`#Slack` 
@@ -40,22 +40,9 @@ ln -fs "${DOTFILES_DIRECTORY}/git/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${DOTFILES_DIRECTORY}/git/.gitignore" "${HOME}/.gitignore"
 
 # shell
-HOMEBREW_BASH_PATH="$(dirname "$(dirname "$(type -p brew)")")/bin/bash"
-if [ -f "${HOMEBREW_BASH_PATH}" ]; then
-  if ! grep -qF -- "${HOMEBREW_BASH_PATH}" /etc/shells; then
-    echo "${HOMEBREW_BASH_PATH}" | sudo tee -a /etc/shells
-  fi
-  if [ "$SHELL" != "${HOMEBREW_BASH_PATH}" ]; then
-    sudo chsh -s "${HOMEBREW_BASH_PATH}"
-    chsh -s "${HOMEBREW_BASH_PATH}"
-  fi
-fi
-unset HOMEBREW_BASH_PATH
-ln -fs "${DOTFILES_DIRECTORY}/shell/.bash_profile" "${HOME}/.bash_profile"
-ln -fs "${DOTFILES_DIRECTORY}/shell/.bash_prompt" "${HOME}/.bash_prompt"
-ln -fs "${DOTFILES_DIRECTORY}/shell/.bashrc" "${HOME}/.bashrc"
-ln -fs "${DOTFILES_DIRECTORY}/shell/.inputrc" "${HOME}/.inputrc"
-touch "${HOME}/.hushlogin"
+ln -fs "${DOTFILES_DIRECTORY}/shell/.zprofile" "${HOME}/.zprofile"
+ln -fs "${DOTFILES_DIRECTORY}/shell/.zprompt" "${HOME}/.zprompt"
+ln -fs "${DOTFILES_DIRECTORY}/shell/.zshrc" "${HOME}/.zshrc"
 
 # ssh
 if [ ! -f "${HOME}/.ssh/config" ]; then
@@ -78,7 +65,6 @@ code --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
      --install-extension LinusU.auto-dark-mode \
      --install-extension PeterJausovec.vscode-docker \
-     --install-extension timonwong.shellcheck \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      ${WORK:+$(x=(--install-extension msjsdiag.debugger-for-chrome); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
