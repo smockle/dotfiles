@@ -20,7 +20,7 @@ brew cask install docker google-chrome-canary hazel visual-studio-code \
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
   1333542190`#1Password7` 904280696`#Things3` 441258766`#Magnet` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
   ${PERSONAL:880001334}`#Reeder3` ${PERSONAL:+924726344}`#Deliveries` ${PERSONAL:+1384080005}`#Tweetbot` ${PERSONAL:+775737590}`#iAWriter` \
-  ${WORK:+1295203466}`#MicrosoftRemoteDesktop` ${WORK:+823766827}`#OneDrive` ${WORK:+462054704}`#MicrosoftWord` ${WORK:+803453959}`#Slack` 
+  ${WORK:+823766827}`#OneDrive` ${WORK:+462054704}`#MicrosoftWord` ${WORK:+803453959}`#Slack` 
 
 # npm
 npm config set init-license "MIT"
