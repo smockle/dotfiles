@@ -13,14 +13,14 @@ brew tap homebrew/cask-versions
 brew install bash bash-completion@2 diff-so-fancy git mas node@10 shellcheck svgcleaner watchman \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
-brew cask install docker google-chrome-canary hazel shifty visual-studio-code \
+brew cask install docker google-chrome-canary hazel visual-studio-code \
   ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+paw} ${WORK:+powershell}
 
 # mas
-mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` 497799835`#Xcode` 803453959`#Slack` \
+mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` 497799835`#Xcode` \
   1333542190`#1Password7` 904280696`#Things3` 441258766`#Magnet` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
   ${PERSONAL:880001334}`#Reeder3` ${PERSONAL:+924726344}`#Deliveries` ${PERSONAL:+1384080005}`#Tweetbot` ${PERSONAL:+775737590}`#iAWriter` \
-  ${WORK:+1295203466}`#MicrosoftRemoteDesktop` ${WORK:+823766827}`#OneDrive` ${WORK:+462054704}`#MicrosoftWord`
+  ${WORK:+1295203466}`#MicrosoftRemoteDesktop` ${WORK:+823766827}`#OneDrive` ${WORK:+462054704}`#MicrosoftWord` ${WORK:+803453959}`#Slack` 
 
 # npm
 npm config set init-license "MIT"
