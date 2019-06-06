@@ -46,5 +46,6 @@ precmd() {
     PROMPT_CTR=1
   elif [ "${PROMPT_CTR}" -eq 1 ]; then
     echo ""
+		# osascript -e 'if app "Terminal" is frontmost then tell app "System Events" to keystroke "u" using command down'
   fi
 }
