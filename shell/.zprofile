@@ -61,6 +61,10 @@ unsetopt CASE_GLOB
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+# Move cursor forward/backward by word (⌥→/⌥←)
+bindkey "^[b" backward-word
+bindkey "^[f" forward-word
+
 # Use git diff instead of diff
 alias diff="git diff"
 
