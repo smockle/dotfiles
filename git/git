@@ -19,7 +19,7 @@ git() {
 
   # Remove merged & squash-merged branches
   if [[ "${command}" == "branch" ]] && \
-     [ "${1}" == "prune" ]
+     [[ "${1}" == "prune" ]]
   then
     command "git" branch --merged | grep -E -v "(^\*|master|develop)" | xargs command "git" branch -D
     command "git" fetch -a && command "git" branch -v | grep '\[gone\]' | cut -f3 -d' ' | xargs command "git" branch -D
