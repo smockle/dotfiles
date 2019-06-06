@@ -26,25 +26,16 @@ prompt_git() {
 		command git rev-parse --short HEAD 2> /dev/null || \
 		echo '(unknown)')"
 
-	echo -e "${1}${branchName}${blue}${s}"
+	echo -e "${1}${branchName}%4F${s}"
 }
 
 set_prompts() {
-  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-		tput sgr0; # reset colors
-		reset=$(tput sgr0); blue=$(tput setaf 4); gray=$(tput setaf 8); green=$(tput setaf 2); red=$(tput setaf 1); violet=$(tput setaf 5); yellow=$(tput setaf 3);
-    # Unused colors: bold=$(tput bold); black=$(tput setaf 0); cyan=$(tput setaf 6); orange=$(tput setaf 3); purple=$(tput setaf 5); white=$(tput setaf 15);
-  fi
-
-  # Highlight the user name when logged in as root.
-  [[ "${USER}" == "root" ]] && userStyle="${red}" || userStyle="${yellow}"
-
-  PROMPT="${userStyle}%n"; # username
-  PROMPT+="${gray} in ";
-  PROMPT+="${green}%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
-  PROMPT+='$(prompt_git "${gray} on ${violet}")'; # git repository details
+  [[ "${USER}" == "root" ]] && PROMPT="%1F%n" || PROMPT="%3F%n" # highlight the user name when logged in as root
+  PROMPT+="%8F in ";
+  PROMPT+="%2F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
+  PROMPT+='$(prompt_git "%8F on %5F")'; # git repository details
   PROMPT+=$'\n';
-  PROMPT+="${reset}"'$ '; # `$` (and reset color)
+  PROMPT+="%f\$ "; # `$` (and reset color)
   export PROMPT;
 }
 set_prompts
