@@ -65,6 +65,14 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey "^[b" backward-word
 bindkey "^[f" forward-word
 
+# Edit commands in vi
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd "v" edit-command-line
+
+# Fix backspace when existing vi mode
+bindkey -v "^?" backward-delete-char
+
 # Use git diff instead of diff
 alias diff="git diff"
 
