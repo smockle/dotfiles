@@ -9,7 +9,6 @@
   "editor.fontSize": 12,
   "editor.fontWeight": "500",
   "editor.lineHeight": 17,
-  "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.overviewRulerBorder": false,
   "editor.renderIndentGuides": false,
