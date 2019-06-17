@@ -10,10 +10,10 @@ fi
 
 # brew
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git mas node@10 svgcleaner watchman \
+brew install diff-so-fancy git mas node@10 svgcleaner \
   ${PERSONAL:+awscli} ${PERSONAL:+travis} \
   ${WORK:+azure-cli} ${WORK:+kubernetes-cli} ${WORK:+mono}
-brew cask install docker google-chrome-canary hazel visual-studio-code \
+brew cask install docker hazel visual-studio-code \
   ${WORK:+dotnet-sdk} ${WORK:+microsoft-teams} ${WORK:+paw} ${WORK:+powershell}
 
 # mas
