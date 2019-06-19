@@ -62,14 +62,12 @@ ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTOR
 unset VISUAL_STUDIO_CODE_DIRECTORY
 code --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
-     --install-extension LinusU.auto-dark-mode \
      --install-extension PeterJausovec.vscode-docker \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      ${WORK:+$(x=(--install-extension msjsdiag.debugger-for-chrome); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.csharp); echo "${x[@]}")} \
      ${WORK:+$(x=(--install-extension ms-vscode.PowerShell); echo "${x[@]}")} \
-     ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")} \
-     ${WORK:+$(x=(--install-extension ms-vsliveshare.vsliveshare); echo "${x[@]}")}
+     ${WORK:+$(x=(--install-extension ms-vscode.vscode-typescript-tslint-plugin); echo "${x[@]}")}
 
 unset WORK
 unset PERSONAL
