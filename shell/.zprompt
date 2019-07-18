@@ -30,7 +30,7 @@ prompt_git() {
 }
 
 set_prompts() {
-  if [[ "${USER}" == "root" ]] || [[ "${USER}" == "pi"]]; then
+  if [[ "${USER}" == "root" ]] || [[ "${USER}" == "pi" ]]; then
 		PROMPT="%1F%n"
 	else
 		PROMPT="%3F%n"
