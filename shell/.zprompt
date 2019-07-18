@@ -30,7 +30,11 @@ prompt_git() {
 }
 
 set_prompts() {
-  if ([[ "${USER}" == "root" ]] || [[ "${USER}" == "pi" ]]) && PROMPT="%1F%n" || PROMPT="%3F%n" # highlight the user name when logged in as root or pi
+  if [[ "${USER}" == "root" ]] || [[ "${USER}" == "pi"]]; then
+		PROMPT="%1F%n"
+	else
+		PROMPT="%3F%n"
+	fi
   PROMPT+="%8F in ";
   PROMPT+="%2F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
   PROMPT+='$(prompt_git "%8F on %5F")'; # git repository details
