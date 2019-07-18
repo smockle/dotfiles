@@ -36,7 +36,6 @@
   "workbench.activityBar.visible": false,
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "vs-minimal",
   "[csharp]": {
     "editor.formatOnSave": true
   },
