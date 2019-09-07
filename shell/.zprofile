@@ -80,7 +80,9 @@ fi
 # Use the string that has already been typed as the prefix for searching
 # through commands (i.e. more intelligent Up/Down-arrow behavior)
 bindkey "^[[A" history-beginning-search-backward
+bindkey "^[OA" history-beginning-search-backward # SSH
 bindkey "^[[B" history-beginning-search-forward
+bindkey "^[OB" history-beginning-search-forward # SSH
 
 # Reverse through the completions menu using shift-tab
 bindkey "^[[Z" reverse-menu-complete
