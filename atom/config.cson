@@ -1,0 +1,15 @@
+"*":
+  core:
+    telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    fontFamily: "'SF Mono', Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 12
+    lineHeight: 1.7
+  "one-dark-ui":
+    tabCloseButton: "Left"
+  "one-light-ui":
+    tabCloseButton: "Left"
