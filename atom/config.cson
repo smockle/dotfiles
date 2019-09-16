@@ -1,5 +1,8 @@
 "*":
   core:
+    disabledPackages: [
+      "exception-reporting"
+    ]
     telemetryConsent: "limited"
     themes: [
       "one-light-ui"
