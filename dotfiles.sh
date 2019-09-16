@@ -52,6 +52,7 @@ mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
 ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
 ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
 unset VISUAL_STUDIO_CODE_DIRECTORY
-code --install-extension EditorConfig.EditorConfig \
+code --install-extension dbaeumer.vscode-eslint \
+     --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
      --install-extension VisualStudioExptTeam.vscodeintellicode
