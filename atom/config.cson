@@ -12,7 +12,11 @@
     fontFamily: "'SF Mono', Menlo, Consolas, DejaVu Sans Mono, monospace"
     fontSize: 12
     lineHeight: 1.7
+  "linter-ui-default":
+    showPanel: true
   "one-dark-ui":
     tabCloseButton: "Left"
   "one-light-ui":
     tabCloseButton: "Left"
+  welcome:
+    showOnStartup: false
