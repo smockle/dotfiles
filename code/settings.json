@@ -1,0 +1,39 @@
+{
+  "editor.cursorStyle": "line-thin",
+  "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "editor.lineHeight": 17,
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderIndentGuides": false,
+  "editor.renderLineHighlight": "all",
+  "editor.scrollBeyondLastLine": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.23,
+  "window.nativeTabs": true,
+  "workbench.activityBar.visible": false,
+  "workbench.editor.showIcons": false,
+  "workbench.editor.tabCloseButton": "left",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [		
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"		
+  ],
+  "prettier.requireConfig": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.colorTheme": "Default Light+"
+}

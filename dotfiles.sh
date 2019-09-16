@@ -6,7 +6,7 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 # brew
 brew tap homebrew/cask-versions
 brew install diff-so-fancy git mas node@10 svgcleaner
-brew cask install atom docker google-chrome hazel zoomus
+brew cask install docker google-chrome hazel visual-studio-code zoomus
 
 # mas
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
@@ -46,8 +46,12 @@ if [ -d "${HOME}/Library/Mobile Documents/com~apple~Automator/Documents/Compress
   ln -fs "${HOME}/Library/Mobile Documents/com~apple~Automator/Documents/Compress SVG.workflow" "${HOME}/Library/Services/"
 fi
 
-# Atom
-mkdir -p "${HOME}/.atom"
-ln -fs "${DOTFILES_DIRECTORY}/atom/config.cson" "${HOME}/.atom/config.cson"
-ln -fs "${DOTFILES_DIRECTORY}/atom/keymap.cson" "${HOME}/.atom/keymap.cson"
-apm install editorconfig linter mojave-dark-mode prettier-atom
+# Visual Studio Code
+VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code/User"
+mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
+ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
+ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
+unset VISUAL_STUDIO_CODE_DIRECTORY
+code --install-extension EditorConfig.EditorConfig \
+     --install-extension esbenp.prettier-vscode \
+     --install-extension VisualStudioExptTeam.vscodeintellicode
