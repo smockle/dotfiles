@@ -36,5 +36,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.suggestSelection": "first",
   "workbench.colorTheme": "Default Light+"
 }
