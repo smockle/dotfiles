@@ -2,6 +2,7 @@
 
 # PATH
 HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
+whence -p go &>/dev/null && GOPATH=$(go env GOPATH)
 export HOMEBREW_PREFIX
 declare -a PATH_ADDITIONS=(
   "${HOMEBREW_PREFIX}/opt/node@10/bin" # Add brew-install node@10
@@ -9,12 +10,14 @@ declare -a PATH_ADDITIONS=(
   "${HOMEBREW_PREFIX}/sbin"
   "${HOMEBREW_PREFIX}/bin"
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
+  "${GOPATH}/bin"
 )
 for p in $PATH_ADDITIONS; do
-  if [ -d "${p}" ]; then
+  if [ -d "${p}" ] && [[ "${PATH}" != *${p}* ]]; then
     PATH="${p}:$PATH"
   fi
 done
+unset p
 unset PATH_ADDITIONS
 export PATH
 
