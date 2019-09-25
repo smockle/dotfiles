@@ -19,7 +19,7 @@
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.lineHeight": 1.23,
   "window.nativeTabs": true,
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.visible": true,
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "git.autofetch": true,

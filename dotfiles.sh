@@ -6,7 +6,7 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 # brew
 brew tap homebrew/cask-versions
 brew install diff-so-fancy git mas node@10 svgcleaner
-brew cask install docker google-chrome hazel visual-studio-code zoomus
+brew cask install docker figma google-chrome hazel visual-studio-code zoomus
 
 # mas
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
@@ -55,4 +55,7 @@ unset VISUAL_STUDIO_CODE_DIRECTORY
 code --install-extension dbaeumer.vscode-eslint \
      --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
-     --install-extension VisualStudioExptTeam.vscodeintellicode
+     --install-extension kumar-harsh.graphql-for-vscode \
+     --install-extension ms-azuretools.vscode-docker \
+     --install-extension VisualStudioExptTeam.vscodeintellicode \
+     --install-extension zxh404.vscode-proto3
