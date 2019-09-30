@@ -5,7 +5,7 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 
 # brew
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git mas node@10 svgcleaner
+brew install clang-format diff-so-fancy git mas node@10 svgcleaner
 brew cask install docker figma google-chrome hazel visual-studio-code zoomus
 
 # mas

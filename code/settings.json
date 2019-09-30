@@ -31,11 +31,11 @@
     "typescript",
     "typescriptreact"		
   ],
-  "prettier.requireConfig": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
+  "editor.formatOnSave": true,
   "workbench.colorTheme": "Default Light+"
 }
