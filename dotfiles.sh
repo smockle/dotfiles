@@ -57,5 +57,6 @@ code --install-extension dbaeumer.vscode-eslint \
      --install-extension esbenp.prettier-vscode \
      --install-extension kumar-harsh.graphql-for-vscode \
      --install-extension ms-azuretools.vscode-docker \
+     --install-extension ms-vscode.Go \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      --install-extension zxh404.vscode-proto3
