@@ -36,6 +36,5 @@
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
-  "editor.formatOnSave": true,
-  "workbench.colorTheme": "Default Light+"
+  "editor.formatOnSave": true
 }
