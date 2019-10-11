@@ -12,7 +12,7 @@ brew cask install docker figma google-chrome hazel sketch visual-studio-code zoo
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
   1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
   904280696`#Things3` 1482527526`#lire` 924726344`#Deliveries` \
-  1384080005`#Tweetbot` 775737590`#iAWriter` 803453959`#Slack` \
+  1482454543`#Twitter` 775737590`#iAWriter` 803453959`#Slack` \
   497799835`#Xcode`
 
 # npm
