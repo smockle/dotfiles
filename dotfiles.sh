@@ -6,7 +6,7 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 # brew
 brew tap homebrew/cask-versions
 brew install clang-format diff-so-fancy git mas node svgcleaner
-brew cask install docker figma google-chrome hazel sketch visual-studio-code zoomus
+brew cask install docker encryptme figma google-chrome hazel sketch visual-studio-code zoomus
 
 # mas
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
