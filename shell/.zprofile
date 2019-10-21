@@ -13,7 +13,7 @@ declare -a PATH_PREPENDA=(
   "${GEM_USER_INSTALLATION_DIRECTORY}/bin" # Add 'gem install --user-install'-installed package bin
 )
 declare -a PATH_ADDENDA=(
-  "${HOMEBREW_PREFIX}/opt/node@10/bin" # Add brew-installed node@10, but let npm-installed npm take precedence
+  "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
 )
 for p in $PATH_PREPENDA; do
   if [ -d "${p}" ] && [[ "${PATH}" != *${p}* ]]; then
