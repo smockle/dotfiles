@@ -5,7 +5,7 @@ DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 
 # brew
 brew tap homebrew/cask-versions
-brew install clang-format diff-so-fancy git mas node@10 svgcleaner
+brew install clang-format diff-so-fancy git mas node svgcleaner
 brew cask install docker figma google-chrome hazel sketch visual-studio-code zoomus
 
 # mas
@@ -59,5 +59,6 @@ code --install-extension dbaeumer.vscode-eslint \
      --install-extension kumar-harsh.graphql-for-vscode \
      --install-extension ms-azuretools.vscode-docker \
      --install-extension ms-vscode.Go \
+     --install-extension muuvmuuv.vscode-sundial \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      --install-extension zxh404.vscode-proto3

@@ -25,16 +25,19 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "eslint.autoFixOnSave": true,
-  "eslint.validate": [		
+  "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"		
+    "typescriptreact"
   ],
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "prettier.disableLanguages": ["vue", "markdown"],
+  "workbench.colorTheme": "Default Light+",
+  "sundial.systemTheme": true
 }
