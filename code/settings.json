@@ -38,6 +38,6 @@
   "editor.suggestSelection": "first",
   "editor.formatOnSave": true,
   "prettier.disableLanguages": ["vue", "markdown"],
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Default Dark+",
   "sundial.systemTheme": true
 }
