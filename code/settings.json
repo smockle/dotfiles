@@ -22,6 +22,9 @@
   "workbench.activityBar.visible": true,
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
+  "files.associations": {
+    "*.plist": "xml"
+  },
   "git.autofetch": true,
   "git.confirmSync": false,
   "eslint.autoFixOnSave": true,
@@ -37,7 +40,10 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
   "editor.formatOnSave": true,
-  "prettier.disableLanguages": ["vue", "markdown"],
+  "prettier.disableLanguages": [
+    "vue",
+    "markdown"
+  ],
   "workbench.colorTheme": "Default Dark+",
   "sundial.systemTheme": true
 }

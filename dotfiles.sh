@@ -2,11 +2,22 @@
 setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
+if grep -Fq "AppCenter" "${HOME}/.npmrc"; then
+   SERVER=0; unset PORTABLE;
+ else
+   unset SERVER; PORTABLE=0;
+ fi
 
 # brew
+brew tap homebrew/cask-drivers
 brew tap homebrew/cask-versions
-brew install clang-format diff-so-fancy git mas node@12 svgcleaner
-brew cask install docker encryptme figma google-chrome hazel sketch visual-studio-code zoomus
+brew install clang-format diff-so-fancy git mas node@12 svgcleaner ${SERVER:+awscli} ${SERVER:+mariadb}
+brew cask install docker figma google-chrome hazel sketch visual-studio-code zoomus ${PORTABLE:+encryptme} ${SERVER:+adoptopenjdk8} ${SERVER:+silicon-labs-vcp-driver} ${SERVER:+ubiquiti-unifi-controller}
+if [ $SERVER -eq 0 ]; then
+  brew tap homebrew-ffmpeg/ffmpeg
+  brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
+  brew services start mariadb
+fi
 
 # mas
 mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
@@ -20,6 +31,9 @@ npm config set init-license "MIT"
 npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
+if [ $SERVER -eq 0 ]; then
+  npm i -g homebridge homebridge-ring homebridge-mi-airpurifier
+fi
 
 # vi
 mkdir -p "${HOME}/.vim/backups"

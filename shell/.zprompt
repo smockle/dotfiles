@@ -30,8 +30,8 @@ prompt_git() {
 }
 
 set_prompts() {
-  if [[ "${USER}" == "root" ]] || [[ "${USER}" == "pi" ]]; then
-		PROMPT="%1F%n"
+	if [[ -n "${SSH_CLIENT}" ]]; then
+		PROMPT="%3F%n%8F on %2F%m"
 	else
 		PROMPT="%3F%n"
 	fi
