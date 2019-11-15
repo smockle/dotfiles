@@ -29,3 +29,11 @@ git() {
   command "git" "${command}" "$@"
   return $?
 }
+
+gitp() {
+  command=$1
+  shift 1
+  if [[ "${command}" == "ush" ]]; then
+    git push "$@"
+  fi
+}
