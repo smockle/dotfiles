@@ -42,8 +42,11 @@
   "editor.formatOnSave": true,
   "prettier.disableLanguages": [
     "vue",
-    "markdown"
+    "markdown",
+    "css"
   ],
-  "workbench.colorTheme": "Default Dark+",
-  "sundial.systemTheme": true
+  "workbench.colorTheme": "Default Light+",
+  "sundial.systemTheme": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "never"
 }
