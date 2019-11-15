@@ -11,7 +11,7 @@ if grep -Fq "AppCenter" "${HOME}/.npmrc"; then
 # brew
 brew tap homebrew/cask-drivers
 brew tap homebrew/cask-versions
-brew install clang-format diff-so-fancy git mas node@12 svgcleaner ${SERVER:+awscli} ${SERVER:+mariadb}
+brew install clang-format diff-so-fancy git mas node@12 svgcleaner yarn ${SERVER:+awscli} ${SERVER:+mariadb}
 brew cask install docker figma google-chrome hazel sketch visual-studio-code zoomus ${PORTABLE:+encryptme} ${SERVER:+adoptopenjdk8} ${SERVER:+silicon-labs-vcp-driver} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
   brew tap homebrew-ffmpeg/ffmpeg
