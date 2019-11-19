@@ -13,7 +13,7 @@ brew tap homebrew/cask-drivers
 brew tap homebrew/cask-versions
 brew install clang-format diff-so-fancy git mas node@12 svgcleaner yarn ${SERVER:+awscli} ${SERVER:+mariadb}
 brew link --overwrite --force node@12
-brew cask install docker figma google-chrome hazel sketch visual-studio-code zoomus ${PORTABLE:+encryptme} ${SERVER:+adoptopenjdk8} ${SERVER:+silicon-labs-vcp-driver} ${SERVER:+ubiquiti-unifi-controller}
+brew cask install docker figma google-chrome hazel microblog sketch visual-studio-code zoomus ${PORTABLE:+encryptme} ${SERVER:+adoptopenjdk8} ${SERVER:+silicon-labs-vcp-driver} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
   brew tap homebrew-ffmpeg/ffmpeg
   brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
