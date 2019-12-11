@@ -45,7 +45,7 @@
     "markdown",
     "css"
   ],
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Default Dark+",
   "sundial.systemTheme": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "never"
