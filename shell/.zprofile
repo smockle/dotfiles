@@ -81,6 +81,10 @@ fi
 autoload -U compinit
 compinit
 
+# Case-insensitive completion
+# https://superuser.com/a/1092328
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
 # Menu selection
 zstyle ':completion:*' menu selection
 
