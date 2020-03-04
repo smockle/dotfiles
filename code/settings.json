@@ -39,13 +39,12 @@
   },
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.suggestSelection": "first",
-  "editor.formatOnSave": true,
   "prettier.disableLanguages": [
     "vue",
     "markdown",
     "css"
   ],
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Default Light+",
   "sundial.systemTheme": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "never"

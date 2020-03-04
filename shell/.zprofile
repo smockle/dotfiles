@@ -143,6 +143,11 @@ source "${HOME}/Developer/dotfiles/git/git"
 # Use git diff instead of diff
 alias diff="git diff"
 
+# Include additional aliases
+if [ -f "${HOME}/Developer/aliases.sh" ]; then
+  source "${HOME}/Developer/aliases.sh"
+fi
+
 # DOCKER
 # Enable experimental Docker CLI features
 export DOCKER_CLI_EXPERIMENTAL="enabled"
