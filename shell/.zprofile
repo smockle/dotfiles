@@ -143,10 +143,15 @@ source "${HOME}/Developer/dotfiles/git/git"
 # Use git diff instead of diff
 alias diff="git diff"
 
-# Include additional aliases
-if [ -f "${HOME}/Developer/aliases.sh" ]; then
-  source "${HOME}/Developer/aliases.sh"
-fi
+# KILLPORT
+killport() {
+  port=$1
+  if [ -z "${port}" ]; then
+    echo "usage: killport port_number"
+    return
+  fi
+  kill -9 $(lsof -i ":${port}" 2>/dev/null | tail -n +2 | tr -s ' ' | cut -f2 -d' ')
+}
 
 # DOCKER
 # Enable experimental Docker CLI features
