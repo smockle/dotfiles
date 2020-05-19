@@ -1,9 +1,21 @@
 {
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "breadcrumbs.enabled": false,
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.stylesheet": {
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit": "flex-grow: 1; flex-shrink: unset; flex-basis: 100%;",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.close-button-left": "padding-right: 28px; text-align: center;",
+    "body.inline-title-bar .monaco-workbench.nosidebar div.dragging-area-left-padding": "border-right: 1px solid var(--tabs-border-bottom-color);",
+    ".monaco-workbench .monaco-scrollable-element > .scrollbar > .slider": "border-radius: 14px; left: 3.5px !important; width: 7px !important;"
+  },
+  "customizeUI.titleBar": "inline",
+  "debug.toolBarLocation": "docked",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.cursorStyle": "line-thin",
   "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 12,
   "editor.fontWeight": "500",
+  "editor.formatOnSave": true,
   "editor.lineHeight": 17,
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
@@ -11,60 +23,100 @@
   "editor.renderIndentGuides": false,
   "editor.renderLineHighlight": "all",
   "editor.scrollBeyondLastLine": false,
-  "editor.wordWrap": "on",
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.openEditors.visible": 0,
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.lineHeight": 1.23,
-  "window.nativeTabs": true,
-  "workbench.activityBar.visible": true,
-  "workbench.editor.showIcons": false,
-  "workbench.editor.tabCloseButton": "left",
-  "files.associations": {
-    "*.plist": "xml"
+  "editor.semanticHighlighting.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "[Default Light+]": {
+      "comments": "#717f8b",
+      "functions": "#7a55b3",
+      "keywords": "#A3499F",
+      "numbers": "#1836D0",
+      "strings": "#C73F28",
+      "types": "#432DA9",
+      "variables": "#277BAC"
+    },
+    "[Default Dark+]": {
+      "comments": "#808C97",
+      "functions": "#AB87E5",
+      "keywords": "#F484B1",
+      "numbers": "#D8C885",
+      "strings": "#F58875",
+      "types": "#D5BDFA",
+      "variables": "#5FAEC8"
+    }
   },
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "eslint.autoFixOnSave": true,
+  "editor.wordWrap": "on",
+  "eslint.packageManager": "yarn",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "editor.suggestSelection": "first",
-  "prettier.disableLanguages": [
-    "vue",
-    "markdown",
-    "css",
-    "csharp"
-  ],
-  "workbench.colorTheme": "Default Dark+",
-  "sundial.systemTheme": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.packageManager": "yarn",
-  "window.zoomLevel": 0,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
   "extensions.ignoreRecommendations": false,
-  "csharp.referencesCodeLens.enabled": false,
-  "editor.tabSize": 2,
-  "omnisharp.useEditorFormattingSettings": false,
-  "editor.formatOnSave": true,
+  "files.associations": { "*.plist": "xml" },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "prettier.disableLanguages": ["vue", "markdown", "css", "csharp"],
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.lint": { "rubocop": { "useBundler": true } },
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": true
+  "sort-imports.default-sort-style": "module",
+  "terminal.explorerKind": "external",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.23,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.nativeTabs": true,
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "[Default Light+]": {
+      "activityBar.background": "#f3f3f3",
+      "activityBar.border": "#d7d7d7",
+      "activityBar.foreground": "#0170F5",
+      "activityBar.inactiveForeground": "#616161",
+      "sideBar.border": "#d7d7d7",
+      "statusBar.background": "#ffffff",
+      "statusBar.border": "#d7d7d7",
+      "statusBar.foreground": "#818181",
+      "tab.border": "#d7d7d7",
+      "tab.activeBorder": "#ffffff",
+      "editorGroupHeader.tabsBorder": "#d7d7d7",
+      "editorLineNumber.foreground": "#A7A7A7",
+      "editorLineNumber.activeForeground": "#000000",
+      "editor.lineHighlightBorder": "#ffffff00",
+      "editor.lineHighlightBackground": "#ECF5FF"
+    },
+    "[Default Dark+]": {
+      "activityBar.background": "#252526",
+      "activityBar.border": "#474747",
+      "activityBar.foreground": "#0170F5",
+      "activityBar.inactiveForeground": "#cccccc",
+      "sideBar.border": "#474747",
+      "statusBar.background": "#1E1E1E",
+      "statusBar.border": "#474747",
+      "statusBar.foreground": "#A9A9A9",
+      "tab.border": "#474747",
+      "tab.activeBorder": "#1E1E1E",
+      "editorGroupHeader.tabsBorder": "#474747",
+      "editorLineNumber.foreground": "#737478",
+      "editorLineNumber.activeForeground": "#ffffff",
+      "editor.lineHighlightBorder": "#1E1E1E00",
+      "editor.lineHighlightBackground": "#2F3239"
     }
   },
-  "ruby.format": "rubocop",
-  "ruby.intellisense": "rubyLocate"
+  "workbench.editor.showIcons": false,
+  "workbench.editor.tabCloseButton": "left",
+  "workbench.iconTheme": "file-icons-colourless-mac",
+  "window.autoDetectColorScheme": true,
+  "workbench.colorTheme": "Default Light+"
 }

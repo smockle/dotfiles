@@ -13,7 +13,7 @@ brew tap homebrew/cask-drivers
 brew tap homebrew/cask-versions
 brew install clang-format diff-so-fancy git mas node@12 svgcleaner yarn ${SERVER:+awscli} ${SERVER:+mariadb}
 brew link --overwrite --force node@12
-brew cask install docker figma google-chrome hazel microblog sketch visual-studio-code zoomus ${PORTABLE:+encryptme} ${SERVER:+adoptopenjdk8} ${SERVER:+silicon-labs-vcp-driver} ${SERVER:+ubiquiti-unifi-controller}
+brew cask install docker figma google-chrome hazel microblog sketch visual-studio-code zoomus ${PORTABLE:+encryptme} ${PORTABLE:+luna-secondary} ${SERVER:+adoptopenjdk8} ${SERVER:+luna-display} ${SERVER:+silicon-labs-vcp-driver} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
   brew tap homebrew-ffmpeg/ffmpeg
   brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
@@ -68,12 +68,16 @@ mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
 ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
 ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
 unset VISUAL_STUDIO_CODE_DIRECTORY
-code --install-extension dbaeumer.vscode-eslint \
+code --install-extension amatiasq.sort-imports \
+     --install-extension dbaeumer.vscode-eslint \
      --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
-     --install-extension kumar-harsh.graphql-for-vscode \
-     --install-extension ms-azuretools.vscode-docker \
-     --install-extension ms-vscode.Go \
-     --install-extension muuvmuuv.vscode-sundial \
+     --install-extension iocave.customize-ui \
+     --install-extension iocave.monkey-patch \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
-     --install-extension zxh404.vscode-proto3
+     --install-extension wayou.file-icons-mac \
+     --install-extension wayou.vscode-icons-mac
+
+
+
+
