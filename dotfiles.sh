@@ -75,7 +75,6 @@ code --install-extension amatiasq.sort-imports \
      --install-extension iocave.customize-ui \
      --install-extension iocave.monkey-patch \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
-     --install-extension wayou.file-icons-mac \
      --install-extension wayou.vscode-icons-mac
 
 

@@ -1,14 +1,38 @@
 {
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "breadcrumbs.enabled": false,
   "customizeUI.activityBar": "bottom",
   "customizeUI.stylesheet": {
+    // Full-width tabs
     ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit": "flex-grow: 1; flex-shrink: unset; flex-basis: 100%;",
+    // Centered tab text
     ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.close-button-left": "padding-right: 28px; text-align: center;",
-    "body.inline-title-bar .monaco-workbench.nosidebar div.dragging-area-left-padding": "border-right: 1px solid var(--tabs-border-bottom-color);",
-    ".monaco-workbench .monaco-scrollable-element > .scrollbar > .slider": "border-radius: 14px; left: 3.5px !important; width: 7px !important;"
+    // macOS scrollbar style
+    ".monaco-workbench .monaco-scrollable-element > .scrollbar > .slider": "border-radius: 14px; left: 3.5px !important; width: 7px !important;",
+    // Activity bar at top
+    "body.activity-bar-at-bottom .monaco-split-view2.horizontal > .split-view-container > .split-view-view:first-of-type :not(.monaco-pane-view) > .monaco-split-view2.vertical > .split-view-container": "display: flex; flex-direction: column;",
+    "body.activity-bar-at-bottom .monaco-split-view2.horizontal > .split-view-container > .split-view-view:first-of-type :not(.monaco-pane-view) > .monaco-split-view2.vertical > .split-view-container > .split-view-view:first-of-type": "order: 2; position: relative; top: unset !important;",
+    "body.activity-bar-at-bottom .monaco-split-view2.horizontal > .split-view-container > .split-view-view:first-of-type :not(.monaco-pane-view) > .monaco-split-view2.vertical > .split-view-container > .split-view-view:last-of-type": "order: 1; position: relative; top: unset !important; height: 35px !important;",
+    "body.activity-bar-at-bottom.vscode-theme-defaults-themes-light_plus-json .part.activitybar": "border-top: 0 !important; border-bottom: 1px solid #d7d7d7; margin-top: 0 !important;",
+    "body.activity-bar-at-bottom.vscode-theme-defaults-themes-dark_plus-json .part.activitybar": "border-top: 0 !important; border-bottom: 1px solid #474747; margin-top: 0 !important;",
+    ":root": "--activity-bar-action-height: 32px;",
+    // Actions at bottom
+    ".monaco-workbench .part.sidebar": "display: flex; flex-direction: column;",
+    "body.vscode-theme-defaults-themes-light_plus-json .monaco-workbench .part>.composite.title": "order: 2; border-top: 1px solid #d7d7d7;",
+    "body.vscode-theme-defaults-themes-dark_plus-json .monaco-workbench .part>.composite.title": "order: 2; border-top: 1px solid #474747;",
+    ".monaco-workbench .part>.content": "order: 1;",
+    ".monaco-workbench .part>.title>.title-label": "display: none;",
+    ".monaco-workbench .part>.composite.title>.title-actions": "padding-left: unset;",
+    ".monaco-workbench .part>.composite.title>.title-actions .monaco-action-bar .actions-container": "justify-content: flex-start;",
+    // Explorer actions at bottom
+    ".explorer-viewlet .monaco-pane-view .pane>.pane-header>.actions": "display: flex; position: absolute; left: 8px; top: calc(100vh - 66px); z-index: 2;",
+    ".explorer-viewlet .monaco-pane-view .pane>.pane-header>.actions .action-item": "padding-right: 4px;",
+    ".explorer-viewlet .monaco-pane-view .pane": "overflow: visible;",
+    ".explorer-viewlet .monaco-pane-view .pane>.pane-header": "overflow: visible;",
+    // Activity bar badge
+    "body.activity-bar-at-bottom .monaco-workbench .activitybar>.content .monaco-action-bar .badge .badge-content": "top: 6px; left: 22px !important; font-size: 0 !important; height: 6px; min-width: 6px; width: 6px; padding: 0; background-color: #B285D1 !important;"
   },
-  "customizeUI.titleBar": "inline",
   "debug.toolBarLocation": "docked",
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "editor.cursorStyle": "line-thin",
@@ -75,7 +99,6 @@
   "typescript.updateImportsOnFileMove.enabled": "never",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.nativeTabs": true,
-  "window.titleBarStyle": "native",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
@@ -116,7 +139,8 @@
   },
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "file-icons-colourless-mac",
+  "workbench.iconTheme": "vscode-icons-mac",
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Default Light+"
+  "workbench.colorTheme": "Default Light+",
+  "window.titleBarStyle": "native"
 }
