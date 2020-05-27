@@ -2,7 +2,7 @@
 setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
-if grep -Fq "AppCenter" "${HOME}/.npmrc"; then
+if hostname | grep -Fq "Mac-mini"; then
    SERVER=0; unset PORTABLE;
  else
    unset SERVER; PORTABLE=0;
