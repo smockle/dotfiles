@@ -32,7 +32,9 @@
     ".explorer-viewlet .monaco-pane-view .pane>.pane-header": "overflow: visible;",
     // Activity bar badge
     "body.activity-bar-at-bottom .monaco-workbench .activitybar>.content .monaco-action-bar .badge.progress-badge > .badge-content:before": "display: none;",
-    "body.activity-bar-at-bottom .monaco-workbench .activitybar>.content .monaco-action-bar .badge > .badge-content": "top: 6px; left: 22px !important; font-size: 0 !important; height: 6px; min-width: 6px; width: 6px; padding: 0; background-color: #B285D1 !important;"
+    "body.activity-bar-at-bottom .monaco-workbench .activitybar>.content .monaco-action-bar .badge > .badge-content": "top: 6px; left: 22px !important; font-size: 0 !important; height: 6px; min-width: 6px; width: 6px; padding: 0; background-color: #B285D1 !important;",
+    // Tab drop shadow
+    ".monaco-editor .scroll-decoration": "box-shadow: unset;"
   },
   "debug.toolBarLocation": "docked",
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
@@ -142,6 +144,6 @@
   "workbench.editor.tabCloseButton": "left",
   "workbench.iconTheme": "vscode-icons-mac",
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Default Light+",
-  "window.titleBarStyle": "native"
+  "window.titleBarStyle": "native",
+  "workbench.colorTheme": "Default Light+"
 }
