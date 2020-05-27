@@ -8,7 +8,7 @@ npm() {
   # and update version numbers in 'package.json' and 'package-lock.json'.
   if [[ "${command}" == "upgrade" ]]
   then
-    command "npm" outdated --depth=0 | grep -v "Package" | awk '{print $1"@"$4}' | xargs command "npm" i -E
+    command "npm" outdated --depth=0 | grep -v "Package" | awk '{print $1"@"$4}' | xargs command "npm" i
     return $?
   fi
 
