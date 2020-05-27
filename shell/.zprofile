@@ -136,6 +136,10 @@ export MANPAGER="less"
 alias grep='grep --color=auto'
 alias ls="command ls -G"
 
+# NPM
+# Use custom npm subfunctions
+source "${HOME}/Developer/dotfiles/npm/npm"
+
 # GIT
 # Use custom git subfunctions
 source "${HOME}/Developer/dotfiles/git/git"

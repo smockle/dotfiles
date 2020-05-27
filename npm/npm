@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+npm() {
+  command=$1
+  shift 1
+
+  # Upgrade all packages to the latest available versions,
+  # and update version numbers in 'package.json' and 'package-lock.json'.
+  if [[ "${command}" == "upgrade" ]]
+  then
+    command "npm" outdated --depth=0 | grep -v "Package" | awk '{print $1"@"$4}' | xargs command "npm" i -E
+    return $?
+  fi
+
+  command "npm" "${command}" "$@"
+  return $?
+}
