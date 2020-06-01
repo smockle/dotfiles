@@ -136,9 +136,10 @@ export MANPAGER="less"
 alias grep='grep --color=auto'
 alias ls="command ls -G"
 
-# NPM
-# Use custom npm subfunctions
-source "${HOME}/Developer/dotfiles/npm/npm"
+# NPM & YARN
+# Use custom npm & Yarn subfunctions
+source "${HOME}/Developer/dotfiles/node/npm"
+source "${HOME}/Developer/dotfiles/node/yarn"
 
 # GIT
 # Use custom git subfunctions
