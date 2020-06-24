@@ -144,8 +144,7 @@
   },
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "vscode-icons-mac",
+  "workbench.iconTheme": "file-icons-mac",
   "window.autoDetectColorScheme": true,
-  "window.titleBarStyle": "native",
-  "workbench.colorTheme": "Default Light+"
+  "window.titleBarStyle": "native"
 }
