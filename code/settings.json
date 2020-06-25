@@ -91,9 +91,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "prettier.disableLanguages": ["vue", "markdown", "css", "csharp"],
   "ruby.format": "rubocop",
-  "ruby.intellisense": "rubyLocate",
-  "ruby.lint": { "rubocop": { "useBundler": true } },
-  "ruby.useBundler": true,
+  "ruby.intellisense": false,
   "ruby.useLanguageServer": true,
   "sort-imports.default-sort-style": "module",
   "terminal.explorerKind": "external",
@@ -144,7 +142,8 @@
   },
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
-  "workbench.iconTheme": "file-icons-mac",
   "window.autoDetectColorScheme": true,
-  "window.titleBarStyle": "native"
+  "window.titleBarStyle": "native",
+  "workbench.iconTheme": "file-icons-mac",
+  "workbench.colorTheme": "Default Light+"
 }

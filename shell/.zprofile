@@ -162,5 +162,8 @@ killport() {
 # Enable experimental Docker CLI features
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
+# RUBY
+eval "$(rbenv init -)"
+
 # PROMPT
 source "${HOME}/.zprompt"
