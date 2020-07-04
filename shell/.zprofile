@@ -163,7 +163,7 @@ killport() {
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
 # RUBY
-eval "$(rbenv init -)"
+whence -p rbenv &>/dev/null && eval "$(rbenv init -)"
 
 # PROMPT
 source "${HOME}/.zprompt"
