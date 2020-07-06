@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# ENV
+source "${HOME}/.env"
+
 # PATH
 HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)

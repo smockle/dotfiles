@@ -25,6 +25,9 @@
 [github]
 	user = smockle
 
+[init]
+	defaultBranch = main
+
 [pull]
 	rebase = true
 
