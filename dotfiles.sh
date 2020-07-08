@@ -33,7 +33,7 @@ npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
 if [ $SERVER -eq 0 ]; then
-  yarn global add homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv homebridge-smartthings
+  yarn global add homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv homebridge-smartthings homebridge-harmony-tv-smockle
 fi
 
 # vi
