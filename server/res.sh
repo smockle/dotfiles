@@ -19,10 +19,10 @@ client_name=$(nslookup $client_ip | sed -En "s/^.*name = (.*).$/\1/p")
 
 if echo $client_name | grep -Fq "Pro"; then
   # Match 15-inch MacBook Pro resolution
-  display_manager.py res 1680 1050 60 main
+  display_manager.py res 1680 1050 60 only-hidpi main
 else
   # Match 12-inch MacBook resolution
-  display_manager.py res 1280 800 60 main
+  display_manager.py res 1280 800 60 only-hidpi main
 fi
 
 # Cache resolution
