@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # ENV
-source "${HOME}/.env"
+export $(grep -v '^#' "${HOME}/.env" | xargs -0)
 
 # PATH
 HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
