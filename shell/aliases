@@ -1,0 +1,96 @@
+#!/usr/bin/env zsh
+
+# COLORS
+
+alias grep='grep --color=auto'
+alias ls="command ls -G"
+
+# Use git diff instead of diff
+alias diff="command git diff"
+
+# GIT
+
+git() {
+  command=$1
+  shift 1
+
+  # Create a new branch with the same name if one does not exist,
+  # safer than `git config --global push.default current`.
+  BRANCH_NAME=$(command "git" rev-parse --abbrev-ref HEAD)
+  if [[ "${command}" == "push" ]] && \
+     [ -z "$(command "git" config "branch.${BRANCH_NAME}.merge")" ]
+  then
+    # shellcheck disable=SC2068
+    command "git" push --set-upstream ${@:-$(a=(origin "${BRANCH_NAME}"); echo "${a[@]}")}
+    unset BRANCH_NAME
+    return $?
+  fi
+  unset BRANCH_NAME
+
+  # Remove merged & squash-merged branches
+  if [[ "${command}" == "branch" ]] && \
+     [[ "${1}" == "prune" ]]
+  then
+    command "git" branch --merged | grep -E -v "(^\*|main|default|master|develop)" | xargs command "git" branch -D
+    command "git" fetch -a && command "git" branch -v | grep '\[gone\]' | cut -f3 -d' ' | xargs command "git" branch -D
+    return $?
+  fi
+
+  command "git" "${command}" "$@"
+}
+
+gitp() {
+  command=$1
+  shift 1
+  if [[ "${command}" == "ush" ]]; then
+    git push "$@"
+  fi
+  if [[ "${command}" == "ull" ]]; then
+    git pull "$@"
+  fi
+}
+
+# KILLPORT
+
+killport() {
+  port=$1
+  if [ -z "${port}" ]; then
+    echo "usage: killport port_number"
+    return
+  fi
+  kill -9 $(lsof -i ":${port}" 2>/dev/null | tail -n +2 | tr -s ' ' | cut -f2 -d' ')
+}
+
+# NPM & YARN
+
+npm() {
+  # Upgrade all packages to the latest available versions,
+  # and update version numbers in 'package.json' and 'package-lock.json'.
+  if [[ "$1" == "upgrade" ]]; then
+    command "npm" outdated --depth=0 | grep -v "Package" | awk '{print $1"@"$4}' | xargs command "npm" i
+    return $?
+  fi
+  command "npm" "$@"
+}
+
+yarn() {
+  # List all global packages, even those without binaries
+  # Workaround for https://github.com/yarnpkg/yarn/issues/5725
+  if [[ "$1" == "global" ]] && [[ "$2" == "list" ]]; then
+    node -pe 'Object.entries(JSON.parse(process.argv[1]).dependencies).map(x=>x.join("@"))' "$(cat $(command yarn global dir)/package.json)"
+    return $?
+  fi
+  command "yarn" "$@"
+}
+
+# RANDOM
+
+random() {
+  if [[ "$1" == "mac" ]]; then
+    # https://superuser.com/a/218650/257969
+    printf '02:%02X:%02X:%02X:%02X:%02X\n' $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]
+  fi
+  if [[ "$1" == "pin" ]]; then
+    printf '%03d-%02d-%03d\n' $[RANDOM%1000] $[RANDOM%100] $[RANDOM%1000]
+  fi
+}

@@ -137,51 +137,15 @@ export LESS_TERMCAP_md
 export LESS=-RXE
 export MANPAGER="less"
 
-# COLORS
-alias grep='grep --color=auto'
-alias ls="command ls -G"
-
-# NPM & YARN
-# Use custom npm & Yarn subfunctions
-source "${HOME}/Developer/dotfiles/node/npm"
-source "${HOME}/Developer/dotfiles/node/yarn"
-
-# GIT
-# Use custom git subfunctions
-source "${HOME}/Developer/dotfiles/git/git"
-
-# Use git diff instead of diff
-alias diff="git diff"
-
-# KILLPORT
-killport() {
-  port=$1
-  if [ -z "${port}" ]; then
-    echo "usage: killport port_number"
-    return
-  fi
-  kill -9 $(lsof -i ":${port}" 2>/dev/null | tail -n +2 | tr -s ' ' | cut -f2 -d' ')
-}
-
-# RANDOM
-random() {
-  command=$1
-  if [[ "${command}" == "mac" ]]; then
-    # https://superuser.com/a/218650/257969
-    printf '02:%02X:%02X:%02X:%02X:%02X\n' $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]
-  fi
-  if [[ "${command}" == "pin" ]]; then
-    printf '%03d-%02d-%03d\n' $[RANDOM%1000] $[RANDOM%100] $[RANDOM%1000]
-  fi
-  return $?
-}
-
 # DOCKER
 # Enable experimental Docker CLI features
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
 # RUBY
 whence -p rbenv &>/dev/null && eval "$(rbenv init -)"
+
+# FUNCTIONS
+source "${HOME}/Developer/dotfiles/shell/aliases"
 
 # PROMPT
 source "${HOME}/.zprompt"
