@@ -6,24 +6,19 @@ if ! netstat -n | grep -q 5900; then
   exit 0
 fi
 
-# Exit early if host resolution has already been matched to client resolution
+# Exit early if host resolution has already been set
 if [ -f "${HOME}/.res.tmp" ]; then
   exit 0
 fi
 
-# Get the IP address of the connected client (e.g. "192.168.1.10")
+# Get the IP address of the client (e.g. "192.168.1.10")
 client_ip=$(netstat -n | grep 5900 | tr -s ' ' | cut -d' ' -f5 | sed -En "s/^(192\.168\.1\.[0-9]+)\.[0-9]+/\1/p")
 
-# Get the hostname of the connected client (e.g. "MacBook-Pro.localdomain")
-client_name=$(nslookup $client_ip | sed -En "s/^.*name = (.*).$/\1/p")
+# Get the resolution of the client (e.g. "1280 800")
+client_res=$(ssh $client_ip 'export PATH=/usr/local/bin:$PATH; display_manager.py show main' | grep resolution | sed -En "s/^resolution\: +([0-9]+)x([0-9]+)$/\1 \2/p")
 
-if echo $client_name | grep -Fq "Pro"; then
-  # Match 15-inch MacBook Pro resolution
-  display_manager.py res 1680 1050 60 only-hidpi main
-else
-  # Match 12-inch MacBook resolution
-  display_manager.py res 1280 800 60 only-hidpi main
-fi
+# Set the host resolution
+display_manager.py res $client_res 60 only-hidpi main
 
-# Cache resolution
+# Cache to avoid repeatedly setting host resolution
 touch "${HOME}/.res.tmp"
