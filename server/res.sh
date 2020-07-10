@@ -2,14 +2,14 @@
 
 # Exit early if no screen-sharing session is active
 if ! netstat -n | grep -q 5900; then
-  rm "${HOME}/.res.tmp"
-  echo "Exiting early; no screen-sharing session"
+  [ -f "${HOME}/.res.tmp" ] && rm "${HOME}/.res.tmp"
+  # echo "Exiting early; no screen-sharing session"
   exit 0
 fi
 
 # Exit early if host resolution has already been set
 if [ -f "${HOME}/.res.tmp" ]; then
-  echo "Exiting early; resolution has been set"
+  # echo "Exiting early; resolution has been set"
   exit 0
 fi
 
