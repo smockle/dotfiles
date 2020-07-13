@@ -94,12 +94,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # Menu selection
 zstyle ':completion:*' menu selection
 
-# Use zsh’s 'git' completions
-# https://github.com/Homebrew/homebrew-core/issues/33275#issuecomment-432528793
-if [ -f "${HOMEBREW_PREFIX}/share/zsh/site-functions/_git" ]; then
-  rm "${HOMEBREW_PREFIX}/share/zsh/site-functions/_git"
-fi
-
 # INPUT
 # Use the string that has already been typed as the prefix for searching
 # through commands (i.e. more intelligent Up/Down-arrow behavior)
