@@ -2,7 +2,8 @@
 
 # ENV
 if [ -f "${HOME}/.env" ]; then
-  export $(grep -v '^#' "${HOME}/.env" | xargs -0)
+  # https://stackoverflow.com/a/45971167/1923134
+  set -a; source "${HOME}/.env"; set +a
 fi
 
 # PATH
