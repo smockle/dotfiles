@@ -58,6 +58,14 @@ if [ ! -f "${HOME}/.ssh/config" ]; then
   cp "${DOTFILES_DIRECTORY}/ssh/config" "${HOME}/.ssh/config"
 fi
 
+# ruby
+# https://github.com/castwide/solargraph/issues/197#issuecomment-513950702
+SOLARGRAPH_GLOBAL_CONFIG="${HOME}/.config/solargraph/config.yml"
+if [ ! -d "${HOME}/.config/solargraph" ]; then
+  mkdir -p "${HOME}/.config/solargraph"
+fi
+ln -fs "${DOTFILES_DIRECTORY}/ruby/solargraph.yml" "${SOLARGRAPH_GLOBAL_CONFIG}"
+
 # Visual Studio Code
 VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code/User"
 mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"

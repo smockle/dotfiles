@@ -144,6 +144,8 @@ export DOCKER_CLI_EXPERIMENTAL="enabled"
 
 # RUBY
 whence -p rbenv &>/dev/null && eval "$(rbenv init -)"
+# https://github.com/castwide/solargraph/issues/197#issuecomment-513950702
+export SOLARGRAPH_GLOBAL_CONFIG="${HOME}/.config/solargraph/config.yml"
 
 # FUNCTIONS
 source "${HOME}/Developer/dotfiles/shell/aliases"
