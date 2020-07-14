@@ -14,7 +14,7 @@ if [ -f "${HOME}/.res.tmp" ]; then
 fi
 
 # Get the IP address of the client (e.g. "192.168.1.10")
-client_ip=$(netstat -n | grep 5900 | tr -s ' ' | cut -d' ' -f5 | sed -En "s/^(192\.168\.1\.[0-9]+)\.[0-9]+/\1/p")
+client_ip=$(netstat -n | grep -m 1 5900 | tr -s ' ' | cut -d' ' -f5 | sed -En "s/^(192\.168\.1\.[0-9]+)\.[0-9]+/\1/p")
 
 # Get the hostname of the client (e.g. "MacBook-Pro.localdomain")
 echo "Getting hostname of the client at ${client_ip}"
