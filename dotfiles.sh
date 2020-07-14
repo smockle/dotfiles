@@ -10,7 +10,7 @@ if hostname | grep -Fq "Mac-mini"; then
 
 # brew
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git mas node@12 yarn ${SERVER:+awscli}
+brew install diff-so-fancy git mas node@12 thefuck yarn ${SERVER:+awscli}
 brew link --overwrite --force node@12
 brew cask install docker hazel visual-studio-code \
   ${PORTABLE:+discord} ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \

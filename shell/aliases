@@ -39,17 +39,6 @@ git() {
   command "git" "${command}" "$@"
 }
 
-gitp() {
-  command=$1
-  shift 1
-  if [[ "${command}" == "ush" ]]; then
-    git push "$@"
-  fi
-  if [[ "${command}" == "ull" ]]; then
-    git pull "$@"
-  fi
-}
-
 # KILLPORT
 
 killport() {
