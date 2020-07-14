@@ -46,10 +46,6 @@ set_prompts
 unset set_prompts
 
 precmd() {
-	local PREVIOUS_EXIT=$?
-	if [ ! "${PREVIOUS_EXIT}" -eq 0 ]; then
-		fuck
-	fi
   if [ -z "${PROMPT_CTR}" ]; then
     PROMPT_CTR=1
   elif [ "${PROMPT_CTR}" -eq 1 ]; then

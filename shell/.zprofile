@@ -142,8 +142,5 @@ whence -p rbenv &>/dev/null && eval "$(rbenv init -)"
 # FUNCTIONS
 source "${HOME}/Developer/dotfiles/shell/aliases"
 
-# FUCK
-eval $(thefuck --alias)
-
 # PROMPT
 source "${HOME}/.zprompt"
