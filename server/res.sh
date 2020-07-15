@@ -31,7 +31,7 @@ echo "Obtained client resolution: ${client_width}x${client_height}"
 # Set the host resolution
 osascript <<EOF
 tell application "SwitchResX Daemon"
-	set res to modes of display 1 whose (width = $client_width and height = $client_height and definition = 2 and frequency = 60)
+	set res to modes of display 1 whose (width = $client_width and height = $client_height and definition = 2 and frequency = 120)
 	set current mode of display 1 to first item of res
 end tell
 EOF
