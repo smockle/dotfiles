@@ -50,6 +50,8 @@ gitp() {
   fi
 }
 
+alias gti="git"
+
 # KILLPORT
 
 killport() {
