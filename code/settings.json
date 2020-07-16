@@ -145,6 +145,6 @@
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "native",
   "workbench.iconTheme": "file-icons-mac",
-  "workbench.colorTheme": "Default Light+",
-  "python.languageServer": "Microsoft"
+  "python.languageServer": "Microsoft",
+  "workbench.colorTheme": "Default Light+"
 }

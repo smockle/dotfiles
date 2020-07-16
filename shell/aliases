@@ -95,4 +95,11 @@ random() {
   if [[ "$1" == "pin" ]]; then
     printf '%03d-%02d-%03d\n' $[RANDOM%1000] $[RANDOM%100] $[RANDOM%1000]
   fi
+  if [[ "$1" == "uuid" ]]; then
+    printf '%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X\n' $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] \
+    $[RANDOM%256] $[RANDOM%256] \
+    $[RANDOM%256] $[RANDOM%256] \
+    $[RANDOM%256] $[RANDOM%256] \
+    $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]
+  fi
 }
