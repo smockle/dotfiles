@@ -25,6 +25,9 @@
     <key>StandardOutPath</key>
     <string>/Users/clay/Library/Logs/com.smockle.wifi.log</string>
 
+    <key>UserName</key>
+    <string>clay</string>
+
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>

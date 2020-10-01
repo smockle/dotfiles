@@ -34,5 +34,8 @@
 
     <key>StandardOutPath</key>
     <string>/Users/clay/Library/Logs/com.unifi.controller.log</string>
+
+    <key>UserName</key>
+    <string>clay</string>
   </dict>
 </plist>

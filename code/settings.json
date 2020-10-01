@@ -93,6 +93,8 @@
   "ruby.format": "rubocop",
   "ruby.intellisense": false,
   "ruby.useLanguageServer": true,
+  "solargraph.commandPath": "/Users/clay/.rbenv/shims/solargraph",
+  "solargraph.checkGemVersion": false,
   "sort-imports.default-sort-style": "module",
   "terminal.explorerKind": "external",
   "terminal.integrated.fontSize": 12,
@@ -144,7 +146,5 @@
   "workbench.editor.tabCloseButton": "left",
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "native",
-  "workbench.iconTheme": "file-icons-mac",
-  "python.languageServer": "Microsoft",
-  "workbench.colorTheme": "Default Light+"
+  "workbench.iconTheme": "file-icons-mac"
 }
