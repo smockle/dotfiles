@@ -74,7 +74,6 @@
     }
   },
   "editor.wordWrap": "on",
-  "eslint.packageManager": "yarn",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -146,5 +145,6 @@
   "workbench.editor.tabCloseButton": "left",
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "native",
-  "workbench.iconTheme": "file-icons-mac"
+  "workbench.iconTheme": "file-icons-mac",
+  "workbench.colorTheme": "Default Light+"
 }

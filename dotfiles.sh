@@ -10,10 +10,10 @@ if hostname | grep -Fq "Mac-mini"; then
 
 # brew
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git mas node@12 yarn ${SERVER:+awscli}
+brew install diff-so-fancy git mas node@12 ${SERVER:+awscli}
 brew link --overwrite --force node@12
 brew cask install docker hazel visual-studio-code \
-  ${PORTABLE:+discord} ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
+  ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
   ${PORTABLE:+microblog} ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus} \
   ${SERVER:+adoptopenjdk8} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
@@ -34,7 +34,7 @@ npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
 if [ $SERVER -eq 0 ]; then
-  yarn global add homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv homebridge-smartthings homebridge-harmony-tv-smockle
+  npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv homebridge-smartthings homebridge-harmony-tv-smockle
 fi
 
 # vi
