@@ -10,10 +10,11 @@ if hostname | grep -Fq "Mac-mini"; then
 
 # brew
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git mas node@12 ${SERVER:+awscli}
-brew link --overwrite --force node@12
-brew cask install docker hazel visual-studio-code \
-  ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
+brew install diff-so-fancy git mas node@14 ${SERVER:+awscli}
+brew link --overwrite --force node@14
+npm install --global --force npm@latest
+brew cask install hazel visual-studio-code \
+  ${PORTABLE:+docker} ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
   ${PORTABLE:+microblog} ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus} \
   ${SERVER:+adoptopenjdk8} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
@@ -26,7 +27,7 @@ mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
   1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` 497799835`#Xcode` \
   ${PORTABLE:+1482527526}`#lire` ${PORTABLE:+924726344}`#Deliveries` ${PORTABLE:+1482454543}`#Twitter` \
   ${PORTABLE:+775737590}`#iAWriter` ${PORTABLE:+803453959}`#Slack` ${PORTABLE:+1477110326}`#Wikibuy` \
-  ${PORTABLE:+1351639930}`#Gifski`
+  ${PORTABLE:+1461845568}`#Gifox` ${PORTABLE:+1439967473}`#Okta`
 
 # npm
 npm config set init-license "MIT"
