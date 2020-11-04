@@ -49,7 +49,6 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
-  "extensions.ignoreRecommendations": false,
   "files.associations": { "*.plist": "xml" },
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -111,6 +110,5 @@
   "workbench.editor.tabCloseButton": "left",
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "native",
-  "workbench.iconTheme": "file-icons-mac",
-  "workbench.colorTheme": "Default Light+"
+  "workbench.iconTheme": "file-icons-mac"
 }

@@ -15,7 +15,7 @@ brew link --overwrite --force node@14
 npm install --global --force npm@latest
 brew cask install hazel visual-studio-code \
   ${PORTABLE:+docker} ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
-  ${PORTABLE:+microblog} ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus} \
+  ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus} \
   ${SERVER:+adoptopenjdk8} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
   brew tap homebrew-ffmpeg/ffmpeg
