@@ -110,5 +110,8 @@
   "workbench.editor.tabCloseButton": "left",
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "native",
-  "workbench.iconTheme": "file-icons-mac"
+  "workbench.iconTheme": "file-icons-mac",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
