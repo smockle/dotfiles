@@ -20,6 +20,8 @@ brew cask install hazel visual-studio-code \
 if [ $SERVER -eq 0 ]; then
   brew tap homebrew-ffmpeg/ffmpeg
   brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
+  brew tap homebrew/cask-drivers
+  brew install libjpeg silicon-labs-vcp-driver
 fi
 
 # mas

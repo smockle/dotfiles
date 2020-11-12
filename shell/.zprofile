@@ -19,7 +19,7 @@ declare -a PATH_PREPENDA=(
   "${GEM_USER_INSTALLATION_DIRECTORY}/bin" # Add 'gem install --user-install'-installed package bin
 )
 declare -a PATH_ADDENDA=(
-  "${HOMEBREW_PREFIX}/opt/node@12/bin" # Add brew-installed node@12, but let npm-installed npm take precedence
+  "${HOMEBREW_PREFIX}/opt/node@14/bin" # Add brew-installed node@14, but let npm-installed npm take precedence
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
 )
 for p in $PATH_PREPENDA; do
