@@ -1,12 +1,16 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
 setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
+
 if hostname | grep -Fq "Mac-mini"; then
-   SERVER=0; unset PORTABLE;
- else
-   unset SERVER; PORTABLE=0;
- fi
+  SERVER=0; unset WORK; unset NOTSERVER;
+elif [ -d "${HOME}/Developer/github" ]; then
+  unset SERVER; WORK=0; NOTSERVER=0;
+else
+  unset SERVER; unset WORK; NOTSERVER=0;
+fi
 
 # Pre-requisites
 # - Log in to iCloud
@@ -14,50 +18,37 @@ if hostname | grep -Fq "Mac-mini"; then
 # - Set up Internet Accounts
 # - Install Homebrew
 
-# brew
+# Homebrew
 brew tap homebrew/cask
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git node@14 ${SERVER:+awscli}
+[ -n "${SERVER}" ] && brew tap homebrew-ffmpeg/ffmpeg
+[ -n "${SERVER}" ] && brew tap homebrew/cask-drivers
+brew install bettertouchtool diff-so-fancy git hazel mas node@14 nova visual-studio-code \
+  ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+libjpeg} ${SERVER:+switchresx} \
+  ${SERVER:+ubiquiti-unifi-controller} ${SERVER:+silicon-labs-vcp-driver} \
+  ${WORK:+adobe-creative-cloud} ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} \
+  ${WORK:+google-chrome} ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus}
+[ -n "${SERVER}" ] && brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
-brew cask install hazel visual-studio-code \
-  ${PORTABLE:+adobe-creative-cloud} ${PORTABLE:+bettertouchtool} ${PORTABLE:+docker} \
-  ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
-  ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus}  \
-  ${SERVER:+adoptopenjdk8} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller}
-if [ $SERVER -eq 0 ]; then
-  brew tap homebrew-ffmpeg/ffmpeg
-  brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
-  brew tap homebrew/cask-drivers
-  brew install libjpeg silicon-labs-vcp-driver
-fi
 
 # App Store
-# - Pages
-# - Numbers
-# - Keynote
-# - Ulysses
-# - Reeder
-# - Deliveries
-# - 1Password 7
-# - The Unarchiver
-# - Wipr
-# - Capital One Shopping
-#
-# - AirBuddy 2
-# - Xcode
-# - Slack
-# - Gifox
-# - Okta
+mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
+  1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
+  ${NOTSERVER:+1225570693}`#Ulysses` ${NOTSERVER:+1529448980}`#Reeder` \
+  ${NOTSERVER:+290986013}`#Deliveries` ${NOTSERVER:+1477110326}`#Wikibuy` \
+  ${WORK:+497799835}`#Xcode` ${WORK:+803453959}`#Slack` \
+  ${WORK:+1461845568}`#Gifox` ${WORK:+1439967473}`#Okta`
+
+# AirBuddy 2
+# https://v2.airbuddy.app
 
 # npm
 npm config set init-license "MIT"
 npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
-if [ $SERVER -eq 0 ]; then
-  npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv
-fi
+[ -n "${SERVER}" ] && npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv
 
 # vi
 mkdir -p "${HOME}/.vim/backups"
