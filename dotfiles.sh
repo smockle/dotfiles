@@ -8,14 +8,22 @@ if hostname | grep -Fq "Mac-mini"; then
    unset SERVER; PORTABLE=0;
  fi
 
+# Pre-requisites
+# - Log in to iCloud
+# - Install 1Password from App Store
+# - Set up Internet Accounts
+# - Install Homebrew
+
 # brew
+brew tap homebrew/cask
 brew tap homebrew/cask-versions
-brew install diff-so-fancy git mas node@14 ${SERVER:+awscli}
+brew install diff-so-fancy git node@14 ${SERVER:+awscli}
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
 brew cask install hazel visual-studio-code \
-  ${PORTABLE:+docker} ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
-  ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus} \
+  ${PORTABLE:+adobe-creative-cloud} ${PORTABLE:+bettertouchtool} ${PORTABLE:+docker} \
+  ${PORTABLE:+encryptme} ${PORTABLE:+figma} ${PORTABLE:+google-chrome} \
+  ${PORTABLE:+paw} ${PORTABLE:+sketch} ${PORTABLE:+zoomus}  \
   ${SERVER:+adoptopenjdk8} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller}
 if [ $SERVER -eq 0 ]; then
   brew tap homebrew-ffmpeg/ffmpeg
@@ -24,12 +32,23 @@ if [ $SERVER -eq 0 ]; then
   brew install libjpeg silicon-labs-vcp-driver
 fi
 
-# mas
-mas install 409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
-  1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` 497799835`#Xcode` \
-  ${PORTABLE:+1482527526}`#lire` ${PORTABLE:+924726344}`#Deliveries` ${PORTABLE:+1482454543}`#Twitter` \
-  ${PORTABLE:+775737590}`#iAWriter` ${PORTABLE:+803453959}`#Slack` ${PORTABLE:+1477110326}`#Wikibuy` \
-  ${PORTABLE:+1461845568}`#Gifox` ${PORTABLE:+1439967473}`#Okta`
+# App Store
+# - Pages
+# - Numbers
+# - Keynote
+# - Ulysses
+# - Reeder
+# - Deliveries
+# - 1Password 7
+# - The Unarchiver
+# - Wipr
+# - Capital One Shopping
+#
+# - AirBuddy 2
+# - Xcode
+# - Slack
+# - Gifox
+# - Okta
 
 # npm
 npm config set init-license "MIT"
@@ -73,5 +92,7 @@ code --install-extension amatiasq.sort-imports \
      --install-extension EditorConfig.EditorConfig \
      --install-extension esbenp.prettier-vscode \
      --install-extension mikestead.dotenv \
+     --install-extension ms-vscode-remote.remote-ssh \
+     --install-extension ms-vscode-remote.remote-ssh-edit \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      --install-extension wayou.file-icons-mac
