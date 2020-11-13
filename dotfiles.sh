@@ -27,7 +27,8 @@ brew install bettertouchtool diff-so-fancy git hazel mas node@14 nova visual-stu
   ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+libjpeg} ${SERVER:+switchresx} \
   ${SERVER:+ubiquiti-unifi-controller} ${SERVER:+silicon-labs-vcp-driver} \
   ${WORK:+adobe-creative-cloud} ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} \
-  ${WORK:+google-chrome} ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus}
+  ${WORK:+google-chrome} ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus} \
+  ${NOTSERVER:+shellcheck}
 [ -n "${SERVER}" ] && brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
@@ -87,3 +88,4 @@ code --install-extension amatiasq.sort-imports \
      --install-extension ms-vscode-remote.remote-ssh-edit \
      --install-extension VisualStudioExptTeam.vscodeintellicode \
      --install-extension wayou.file-icons-mac
+[ -n "${NOTSERVER}" ] && code --install-extension timonwong.shellcheck
