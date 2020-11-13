@@ -9,6 +9,10 @@
 
 # GE/Jasco Z-Wave Plus Dimmer (14294)
 
+- Parameter 8 -> 1 (10 ms rate)
+- Parameter 10 -> 1 (10 ms rate)
+- Parameter 12 -> 1 (10 ms rate)
+
 # GE/Jasco Z-Wave Plus Switch (14291)
 
 # GE/Jasco Z-Wave Plus Fan Control (14287)
