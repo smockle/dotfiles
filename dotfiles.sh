@@ -47,7 +47,7 @@ npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
 NPM_ROOT=$(npm root -g)
-[ -n "${SERVER}" ] && npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv
+[ -n "${SERVER}" ] && npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv homebridge-smartthings homebridge-harmony-tv-smockle
 [ -n "${SERVER}" ] && ln -fs "${NPM_ROOT}/homebridge-ring/node_modules/ffmpeg-for-homebridge/ffmpeg" "/usr/local/bin/ffmpeg"
 unset NPM_ROOT
 
@@ -75,8 +75,10 @@ fi
 # server
 if [ -n "${SERVER}" ]; then
   declare -a LAUNCH_DAEMONS=(
+    "com.homebrige.harmony.plist"
     "com.homebridge.ring.plist"
     "com.homebridge.roomba.plist"
+    "com.homebridge.smartthings.plist"
     "com.homebridge.xiaomi.plist"
     "com.smockle.ddns53.plist"
     "com.smockle.wifi.plist"
