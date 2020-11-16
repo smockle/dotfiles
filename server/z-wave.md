@@ -1,11 +1,11 @@
 # Aeon Labs Smart Switch 6
 
-- Parameter 80 -> Hail
-- Parameter 81 -> Off after 5 seconds
-- Parameter 100 -> True (Reset 101–103)
+- Parameter 80 -> 1 (Hail)
+- Parameter 81 -> 1 (Off after 5 seconds)
+- Parameter 100 -> 1 (True (Reset 101–103))
 - Parameter 101 -> 4 (Multisensor + Watts)
-- Parameter 110 -> True (Reset 111–113)
-- Parameter 111 -> 10
+- Parameter 110 -> 1 (True (Reset 111–113))
+- Parameter 111 -> 15
 
 # GE/Jasco Z-Wave Plus Dimmer (14294)
 
