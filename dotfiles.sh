@@ -24,8 +24,8 @@ brew tap homebrew/cask-versions
 [ -n "${SERVER}" ] && brew tap homebrew/cask-drivers
 brew install bettertouchtool diff-so-fancy git hazel mas node@14 nova visual-studio-code \
   ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller} \
-  ${WORK:+adobe-creative-cloud} ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} \
-  ${WORK:+google-chrome} ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus} \
+  ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} ${WORK:+google-chrome} \
+  ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus} \
   ${NOTSERVER:+shellcheck}
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
