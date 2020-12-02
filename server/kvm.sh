@@ -11,7 +11,7 @@ TRACKPAD_CONNECTED=$(blueutil --is-connected "${TRACKPAD_ADDRESS}" | grep -Fq 1;
 
 # Sync connection status
 if [ "${DISPLAY_CONNECTED}" -eq 0 ]; then
-	echo "LG UltraFine is connected."
+	# echo "LG UltraFine is connected."
 	if [ "${KEYBOARD_CONNECTED}" -ne 0 ]; then
 		echo "Connecting Clay’s Magic Keyboard."
 		blueutil --connect "${KEYBOARD_ADDRESS}"
@@ -21,7 +21,7 @@ if [ "${DISPLAY_CONNECTED}" -eq 0 ]; then
 		blueutil --connect "${TRACKPAD_ADDRESS}"
 	fi
 else
-	echo "LG UltraFine is not connected."
+	# echo "LG UltraFine is not connected."
 	if [ "${KEYBOARD_CONNECTED}" -eq 0 ]; then
 		echo "Disconnecting Clay’s Magic Keyboard."
 		blueutil --disconnect "${KEYBOARD_ADDRESS}"
