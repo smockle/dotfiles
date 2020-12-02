@@ -22,8 +22,9 @@ fi
 brew tap homebrew/cask
 brew tap homebrew/cask-versions
 [ -n "${SERVER}" ] && brew tap homebrew/cask-drivers
-brew install bettertouchtool daisydisk diff-so-fancy git hazel mas node@14 nova visual-studio-code \
-  ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller} \
+brew install bettertouchtool blueutil daisydisk diff-so-fancy git hazel mas node@14 nova visual-studio-code \
+  ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+cleanmymac} \
+  ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller} \
   ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} ${WORK:+google-chrome} \
   ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus} \
   ${NOTSERVER:+shellcheck}
@@ -81,6 +82,7 @@ if [ -n "${SERVER}" ]; then
     "com.homebridge.smartthings.plist"
     "com.homebridge.xiaomi.plist"
     "com.smockle.ddns53.plist"
+    "com.smockle.kvm.plist"
     "com.smockle.wifi.plist"
     "com.unifi.controller.plist"
   )
