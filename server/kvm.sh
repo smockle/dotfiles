@@ -5,7 +5,7 @@ KEYBOARD_ADDRESS=$(blueutil --paired | grep "Clay’s Magic Keyboard" | sed -En 
 TRACKPAD_ADDRESS=$(blueutil --paired | grep "Clay’s Magic Trackpad 2" | sed -En "s/^.*address: (([[:xdigit:]]{2}-){5})([[:xdigit:]]{2}).*$/\1\3/p")
 
 # Check current connection statuses
-DISPLAY_CONNECTED=$(system_profiler SPDisplaysDataType | grep -Fq "LG UltraFine"; echo $?)
+DISPLAY_CONNECTED=$(system_profiler SPDisplaysDataType | grep -Fq "LG UltraFine" && system_profiler SPDisplaysDataType | grep -Fq "Connection Type: Thunderbolt"; echo $?)
 KEYBOARD_CONNECTED=$(blueutil --is-connected "${KEYBOARD_ADDRESS}" | grep -Fq 1; echo $?)
 TRACKPAD_CONNECTED=$(blueutil --is-connected "${TRACKPAD_ADDRESS}" | grep -Fq 1; echo $?)
 
