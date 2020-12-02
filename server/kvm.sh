@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 
-# Get MAC addresses for keyboard and trackpad
+# Exit early if sync is in-progress
+if [ -f "${HOME}/.kvm.tmp" ]; then
+  exit 0
+fi
+
+# MAC addresses for keyboard and trackpad
 KEYBOARD_ADDRESS=$(blueutil --paired | grep "Clay’s Magic Keyboard" | sed -En "s/^.*address: (([[:xdigit:]]{2}-){5})([[:xdigit:]]{2}).*$/\1\3/p")
 TRACKPAD_ADDRESS=$(blueutil --paired | grep "Clay’s Magic Trackpad 2" | sed -En "s/^.*address: (([[:xdigit:]]{2}-){5})([[:xdigit:]]{2}).*$/\1\3/p")
 
@@ -14,21 +19,29 @@ if [ "${DISPLAY_CONNECTED}" -eq 0 ]; then
 	# echo "LG UltraFine is connected."
 	if [ "${KEYBOARD_CONNECTED}" -ne 0 ]; then
 		echo "Connecting Clay’s Magic Keyboard."
+		touch "${HOME}/.kvm.tmp"
 		blueutil --connect "${KEYBOARD_ADDRESS}"
+		rm "${HOME}/.kvm.tmp"
 	fi
 	if [ "${TRACKPAD_CONNECTED}" -ne 0 ]; then
 		echo "Connecting Clay’s Magic Trackpad 2."
+		touch "${HOME}/.kvm.tmp"
 		blueutil --connect "${TRACKPAD_ADDRESS}"
+		rm "${HOME}/.kvm.tmp"
 	fi
 else
 	# echo "LG UltraFine is not connected."
 	if [ "${KEYBOARD_CONNECTED}" -eq 0 ]; then
 		echo "Disconnecting Clay’s Magic Keyboard."
+		touch "${HOME}/.kvm.tmp"
 		blueutil --disconnect "${KEYBOARD_ADDRESS}"
+		rm "${HOME}/.kvm.tmp"
 	fi
 	if [ "${TRACKPAD_CONNECTED}" -eq 0 ]; then
 		echo "Disconnecting Clay’s Magic Trackpad 2."
+		touch "${HOME}/.kvm.tmp"
 		blueutil --disconnect "${TRACKPAD_ADDRESS}"
+		rm "${HOME}/.kvm.tmp"
 	fi
 fi
 
