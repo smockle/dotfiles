@@ -6,14 +6,14 @@ source "${HOME}/.ddns53/env"
 # Get public IP address
 IP_ADDRESS=$(dig +short myip.opendns.com @resolver1.opendns.com)
 if [ -z "${IP_ADDRESS}" ]; then
-  echo "Could not get public IP address. Exiting."
+  echo "$(date) Could not get public IP address. Exiting."
   exit 1
 fi 
 
 # Check published IP address
 PUBLISHED_IP_ADDRESS=$(dig +short "${DOMAIN}")
 if [ "${IP_ADDRESS}" = "${PUBLISHED_IP_ADDRESS}" ]; then
-  echo "Published IP address is already up-to-date. Exiting."
+  echo "$(date) Published IP address is already up-to-date. Exiting."
   exit 0
 fi
 
