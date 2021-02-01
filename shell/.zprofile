@@ -82,52 +82,10 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
     add-zsh-hook precmd update_terminal_cwd
 fi
 
-# COMPLETIONS
-# Init zsh completions
-autoload -U compinit
-compinit
-
-# Case-insensitive completion
-# https://superuser.com/a/1092328
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-
-# Menu selection
-zstyle ':completion:*' menu selection
-
-# INPUT
-# Use the string that has already been typed as the prefix for searching
-# through commands (i.e. more intelligent Up/Down-arrow behavior)
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[OA" history-beginning-search-backward # SSH
-bindkey "^[[B" history-beginning-search-forward
-bindkey "^[OB" history-beginning-search-forward # SSH
-
-# Reverse through the completions menu using shift-tab
-bindkey "^[[Z" reverse-menu-complete
-
-# Move cursor forward/backward by word (⌥→/⌥←)
-bindkey "^[b" backward-word
-bindkey "^[f" forward-word
-
 # Set default editor to Vi
 export EDITOR=vi
 
-# Edit commands in vi
-autoload edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd "v" edit-command-line
-
-# Fix backspace when existing vi mode
-bindkey -v "^?" backward-delete-char
-
-# Case-insensitive globbing (used in pathname expansion)
-unsetopt CASE_GLOB
-
 # PAGING
-# Highlight section titles in manual pages.
-[ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null && LESS_TERMCAP_md=$(tput setaf 3)
-export LESS_TERMCAP_md
-
 # Don’t clear screen when using 'less' or 'man'
 export LESS=-RXE
 export MANPAGER="less"
@@ -141,6 +99,3 @@ whence -p rbenv &>/dev/null && eval "$(rbenv init -)"
 
 # FUNCTIONS
 source "${HOME}/Developer/dotfiles/shell/aliases"
-
-# PROMPT
-source "${HOME}/.zprompt"

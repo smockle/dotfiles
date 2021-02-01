@@ -1,8 +1,48 @@
 #!/usr/bin/env zsh
+# shellcheck shell=sh
+
+# COMPLETIONS
+# Init zsh completions
+autoload -U compinit
+compinit
+
+# Case-insensitive completion
+# https://superuser.com/a/1092328
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# Menu selection
+zstyle ':completion:*' menu yes select
+zmodload zsh/complist
+# Finish completion and execute with (return)
+bindkey -M menuselect '^M' .accept-line
+# Cancel selection with (esc)
+bindkey -M menuselect '\e' send-break
+
+# INPUT
+# Use the string that has already been typed as the prefix for searching
+# through commands (i.e. more intelligent Up/Down-arrow behavior)
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[OA" history-beginning-search-backward # SSH
+bindkey "^[[B" history-beginning-search-forward
+bindkey "^[OB" history-beginning-search-forward # SSH
+
+# Reverse through the completions menu using shift-tab
+bindkey "^[[Z" reverse-menu-complete
+
+# Move cursor forward/backward by word (⌥→/⌥←)
+bindkey "^[b" backward-word
+bindkey "^[f" forward-word
+
+# Fix backspace when existing vi mode
+bindkey -v "^?" backward-delete-char
+
+# Case-insensitive globbing (used in pathname expansion)
+unsetopt CASE_GLOB
 
 # Enable parameter expansion, command substitution and arithmetic expansion in prompt string
 setopt PROMPT_SUBST
 
+# PROMPT
 # Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
 prompt_git() {
 	! command git rev-parse --is-inside-work-tree &>/dev/null && return

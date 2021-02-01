@@ -119,5 +119,6 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorTheme": "Default Light+"
 }
