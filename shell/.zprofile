@@ -8,9 +8,10 @@ fi
 
 # GEMPATH
 if whence -p gem &>/dev/null; then
-  GEM_USER_INSTALLATION_DIRECTORY=$(cat "${HOME}/.gem/user_installation_directory")
+  GEM_USER_INSTALLATION_DIRECTORY=$(cat "${HOME}/.gem/user_installation_directory" 2>/dev/null)
   if [ ! -d "${GEM_USER_INSTALLATION_DIRECTORY}" ]; then
     GEM_USER_INSTALLATION_DIRECTORY=$(gem environment | grep "USER INSTALLATION DIRECTORY" | cut -d: -f2 | sed -e 's/^ //' | tee "${HOME}/.gem/user_installation_directory")
+    mkdir -p "${GEM_USER_INSTALLATION_DIRECTORY}"
   fi
 fi
 
