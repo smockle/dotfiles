@@ -102,7 +102,8 @@ export MANPAGER="less"
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
 # RUBY
-whence -p rbenv &>/dev/null && eval "$(rbenv init -)"
+# http://mattgreensmith.net/2014/12/25/speed-up-rbenv-init-via-background-rehashing/
+whence -p rbenv &>/dev/null && eval "$(rbenv init - --no-rehash)"
 
 # FUNCTIONS
 source "${HOME}/Developer/dotfiles/shell/aliases"
