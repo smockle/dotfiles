@@ -44,29 +44,51 @@ setopt PROMPT_SUBST
 
 # PROMPT
 # Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
-prompt_git() {
+prompt_git_branch_name() {
 	! command git rev-parse --is-inside-work-tree &>/dev/null && return
-
-	local s='';
-	if [[ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" == "false" ]]; then
-		command git update-index --really-refresh -q &>/dev/null;
-		# [+] staged, uncommitted
-		! command git diff --quiet --ignore-submodules --cached && s+='+'
-		# [!] unstaged
-		! command git diff-files --quiet --ignore-submodules -- && s+='!'
-		# [?] untracked
-		[ -n "$(command git ls-files --others --exclude-standard)" ] && s+='?'
-		# [$] stashed
-		command git rev-parse --verify refs/stash &>/dev/null && s+='$'
-	fi
-	[ -n "${s}" ] && s=" [${s}]"
 
 	local branchName
   branchName="$(command git symbolic-ref --quiet --short HEAD 2> /dev/null || \
 		command git rev-parse --short HEAD 2> /dev/null || \
 		echo '(unknown)')"
 
-	echo -e "${1}${branchName}%4F${s}"
+	echo -e "${1}${branchName}"
+}
+
+# https://www.anishathalye.com/2015/02/07/an-asynchronous-shell-prompt/
+# Print this shell process’ git status
+prompt_git_status() {
+	if [ -f "/tmp/zsh_prompt_git_status_$$" ]; then
+		local s=$(cat "/tmp/zsh_prompt_git_status_$$")
+		[ -n "${s}" ] && s=" [${s}]"
+		echo -e "${1}${s}"
+	fi
+}
+# Update this shell process’ git status
+prompt_git_status_async() {
+	! command git rev-parse --is-inside-work-tree &>/dev/null && return
+
+	local s='';
+
+	if [[ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" == "false" ]]; then
+		command git update-index --really-refresh -q &>/dev/null;
+		# [+] staged, uncommitted
+		! command git diff --quiet --ignore-submodules --cached && s+='+'
+		# [!] unstaged
+		! command git diff-files --quiet --ignore-submodules -- && s+='!'
+		# [?] untracked - this is the most expensive
+		[ -n "$(command git ls-files --others --exclude-standard)" ] && s+='?'
+		# [$] stashed
+		command git rev-parse --verify refs/stash &>/dev/null && s+='$'
+	fi
+	
+	echo "${s}" > "/tmp/zsh_prompt_git_status_$$"
+	kill -s USR1 $$
+}
+# Re-draw the prompt when git status updates are available
+TRAPUSR1() {
+	PROMPT_GIT_STATUS_ASYNC_PROC=0
+	zle && zle reset-prompt
 }
 
 set_prompts() {
@@ -77,7 +99,8 @@ set_prompts() {
 	fi
   PROMPT+="%8F in ";
   PROMPT+="%2F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
-  PROMPT+='$(prompt_git "%8F on %5F")'; # git repository details
+  PROMPT+='$(prompt_git_branch_name "%8F on %5F")'; # git branch name
+	PROMPT+='$(prompt_git_status "%8F")'; # git status
   PROMPT+=$'\n';
   PROMPT+="%f\$ "; # `$` (and reset color)
   export PROMPT;
@@ -85,6 +108,7 @@ set_prompts() {
 set_prompts
 unset set_prompts
 
+PPWD="$PWD" # Remember previous working directory
 precmd() {
   if [ -z "${PROMPT_CTR}" ]; then
     PROMPT_CTR=1
@@ -92,4 +116,17 @@ precmd() {
     echo ""
 		# osascript -e 'if app "Terminal" is frontmost then tell app "System Events" to keystroke "u" using command down'
   fi
+
+	# Clear shell process’ git status when working directory changes
+	if [[ "${PPWD}" != "${PWD}" ]]; then
+		rm -f "/tmp/zsh_prompt_git_status_$$"
+	fi
+	# Kill unfinished git status update requests
+	if [[ "${PROMPT_GIT_STATUS_ASYNC_PROC}" != 0 ]]; then
+		kill -s HUP $PROMPT_GIT_STATUS_ASYNC_PROC &>/dev/null || :
+	fi
+	# Request updated git status in the background
+	prompt_git_status_async &!
+	PROMPT_GIT_STATUS_ASYNC_PROC=$!
+	PPWD="$PWD" # Update previous working direectory
 }
