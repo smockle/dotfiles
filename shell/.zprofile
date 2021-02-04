@@ -6,10 +6,17 @@ if [ -f "${HOME}/.env" ]; then
   set -a; source "${HOME}/.env"; set +a
 fi
 
+# GEMPATH
+if whence -p gem &>/dev/null; then
+  GEM_USER_INSTALLATION_DIRECTORY=$(cat "${HOME}/.gem/user_installation_directory")
+  if [ ! -d "${GEM_USER_INSTALLATION_DIRECTORY}" ]; then
+    GEM_USER_INSTALLATION_DIRECTORY=$(gem environment | grep "USER INSTALLATION DIRECTORY" | cut -d: -f2 | sed -e 's/^ //' | tee "${HOME}/.gem/user_installation_directory")
+  fi
+fi
+
 # PATH
 HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
-whence -p gem &>/dev/null && GEM_USER_INSTALLATION_DIRECTORY=$(gem environment | grep "USER INSTALLATION DIRECTORY" | cut -d: -f2 | sed -e 's/^ //')
 export HOMEBREW_PREFIX
 declare -a PATH_PREPENDA=(
   "${HOMEBREW_PREFIX}/sbin"
