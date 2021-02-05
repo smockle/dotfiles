@@ -22,11 +22,11 @@ fi
 brew tap homebrew/cask
 brew tap homebrew/cask-versions
 [ -n "${SERVER}" ] && brew tap homebrew/cask-drivers
-brew install bettertouchtool daisydisk diff-so-fancy git hazel mas node@14 nova visual-studio-code \
+brew install bettertouchtool daisydisk diff-so-fancy git hazel mas node@14 nova \
   ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+cleanmymac} \
   ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller} \
   ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} ${WORK:+google-chrome} \
-  ${WORK:+paw} ${WORK:+sketch} ${WORK:+zoomus} \
+  ${WORK:+paw} ${WORK:+sketch} ${WORK:+visual-studio-code} ${WORK:+zoomus} \
   ${NOTSERVER:+shellcheck}
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
@@ -111,19 +111,21 @@ if [ -n "${SERVER}" ]; then
 fi
 
 # Visual Studio Code
-VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code/User"
-mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
-ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
-ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
-unset VISUAL_STUDIO_CODE_DIRECTORY
-code --install-extension amatiasq.sort-imports \
-     --install-extension bierner.jsdoc-markdown-highlighting \
-     --install-extension dbaeumer.vscode-eslint \
-     --install-extension EditorConfig.EditorConfig \
-     --install-extension esbenp.prettier-vscode \
-     --install-extension mikestead.dotenv \
-     --install-extension ms-vscode-remote.remote-ssh \
-     --install-extension ms-vscode-remote.remote-ssh-edit \
-     --install-extension VisualStudioExptTeam.vscodeintellicode \
-     --install-extension wayou.file-icons-mac
-[ -n "${NOTSERVER}" ] && code --install-extension timonwong.shellcheck
+if [ -n "${WORK}" ]; then
+  VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code/User"
+  mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
+  ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
+  ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
+  unset VISUAL_STUDIO_CODE_DIRECTORY
+  code --install-extension amatiasq.sort-imports \
+       --install-extension bierner.jsdoc-markdown-highlighting \
+       --install-extension dbaeumer.vscode-eslint \
+       --install-extension EditorConfig.EditorConfig \
+       --install-extension esbenp.prettier-vscode \
+       --install-extension mikestead.dotenv \
+       --install-extension ms-vscode-remote.remote-ssh \
+       --install-extension ms-vscode-remote.remote-ssh-edit \
+       --install-extension VisualStudioExptTeam.vscodeintellicode \
+       --install-extension wayou.file-icons-mac \
+       --install-extension timonwong.shellcheck
+fi
