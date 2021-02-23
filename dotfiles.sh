@@ -76,9 +76,7 @@ fi
 # server
 if [ -n "${SERVER}" ]; then
   declare -a LAUNCH_DAEMONS=(
-    "com.homebridge.ring.plist"
-    "com.homebridge.roomba.plist"
-    "com.homebridge.xiaomi.plist"
+    "com.homebridge.server.plist"
     "com.smockle.ddns53.plist"
     "com.smockle.kvm.plist"
     "com.smockle.wifi.plist"
