@@ -21,6 +21,7 @@
 [user]
 	name = Clay Miller
 	email = clay@smockle.com
+	signingkey = 1E6BEB6FED57655B
 
 [github]
 	user = smockle
@@ -44,3 +45,7 @@
 	process = git-lfs filter-process
 [submodule]
 	recurse = true
+[commit]
+	gpgsign = true
+[log]
+	showSignature = true

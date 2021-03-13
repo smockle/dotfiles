@@ -22,7 +22,8 @@ fi
 brew tap homebrew/cask
 brew tap homebrew/cask-versions
 [ -n "${SERVER}" ] && brew tap homebrew/cask-drivers
-brew install bettertouchtool daisydisk diff-so-fancy git hazel mas node@14 nova \
+brew install bettertouchtool daisydisk diff-so-fancy git gnupg hazel \
+  mas node@14 nova pinentry-mac \
   ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+cleanmymac} \
   ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller} \
   ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} ${WORK:+google-chrome} \
@@ -30,6 +31,7 @@ brew install bettertouchtool daisydisk diff-so-fancy git hazel mas node@14 nova 
   ${NOTSERVER:+shellcheck}
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
+echo "pinentry-program $(which pinentry-mac)" > ~/.gnupg/gpg-agent.conf
 
 # App Store
 mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
