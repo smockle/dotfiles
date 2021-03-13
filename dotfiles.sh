@@ -31,7 +31,7 @@ brew install bettertouchtool daisydisk diff-so-fancy git gnupg hazel \
   ${NOTSERVER:+shellcheck}
 brew link --overwrite --force node@14
 npm install --global --force npm@latest
-echo "pinentry-program $(which pinentry-mac)" > ~/.gnupg/gpg-agent.conf
+mkdir -p "${HOME}/.gnupg" && chmod 700 "${HOME}/.gnupg" && echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
 
 # App Store
 mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
