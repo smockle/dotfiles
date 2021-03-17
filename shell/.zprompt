@@ -30,8 +30,18 @@ bindkey "^[OB" history-beginning-search-forward # SSH
 bindkey "^[[Z" reverse-menu-complete
 
 # Move cursor forward/backward by word (⌥→/⌥←)
-bindkey "^[b" backward-word
-bindkey "^[f" forward-word
+backward-word-dir () {
+	local WORDCHARS=${WORDCHARS//[\/\-]}
+	zle backward-word
+}
+zle -N backward-word-dir
+bindkey "^[b" backward-word-dir
+forward-word-dir () {
+	local WORDCHARS=${WORDCHARS//[\/\-]}
+	zle forward-word
+}
+zle -N forward-word-dir
+bindkey "^[f" forward-word-dir
 
 # Fix backspace when existing vi mode
 bindkey -v "^?" backward-delete-char
