@@ -43,6 +43,10 @@ forward-word-dir () {
 zle -N forward-word-dir
 bindkey "^[f" forward-word-dir
 
+# Move cursor to beginning/end of line (⌘←/⌘→)
+bindkey "^[oh" beginning-of-line
+bindkey "^[of" end-of-line
+
 # Fix backspace when existing vi mode
 bindkey -v "^?" backward-delete-char
 
