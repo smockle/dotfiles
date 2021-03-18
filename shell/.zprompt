@@ -29,6 +29,10 @@ bindkey "^[OB" history-beginning-search-forward # SSH
 # Reverse through the completions menu using shift-tab
 bindkey "^[[Z" reverse-menu-complete
 
+# Move cursor left/right (←/→)
+bindkey "^[d" backward-char
+bindkey "^[c" forward-char
+
 # Move cursor forward/backward by word (⌥→/⌥←)
 backward-word-dir () {
 	local WORDCHARS=${WORDCHARS//[\/\-]}
