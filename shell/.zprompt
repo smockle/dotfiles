@@ -111,12 +111,12 @@ TRAPUSR1() {
 
 set_prompts() {
 	if [[ -n "${SSH_CLIENT}" ]]; then
-		PROMPT="%3F%n%8F on %2F%m"
+		PROMPT="%4F%n%8F on %2F%m"
 	else
-		PROMPT="%3F%n"
+		PROMPT="%4F%n"
 	fi
   PROMPT+="%8F in ";
-  PROMPT+="%2F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
+  PROMPT+="%0F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
   PROMPT+='$(prompt_git_branch_name "%8F on %5F")'; # git branch name
 	PROMPT+='$(prompt_git_status "%8F")'; # git status
   PROMPT+=$'\n';
