@@ -7,7 +7,7 @@
   "editor.cursorStyle": "line-thin",
   "editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontWeight": "500",
+  "editor.fontWeight": "400",
   "editor.formatOnSave": true,
   "editor.lineHeight": 17,
   "editor.minimap.enabled": false,
@@ -21,22 +21,172 @@
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {
     "[Default Light+]": {
-      "comments": "#717f8b",
-      "functions": "#7a55b3",
-      "keywords": "#A3499F",
-      "numbers": "#1836D0",
-      "strings": "#C73F28",
-      "types": "#432DA9",
-      "variables": "#277BAC"
+      "comments": "#878687",
+      "functions": "#3F6F7C",
+      "keywords": "#0146AB",
+      "numbers": "#0E7CB9",
+      "strings": "#DC2501",
+      "types": "#7319A4",
+      "variables": "#010000",
+      "textMateRules": [
+        {
+          "scope": [
+            "punctuation.definition.template-expression.begin",
+            "punctuation.definition.template-expression.end",
+            "string.regexp.js",
+            "string.regexp.js punctuation.definition.string.begin.js",
+            "string.regexp.js punctuation.definition.string.end.js",
+            "punctuation.definition.raw.markdown",
+            "markup.inline.raw.string.markdown"
+          ],
+          "settings": {
+            "foreground": "#FF5433"
+          }
+        },
+        {
+          "scope": [
+            "support.variable",
+            "variable.other.constant",
+            "entity.name.type.module",
+            "punctuation.separator.key-value"
+          ],
+          "settings": {
+            "foreground": "#010000"
+          }
+        },
+        {
+          "scope": [
+            "storage.type.function.arrow",
+            "keyword.operator.assignment",
+            "meta.brace.round",
+            "meta.brace.square",
+            "punctuation.definition.block",
+            "punctuation.definition.parameters",
+            "punctuation.definition.string.begin.markdown",
+            "punctuation.definition.string.end.markdown",
+            "punctuation.definition.metadata.markdown"
+          ],
+          "settings": {
+            "foreground": "#0070F7"
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.heading.markdown",
+            "entity.name.section.markdown",
+            "punctuation.definition.list.begin.markdown"
+          ],
+          "settings": {
+            "foreground": "#0146AB",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.bold.markdown",
+            "markup.bold.markdown"
+          ],
+          "settings": {
+            "foreground": "#5D8E03"
+          }
+        },
+        {
+          "scope": "string.other.link.title.markdown",
+          "settings": {
+            "foreground": "#0E7CB9"
+          }
+        },
+        {
+          "scope": "markup.underline.link.markdown",
+          "settings": {
+            "foreground": "#DC2501"
+          }
+        }
+      ]
     },
     "[Default Dark+]": {
-      "comments": "#808C97",
-      "functions": "#AB87E5",
-      "keywords": "#F484B1",
-      "numbers": "#D8C885",
-      "strings": "#F58875",
-      "types": "#D5BDFA",
-      "variables": "#5FAEC8"
+      "comments": "#667280",
+      "functions": "#75C6B3",
+      "keywords": "#67B3FF",
+      "numbers": "#66B3FF",
+      "strings": "#F26557",
+      "types": "#A187DE",
+      "variables": "#D9E6F1",
+      "textMateRules": [
+        {
+          "scope": [
+            "punctuation.definition.template-expression.begin",
+            "punctuation.definition.template-expression.end",
+            "string.regexp.js",
+            "string.regexp.js punctuation.definition.string.begin.js",
+            "string.regexp.js punctuation.definition.string.end.js",
+            "punctuation.definition.raw.markdown",
+            "markup.inline.raw.string.markdown"
+          ],
+          "settings": {
+            "foreground": "#FFC147"
+          }
+        },
+        {
+          "scope": [
+            "support.variable",
+            "variable.other.constant",
+            "entity.name.type.module",
+            "punctuation.separator.key-value"
+          ],
+          "settings": {
+            "foreground": "#D9E6F1"
+          }
+        },
+        {
+          "scope": [
+            "storage.type.function.arrow",
+            "keyword.operator.assignment",
+            "meta.brace.round",
+            "meta.brace.square",
+            "punctuation.definition.block",
+            "punctuation.definition.parameters",
+            "punctuation.definition.string.begin.markdown",
+            "punctuation.definition.string.end.markdown",
+            "punctuation.definition.metadata.markdown"
+          ],
+          "settings": {
+            "foreground": "#9BADC1"
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.heading.markdown",
+            "entity.name.section.markdown",
+            "punctuation.definition.list.begin.markdown"
+          ],
+          "settings": {
+            "foreground": "#CC9A66",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.bold.markdown",
+            "markup.bold.markdown"
+          ],
+          "settings": {
+            "foreground": "#4DA2C2"
+          }
+        },
+        {
+          "scope": "string.other.link.title.markdown",
+          "settings": {
+            "foreground": "#67B3FF"
+          }
+        },
+        {
+          "scope": "markup.underline.link.markdown",
+          "settings": {
+            "foreground": "#F26557"
+          }
+        }
+      ]
     }
   },
   "editor.wordWrap": "on",
@@ -53,13 +203,11 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "prettier.disableLanguages": ["vue", "markdown", "css", "csharp"],
   "ruby.format": "rubocop",
   "ruby.intellisense": false,
   "ruby.useLanguageServer": true,
   "solargraph.commandPath": "/Users/clay/.rbenv/shims/solargraph",
   "solargraph.checkGemVersion": false,
-  "sort-imports.default-sort-style": "module",
   "terminal.explorerKind": "external",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.lineHeight": 1.23,
@@ -70,46 +218,50 @@
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "[Default Light+]": {
-      "activityBar.background": "#f3f3f3",
-      "activityBar.border": "#d7d7d7",
+      "activityBar.background": "#E4E5E6",
+      "activityBar.border": "#C2C3C3",
       "activityBar.foreground": "#0170F5",
       "activityBar.inactiveForeground": "#616161",
-      "sideBar.border": "#d7d7d7",
+      "sideBar.foreground": "#313233",
+      "sideBar.background": "#E4E5E6",
+      "sideBar.border": "#C2C3C3",
       "statusBar.background": "#ffffff",
       "statusBar.noFolderBackground": "#ffffff",
-      "statusBar.border": "#d7d7d7",
-      "statusBar.foreground": "#818181",
-      "tab.border": "#d7d7d7",
+      "statusBar.border": "#C2C3C3",
+      "statusBar.foreground": "#B1B1B1",
+      "tab.border": "#C9C8C8",
       "tab.activeBorder": "#ffffff",
-      "editorGroupHeader.tabsBorder": "#d7d7d7",
+      "editorGroupHeader.tabsBorder": "#C9C8C8",
       "editorLineNumber.foreground": "#A7A7A7",
       "editorLineNumber.activeForeground": "#000000",
       "editor.lineHighlightBorder": "#ffffff00",
-      "editor.lineHighlightBackground": "#ECF5FF"
+      "editor.lineHighlightBackground": "#FFFFE6"
     },
     "[Default Dark+]": {
-      "activityBar.background": "#252526",
-      "activityBar.border": "#474747",
+      "activityBar.background": "#2C2F31",
+      "activityBar.border": "#464746",
       "activityBar.foreground": "#0170F5",
       "activityBar.inactiveForeground": "#cccccc",
-      "sideBar.border": "#474747",
+      "sideBar.foreground": "#ffffff",
+      "sideBar.background": "#2C2F31",
+      "sideBar.border": "#464746",
       "statusBar.background": "#1E1E1E",
       "statusBar.noFolderBackground": "#1E1E1E",
-      "statusBar.border": "#474747",
-      "statusBar.foreground": "#A9A9A9",
-      "tab.border": "#474747",
+      "statusBar.border": "#2D2E30",
+      "statusBar.foreground": "#676869",
+      "tab.border": "#464746",
       "tab.activeBorder": "#1E1E1E",
-      "editorGroupHeader.tabsBorder": "#474747",
+      "editorGroupHeader.tabsBorder": "#464746",
       "editorLineNumber.foreground": "#737478",
       "editorLineNumber.activeForeground": "#ffffff",
       "editor.lineHighlightBorder": "#1E1E1E00",
-      "editor.lineHighlightBackground": "#2F3239"
+      "editor.lineHighlightBackground": "#242627"
     }
   },
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "window.titleBarStyle": "native",
-  "workbench.iconTheme": "file-icons-mac",
+  "workbench.iconTheme": "file-icons-colourless-mac",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
