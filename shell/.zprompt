@@ -116,7 +116,7 @@ set_prompts() {
 		PROMPT="%4F%n"
 	fi
   PROMPT+="%8F in ";
-  PROMPT+="%0F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
+  PROMPT+="%2F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
   PROMPT+='$(prompt_git_branch_name "%8F on %5F")'; # git branch name
 	PROMPT+='$(prompt_git_status "%8F")'; # git status
   PROMPT+=$'\n';
