@@ -126,6 +126,6 @@ if [ -n "${WORK}" ]; then
        --install-extension ms-vscode-remote.remote-ssh \
        --install-extension ms-vscode-remote.remote-ssh-edit \
        --install-extension VisualStudioExptTeam.vscodeintellicode \
-       --install-extension wayou.file-icons-mac \
+       --install-extension davidbwaters.macos-modern-theme \
        --install-extension timonwong.shellcheck
 fi
