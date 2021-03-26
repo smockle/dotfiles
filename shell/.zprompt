@@ -29,10 +29,6 @@ bindkey "^[OB" history-beginning-search-forward # SSH
 # Reverse through the completions menu using shift-tab
 bindkey "^[[Z" reverse-menu-complete
 
-# Move cursor left/right (←/→)
-bindkey "^[d" backward-char
-bindkey "^[c" forward-char
-
 # Move cursor forward/backward by word (⌥→/⌥←)
 backward-word-dir () {
 	local WORDCHARS=${WORDCHARS//[\/\-]}
@@ -48,8 +44,8 @@ zle -N forward-word-dir
 bindkey "^[f" forward-word-dir
 
 # Move cursor to beginning/end of line (⌘←/⌘→)
-bindkey "^[[D" beginning-of-line
-bindkey "^[[C" end-of-line
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 
 # Fix backspace when existing vi mode
 bindkey -v "^?" backward-delete-char

@@ -25,7 +25,7 @@
       "functions": "#3F6F7C",
       "keywords": "#0146AB",
       "numbers": "#0E7CB9",
-      "strings": "#DC2501",
+      "strings": "#dc2501",
       "types": "#7319A4",
       "variables": "#010000",
       "textMateRules": [
@@ -64,7 +64,16 @@
             "punctuation.definition.parameters",
             "punctuation.definition.string.begin.markdown",
             "punctuation.definition.string.end.markdown",
-            "punctuation.definition.metadata.markdown"
+            "punctuation.definition.metadata.markdown",
+            "keyword.operator.expression",
+            "keyword.operator.logical",
+            "keyword.operator.comparison",
+            "storage.modifier",
+            "punctuation.definition.typeparameters.begin",
+            "punctuation.definition.typeparameters.end",
+            "keyword.operator.type",
+            "punctuation.section.embedded.begin",
+            "punctuation.section.embedded.end"
           ],
           "settings": {
             "foreground": "#0070F7"
@@ -101,6 +110,19 @@
           "settings": {
             "foreground": "#DC2501"
           }
+        },
+        {
+          "scope": ["entity.other.attribute-name", "constant.language.null"],
+          "settings": {
+            "foreground": "#0E7CB9"
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.tag.begin",
+            "punctuation.definition.tag.end"
+          ],
+          "settings": { "foreground": "#7319A4" }
         }
       ]
     },
@@ -148,7 +170,16 @@
             "punctuation.definition.parameters",
             "punctuation.definition.string.begin.markdown",
             "punctuation.definition.string.end.markdown",
-            "punctuation.definition.metadata.markdown"
+            "punctuation.definition.metadata.markdown",
+            "keyword.operator.expression",
+            "keyword.operator.logical",
+            "keyword.operator.comparison",
+            "storage.modifier",
+            "punctuation.definition.typeparameters.begin",
+            "punctuation.definition.typeparameters.end",
+            "keyword.operator.type",
+            "punctuation.section.embedded.begin",
+            "punctuation.section.embedded.end"
           ],
           "settings": {
             "foreground": "#9BADC1"
@@ -185,6 +216,19 @@
           "settings": {
             "foreground": "#F26557"
           }
+        },
+        {
+          "scope": ["entity.other.attribute-name", "constant.language.null"],
+          "settings": {
+            "foreground": "#66B3FF"
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.tag.begin",
+            "punctuation.definition.tag.end"
+          ],
+          "settings": { "foreground": "#A187DE" }
         }
       ]
     }
@@ -223,15 +267,16 @@
       "activityBar.foreground": "#0170F5",
       "activityBar.inactiveForeground": "#616161",
       "sideBar.foreground": "#313233",
+      "gitDecoration.ignoredResourceForeground": "#666666",
       "sideBar.background": "#E4E5E6",
       "sideBar.border": "#C2C3C3",
       "statusBar.background": "#ffffff",
       "statusBar.noFolderBackground": "#ffffff",
       "statusBar.border": "#C2C3C3",
-      "statusBar.foreground": "#B1B1B1",
-      "tab.border": "#C9C8C8",
+      "statusBar.foreground": "#313233",
+      "tab.border": "#C2C3C3",
       "tab.activeBorder": "#ffffff",
-      "editorGroupHeader.tabsBorder": "#C9C8C8",
+      "editorGroupHeader.tabsBorder": "#C2C3C3",
       "editorLineNumber.foreground": "#A7A7A7",
       "editorLineNumber.activeForeground": "#000000",
       "editor.lineHighlightBorder": "#ffffff00",
@@ -243,12 +288,13 @@
       "activityBar.foreground": "#0170F5",
       "activityBar.inactiveForeground": "#cccccc",
       "sideBar.foreground": "#ffffff",
+      "gitDecoration.ignoredResourceForeground": "#A7A8AA",
       "sideBar.background": "#2C2F31",
       "sideBar.border": "#464746",
       "statusBar.background": "#1E1E1E",
       "statusBar.noFolderBackground": "#1E1E1E",
-      "statusBar.border": "#2D2E30",
-      "statusBar.foreground": "#676869",
+      "statusBar.border": "#464746",
+      "statusBar.foreground": "#ffffff",
       "tab.border": "#464746",
       "tab.activeBorder": "#1E1E1E",
       "editorGroupHeader.tabsBorder": "#464746",
@@ -261,7 +307,7 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "left",
   "window.titleBarStyle": "native",
-  "workbench.iconTheme": "file-icons-colourless-mac",
+  "workbench.iconTheme": "macos-modern-big-sur-icon-theme",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
