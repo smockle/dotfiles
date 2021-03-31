@@ -109,23 +109,3 @@ if [ -n "${SERVER}" ]; then
   unset LAUNCH_DAEMONS
   unset LAUNCH_AGENTS
 fi
-
-# Visual Studio Code
-if [ -n "${WORK}" ]; then
-  VISUAL_STUDIO_CODE_DIRECTORY="${HOME}/Library/Application Support/Code/User"
-  mkdir -p "${VISUAL_STUDIO_CODE_DIRECTORY}"
-  ln -fs "${DOTFILES_DIRECTORY}/code/keybindings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/keybindings.json"
-  ln -fs "${DOTFILES_DIRECTORY}/code/settings.json" "${VISUAL_STUDIO_CODE_DIRECTORY}/settings.json"
-  unset VISUAL_STUDIO_CODE_DIRECTORY
-  code --install-extension amatiasq.sort-imports \
-       --install-extension bierner.jsdoc-markdown-highlighting \
-       --install-extension dbaeumer.vscode-eslint \
-       --install-extension EditorConfig.EditorConfig \
-       --install-extension esbenp.prettier-vscode \
-       --install-extension mikestead.dotenv \
-       --install-extension ms-vscode-remote.remote-ssh \
-       --install-extension ms-vscode-remote.remote-ssh-edit \
-       --install-extension VisualStudioExptTeam.vscodeintellicode \
-       --install-extension davidbwaters.macos-modern-theme \
-       --install-extension timonwong.shellcheck
-fi
