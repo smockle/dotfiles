@@ -50,4 +50,4 @@
 [log]
 	showSignature = true
 [push]
-	default = simple
+	default = current
