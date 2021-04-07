@@ -23,7 +23,7 @@ brew tap homebrew/cask
 brew tap homebrew/cask-versions
 [ -n "${SERVER}" ] && brew tap homebrew/cask-drivers
 brew install bettertouchtool daisydisk diff-so-fancy git gnupg hazel \
-  mas node@14 nova pinentry-mac zsh-autosuggestions \
+  mas node@14 nova pinentry-mac \
   ${SERVER:+adoptopenjdk8} ${SERVER:+awscli} ${SERVER:+cleanmymac} \
   ${SERVER:+switchresx} ${SERVER:+ubiquiti-unifi-controller} \
   ${WORK:+docker} ${WORK:+encryptme} ${WORK:+figma} ${WORK:+google-chrome} \

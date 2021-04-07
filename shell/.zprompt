@@ -56,18 +56,6 @@ unsetopt CASE_GLOB
 # Enable parameter expansion, command substitution and arithmetic expansion in prompt string
 setopt PROMPT_SUBST
 
-# AUTOSUGGEST
-source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd *"
-ZSH_AUTOSUGGEST_USE_ASYNC=1
-
-# Accept entire suggestion with tab
-bindkey "\t" autosuggest-accept
-
-# Accept partial suggestion with ⌘→
-ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-word-dir)
-
 # PROMPT
 # Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
 prompt_git_branch_name() {
