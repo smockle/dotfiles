@@ -3,14 +3,14 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.homebridge.server</string>
+    <string>com.homebridge.roomba</string>
 
     <key>ProgramArguments</key>
     <array>
       <string>/usr/local/bin/homebridge</string>
       <string>-I</string>
       <string>-U</string>
-      <string>/Users/clay/.homebridge</string>
+      <string>/Users/clay/.homebridge/roomba</string>
     </array>
 
     <key>RunAtLoad</key>
@@ -20,10 +20,10 @@
     <true/>
 
     <key>StandardErrorPath</key>
-    <string>/Users/clay/Library/Logs/com.homebridge.server.log</string>
+    <string>/Users/clay/Library/Logs/com.homebridge.roomba.log</string>
 
     <key>StandardOutPath</key>
-    <string>/Users/clay/Library/Logs/com.homebridge.server.log</string>
+    <string>/Users/clay/Library/Logs/com.homebridge.roomba.log</string>
 
     <key>UserName</key>
     <string>clay</string>
