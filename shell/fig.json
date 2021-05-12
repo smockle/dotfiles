@@ -1,0 +1,6 @@
+{
+  "app.launchOnStartup": true,
+  "autocomplete.addStatusToTerminalTitle": false,
+  "autocomplete.disable": false,
+  "autocomplete.tab": "insertOrPrefix"
+}
