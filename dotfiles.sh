@@ -94,6 +94,7 @@ if [ -n "${SERVER}" ]; then
   )
   declare -a LAUNCH_AGENTS=(
     "com.smockle.res.plist"
+    "ke.bou.dark-mode-notify.plist"
   )
   for x in $LAUNCH_DAEMONS; do
     if [ -f "${DOTFILES_DIRECTORY}/server/${x}" ]; then
