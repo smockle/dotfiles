@@ -69,6 +69,12 @@ ln -fs "${DOTFILES_DIRECTORY}/shell/.zprofile" "${HOME}/.zprofile"
 ln -fs "${DOTFILES_DIRECTORY}/shell/.zprompt" "${HOME}/.zprompt"
 ln -fs "${DOTFILES_DIRECTORY}/shell/.zshrc" "${HOME}/.zshrc"
 
+# fig
+if [ ! -f "${HOME}/.fig" ]; then
+  mkdir -p "${HOME}/.fig"
+  ln -fs "${DOTFILES_DIRECTORY}/shell/fig.json" "${HOME}/.fig/settings.json"
+fi
+
 # ssh
 if [ ! -f "${HOME}/.ssh/config" ]; then
   mkdir -p "${HOME}/.ssh"
