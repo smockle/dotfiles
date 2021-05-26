@@ -61,9 +61,9 @@ killport() {
 # Otherwise, use npm@7
 npshim() {
   if [ ! -f "package-lock.json" ] || grep -q '"lockfileVersion": 2' "package-lock.json"; then
-    npx -p npm@7 -- npm "$@" </dev/null
+    npx --prefer-offline -p npm@7 -- npm "$@" </dev/null
   else
-    npx -p npm@6 -- npm "$@" </dev/null
+    npx --prefer-offline -p npm@6 -- npm "$@" </dev/null
   fi
 }
 npm() {
