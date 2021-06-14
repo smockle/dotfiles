@@ -50,7 +50,7 @@ npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
 NPM_ROOT=$(npm root -g)
-[ -n "${SERVER}" ] && npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba-stv
+[ -n "${SERVER}" ] && npm install --global homebridge homebridge-ring homebridge-mi-airpurifier homebridge-roomba2
 [ -n "${SERVER}" ] && ln -fs "${NPM_ROOT}/homebridge-ring/node_modules/ffmpeg-for-homebridge/ffmpeg" "/usr/local/bin/ffmpeg"
 unset NPM_ROOT
 
