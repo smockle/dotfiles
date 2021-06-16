@@ -41,8 +41,8 @@ mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` 
   ${WORK:+497799835}`#Xcode` ${WORK:+803453959}`#Slack` \
   ${WORK:+1461845568}`#Gifox` ${WORK:+1439967473}`#Okta`
 
-# AirBuddy 2
-# https://v2.airbuddy.app
+# macFUSE and SSHFS
+# https://osxfuse.github.io
 
 # npm
 npm config set init-license "MIT"
