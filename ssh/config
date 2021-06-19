@@ -1,7 +1,0 @@
-Host *
-  TCPKeepAlive yes
-  ServerAliveInterval 10
-  ServerAliveCountMax 10
-  ForwardAgent yes
-  AddKeysToAgent yes
-  UseKeychain yes

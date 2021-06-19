@@ -8,7 +8,7 @@
     <key>ProgramArguments</key>
     <array>
      <string>/usr/local/bin/dark-mode-notify</string>
-     <string>/Users/clay/Developer/dotfiles/server/fig.sh</string>
+     <string>/Users/clay/Developer/dotfiles/fig/theme.sh</string>
     </array>
 
     <key>RunAtLoad</key>
