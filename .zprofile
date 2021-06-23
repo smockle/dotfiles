@@ -118,6 +118,20 @@ git() {
   command=$1
   shift 1
 
+  # Make `git push` track an upstream branch, similar to
+  # `git config --global push.default current`, with added support
+  # for back-to-back `git switch -c new-branch && git push && git pull`
+  BRANCH_NAME=$(command git symbolic-ref --quiet --short HEAD 2>/dev/null || \
+    command git rev-parse --short HEAD 2>/dev/null)
+  if [[ "${command}" == "push" ]] && \
+     [ -z "$(command "git" config "branch.${BRANCH_NAME}.merge")" ]
+  then
+    command "git" push --set-upstream origin "${BRANCH_NAME}"
+    unset BRANCH_NAME
+    return $?
+  fi
+  unset BRANCH_NAME
+
   # Remove merged & squash-merged branches
   if [[ "${command}" == "branch" ]] && [[ "${1}" == "prune" ]]; then
     command "git" branch --merged | grep -E -v "(^\*|main|default|master|develop)" | xargs command "git" branch -D
