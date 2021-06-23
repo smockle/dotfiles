@@ -11,6 +11,9 @@
 	oldHighlight = red reverse
 	newHighlight = green reverse
 
+[commit]
+	gpgsign = true
+
 [core]
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RXE
@@ -18,36 +21,37 @@
 [credential]
 	helper = osxkeychain
 
-[user]
-	name = Clay Miller
-	email = clay@smockle.com
-	signingkey = 1E6BEB6FED57655B
-
-[github]
-	user = smockle
-
-[init]
-	defaultBranch = main
-
-[pull]
-	rebase = true
-
 [fetch]
 	prune = true
-
-[help]
-	autocorrect = -1
 
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[submodule]
-	recurse = true
-[commit]
-	gpgsign = true
+
+[github]
+	user = smockle
+
+[help]
+	autocorrect = -1
+
+[init]
+	defaultBranch = main
+
 [log]
 	showSignature = true
+
+[pull]
+	rebase = true
+
 [push]
 	default = current
+
+[submodule]
+	recurse = true
+
+[user]
+	name = Clay Miller
+	email = clay@smockle.com
+	signingkey = 1E6BEB6FED57655B
