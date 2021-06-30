@@ -123,6 +123,7 @@ set_prompts
 unset set_prompts
 
 PPWD="$PWD" # Remember previous working directory
+PSHELL_SESSION_FILE="$SHELL_SESSION_FILE" # Remember previous shell session file
 precmd() {
   if [ -z "${PROMPT_CTR}" ]; then
     PROMPT_CTR=1
@@ -135,6 +136,9 @@ precmd() {
 	if [[ "${PPWD}" != "${PWD}" ]]; then
 		rm -f "/tmp/zsh_prompt_git_status_$$"
 	fi
+	# Clear shell session file so disowned background process
+	# doesn’t output “Saving session...completed.”
+	SHELL_SESSION_FILE=""
 	# Kill unfinished git status update requests
 	if [[ "${PROMPT_GIT_STATUS_ASYNC_PROC}" != 0 ]]; then
 		kill -s HUP $PROMPT_GIT_STATUS_ASYNC_PROC &>/dev/null || :
@@ -142,5 +146,6 @@ precmd() {
 	# Request updated git status in the background
 	prompt_git_status_async &!
 	PROMPT_GIT_STATUS_ASYNC_PROC=$!
-	PPWD="$PWD" # Update previous working direectory
+	PPWD="$PWD" # Update previous working directory
+	SHELL_SESSION_FILE="$PSHELL_SESSION_FILE" # Update previous shell session file
 }
