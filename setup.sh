@@ -3,12 +3,7 @@
 setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
-
-if [ -d "${HOME}/Developer/github" ]; then
-  WORK=0;
-else
-  unset WORK;
-fi
+MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 
 # Pre-requisites
 # - Log in to iCloud
@@ -17,14 +12,13 @@ fi
 # - Install Homebrew
 
 # Homebrew
-brew bundle --file Brewfile
-[ -n "${WORK}" ] && brew bundle --file Brewfile.work
-brew link --overwrite --force node@14
+[ -n "${MACOS}" ] && brew bundle --file Brewfile
+[ -n "${MACOS}" ] && brew link --overwrite --force node@14
 npm install --global --force npm@latest
 mkdir -p "${HOME}/.gnupg" && chmod 700 "${HOME}/.gnupg" && echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
 
 # App Store
-mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
+[ -n "${MACOS}" ] && mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
   409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
   1529448980`#Reeder` \ 290986013`#Deliveries` 1477110326`#CapitalOneShopping` \
   ${WORK:+497799835}`#Xcode` ${WORK:+803453959}`#Slack` \
