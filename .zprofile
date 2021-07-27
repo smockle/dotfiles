@@ -164,6 +164,14 @@ alias gti="git"
 ghcs() {
   command=$1
   shift 1
+  
+  # Clean `ghcs list` output
+  if [[ "${command}" == "list" ]]; then
+    command "ghcs" list | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d'
+    return $?
+  fi
+  
+  # Add default values for `ghcs ssh`
   args=($@)
   if [[ "${command}" == "ssh" && "${args}" != *"--profile"* ]]; then
     args+=("--profile" "codespaces")
@@ -171,6 +179,7 @@ ghcs() {
   if [[ "${command}" == "ssh" && "${args}" != *"--server-port"* ]]; then
     args+=("--server-port" "2222")
   fi
+
   command "ghcs" "${command}" "${args[@]}"
 }
 
