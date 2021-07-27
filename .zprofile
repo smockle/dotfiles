@@ -167,7 +167,7 @@ ghcs() {
   
   # Clean `ghcs list` output
   if [[ "${command}" == "list" ]]; then
-    command "ghcs" list | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d'
+    command "ghcs" list | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g'
     return $?
   fi
   
