@@ -57,7 +57,8 @@ echo -e "\033[1mSetting up Zsh\033[0m"
 ln -fs "${DOTFILES_DIRECTORY}/.zprofile" "${HOME}/.zprofile"
 ln -fs "${DOTFILES_DIRECTORY}/.zprompt" "${HOME}/.zprompt"
 ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
-[ -n "${CODESPACES}" ] && ln -nfs "${DOTFILES_DIRECTORY}/.." "${HOME}/Developer"
+[ -n "${CODESPACES}" ] && ln -nfs "/workspaces" "${HOME}/Developer"
+[ -n "${CODESPACES}" ] && [ ! -d "/workspaces/dotfiles" ] && ln -nfs "${DOTFILES_DIRECTORY}/.." "/workspaces/dotfiles"
 echo -e "\033[1mZsh setup complete\033[0m\n"
 
 # fig
