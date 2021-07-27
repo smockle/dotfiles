@@ -161,6 +161,19 @@ gitp() {
 
 alias gti="git"
 
+ghcs() {
+  command=$1
+  shift 1
+  args=($@)
+  if [[ "${command}" == "ssh" && "${args}" != *"--profile"* ]]; then
+    args+=("--profile" "codespaces")
+  fi
+  if [[ "${command}" == "ssh" && "${args}" != *"--server-port"* ]]; then
+    args+=("--server-port" "2222")
+  fi
+  command "ghcs" "${command}" "${args[@]}"
+}
+
 # KILLPORT
 killport() {
   port=$1
