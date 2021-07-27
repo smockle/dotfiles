@@ -1,0 +1,2 @@
+#!/bin/sh
+[ -n "${CODESPACES}" ] && chsh -s /usr/bin/zsh $(whoami)

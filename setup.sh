@@ -48,12 +48,11 @@ echo -e "\033[1mVi setup complete\033[0m\n"
 echo -e "\033[1mSetting up Git\033[0m"
 ln -fs "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
-[ -n "${CODESPACES}" ] && git config --global core.pager "less --tabs=4 -RXE" && git update-index --skip-worktree ${DOTFILES_DIRECTORY}/.gitconfig
+[ -n "${CODESPACES}" ] && git config --global core.pager "less --tabs=4 -RXE" && git update-index --skip-worktree "${DOTFILES_DIRECTORY}/.gitconfig"
 echo -e "\033[1mGit setup complete\033[0m\n"
 
 # shell
 echo -e "\033[1mSetting up Zsh\033[0m"
-# [ -n "${CODESPACES}" ] && chsh -s /usr/bin/zsh `whoami`
 ln -fs "${DOTFILES_DIRECTORY}/.zprofile" "${HOME}/.zprofile"
 ln -fs "${DOTFILES_DIRECTORY}/.zprompt" "${HOME}/.zprompt"
 ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
