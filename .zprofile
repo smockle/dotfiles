@@ -167,6 +167,13 @@ ghcs() {
   shift 1
   args=($@)
 
+  if [[ "${command}" == "name" ]]; then
+    repo=$1
+    shift 1
+    ghcs list | grep "$repo" | cut -f1 -d' '
+    return $?
+  fi
+
   # Remove list formatting
   if [[ "${command}" == "list" ]]; then
     command "ghcs" list | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g'
