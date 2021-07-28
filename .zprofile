@@ -165,15 +165,19 @@ alias gti="git"
 ghcs() {
   command=$1
   shift 1
-  
-  # Clean `ghcs list` output
+  args=($@)
+
+  # Remove list formatting
   if [[ "${command}" == "list" ]]; then
     command "ghcs" list | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g'
     return $?
   fi
-  
+  if [[ "${command}" == "delete" ]]; then
+    command "ghcs" "${command}" "${args[@]}" | perl -0pe 's/\+--.*--\+//sg' | sed -E '/^$/d'
+    return $?
+  fi
+
   # Add default values for `ghcs ssh`
-  args=($@)
   if [[ "${command}" == "ssh" && "${args}" != *"--profile"* ]]; then
     args+=("--profile" "codespaces")
   fi
