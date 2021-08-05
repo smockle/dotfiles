@@ -50,7 +50,7 @@ ln -fs "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
 if [ -n "${CODESPACES}" ]; then
   git config --global core.pager "less --tabs=4 -RXE"
-  git config --global --unset credential.helper
+  git config --global credential.helper "cache"
   git update-index --skip-worktree "${DOTFILES_DIRECTORY}/.gitconfig"
 fi
 echo -e "\033[1mGit setup complete\033[0m\n"
