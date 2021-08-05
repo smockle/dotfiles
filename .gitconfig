@@ -18,6 +18,9 @@
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RXE
 
+[credential]
+	helper = osxkeychain
+
 [fetch]
 	prune = true
 
@@ -32,6 +35,9 @@
 
 [help]
 	autocorrect = -1
+
+[include]
+	path = /etc/gitconfig
 
 [init]
 	defaultBranch = main
@@ -52,3 +58,6 @@
 	name = Clay Miller
 	email = clay@smockle.com
 	signingkey = 1E6BEB6FED57655B
+	
+[url "https://github.com/"]
+	insteadOf = git@github.com:
