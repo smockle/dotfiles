@@ -46,13 +46,13 @@ echo -e "\033[1mVi setup complete\033[0m\n"
 
 # git
 echo -e "\033[1mSetting up Git\033[0m"
-ln -fs "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
-ln -fs "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
-[ -n "${CODESPACES}" ] && git config --global core.pager "less --tabs=4 -RXE"
-if [ -n "${MACOS}" ]; then
-  git config --global credential.helper "osxkeychain"
-  git update-index --skip-worktree "${DOTFILES_DIRECTORY}/.gitconfig"
-fi
+# ln -fs "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
+# ln -fs "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
+# [ -n "${CODESPACES}" ] && git config --global core.pager "less --tabs=4 -RXE"
+# if [ -n "${MACOS}" ]; then
+#   git config --global credential.helper "osxkeychain"
+#   git update-index --skip-worktree "${DOTFILES_DIRECTORY}/.gitconfig"
+# fi
 echo -e "\033[1mGit setup complete\033[0m\n"
 
 # shell
