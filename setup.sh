@@ -33,7 +33,7 @@ echo -e "\033[1mApp Store setup complete\033[0m\n"
 echo -e "\033[1mSetting up Apt\033[0m"
 [ -n "${DEBIAN}" ] && echo 'APT::Get::Assume-Yes "true";' | sudo tee /etc/apt/apt.conf.d/90assumeyes
 get_ubuntu_version() {
-  if [[ $(cat /etc/debian_version 2>/dev/null) == *"11."* ]]; then
+  if [[ $(cat /etc/debian_version 2>/dev/null) == *"11."* ]] || [[ $(cat /etc/debian_version 2>/dev/null) == *"bullseye"* ]]; then
     # 'focal' (20.04) is the Ubuntu LTS based on Debian 'bullseye'
     echo "focal"
   elif [[ $(cat /etc/debian_version 2>/dev/null) == *"10."* ]]; then
@@ -46,12 +46,12 @@ get_ubuntu_version() {
 UBUNTU_VERSION=$(get_ubuntu_version)
 unset get_ubuntu_version
 # diff-so-fancy repository
-if [ -n "${DEBIAN}" ] && [ ! -f /etc/apt/sources.list.d/diff-so-fancy.list ]; then
+if [ -n "${DEBIAN}" ] && [ -n "${UBUNTU_VERSION}" ] && [ ! -f /etc/apt/sources.list.d/diff-so-fancy.list ]; then
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4466B73F97EF279EC64D8A169E8A0C808486162E
   echo "deb http://ppa.launchpad.net/aos1/diff-so-fancy/ubuntu ${UBUNTU_VERSION} main" | sudo tee /etc/apt/sources.list.d/diff-so-fancy.list
 fi
 # git repository
-if [ -n "${DEBIAN}" ] && [ ! -f /etc/apt/sources.list.d/git-core.list ]; then
+if [ -n "${DEBIAN}" ] && [ -n "${UBUNTU_VERSION}" ] && [ ! -f /etc/apt/sources.list.d/git-core.list ]; then
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
     echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu ${UBUNTU_VERSION} main" | sudo tee /etc/apt/sources.list.d/git-core.list
 fi
