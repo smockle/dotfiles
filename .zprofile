@@ -205,27 +205,6 @@ killport() {
   kill -9 $(lsof -i ":${port}" 2>/dev/null | tail -n +2 | tr -s ' ' | cut -f2 -d' ')
 }
 
-# NPM
-# Use npm@6 when `package-lock.json` uses `"lockfileVersion": 1` (or earlier),
-# Otherwise, use npm@7
-npshim() {
-  if [ ! -f "package-lock.json" ] || grep -q '"lockfileVersion": 2' "package-lock.json"; then
-    npx --prefer-offline -p npm@7 -- npm "$@" </dev/null
-  else
-    npx --prefer-offline -p npm@6 -- npm "$@" </dev/null
-  fi
-}
-
-npm() {
-  # Upgrade all packages to the latest available versions,
-  # and update version numbers in 'package.json' and 'package-lock.json'.
-  if [[ "$1" == "upgrade" ]]; then
-    command "npm" outdated --depth=0 | grep -v "Package" | awk '{print $1"@"$4}' | xargs command "npm" i
-    return $?
-  fi
-  npshim "$@"
-}
-
 # RANDOM
 random() {
   if [[ "$1" == "mac" ]]; then
