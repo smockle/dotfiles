@@ -56,10 +56,8 @@ if [ -n "${DEBIAN}" ] && [ -n "${UBUNTU_VERSION}" ] && [ ! -f /etc/apt/sources.l
     echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu ${UBUNTU_VERSION} main" | sudo tee /etc/apt/sources.list.d/git-core.list
 fi
 [ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt update
-[ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade
-[ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt autoremove
 [ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt install diff-so-fancy
-echo -e "\033[1mApt setup complete\033[0m\n"
+echo -e "\033[1mPausing Apt setup\033[0m\n"
 
 # npm
 echo -e "\033[1mSetting up npm\033[0m"
@@ -117,3 +115,9 @@ Host *
 EOF
 fi
 echo -e "\033[1mSSH setup complete\033[0m"
+
+# Apt
+echo -e "\033[1mResuming APT setup\033[0m"
+[ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade
+[ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt autoremove
+echo -e "\033[1mApt setup complete\033[0m"
