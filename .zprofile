@@ -162,37 +162,34 @@ gitp() {
 
 alias gti="git"
 
-ghcs() {
+gh() {
   command=$1
   shift 1
   args=($@)
 
-  if [[ "${command}" == "name" ]]; then
-    repo=$1
-    shift 1
-    ghcs list | grep "$repo" | cut -f1 -d' '
+  if [[ "${command}" != "cs" ]]; then
+    command "gh" "${command}" "${args[@]}"
     return $?
   fi
 
-  # Remove list formatting
-  if [[ "${command}" == "list" ]]; then
-    command "ghcs" list | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g'
+  # Codespaces
+  
+  # Get codespace name from repo
+  if [[ "$1" == "name" ]]; then
+    repo="$2"
+    command "gh" "cs" "list" | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g' | grep "$repo" | cut -f1 -d' '
     return $?
   fi
-  if [[ "${command}" == "delete" ]]; then
-    command "ghcs" "${command}" "${args[@]}" | perl -0pe 's/\+--.*--\+//sg' | sed -E '/^$/d'
-    return $?
-  fi
-
-  # Add default values for `ghcs ssh`
-  if [[ "${command}" == "ssh" && "${args}" != *"--profile"* ]]; then
+  
+  # Add default values for `gh cs ssh`
+  if [[ "$1" == "ssh" && "${args}" != *"--profile"* ]]; then
     args+=("--profile" "codespaces")
   fi
-  if [[ "${command}" == "ssh" && "${args}" != *"--server-port"* ]]; then
+  if [[ "$1" == "ssh" && "${args}" != *"--server-port"* ]]; then
     args+=("--server-port" "2222")
   fi
 
-  command "ghcs" "${command}" "${args[@]}"
+  command "gh" "cs" "${args[@]}"
 }
 
 # KILLPORT
