@@ -8,6 +8,7 @@ brew "gnupg"
 brew "mas"
 brew "node@14", link: true, conflicts_with: ["node"] || true
 brew "pinentry-mac"
+brew "rbenv"
 brew "shellcheck"
 
 cask "bettertouchtool"
