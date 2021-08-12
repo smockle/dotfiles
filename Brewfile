@@ -6,7 +6,7 @@ brew "gh"
 brew "git"
 brew "gnupg"
 brew "mas"
-brew "node@14"
+brew "node@14", link: true, conflicts_with: ["node"] || true
 brew "pinentry-mac"
 brew "shellcheck"
 
