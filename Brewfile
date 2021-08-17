@@ -2,6 +2,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 
 brew "diff-so-fancy"
+brew "docker"
 brew "gh"
 brew "git"
 brew "gnupg"
