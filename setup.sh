@@ -23,7 +23,7 @@ echo -e "\033[1mHomebrew setup complete\033[0m\n"
 
 # App Store
 echo -e "\033[1mSetting up App Store\033[0m"
-[ -n "${MACOS}" ] && mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1320666476`#Wipr` \
+[ -n "${MACOS}" ] && mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1365531024`#1Blocker` \
   409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
   1529448980`#Reeder` 290986013`#Deliveries` 1477110326`#CapitalOneShopping` \
   497799835`#Xcode` 803453959`#Slack` 1461845568`#Gifox` 1439967473`#Okta`
