@@ -12,7 +12,6 @@ brew "rbenv"
 brew "shellcheck"
 
 cask "bettertouchtool"
-cask "docker"
 cask "encryptme"
 cask "figma"
 cask "google-chrome"

@@ -177,7 +177,7 @@ gh() {
   # Get codespace name from repo
   if [[ "$1" == "name" ]]; then
     repo="$2"
-    command "gh" "cs" "list" | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g' | grep "$repo" | cut -f1 -d' '
+    command "gh" "cs" "list" | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g' | grep "$repo" | cut -f1
     return $?
   fi
   

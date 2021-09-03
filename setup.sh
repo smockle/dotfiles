@@ -114,7 +114,7 @@ Host *
   UseKeychain yes
 EOF
 fi
-echo -e "\033[1mSSH setup complete\033[0m"
+echo -e "\033[1mSSH setup complete\033[0m\n"
 
 # Apt
 echo -e "\033[1mResuming APT setup\033[0m"
