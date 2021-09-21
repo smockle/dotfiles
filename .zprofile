@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
+
 # ENV
 if [ -f "${HOME}/.env" ]; then
   # https://stackoverflow.com/a/45971167/1923134
@@ -162,36 +167,6 @@ gitp() {
 
 alias gti="git"
 
-gh() {
-  command=$1
-  shift 1
-  args=($@)
-
-  if [[ "${command}" != "cs" ]]; then
-    command "gh" "${command}" "${args[@]}"
-    return $?
-  fi
-
-  # Codespaces
-  
-  # Get codespace name from repo
-  if [[ "$1" == "name" ]]; then
-    repo="$2"
-    command "gh" "cs" "list" | sed -E 's/\| ( *)([A-Z ]+)/\| \2\1/g' | sed -E 's/[\+\|]|--+//g' | sed -E '/^$/d' | sed -E 's/^ //g' | grep "$repo" | cut -f1
-    return $?
-  fi
-  
-  # Add default values for `gh cs ssh`
-  if [[ "$1" == "ssh" && "${args}" != *"--profile"* ]]; then
-    args+=("--profile" "codespaces")
-  fi
-  if [[ "$1" == "ssh" && "${args}" != *"--server-port"* ]]; then
-    args+=("--server-port" "2222")
-  fi
-
-  command "gh" "cs" "${args[@]}"
-}
-
 # KILLPORT
 killport() {
   port=$1
@@ -219,3 +194,8 @@ random() {
     $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]
   fi
 }
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
