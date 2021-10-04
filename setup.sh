@@ -4,7 +4,6 @@ setopt pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
-DEBIAN=$([ -f /etc/debian_version ] && echo "DEBIAN" || echo "")
 
 # Pre-requisites
 # - Log in to iCloud
@@ -28,34 +27,6 @@ echo -e "\033[1mSetting up App Store\033[0m"
   1529448980`#Reeder` 290986013`#Deliveries` 1477110326`#CapitalOneShopping` \
   497799835`#Xcode` 803453959`#Slack` 1461845568`#Gifox` 1439967473`#Okta`
 echo -e "\033[1mApp Store setup complete\033[0m\n"
-
-# Apt
-echo -e "\033[1mSetting up Apt\033[0m"
-[ -n "${DEBIAN}" ] && echo 'APT::Get::Assume-Yes "true";' | sudo tee /etc/apt/apt.conf.d/90assumeyes
-get_ubuntu_version() {
-  if [[ $(cat /etc/debian_version 2>/dev/null) == *"11."* ]] || [[ $(cat /etc/debian_version 2>/dev/null) == *"bullseye"* ]]; then
-    # 'focal' (20.04) is the Ubuntu LTS based on Debian 'bullseye'
-    echo "focal"
-  elif [[ $(cat /etc/debian_version 2>/dev/null) == *"10."* ]]; then
-    # 'bionic' (18.04) is the Ubuntu LTS based on Debian 'buster'
-    echo "bionic"
-  else
-    echo ""
-  fi
-}
-UBUNTU_VERSION=$(get_ubuntu_version)
-unset get_ubuntu_version
-# diff-so-fancy repository
-if [ -n "${DEBIAN}" ] && [ -n "${UBUNTU_VERSION}" ] && [ ! -f /etc/apt/sources.list.d/diff-so-fancy.list ]; then
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4466B73F97EF279EC64D8A169E8A0C808486162E
-  echo "deb http://ppa.launchpad.net/aos1/diff-so-fancy/ubuntu ${UBUNTU_VERSION} main" | sudo tee /etc/apt/sources.list.d/diff-so-fancy.list
-fi
-# git repository
-if [ -n "${DEBIAN}" ] && [ -n "${UBUNTU_VERSION}" ] && [ ! -f /etc/apt/sources.list.d/git-core.list ]; then
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
-    echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu ${UBUNTU_VERSION} main" | sudo tee /etc/apt/sources.list.d/git-core.list
-fi
-echo -e "\033[1mPausing Apt setup\033[0m\n"
 
 # npm
 echo -e "\033[1mSetting up npm\033[0m"
@@ -82,7 +53,7 @@ echo -e "\033[1mGit setup complete\033[0m\n"
 
 # shell
 echo -e "\033[1mSetting up Zsh\033[0m"
-[ -n "${CODESPACES}" ] && sudo chsh -s $(which zsh) $(whoami)
+[ -n "${CODESPACES}" ] && sudo chsh -s "$(which zsh)" "$(whoami)"
 ln -fs "${DOTFILES_DIRECTORY}/.zprofile" "${HOME}/.zprofile"
 ln -fs "${DOTFILES_DIRECTORY}/.zprompt" "${HOME}/.zprompt"
 ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
@@ -113,13 +84,3 @@ Host *
 EOF
 fi
 echo -e "\033[1mSSH setup complete\033[0m\n"
-
-# Apt
-echo -e "\033[1mResuming APT setup\033[0m"
-if [ -n "${DEBIAN}" ]; then
-  (sudo DEBIAN_FRONTEND=noninteractive apt update && \
-   sudo DEBIAN_FRONTEND=noninteractive apt install diff-so-fancy && \
-   sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade && \
-   sudo DEBIAN_FRONTEND=noninteractive apt autoremove) &!
-fi
-echo -e "\033[1mApt setup complete\033[0m"
