@@ -117,7 +117,7 @@ fi
 echo -e "\033[1mSSH setup complete\033[0m\n"
 
 # Apt
-echo -e "\033[1mResuming APT setup\033[0m"
-[ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade
-[ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt autoremove
-echo -e "\033[1mApt setup complete\033[0m"
+# echo -e "\033[1mResuming APT setup\033[0m"
+# [ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade
+# [ -n "${DEBIAN}" ] && sudo DEBIAN_FRONTEND=noninteractive apt autoremove
+# echo -e "\033[1mApt setup complete\033[0m"
