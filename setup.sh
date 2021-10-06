@@ -11,7 +11,7 @@ MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 # - Set up Internet Accounts
 # - Install Homebrew
 
-# Homebrew
+# Homebrew & App Store
 echo -e "\033[1mSetting up Homebrew\033[0m"
 [ -n "${MACOS}" ] && brew tap homebrew/bundle
 [ -n "${MACOS}" ] && brew bundle --file Brewfile
@@ -19,14 +19,6 @@ echo -e "\033[1mSetting up Homebrew\033[0m"
 npm install --global --force npm@latest
 mkdir -p "${HOME}/.gnupg" && chmod 700 "${HOME}/.gnupg" && echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
 echo -e "\033[1mHomebrew setup complete\033[0m\n"
-
-# App Store
-echo -e "\033[1mSetting up App Store\033[0m"
-[ -n "${MACOS}" ] && mas install 1333542190`#1Password7` 425424353`#TheUnarchiver` 1365531024`#1Blocker` \
-  409201541`#Pages` 409203825`#Numbers` 409183694`#Keynote` \
-  1529448980`#Reeder` 290986013`#Deliveries` 1477110326`#CapitalOneShopping` \
-  497799835`#Xcode` 803453959`#Slack` 1461845568`#Gifox` 1439967473`#Okta`
-echo -e "\033[1mApp Store setup complete\033[0m\n"
 
 # npm
 echo -e "\033[1mSetting up npm\033[0m"
