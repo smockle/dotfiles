@@ -1,55 +1,6 @@
 #!/usr/bin/env zsh
 # shellcheck shell=sh
 
-# COMPLETIONS
-# Init zsh completions
-autoload -U compinit
-compinit
-
-# Case-insensitive completion
-# https://superuser.com/a/1092328
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-
-# Menu selection
-zstyle ':completion:*' menu yes select
-zmodload zsh/complist
-# Finish completion and execute with (return)
-bindkey -M menuselect '^M' .accept-line
-# Cancel selection with (esc)
-bindkey -M menuselect '\e' send-break
-
-# INPUT
-# Use the string that has already been typed as the prefix for searching
-# through commands (i.e. more intelligent Up/Down-arrow behavior)
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[OA" history-beginning-search-backward # SSH
-bindkey "^[[B" history-beginning-search-forward
-bindkey "^[OB" history-beginning-search-forward # SSH
-
-# Reverse through the completions menu using shift-tab
-bindkey "^[[Z" reverse-menu-complete
-
-# Move cursor forward/backward by word (⌥→/⌥←)
-backward-word-dir () {
-	local WORDCHARS=${WORDCHARS//[\/\-]}
-	zle backward-word
-}
-zle -N backward-word-dir
-bindkey "^[b" backward-word-dir
-forward-word-dir () {
-	local WORDCHARS=${WORDCHARS//[\/\-]}
-	zle forward-word
-}
-zle -N forward-word-dir
-bindkey "^[f" forward-word-dir
-
-# Move cursor to beginning/end of line (⌘←/⌘→)
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[4~" end-of-line
-
-# Fix backspace when existing vi mode
-bindkey -v "^?" backward-delete-char
-
 # Case-insensitive globbing (used in pathname expansion)
 unsetopt CASE_GLOB
 
