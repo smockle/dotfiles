@@ -15,7 +15,7 @@ MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 echo -e "\033[1mSetting up Homebrew\033[0m"
 [ -n "${MACOS}" ] && brew tap homebrew/bundle
 [ -n "${MACOS}" ] && brew bundle --file Brewfile
-[ -n "${MACOS}" ] && brew link --overwrite --force node@14
+[ -n "${MACOS}" ] && brew link --overwrite --force node@16
 [ -z "${CODESPACES}" ] && npm install --global --force npm@latest
 mkdir -p "${HOME}/.gnupg" && chmod 700 "${HOME}/.gnupg" && echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
 echo -e "\033[1mHomebrew setup complete\033[0m\n"
