@@ -16,7 +16,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	pager = less --tabs=4 -RXE
+	pager = diff-highlight | less --tabs=4 -RXE
 
 [credential]
 	helper = osxkeychain

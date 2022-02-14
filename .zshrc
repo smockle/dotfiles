@@ -33,6 +33,8 @@ export HOMEBREW_PREFIX
 declare -a PATH_PREPENDA=(
   "${HOMEBREW_PREFIX}/sbin"
   "${HOMEBREW_PREFIX}/bin"
+  "${HOMEBREW_PREFIX}/var/homebrew/linked/git/share/git-core/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (macOS)
+  "/usr/share/doc/git/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (Debian)
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
   "${GOPATH}/bin" # Add Go package bin
   "${GEM_USER_INSTALLATION_DIRECTORY}/bin" # Add 'gem install --user-install'-installed package bin
