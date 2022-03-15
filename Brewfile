@@ -2,7 +2,6 @@ tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "mutagen-io/mutagen"
 
 brew "exercism"
 brew "gh"
@@ -13,7 +12,6 @@ brew "node@16", link: true, conflicts_with: ["node"] || true
 brew "pinentry-mac"
 brew "rbenv"
 brew "shellcheck"
-brew "mutagen-io/mutagen/mutagen"
 
 cask "bettertouchtool"
 cask "encryptme"
