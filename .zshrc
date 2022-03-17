@@ -173,6 +173,19 @@ bindkey "^A" beginning-of-line # VS Code
 bindkey "^[[4~" end-of-line
 bindkey "^E" end-of-line # VS Code
 
+# HOMEBREW
+brew() {
+  command=$1
+  shift 1
+  
+  # Zap by default
+  if [[ "${command}" == "uninstall" ]]; then
+    command "brew" uninstall --zap "$@"
+  fi
+  
+  command "brew" "${command}" "$@"
+}
+
 # GIT
 git() {
   command=$1
