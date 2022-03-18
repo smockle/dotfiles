@@ -6,8 +6,7 @@
 # - not sourced by scripts
 
 # Fig pre block. Keep at the top of this file.
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init zsh pre)"
+whence -p fig &>/dev/null && eval "$(fig init zsh pre)"
 
 # ENV
 if [ -f "${HOME}/.env" ]; then
@@ -30,6 +29,7 @@ HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
 export HOMEBREW_PREFIX
 declare -a PATH_PREPENDA=(
+  "${HOME}/.local/bin" # Fig
   "${HOMEBREW_PREFIX}/sbin"
   "${HOMEBREW_PREFIX}/bin"
   "${HOMEBREW_PREFIX}/var/homebrew/linked/git/share/git-core/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (macOS)
@@ -363,4 +363,4 @@ precmd() {
 }
 
 # Fig post block. Keep at the bottom of this file.
-eval "$(fig init zsh post)"
+whence -p fig &>/dev/null && eval "$(fig init zsh post)"
