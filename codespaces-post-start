@@ -4,6 +4,7 @@
 # shellcheck disable=SC2012
 VERSION="$(ls -t /vscode/bin/linux-x64 | head -n1)"
 PATH="/vscode/bin/linux-x64/${VERSION}/bin/remote-cli:${PATH}"
+VSCODE_IPC_HOOK_CLI=$(echo /tmp/vscode-ipc-*.sock)
 
 rm -Rf /root/.vscode-remote/extensions/*
 code --list-extensions | xargs -I@ code --uninstall-extension @
