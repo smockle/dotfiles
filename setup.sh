@@ -60,11 +60,6 @@ if [ ! -f "${HOME}/.fig" ]; then
 fi
 echo -e "\033[1mFig setup complete\033[0m\n"
 
-# vs code
-echo -e "\033[1mSetting up VS Code\033[0m"
-[ -n "${CODESPACES}" ] && sudo rm -Rf /root/.vscode-remote/extensions/*
-echo -e "\033[1mVS Code setup complete\033[0m\n"
-
 # ssh
 echo -e "\033[1mSetting up SSH\033[0m"
 if [ ! -f "${HOME}/.ssh/config" ]; then

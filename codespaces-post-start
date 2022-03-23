@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
+sudo rm -Rf /root/.vscode-remote/extensions/*
