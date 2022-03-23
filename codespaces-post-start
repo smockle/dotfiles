@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
+# shellcheck disable=SC2012
+VERSION="$(ls -t /vscode/bin/linux-x64 | head -n1)"
+PATH="/vscode/bin/linux-x64/${VERSION}/bin/remote-cli:${PATH}"
+
 rm -Rf /root/.vscode-remote/extensions/*
 code --list-extensions | xargs -I@ code --uninstall-extension @
 cat << EOB | xargs -I@ code --install-extension @
