@@ -63,6 +63,26 @@ echo -e "\033[1mFig setup complete\033[0m\n"
 # vs code
 echo -e "\033[1mSetting up VS Code\033[0m"
 [ -n "${CODESPACES}" ] && rm -Rf /root/.vscode-remote/extensions/*
+[ -n "${CODESPACES}" ] && code --list-extensions | xargs -I@ code --uninstall-extension @
+[ -n "${CODESPACES}" ] && cat << EOB | xargs -I@ code --install-extension @
+  "bierner.jsdoc-markdown-highlighting"
+  "castwide.solargraph"
+  "dbaeumer.vscode-eslint"
+  "EditorConfig.EditorConfig"
+  "esbenp.prettier-vscode"
+  "GitHub.codespaces"
+  "kaiwood.endwise"
+  "manuelpuyol.erb-linter"
+  "mikestead.dotenv"
+  "rebornix.ruby"
+  "redhat.vscode-yaml"
+  "soutaro.rbs-syntax"
+  "soutaro.steep-vscode"
+  "stylelint.vscode-stylelint"
+  "timonwong.shellcheck"
+  "VisualStudioExptTeam.vscodeintellicode"
+  "wingrunr21.vscode-ruby"
+EOB
 echo -e "\033[1mVS Code setup complete\033[0m\n"
 
 # ssh
