@@ -2,11 +2,11 @@
 # shellcheck shell=bash
 
 # shellcheck disable=SC2012
-VERSION="$(ls -t /vscode/bin/linux-x64 | head -n1)"
-PATH="/vscode/bin/linux-x64/${VERSION}/bin/remote-cli:${PATH}"
+PATH="/vscode/bin/linux-x64/$(ls -t /vscode/bin/linux-x64 | head -n1)/bin/remote-cli:${PATH}"
 
 # Workaround for "Command is only available in WSL or inside a Visual Studio Code terminal."
-VSCODE_IPC_HOOK_CLI="$(ls -t /tmp | grep vscode-ipc | head -n1)"
+# shellcheck disable=SC2010
+VSCODE_IPC_HOOK_CLI="/tmp/$(ls -t /tmp | grep vscode-ipc | head -n1)"
 export VSCODE_IPC_HOOK_CLI
 
 rm -Rf /root/.vscode-remote/extensions/*
