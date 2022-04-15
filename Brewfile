@@ -14,7 +14,6 @@ brew "rbenv"
 brew "shellcheck"
 
 cask "bettertouchtool"
-cask "encryptme"
 cask "fig"
 cask "hazel"
 cask "logitech-g-hub"
