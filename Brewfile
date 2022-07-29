@@ -13,6 +13,7 @@ brew "pinentry-mac"
 brew "rbenv"
 brew "shellcheck"
 
+cask "1password"
 cask "bettertouchtool"
 cask "fig"
 cask "hazel"
