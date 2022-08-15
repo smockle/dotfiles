@@ -19,7 +19,7 @@ cask "fig"
 cask "hazel"
 cask "logitech-g-hub"
 cask "nova"
-cask "safari-technology-preview"
+cask "visual-studio-code"
 
 mas "1Blocker", id: 1365531024
 mas "1Password 7", id: 1333542190
