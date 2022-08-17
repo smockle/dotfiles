@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 
 brew "exercism"
+brew "gh"
 brew "git"
 brew "gnupg"
 brew "mas"
