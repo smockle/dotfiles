@@ -41,7 +41,7 @@ echo -e "\033[1mSetting up Git\033[0m"
 ln -fs "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
 ln -fs "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
 [ -n "${CODESPACES}" ] && git config --global "credential.helper" "cache" && git update-index --skip-worktree "${DOTFILES_DIRECTORY}/.gitconfig"
-[ -n "${CODESPACES}" ] && [ -f "/usr/share/doc/git/contrib/diff-highlight/Makefile" ] && cd "/usr/share/doc/git/contrib/diff-highlight" && sudo make
+[ -n "${CODESPACES}" ] && [ -f "/usr/share/doc/git/contrib/diff-highlight/Makefile" ] && cd "/usr/share/doc/git/contrib/diff-highlight" && sudo make && sudo chown "$(whoami):" diff-highlight && chmod +x diff-highlight
 echo -e "\033[1mGit setup complete\033[0m\n"
 
 # shell
