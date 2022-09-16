@@ -23,7 +23,6 @@ cask "paw"
 cask "visual-studio-code"
 cask "zoom"
 
-mas "1Password 7", id: 1333542190
 mas "Capital One Shopping", id: 1477110326
 mas "Deliveries", id: 290986013
 mas "Keynote", id: 409183694
