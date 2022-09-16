@@ -5,9 +5,6 @@
 # - sourced by all interactive shells
 # - not sourced by scripts
 
-# Fig pre block. Keep at the top of this file.
-whence -p fig &>/dev/null && eval "$(fig init zsh pre)"
-
 # ENV
 if [ -f "${HOME}/.env" ]; then
   # https://stackoverflow.com/a/45971167/1923134
@@ -29,17 +26,14 @@ HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
 export HOMEBREW_PREFIX
 declare -a PATH_PREPENDA=(
-  "${HOME}/.local/bin" # Fig
   "${HOMEBREW_PREFIX}/sbin"
   "${HOMEBREW_PREFIX}/bin"
   "${HOMEBREW_PREFIX}/var/homebrew/linked/git/share/git-core/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (macOS)
   "/usr/share/doc/git/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (Debian)
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
-  "${GOPATH}/bin" # Add Go package bin
   "${GEM_USER_INSTALLATION_DIRECTORY}/bin" # Add 'gem install --user-install'-installed package bin
 )
 declare -a PATH_ADDENDA=(
-  "${HOMEBREW_PREFIX}/opt/node@14/bin" # Add brew-installed node@14, but let npm-installed npm take precedence
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
 )
 for p in $PATH_PREPENDA; do
@@ -109,14 +103,6 @@ export EDITOR=vi
 # Don’t clear screen when using 'less' or 'man'
 export LESS=-RXE
 export MANPAGER="less"
-
-# DOCKER
-# Enable experimental Docker CLI features
-export DOCKER_CLI_EXPERIMENTAL="enabled"
-
-# RUBY
-# http://mattgreensmith.net/2014/12/25/speed-up-rbenv-init-via-background-rehashing/
-whence -p rbenv &>/dev/null && eval "$(rbenv init - --no-rehash)"
 
 # COLORS
 alias grep='grep --color=auto'
@@ -348,6 +334,3 @@ precmd() {
   PPWD="$PWD" # Update previous working directory
   SHELL_SESSION_FILE="$PSHELL_SESSION_FILE" # Update previous shell session file
 }
-
-# Fig post block. Keep at the bottom of this file.
-whence -p fig &>/dev/null && eval "$(fig init zsh post)"

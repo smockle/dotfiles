@@ -52,14 +52,6 @@ ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
 [ -n "${CODESPACES}" ] && [ ! -d "/workspaces/dotfiles" ] && ln -nfs "${DOTFILES_DIRECTORY}" "/workspaces/dotfiles"
 echo -e "\033[1mZsh setup complete\033[0m\n"
 
-# fig
-echo -e "\033[1mSetting up Fig\033[0m"
-if [ ! -f "${HOME}/.fig" ]; then
-  mkdir -p "${HOME}/.fig"
-  ln -fs "${DOTFILES_DIRECTORY}/fig/settings.json" "${HOME}/.fig/settings.json"
-fi
-echo -e "\033[1mFig setup complete\033[0m\n"
-
 # ssh
 echo -e "\033[1mSetting up SSH\033[0m"
 if [ ! -f "${HOME}/.ssh/config" ]; then
