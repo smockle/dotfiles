@@ -21,13 +21,12 @@ if whence -p gem &>/dev/null; then
   fi
 fi
 
+# HOMEBREW
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # PATH
-HOMEBREW_PREFIX=$(dirname "$(dirname "$(whence -p brew)")")
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
-export HOMEBREW_PREFIX
 declare -a PATH_PREPENDA=(
-  "${HOMEBREW_PREFIX}/sbin"
-  "${HOMEBREW_PREFIX}/bin"
   "${HOMEBREW_PREFIX}/var/homebrew/linked/git/share/git-core/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (macOS)
   "/usr/share/doc/git/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (Debian)
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
