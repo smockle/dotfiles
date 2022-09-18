@@ -9,6 +9,7 @@ brew "gnupg"
 brew "mas"
 brew "node"
 brew "pinentry-mac"
+brew "poppler" # pdfimages
 brew "shellcheck"
 
 cask "1password"
