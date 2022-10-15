@@ -67,8 +67,3 @@ Host *
 EOF
 fi
 echo -e "\033[1mSSH setup complete\033[0m\n"
-
-# locationchanger
-echo -e "\033[1mSetting up Location Changer\033[0m"
-[ -n "${MACOS}" ] && curl -L https://github.com/eprev/locationchanger/raw/master/locationchanger.sh | bash
-echo -e "\033[1mLocation Changer setup complete\033[0m\n"
