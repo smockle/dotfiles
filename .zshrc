@@ -110,6 +110,9 @@ alias ls="command ls -G"
 # Use git diff instead of diff
 alias diff="command git diff"
 
+# Use Visual Studio Code Insiders instead of Visual Studio Code
+alias code="code-insiders"
+
 # COMPLETIONS
 # Init zsh completions
 autoload -U compinit

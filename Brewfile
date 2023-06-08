@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-drivers"
+tap "homebrew/cask-versions"
 tap "homebrew/services"
 
 brew "gh"
@@ -22,8 +23,9 @@ cask "google-chrome"
 cask "hazel"
 cask "microsoft-teams"
 cask "rapidapi"
+cask "swiftdefaultappsprefpane"
 cask "viscosity"
-cask "visual-studio-code"
+cask "visual-studio-code-insiders"
 cask "zoom"
 
 mas "Capital One Shopping", id: 1477110326
