@@ -23,6 +23,7 @@ fi
 
 # HOMEBREW
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_AUTOREMOVE=1
 
 # PATH
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
