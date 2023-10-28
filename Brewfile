@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 
@@ -9,7 +8,7 @@ brew "gnutls"
 brew "gnupg"
 brew "jq"
 brew "mas"
-brew "node"
+brew "node@20"
 brew "pinentry-mac"
 brew "shellcheck"
 
