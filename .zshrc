@@ -22,7 +22,14 @@ if whence -p gem &>/dev/null; then
 fi
 
 # HOMEBREW
-[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+# Hardcoding the output of the following, for performance:
+# [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export HOMEBREW_AUTOREMOVE=1
 
 # PATH
@@ -117,8 +124,15 @@ alias code="code-insiders"
 
 # COMPLETIONS
 # Init zsh completions
-autoload -U compinit
-compinit
+autoload -Uz compinit
+# https://gist.github.com/ctechols/ca1035271ad134841284
+if [ "$(find $HOME/.zcompdump -mtime +1)" ] ; then
+  echo "Updating zsh completions"
+  rm -f "$HOME/.zcompdump"
+  compinit -i
+else
+  compinit -C
+fi 
 
 # Case-insensitive completion
 # https://superuser.com/a/1092328
