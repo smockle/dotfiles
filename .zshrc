@@ -261,7 +261,15 @@ setopt PROMPT_SUBST
 
 # PROMPT
 # Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
+# Print this shell process’ git branch
 prompt_git_branch_name() {
+  if [ -f "/tmp/zsh_prompt_git_branch_name_$$" ]; then
+    local branchName=$(cat "/tmp/zsh_prompt_git_branch_name_$$")
+    echo -e "${1}${branchName}"
+  fi
+}
+# Update this shell process’ git branch
+prompt_git_branch_name_async() {
   ! command git rev-parse --is-inside-work-tree &>/dev/null && return
 
   local branchName
@@ -269,7 +277,13 @@ prompt_git_branch_name() {
     command git rev-parse --short HEAD 2> /dev/null || \
     echo '(unknown)')"
 
-  echo -e "${1}${branchName}"
+  echo "${branchName}" > "/tmp/zsh_prompt_git_branch_name_$$"
+  kill -s USR1 $$
+}
+# Re-draw the prompt when git branch name updates are available
+TRAPUSR1() {
+  PROMPT_GIT_BRANCH_NAME_ASYNC_PROC=0
+  zle && zle reset-prompt
 }
 
 # https://www.anishathalye.com/2015/02/07/an-asynchronous-shell-prompt/
@@ -300,10 +314,10 @@ prompt_git_status_async() {
   fi
   
   echo "${s}" > "/tmp/zsh_prompt_git_status_$$"
-  kill -s USR1 $$
+  kill -s USR2 $$
 }
 # Re-draw the prompt when git status updates are available
-TRAPUSR1() {
+TRAPUSR2() {
   PROMPT_GIT_STATUS_ASYNC_PROC=0
   zle && zle reset-prompt
 }
@@ -342,6 +356,13 @@ precmd() {
   # Clear shell session file so disowned background process
   # doesn’t output “Saving session...completed.”
   SHELL_SESSION_FILE=""
+  # Kill unfinished git branch name update requests
+  if [[ "${PROMPT_GIT_BRANCH_NAME_ASYNC_PROC}" != 0 ]]; then
+    kill -s HUP $PROMPT_GIT_BRANCH_NAME_ASYNC_PROC &>/dev/null || :
+  fi
+  # Request updated git branch name in the background
+  prompt_git_branch_name_async &!
+  PROMPT_GIT_BRANCH_NAME_ASYNC_PROC=$!
   # Kill unfinished git status update requests
   if [[ "${PROMPT_GIT_STATUS_ASYNC_PROC}" != 0 ]]; then
     kill -s HUP $PROMPT_GIT_STATUS_ASYNC_PROC &>/dev/null || :
