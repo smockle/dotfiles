@@ -126,7 +126,7 @@ alias code="code-insiders"
 # Init zsh completions
 autoload -Uz compinit
 # https://gist.github.com/ctechols/ca1035271ad134841284
-if [ "$(find $HOME/.zcompdump -mtime +1)" ] ; then
+if [ ! -f "$HOME/.zcompdump" ] || [ "$(find $HOME/.zcompdump -mtime +1)" ] ; then
   echo "Updating zsh completions"
   rm -f "$HOME/.zcompdump"
   compinit -i
