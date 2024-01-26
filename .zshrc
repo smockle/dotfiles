@@ -349,8 +349,10 @@ precmd() {
     # osascript -e 'if app "Terminal" is frontmost then tell app "System Events" to keystroke "u" using command down'
   fi
 
+  # Clear shell process’ git branch name when working directory changes
   # Clear shell process’ git status when working directory changes
   if [[ "${PPWD}" != "${PWD}" ]]; then
+    rm -f "/tmp/zsh_prompt_git_branch_name_$$"
     rm -f "/tmp/zsh_prompt_git_status_$$"
   fi
   # Clear shell session file so disowned background process
