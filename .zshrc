@@ -30,7 +30,6 @@ export HOMEBREW_REPOSITORY="/opt/homebrew";
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-export HOMEBREW_AUTOREMOVE=1
 
 # PATH
 whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
@@ -39,6 +38,17 @@ declare -a PATH_PREPENDA=(
   "/usr/share/doc/git/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (Debian)
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
   "${GEM_USER_INSTALLATION_DIRECTORY}/bin" # Add 'gem install --user-install'-installed package bin
+
+  # Add tools for Chromium development
+  "${HOME}/Developer/depot_tools"
+  "${HOME}/Developer/chromium/src/buildtools/mac" # 'clang-format'
+  "${HOME}/Developer/chromium/src/third_party/llvm-build/Release+Asserts/bin" # 'clang'
+  "${HOME}/Developer/chromium/src/third_party/ninja" # 'ninja'
+  "${HOME}/Developer/chromium/src/out/Default/tools/clang/third_party/llvm/build/bin" # 'clangd'
+
+  # Add Edge’s tools for Chromium development
+  "${HOME}/Developer/chromium/chromium.depot_tools.cr-contrib"
+  "${HOME}/Developer/chromium/chromium.depot_tools.cr-contrib/scripts"
 )
 declare -a PATH_ADDENDA=(
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
@@ -119,8 +129,8 @@ alias ls="command ls -G"
 # Use git diff instead of diff
 alias diff="command git diff"
 
-# Use Visual Studio Code Insiders instead of Visual Studio Code
-alias code="code-insiders"
+# Configure Edge’s tools for Chromium development
+export FORCE_MAC_TOOLCHAIN=1
 
 # COMPLETIONS
 # Init zsh completions

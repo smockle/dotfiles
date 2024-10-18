@@ -17,6 +17,8 @@
 [core]
 	excludesfile = ~/.gitignore
 	pager = diff-highlight | less --tabs=4 -RXE
+	autocrlf = false
+	filemode = false
 
 [credential]
 	helper = osxkeychain
@@ -61,3 +63,5 @@
 	
 [url "https://github.com/"]
 	insteadOf = git@github.com:
+[http]
+	cookiefile = /Users/clay/.gitcookies
