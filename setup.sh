@@ -1,26 +1,26 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
-setopt pipefail
+set -euo pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 
 # Pre-requisites
 # - Log in to iCloud
-# - Install 1Password from App Store
 # - Set up Internet Accounts
 # - Install Homebrew
 
 # Homebrew & App Store
-echo -e "\033[1mSetting up Homebrew\033[0m"
-[ -n "${MACOS}" ] && brew tap homebrew/bundle
-[ -n "${MACOS}" ] && brew bundle --file Brewfile
-[ -z "${CODESPACES}" ] && npm install --location=global --force npm@latest
-mkdir -p "${HOME}/.gnupg" && chmod 700 "${HOME}/.gnupg" && echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
-echo -e "\033[1mHomebrew setup complete\033[0m\n"
+if [ -n "${MACOS}" ]; then
+  echo -e "\033[1mSetting up Homebrew\033[0m"
+  brew tap homebrew/bundle
+  brew bundle --file Brewfile
+  echo -e "\033[1mHomebrew setup complete\033[0m\n"
+fi
 
 # npm
 echo -e "\033[1mSetting up npm\033[0m"
+[ -z "${CODESPACES}" ] && npm install --location=global --force npm@latest
 npm config set init-license "MIT"
 npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
@@ -32,24 +32,51 @@ echo -e "\033[1mSetting up Vi\033[0m"
 mkdir -p "${HOME}/.vim/backups"
 mkdir -p "${HOME}/.vim/swaps"
 mkdir -p "${HOME}/.vim/undo"
-ln -fs "${DOTFILES_DIRECTORY}/.vimrc" "${HOME}/.vimrc"
+cp -f "${DOTFILES_DIRECTORY}/.vimrc" "${HOME}/.vimrc"
+if [ -n "${MACOS}" ]; then
+  tee "${HOME}/.vimrc" << EOF
+" Use system clipboard
+" even works in Vim compiled without '+clipboard'
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+EOF
+fi
 echo -e "\033[1mVi setup complete\033[0m\n"
 
-# git
+# git + gpg & diff-highlight
 echo -e "\033[1mSetting up Git\033[0m"
-ln -fs "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
-ln -fs "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
-[ -n "${CODESPACES}" ] && git config --global "credential.helper" "cache" && git update-index --skip-worktree "${DOTFILES_DIRECTORY}/.gitconfig"
-[ -n "${CODESPACES}" ] && [ -f "/usr/share/doc/git/contrib/diff-highlight/Makefile" ] && cd "/usr/share/doc/git/contrib/diff-highlight" && sudo make && sudo chown "$(whoami):" diff-highlight && chmod +x diff-highlight
-whence -p diff-highlight &>/dev/null || git config --global "core.pager" "less --tabs=4 -RXE"
+cp -f "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
+cp -f "${DOTFILES_DIRECTORY}/.gitignore" "${HOME}/.gitignore"
+if [ -n "${MACOS}" ]; then
+  mkdir -p "${HOME}/.gnupg"
+  chmod 700 "${HOME}/.gnupg"
+  echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
+  git config --global "credential.helper" "osxkeychain"
+else
+  git config --global "credential.helper" "cache"
+fi
+if whence -p diff-highlight &>/dev/null; then
+  git config --global "core.pager" "diff-highlight | less --tabs=4 -RXE"
+elif [ -f "/usr/share/doc/git/contrib/diff-highlight/Makefile" ]; then
+  cd "/usr/share/doc/git/contrib/diff-highlight"
+  sudo make
+  sudo chown "$(whoami):" diff-highlight
+  chmod +x diff-highlight
+  cd "${DOTFILES_DIRECTORY}"
+  git config --global "core.pager" "diff-highlight | less --tabs=4 -RXE"
+fi
 echo -e "\033[1mGit setup complete\033[0m\n"
 
-# shell
+# shell & dotfiles
 echo -e "\033[1mSetting up Zsh\033[0m"
-[ -n "${CODESPACES}" ] && sudo chsh -s "$(which zsh)" "$(whoami)"
 ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
-[ -n "${CODESPACES}" ] && ln -nfs "/workspaces" "${HOME}/Developer"
-[ -n "${CODESPACES}" ] && [ ! -d "/workspaces/dotfiles" ] && ln -nfs "${DOTFILES_DIRECTORY}" "/workspaces/dotfiles"
+if [ -n "${CODESPACES}" ]; then
+  sudo chsh -s "$(which zsh)" "$(whoami)"
+  ln -nfs "/workspaces" "${HOME}/Developer"
+  if [ ! -d "/workspaces/dotfiles" ]; then
+    ln -nfs "${DOTFILES_DIRECTORY}" "/workspaces/dotfiles"
+  fi
+fi
 echo -e "\033[1mZsh setup complete\033[0m\n"
 
 # ssh
@@ -63,7 +90,9 @@ Host *
   ServerAliveCountMax 10
   ForwardAgent yes
   AddKeysToAgent yes
-  UseKeychain yes
 EOF
+  if [ -n "${MACOS}" ]; then
+    echo "  UseKeychain yes" >> "${HOME}/.ssh/config"
+  fi
 fi
 echo -e "\033[1mSSH setup complete\033[0m\n"

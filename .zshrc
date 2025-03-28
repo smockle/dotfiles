@@ -87,6 +87,7 @@ setopt SHARE_HISTORY
 
 # Share working directory between sessions.
 # https://superuser.com/a/328148
+autoload -Uz add-zsh-hook
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
     update_terminal_cwd() {
         # Identify the directory using a "file:" scheme URL, including
@@ -109,8 +110,6 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
         }
         printf '\e]7;%s\a' "file://$HOST$url_path"
     }
-    # Register the function so it is called at each prompt.
-    autoload add-zsh-hook
     add-zsh-hook precmd update_terminal_cwd
 fi
 
@@ -235,153 +234,57 @@ gitp() {
 
 alias gti="git"
 
-# KILLPORT
-killport() {
-  port=$1
-  if [ -z "${port}" ]; then
-    echo "usage: killport port_number"
-    return
-  fi
-  kill -9 $(lsof -i ":${port}" 2>/dev/null | tail -n +2 | tr -s ' ' | cut -f2 -d' ')
-}
-
-# RANDOM
-random() {
-  if [[ "$1" == "mac" ]]; then
-    # https://superuser.com/a/218650/257969
-    printf '02:%02X:%02X:%02X:%02X:%02X\n' $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]
-  fi
-  if [[ "$1" == "pin" ]]; then
-    printf '%03d-%02d-%03d\n' $[RANDOM%1000] $[RANDOM%100] $[RANDOM%1000]
-  fi
-  if [[ "$1" == "uuid" ]]; then
-    printf '%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X\n' $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] \
-    $[RANDOM%256] $[RANDOM%256] \
-    $[RANDOM%256] $[RANDOM%256] \
-    $[RANDOM%256] $[RANDOM%256] \
-    $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256] $[RANDOM%256]
-  fi
-}
-
 # Case-insensitive globbing (used in pathname expansion)
 unsetopt CASE_GLOB
 
-# Enable parameter expansion, command substitution and arithmetic expansion in prompt string
-setopt PROMPT_SUBST
-
 # PROMPT
-# Inspired by https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
-# Print this shell process’ git branch
-prompt_git_branch_name() {
-  if [ -f "/tmp/zsh_prompt_git_branch_name_$$" ]; then
-    local branchName=$(cat "/tmp/zsh_prompt_git_branch_name_$$")
-    echo -e "${1}${branchName}"
+# Add git branch and status to prompt
+git_branch() {
+  if command git rev-parse --is-inside-work-tree &>/dev/null; then
+    local branch=$(command git symbolic-ref --short HEAD 2>/dev/null || command git describe --tags --always 2>/dev/null)
+    echo "%8F on %5F${branch}%f"
   fi
 }
-# Update this shell process’ git branch
-prompt_git_branch_name_async() {
-  ! command git rev-parse --is-inside-work-tree &>/dev/null && return
-
-  local branchName
-  branchName="$(command git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-    command git rev-parse --short HEAD 2> /dev/null || \
-    echo '(unknown)')"
-
-  echo "${branchName}" > "/tmp/zsh_prompt_git_branch_name_$$"
-  kill -s USR1 $$
+git_status() {
+  [ -f "/tmp/zsh_prompt_git_status_$$" ] && cat "/tmp/zsh_prompt_git_status_$$"
 }
-# Re-draw the prompt when git branch name updates are available
-TRAPUSR1() {
-  PROMPT_GIT_BRANCH_NAME_ASYNC_PROC=0
-  zle && zle reset-prompt
+git_status_async() {
+  rm -f "/tmp/zsh_prompt_git_status_$$"
+  (command git rev-parse --is-inside-work-tree &>/dev/null && {
+    local git_status=""
+    [[ -n $(command git ls-files --others --exclude-standard 2>/dev/null) ]] && git_status+="%8F?%f" # untracked
+    command git diff --no-ext-diff --quiet --exit-code || git_status+="%8F!%f" # unstaged
+    command git diff --no-ext-diff --cached --quiet --exit-code || git_status+="%8F+%f" # staged
+    command git rev-parse --verify refs/stash &>/dev/null && git_status+="%8F$%f" # stashed
+    [ -n "$git_status" ] && echo " %8F[%f${git_status}%8F]%f" > "/tmp/zsh_prompt_git_status_$$"
+    kill -USR1 $$ 2>/dev/null
+  }) &!
 }
+add-zsh-hook precmd git_status_async
+TRAPUSR1() { zle && zle reset-prompt; }
 
-# https://www.anishathalye.com/2015/02/07/an-asynchronous-shell-prompt/
-# Print this shell process’ git status
-prompt_git_status() {
-  if [ -f "/tmp/zsh_prompt_git_status_$$" ]; then
-    local s=$(cat "/tmp/zsh_prompt_git_status_$$")
-    [ -n "${s}" ] && s=" [${s}]"
-    echo -e "${1}${s}"
-  fi
-}
-# Update this shell process’ git status
-prompt_git_status_async() {
-  ! command git rev-parse --is-inside-work-tree &>/dev/null && return
-
-  local s='';
-
-  if [[ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" == "false" ]]; then
-    command git update-index --really-refresh -q &>/dev/null;
-    # [+] staged, uncommitted
-    ! command git diff --quiet --ignore-submodules --cached && s+='+'
-    # [!] unstaged
-    ! command git diff-files --quiet --ignore-submodules -- && s+='!'
-    # [?] untracked - this is the most expensive
-    [ -n "$(command git ls-files --others --exclude-standard)" ] && s+='?'
-    # [$] stashed
-    command git rev-parse --verify refs/stash &>/dev/null && s+='$'
-  fi
-  
-  echo "${s}" > "/tmp/zsh_prompt_git_status_$$"
-  kill -s USR2 $$
-}
-# Re-draw the prompt when git status updates are available
-TRAPUSR2() {
-  PROMPT_GIT_STATUS_ASYNC_PROC=0
-  zle && zle reset-prompt
-}
-
-set_prompts() {
-  if [[ -n "${SSH_CLIENT}" ]]; then
-    PROMPT="%4F%n%8F on %2F%m"
-  else
-    PROMPT="%4F%n"
-  fi
-  PROMPT+="%8F in ";
-  PROMPT+="%2F%(5~|%-1~/.../%3~|%4~)"; # working directory, https://unix.stackexchange.com/a/273567
-  PROMPT+='$(prompt_git_branch_name "%8F on %5F")'; # git branch name
-  PROMPT+='$(prompt_git_status "%8F")'; # git status
-  PROMPT+=$'\n';
-  PROMPT+="%f\$ "; # `$` (and reset color)
-  export PROMPT;
-}
-set_prompts
-unset set_prompts
-
-PPWD="$PWD" # Remember previous working directory
-PSHELL_SESSION_FILE="$SHELL_SESSION_FILE" # Remember previous shell session file
-precmd() {
+# Add newlines between prompts
+interpolate_newlines() {
   if [ -z "${PROMPT_CTR}" ]; then
     PROMPT_CTR=1
   elif [ "${PROMPT_CTR}" -eq 1 ]; then
     echo ""
-    # osascript -e 'if app "Terminal" is frontmost then tell app "System Events" to keystroke "u" using command down'
   fi
-
-  # Clear shell process’ git branch name when working directory changes
-  # Clear shell process’ git status when working directory changes
-  if [[ "${PPWD}" != "${PWD}" ]]; then
-    rm -f "/tmp/zsh_prompt_git_branch_name_$$"
-    rm -f "/tmp/zsh_prompt_git_status_$$"
-  fi
-  # Clear shell session file so disowned background process
-  # doesn’t output “Saving session...completed.”
-  SHELL_SESSION_FILE=""
-  # Kill unfinished git branch name update requests
-  if [[ "${PROMPT_GIT_BRANCH_NAME_ASYNC_PROC}" != 0 ]]; then
-    kill -s HUP $PROMPT_GIT_BRANCH_NAME_ASYNC_PROC &>/dev/null || :
-  fi
-  # Request updated git branch name in the background
-  prompt_git_branch_name_async &!
-  PROMPT_GIT_BRANCH_NAME_ASYNC_PROC=$!
-  # Kill unfinished git status update requests
-  if [[ "${PROMPT_GIT_STATUS_ASYNC_PROC}" != 0 ]]; then
-    kill -s HUP $PROMPT_GIT_STATUS_ASYNC_PROC &>/dev/null || :
-  fi
-  # Request updated git status in the background
-  prompt_git_status_async &!
-  PROMPT_GIT_STATUS_ASYNC_PROC=$!
-  PPWD="$PWD" # Update previous working directory
-  SHELL_SESSION_FILE="$PSHELL_SESSION_FILE" # Update previous shell session file
 }
+add-zsh-hook precmd interpolate_newlines
+
+# Enable parameter expansion, command substitution and arithmetic expansion in prompt string
+setopt PROMPT_SUBST
+
+# Set PROMPT
+PROMPT=""
+if [[ -n "${SSH_CLIENT}" ]]; then
+  PROMPT+="%4F%n%8F on %2F%m"
+else
+  PROMPT+="%4F%n"
+fi
+PROMPT+="%8F in %2F%(5~|%-1~/.../%3~|%4~)" # working directory
+PROMPT+="\$(git_branch)"
+PROMPT+="\$(git_status)"
+PROMPT+=$'\n'
+PROMPT+="%f\$ " # prompt character and reset color
