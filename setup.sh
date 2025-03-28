@@ -4,11 +4,25 @@ set -euo pipefail
 
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
+CODESPACES=${CODESPACES:-}
 
 # Pre-requisites
 # - Log in to iCloud
 # - Set up Internet Accounts
 # - Install Homebrew
+
+# shell & dotfiles
+echo -e "\033[1mSetting up Zsh\033[0m"
+cp -f "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
+source "${HOME}/.zshrc"
+if [ -n "${CODESPACES}" ]; then
+  sudo chsh -s "$(which zsh)" "$(whoami)"
+  ln -nfs "/workspaces" "${HOME}/Developer"
+  if [ ! -d "/workspaces/dotfiles" ]; then
+    ln -nfs "${DOTFILES_DIRECTORY}" "/workspaces/dotfiles"
+  fi
+fi
+echo -e "\033[1mZsh setup complete\033[0m\n"
 
 # Homebrew & App Store
 if [ -n "${MACOS}" ]; then
@@ -65,18 +79,6 @@ elif [ -f "/usr/share/doc/git/contrib/diff-highlight/Makefile" ]; then
   git config --global "core.pager" "diff-highlight | less --tabs=4 -RXE"
 fi
 echo -e "\033[1mGit setup complete\033[0m\n"
-
-# shell & dotfiles
-echo -e "\033[1mSetting up Zsh\033[0m"
-ln -fs "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
-if [ -n "${CODESPACES}" ]; then
-  sudo chsh -s "$(which zsh)" "$(whoami)"
-  ln -nfs "/workspaces" "${HOME}/Developer"
-  if [ ! -d "/workspaces/dotfiles" ]; then
-    ln -nfs "${DOTFILES_DIRECTORY}" "/workspaces/dotfiles"
-  fi
-fi
-echo -e "\033[1mZsh setup complete\033[0m\n"
 
 # ssh
 echo -e "\033[1mSetting up SSH\033[0m"

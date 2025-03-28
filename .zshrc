@@ -52,7 +52,7 @@ declare -a PATH_PREPENDA=(
 )
 declare -a PATH_ADDENDA=(
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
-  "${HOMEBREW_PREFIX}/opt/node@20/bin" # Add brew-installed node, but let npm-installed npm take precedence
+  "${HOMEBREW_PREFIX}/opt/node@22/bin" # Add brew-installed node, but let npm-installed npm take precedence
 )
 for p in $PATH_PREPENDA; do
   if [ -d "${p}" ] && [[ "${PATH}" != *${p}* ]]; then
@@ -88,7 +88,7 @@ setopt SHARE_HISTORY
 # Share working directory between sessions.
 # https://superuser.com/a/328148
 autoload -Uz add-zsh-hook
-if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
+if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "${INSIDE_EMACS-}" ]]; then
     update_terminal_cwd() {
         # Identify the directory using a "file:" scheme URL, including
         # the host name to disambiguate local vs. remote paths.
@@ -278,7 +278,7 @@ setopt PROMPT_SUBST
 
 # Set PROMPT
 PROMPT=""
-if [[ -n "${SSH_CLIENT}" ]]; then
+if [[ -n "${SSH_CLIENT-}" ]]; then
   PROMPT+="%4F%n%8F on %2F%m"
 else
   PROMPT+="%4F%n"
