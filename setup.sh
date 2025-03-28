@@ -13,7 +13,6 @@ MACOS=$(uname -a | grep -Fq Darwin 2>/dev/null && echo "MACOS" || echo "")
 # Homebrew & App Store
 if [ -n "${MACOS}" ]; then
   echo -e "\033[1mSetting up Homebrew\033[0m"
-  brew tap homebrew/bundle
   brew bundle --file Brewfile
   echo -e "\033[1mHomebrew setup complete\033[0m\n"
 fi
