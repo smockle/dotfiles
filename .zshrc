@@ -246,17 +246,17 @@ git_branch() {
   fi
 }
 git_status() {
-  [ -f "/tmp/zsh_prompt_git_status_$$" ] && cat "/tmp/zsh_prompt_git_status_$$"
+  [ -f "/tmp/zsh_prompt_git_status" ] && grep -F "$(pwd):" "/tmp/zsh_prompt_git_status" | cut -d':' -f2-
 }
 git_status_async() {
-  rm -f "/tmp/zsh_prompt_git_status_$$"
   (command git rev-parse --is-inside-work-tree &>/dev/null && {
     local git_status=""
     [[ -n $(command git ls-files --others --exclude-standard 2>/dev/null) ]] && git_status+="%8F?%f" # untracked
     command git diff --no-ext-diff --quiet --exit-code || git_status+="%8F!%f" # unstaged
     command git diff --no-ext-diff --cached --quiet --exit-code || git_status+="%8F+%f" # staged
     command git rev-parse --verify refs/stash &>/dev/null && git_status+="%8F$%f" # stashed
-    [ -n "$git_status" ] && echo " %8F[%f${git_status}%8F]%f" > "/tmp/zsh_prompt_git_status_$$"
+    grep -v "^$(pwd):" "/tmp/zsh_prompt_git_status" 2>/dev/null > "/tmp/zsh_prompt_git_status"
+    [ -n "$git_status" ] && echo "$(pwd): %8F[%f${git_status}%8F]%f" >> "/tmp/zsh_prompt_git_status"
     kill -USR1 $$ 2>/dev/null
   }) &!
 }
