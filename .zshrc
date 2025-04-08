@@ -128,6 +128,9 @@ alias ls="command ls -G"
 # Use git diff instead of diff
 alias diff="command git diff"
 
+# Use Visual Studio Code Insiders
+alias code="code-insiders"
+
 # Configure Edge’s tools for Chromium development
 export FORCE_MAC_TOOLCHAIN=1
 
