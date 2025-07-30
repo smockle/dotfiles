@@ -31,6 +31,13 @@ if [ -n "${MACOS}" ]; then
   echo -e "\033[1mHomebrew setup complete\033[0m\n"
 fi
 
+# ruby
+if [ -n "${MACOS}" ]; then
+  echo -e "\033[1mSetting up Ruby\033[0m"
+  echo "gem: --user-install" > "${HOME}/.gemrc"
+  echo -e "\033[1mRuby setup complete\033[0m\n"
+fi
+
 # npm
 echo -e "\033[1mSetting up npm\033[0m"
 [ -z "${CODESPACES}" ] && npm install --location=global --force npm@latest
