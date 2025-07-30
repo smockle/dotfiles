@@ -7,6 +7,7 @@ brew "git"
 brew "gnutls"
 brew "gnupg"
 brew "jq"
+brew "ruby"
 brew "node@22"
 brew "pinentry-mac"
 

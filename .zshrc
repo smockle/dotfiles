@@ -11,16 +11,6 @@ if [ -f "${HOME}/.env" ]; then
   set -a; source "${HOME}/.env"; set +a
 fi
 
-# GEMPATH
-if whence -p gem &>/dev/null; then
-  GEM_USER_INSTALLATION_DIRECTORY=$(cat "${HOME}/.gem/user_installation_directory" 2>/dev/null)
-  if [ ! -d "${GEM_USER_INSTALLATION_DIRECTORY}" ]; then
-    mkdir -p "${HOME}/.gem"
-    GEM_USER_INSTALLATION_DIRECTORY=$(gem environment | grep "USER INSTALLATION DIRECTORY" | cut -d: -f2 | sed -e 's/^ //' | tee "${HOME}/.gem/user_installation_directory")
-    mkdir -p "${GEM_USER_INSTALLATION_DIRECTORY}"
-  fi
-fi
-
 # HOMEBREW
 # Hardcoding the output of the following, for performance:
 # [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -32,12 +22,12 @@ export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 # PATH
-whence -p go &>/dev/null && export GOPATH=$(go env GOPATH)
 declare -a PATH_PREPENDA=(
   "${HOMEBREW_PREFIX}/var/homebrew/linked/git/share/git-core/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (macOS)
   "/usr/share/doc/git/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (Debian)
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
-  "${GEM_USER_INSTALLATION_DIRECTORY}/bin" # Add 'gem install --user-install'-installed package bin
+  "${HOMEBREW_PREFIX}/opt/ruby/bin" # Add brew-installed ruby
+  $([ -x "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" ] && echo "$(${HOMEBREW_PREFIX}/opt/ruby/bin/ruby -e 'puts Gem.user_dir')/bin" || echo "$(ruby -e 'puts Gem.user_dir')/bin") # Add 'gem install --user-install'-installed package bin
 
   # Add tools for Chromium development
   "${HOME}/Developer/depot_tools"
@@ -65,7 +55,6 @@ for p in $PATH_ADDENDA; do
   fi
 done
 unset p
-unset GEM_USER_INSTALLATION_DIRECTORY
 unset PATH_PREPENDA
 unset PATH_ADDENDA
 export PATH
