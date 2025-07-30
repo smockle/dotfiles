@@ -28,17 +28,6 @@ declare -a PATH_PREPENDA=(
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
   "${HOMEBREW_PREFIX}/opt/ruby/bin" # Add brew-installed ruby
   $([ -x "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" ] && echo "$(${HOMEBREW_PREFIX}/opt/ruby/bin/ruby -e 'puts Gem.user_dir')/bin" || echo "$(ruby -e 'puts Gem.user_dir')/bin") # Add 'gem install --user-install'-installed package bin
-
-  # Add tools for Chromium development
-  "${HOME}/Developer/depot_tools"
-  "${HOME}/Developer/chromium/src/buildtools/mac" # 'clang-format'
-  "${HOME}/Developer/chromium/src/third_party/llvm-build/Release+Asserts/bin" # 'clang'
-  "${HOME}/Developer/chromium/src/third_party/ninja" # 'ninja'
-  "${HOME}/Developer/chromium/src/out/Default/tools/clang/third_party/llvm/build/bin" # 'clangd'
-
-  # Add Edge’s tools for Chromium development
-  "${HOME}/Developer/chromium/chromium.depot_tools.cr-contrib"
-  "${HOME}/Developer/chromium/chromium.depot_tools.cr-contrib/scripts"
 )
 declare -a PATH_ADDENDA=(
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
