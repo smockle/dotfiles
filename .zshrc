@@ -5,6 +5,12 @@
 # - sourced by all interactive shells
 # - not sourced by scripts
 
+# VSCODE
+
+# Use Visual Studio Code Insiders
+alias code="code-insiders"
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
 # ENV
 if [ -f "${HOME}/.env" ]; then
   # https://stackoverflow.com/a/45971167/1923134
@@ -27,7 +33,7 @@ declare -a PATH_PREPENDA=(
   "/usr/share/doc/git/contrib/diff-highlight" # Add 'git'’s 'diff-highlight' script (Debian)
   "${HOME}/Library/Python/2.7/bin" # Add 'pip --user'-installed package bin
   "${HOMEBREW_PREFIX}/opt/ruby/bin" # Add brew-installed ruby
-  $([ -x "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" ] && echo "$(${HOMEBREW_PREFIX}/opt/ruby/bin/ruby -e 'puts Gem.user_dir')/bin" || echo "$(ruby -e 'puts Gem.user_dir')/bin") # Add 'gem install --user-install'-installed package bin
+  $([ -x "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" ] && "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" -e 'print Gem.user_dir+"/bin"' || { command -v ruby >/dev/null 2>&1 && ruby -e 'print Gem.user_dir+"/bin"'; }) # Add 'gem install --user-install'-installed package bin
 )
 declare -a PATH_ADDENDA=(
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
@@ -105,9 +111,6 @@ alias ls="command ls -G"
 
 # Use git diff instead of diff
 alias diff="command git diff"
-
-# Use Visual Studio Code Insiders
-alias code="code-insiders"
 
 # Configure Edge’s tools for Chromium development
 export FORCE_MAC_TOOLCHAIN=1
