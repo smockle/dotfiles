@@ -5,12 +5,6 @@
 # - sourced by all interactive shells
 # - not sourced by scripts
 
-# VSCODE
-
-# Use Visual Studio Code Insiders
-alias code="code-insiders"
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
-
 # ENV
 if [ -f "${HOME}/.env" ]; then
   # https://stackoverflow.com/a/45971167/1923134
@@ -53,6 +47,13 @@ unset p
 unset PATH_PREPENDA
 unset PATH_ADDENDA
 export PATH
+
+# VSCODE
+# Use Visual Studio Code Insiders
+alias code="code-insiders"
+
+# Fix PATH in Visual Studio Code’s integrated terminal
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # HISTORY
 # Increase the maximum number of lines contained in the history file
