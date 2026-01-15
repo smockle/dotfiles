@@ -53,7 +53,10 @@ export PATH
 alias code="code-insiders"
 
 # Fix PATH in Visual Studio Code’s integrated terminal
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+if [[ "${TERM_PROGRAM-}" == "vscode" ]]; then
+  [ -z "${RPROMPT}" ] && export RPROMPT=""
+  . "$(code --locate-shell-integration-path zsh)"
+fi
 
 # HISTORY
 # Increase the maximum number of lines contained in the history file
@@ -73,7 +76,7 @@ setopt SHARE_HISTORY
 # Share working directory between sessions.
 # https://superuser.com/a/328148
 autoload -Uz add-zsh-hook
-if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "${INSIDE_EMACS-}" ]]; then
+if [[ "${TERM_PROGRAM-}" == "Apple_Terminal" ]] && [[ -z "${INSIDE_EMACS-}" ]]; then
     update_terminal_cwd() {
         # Identify the directory using a "file:" scheme URL, including
         # the host name to disambiguate local vs. remote paths.
