@@ -31,7 +31,7 @@ declare -a PATH_PREPENDA=(
 )
 declare -a PATH_ADDENDA=(
   "${HOMEBREW_PREFIX}/opt/node/bin" # Add brew-installed node, but let npm-installed npm take precedence
-  "${HOMEBREW_PREFIX}/opt/node@22/bin" # Add brew-installed node, but let npm-installed npm take precedence
+  "${HOMEBREW_PREFIX}/opt/node@24/bin" # Add brew-installed node, but let npm-installed npm take precedence
 )
 for p in $PATH_PREPENDA; do
   if [ -d "${p}" ] && [[ "${PATH}" != *${p}* ]]; then
