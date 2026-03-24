@@ -116,9 +116,6 @@ alias ls="command ls -G"
 # Use git diff instead of diff
 alias diff="command git diff"
 
-# Configure Edge’s tools for Chromium development
-export FORCE_MAC_TOOLCHAIN=1
-
 # COMPLETIONS
 # Init zsh completions
 autoload -Uz compinit
