@@ -111,7 +111,18 @@ export MANPAGER="less"
 
 # COLORS
 alias grep='grep --color=auto'
-alias ls="command ls -LG"
+
+# LS
+ls() {
+  local a
+  for a; do
+    [[ $a == -* ]] && continue
+    # -L lists symlinked dirs, but breaks symlink coloring, so use it only for symlinked dirs.
+    [[ -L $a && -d $a ]] && set -- -L "$@"
+    break
+  done
+  command ls -G "$@"
+}
 
 # Use git diff instead of diff
 alias diff="command git diff"
