@@ -111,7 +111,7 @@ export MANPAGER="less"
 
 # COLORS
 alias grep='grep --color=auto'
-alias ls="command ls -G"
+alias ls="command ls -LG"
 
 # Use git diff instead of diff
 alias diff="command git diff"
