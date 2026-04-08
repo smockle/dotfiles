@@ -1,62 +1,41 @@
-[color]
-	ui = true
-
-[color "diff"]
-	old = red
-	new = green
-
-[color "diff-highlight"]
-	oldNormal = red
-	newNormal = green
-	oldHighlight = red reverse
-	newHighlight = green reverse
-
-[commit]
-	gpgsign = true
-
-[core]
-	excludesfile = ~/.gitignore
-	pager = less --tabs=4 -RXE
-	autocrlf = false
-	filemode = false
-
-[fetch]
-	prune = true
-
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-
-[github]
-	user = smockle
-
-[help]
-	autocorrect = -1
-
-[include]
-	path = /etc/gitconfig
-
-[init]
-	defaultBranch = main
-
-[log]
-	showSignature = true
-
-[pull]
-	rebase = true
-
-[push]
-	default = current
-
-[submodule]
-	recurse = true
+; User identity & signing settings
 
 [user]
 	name = Clay Miller
 	email = clay@smockle.com
 	signingkey = 1E6BEB6FED57655B
-	
+
+[commit]
+	gpgsign = true
+
+[log]
+	showSignature = true
+
+; Repo & remote settings
+
 [url "https://github.com/"]
 	insteadOf = git@github.com:
+
+[init]
+	defaultBranch = main
+
+; Pushing & pulling settings
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	updateRefs = true
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+; Other settings
+
+[help]
+	autocorrect = immediate
