@@ -5,6 +5,8 @@ set -euo pipefail
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 cp -f "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
 cp -f "${DOTFILES_DIRECTORY}/.vimrc" "${HOME}/.vimrc"
+cp -f "${DOTFILES_DIRECTORY}/.profile" "${HOME}/.profile"
+cp -f "${DOTFILES_DIRECTORY}/.bashrc" "${HOME}/.bashrc"
 cp -f "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
 
 # Configure npm
