@@ -2,32 +2,10 @@
 # - sourced by all interactive shells
 # - not sourced by scripts
 
-# ENVIRONMENT
-
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  # Hardcoding the output of the following, for performance:
-  # [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-  export HOMEBREW_PREFIX="/opt/homebrew";
-  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-  export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-  export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-
-  export GEM_HOME=$([ -x "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" ] && "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" -e 'print Gem.user_dir' || { command -v ruby >/dev/null 2>&1 && ruby -e 'print Gem.user_dir'; })
-
-  # Add brew-installed ruby
-  PATH="${HOMEBREW_PREFIX}/opt/ruby/bin:${PATH}"
-  # Add 'gem install --user-install'-installed package bin
-  PATH="${GEM_HOME}/bin:${PATH}"
-  # Add brew-installed node, but let npm-installed npm take precedence
-  PATH="${PATH}:${HOMEBREW_PREFIX}/opt/node@24/bin"
-  export PATH
+# Source shared shell environment
+if [ -r "${HOME}/.profile" ]; then
+  . "${HOME}/.profile"
 fi
-
-export EDITOR=vi
-
-# Don’t clear screen when using 'less' or 'man'
-export LESS=-RXE
-export MANPAGER="less"
 
 # APPS
 
