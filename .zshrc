@@ -2,6 +2,8 @@
 # - sourced by all interactive shells
 # - not sourced by scripts
 
+# ENVIRONMENT
+
 # Source shared shell environment
 if [ -r "${HOME}/.profile" ]; then
   . "${HOME}/.profile"
@@ -46,6 +48,9 @@ if [[ "${TERM_PROGRAM-}" == "Apple_Terminal" ]] && [[ -z "${INSIDE_EMACS-}" ]]; 
 fi
 
 # INTERACTIVE SHELL
+
+# Treat # as a comment delimiter at the prompt
+setopt INTERACTIVE_COMMENTS
 
 # Increase the maximum number of lines contained in the history file
 export HISTSIZE=10000
