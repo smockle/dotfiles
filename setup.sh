@@ -30,10 +30,26 @@ vmap <C-c> :w !pbcopy<CR><CR>
 EOF
 fi
 
-# Configure git + gpg (macOS only)
+# Configure git + gpg
 if [[ "$(uname -s)" == "Darwin" ]]; then
   mkdir -p "${HOME}/.gnupg"
   chmod 700 "${HOME}/.gnupg"
   echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
   git config --global "credential.helper" "osxkeychain"
+fi
+# Generate a throwaway GPG secret key for locally-signing real GPG public keys in Codespaces
+if [ -n "${CODESPACES-}" ] && ! gpg --list-secret-keys >/dev/null 2>&1; then
+  gpg --batch --pinentry-mode loopback --passphrase '' --quick-gen-key "Codespace Local Trust <codespace@example.invalid>" default default never >/dev/null 2>&1
+fi
+# Import and locally-sign smockle’s GPG public key
+SMOCKLE_FPR="519E74EE9A65A441395531E91E6BEB6FED57655B"
+curl -fsSL https://github.com/smockle.gpg | gpg --import >/dev/null 2>&1 || exit 1
+if gpg --with-colons --list-keys "$SMOCKLE_FPR" 2>/dev/null | grep -q '^pub:' && gpg --list-secret-keys >/dev/null 2>&1; then
+  printf 'y\n' | gpg --batch --yes --command-fd 0 --edit-key "$SMOCKLE_FPR" lsign save >/dev/null 2>&1
+fi
+# Import and locally-sign GitHub’s GPG public key for web commits
+WEB_FLOW_FPR="968479A1AFF927E37D1A566BB5690EEEBB952194"
+curl -fsSL https://github.com/web-flow.gpg | gpg --import >/dev/null 2>&1 || exit 1
+if gpg --with-colons --list-keys "$WEB_FLOW_FPR" 2>/dev/null | grep -q '^pub:' && gpg --list-secret-keys >/dev/null 2>&1; then
+  printf 'y\n' | gpg --batch --yes --command-fd 0 --edit-key "$WEB_FLOW_FPR" lsign save >/dev/null 2>&1
 fi
