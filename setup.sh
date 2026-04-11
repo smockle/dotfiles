@@ -38,7 +38,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   git config --global "credential.helper" "osxkeychain"
 fi
 # Generate a throwaway GPG secret key for locally-signing real GPG public keys in Codespaces
-if [ -n "${CODESPACES-}" ] && ! gpg --list-secret-keys >/dev/null 2>&1; then
+if [ -n "${CODESPACES-}" ] && ! gpg --with-colons --list-secret-keys 2>/dev/null | grep -q '^sec:'; then
   gpg --batch --pinentry-mode loopback --passphrase '' --quick-gen-key "Codespace Local Trust <codespace@example.invalid>" default default never >/dev/null 2>&1
 fi
 # Import and locally-sign smockle’s GPG public key
