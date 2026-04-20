@@ -1,7 +1,7 @@
 # Shared POSIX shell environment
 
 # Skip duplicate setup on re-source
-[ -n "${PROFILE_LOADED-}" ] && return
+[ -n "${PROFILE_LOADED-}" ] && [ -z "${VSCODE_PROFILE_INITIALIZED-}" ] && return
 export PROFILE_LOADED=1
 
 if [ "$(uname -s)" = "Darwin" ]; then
