@@ -132,6 +132,19 @@ git() {
   command "git" "${git_command}" "$@"
 }
 
+upgrade() {
+  emulate -L zsh -o err_return
+  [[ "$(command uname -s)" != "Darwin" ]] && return
+
+  local brewfile="${HOME}/Developer/smockle/dotfiles/Brewfile"
+
+  [[ -f "${brewfile}" ]] && command brew bundle upgrade --file "${brewfile}"
+  command brew upgrade
+  command npm update -g
+  command gh extensions upgrade --all
+  command softwareupdate -ia
+}
+
 autoload -Uz compinit
 compinit -i
 
