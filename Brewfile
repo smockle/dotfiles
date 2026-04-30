@@ -10,6 +10,7 @@ brew "git"
 brew "gnupg"
 brew "gnutls"
 brew "jq"
+brew "mas"
 brew "node@24", postinstall: 'test -e "${HOMEBREW_PREFIX}/bin/node" || ln -s "${HOMEBREW_PREFIX}/opt/node@24" "${HOMEBREW_PREFIX}/bin/node"' # link node@24 to the node directory brew-installed prettier requires
 brew "nvm"
 brew "pinentry-mac"
@@ -28,6 +29,15 @@ cask "microsoft-teams"
 cask "orbstack"
 cask "visual-studio-code@insiders"
 cask "zoom"
+
+# mas list
+mas "Amphetamine", id: 937984704
+mas "Apple Configurator", id: 1037126344
+mas "Parcel", id: 375589283
+mas "Pixelmator Pro", id: 1289583905
+mas "The Unarchiver", id: 425424353
+mas "Wipr", id: 1662217862
+mas "Xcode", id: 497799835
 
 # code --list-extensions
 vscode "esbenp.prettier-vscode"
