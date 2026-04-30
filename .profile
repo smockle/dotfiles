@@ -20,9 +20,6 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # Set up Node.js
   # Add brew-installed node, but let npm-installed npm take precedence
   PATH="${PATH:+$PATH:}${HOMEBREW_PREFIX}/opt/node@24/bin"
-  # Add brew-installed nvm, but let brew-installed node take precedence (via --no-use)
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" --no-use
 
   export PATH
 fi
