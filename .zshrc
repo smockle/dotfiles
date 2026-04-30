@@ -52,6 +52,27 @@ fi
 # Treat # as a comment delimiter at the prompt
 setopt INTERACTIVE_COMMENTS
 
+# Correct misspelled command names
+unsetopt CORRECT
+command_not_found_handler() {
+  emulate -L zsh -o extendedglob
+
+  local -a matches=( ${^path}/(#a1)$1(N:t) )
+  local correction=${matches[1]} reply
+
+  if [[ -z $correction ]]; then
+    print -u2 "zsh: command not found: $1"
+    return 127
+  fi
+
+  # Uncomment to require confirmation before running the corrected command
+  # read "reply?zsh: correct '$1' to '${correction}' [Y/n]? "
+  # [[ $reply = [Nn]* ]] && return 127
+
+  print -u2 "zsh: correcting '$1' to '${correction}'"
+  "${correction}" "${@:2}"
+}
+
 # Increase the maximum number of lines contained in the history file
 export HISTSIZE=10000
 export HISTFILESIZE=$HISTSIZE
