@@ -33,6 +33,11 @@ cask "zoom"
 # mas list
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator", id: 1037126344
+mas "iMovie", id: 408981434
+mas "Keynote", id: 361285480
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
 mas "Parcel", id: 375589283
 mas "Pixelmator Pro", id: 1289583905
 mas "The Unarchiver", id: 425424353
