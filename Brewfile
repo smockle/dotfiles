@@ -2,6 +2,7 @@
 tap "oven-sh/bun"
 
 # brew list --installed-on-request
+brew "fnm"
 brew "gh", postinstall: <<~EOS
   gh extension install --force github/gh-aw
   gh extension install --force github/gh-models
