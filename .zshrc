@@ -149,26 +149,13 @@ upgrade() {
 }
 
 # Use Node.js version in .nvmrc
-# https://github.com/nvm-sh/nvm#zsh
-load_nvmrc() {
-  command -v nvm >/dev/null 2>&1 || return
-
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [[ -n "${nvmrc_path}" ]]; then
-    local nvmrc_node_version="$(nvm version "$(<"${nvmrc_path}")")"
-
-    if [[ "${nvmrc_node_version}" == "N/A" ]]; then
-      nvm install && rehash
-    elif [[ "${nvmrc_node_version}" != "$(nvm version)" ]]; then
-      nvm use && rehash
-    fi
-  elif [[ -n "$(PWD="${OLDPWD}" nvm_find_nvmrc)" && -n "${NVM_BIN-}" ]]; then
-    nvm deactivate && rehash
-  fi
-}
-add-zsh-hook chpwd load_nvmrc
-load_nvmrc
+if command -v load_nvmrc >/dev/null 2>&1; then
+  load_nvmrc_on_chpwd() {
+    load_nvmrc "${OLDPWD}"
+  }
+  add-zsh-hook chpwd load_nvmrc_on_chpwd
+  load_nvmrc
+fi
 
 # Load cached completions
 autoload -Uz compinit
