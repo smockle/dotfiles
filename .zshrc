@@ -140,10 +140,15 @@ upgrade() {
   command npm update -g
   command gh extensions upgrade --all
   command softwareupdate -ia
+
+  rm -f "${HOME}/.zcompdump" "${HOME}/.zcompdump.zwc"
+  autoload -Uz compinit
+  compinit -i
 }
 
+# Load cached completions
 autoload -Uz compinit
-compinit -i
+[[ -f "${HOME}/.zcompdump" ]] && compinit -C || compinit -i
 
 # Case-insensitive completion
 # https://superuser.com/a/1092328
