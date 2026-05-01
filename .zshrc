@@ -9,6 +9,9 @@ if [ -r "${HOME}/.profile" ]; then
   . "${HOME}/.profile"
 fi
 
+# Load zsh hook helpers
+autoload -Uz add-zsh-hook
+
 # APPS
 
 # Fix PATH in Visual Studio Code’s integrated terminal
@@ -18,7 +21,6 @@ if [[ "${TERM_PROGRAM-}" == "vscode" ]]; then
 fi
 
 # Share working directory between sessions.
-autoload -Uz add-zsh-hook
 if [[ "${TERM_PROGRAM-}" == "Apple_Terminal" ]] && [[ -z "${INSIDE_EMACS-}" ]]; then
   update_terminal_cwd() {
     # Identify the directory using a "file:" scheme URL, including
@@ -145,6 +147,28 @@ upgrade() {
   autoload -Uz compinit
   compinit -i
 }
+
+# Use Node.js version in .nvmrc
+# https://github.com/nvm-sh/nvm#zsh
+load_nvmrc() {
+  command -v nvm >/dev/null 2>&1 || return
+
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [[ -n "${nvmrc_path}" ]]; then
+    local nvmrc_node_version="$(nvm version "$(<"${nvmrc_path}")")"
+
+    if [[ "${nvmrc_node_version}" == "N/A" ]]; then
+      nvm install && rehash
+    elif [[ "${nvmrc_node_version}" != "$(nvm version)" ]]; then
+      nvm use && rehash
+    fi
+  elif [[ -n "$(PWD="${OLDPWD}" nvm_find_nvmrc)" && -n "${NVM_BIN-}" ]]; then
+    nvm deactivate && rehash
+  fi
+}
+add-zsh-hook chpwd load_nvmrc
+load_nvmrc
 
 # Load cached completions
 autoload -Uz compinit

@@ -2,7 +2,6 @@
 tap "oven-sh/bun"
 
 # brew list --installed-on-request
-brew "fnm", postinstall: 'fnm default system'
 brew "gh", postinstall: <<~EOS
   gh extension install --force github/gh-aw
   gh extension install --force github/gh-models
@@ -13,6 +12,7 @@ brew "gnutls"
 brew "jq"
 brew "mas"
 brew "node@24", postinstall: 'test -e "${HOMEBREW_PREFIX}/bin/node" || ln -s "${HOMEBREW_PREFIX}/opt/node@24" "${HOMEBREW_PREFIX}/bin/node"' # link node@24 to the node directory brew-installed prettier requires
+brew "nvm"
 brew "overmind"
 brew "pinentry-mac"
 brew "prettier", args: ["ignore-dependencies"] # ignore prettier’s dependency on node (providing node@24 instead)

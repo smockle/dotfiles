@@ -20,8 +20,9 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # Set up Node.js
   # Add brew-installed node, but let npm-installed npm take precedence
   PATH="${PATH:+$PATH:}${HOMEBREW_PREFIX}/opt/node@24/bin"
-  # Add fnm to auto-install and use other node versions, in specific directories only
-  eval "$(fnm env --use-on-cd --version-file-strategy=recursive --log-level=quiet | sed 's/-unchanged/& --install-if-missing/')"
+  # Load nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" --no-use
 
   export PATH
 fi
