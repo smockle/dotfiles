@@ -11,13 +11,10 @@ fi
 
 # APPS
 
-# Use Visual Studio Code Insiders
-alias code="code-insiders"
-
 # Fix PATH in Visual Studio Code’s integrated terminal
 if [[ "${TERM_PROGRAM-}" == "vscode" ]]; then
   [ -z "${RPROMPT}" ] && export RPROMPT=""
-  CODE_BIN="$(command -v code-insiders 2>/dev/null || command -v code 2>/dev/null)" && . "$("${CODE_BIN}" --locate-shell-integration-path zsh)"; unset CODE_BIN
+  . "$(code --locate-shell-integration-path zsh)"
 fi
 
 # Share working directory between sessions.

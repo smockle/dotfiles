@@ -26,8 +26,7 @@ cask "copilot-cli"
 cask "google-chrome"
 cask "microsoft-auto-update"
 cask "microsoft-teams"
-cask "orbstack"
-cask "visual-studio-code@insiders"
+cask "visual-studio-code"
 cask "zoom"
 
 # mas list
