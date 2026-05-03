@@ -34,7 +34,8 @@ fi
 if [[ "$(uname -s)" == "Darwin" ]]; then
   mkdir -p "${HOME}/.gnupg"
   chmod 700 "${HOME}/.gnupg"
-  echo "pinentry-program $(which pinentry-mac)" > "${HOME}/.gnupg/gpg-agent.conf"
+  pinentry_mac=$(command -v pinentry-mac)
+  echo "pinentry-program ${pinentry_mac}" > "${HOME}/.gnupg/gpg-agent.conf"
   git config --global "credential.helper" "osxkeychain"
 fi
 # Generate a throwaway GPG secret key for locally-signing real GPG public keys in Codespaces
