@@ -218,12 +218,15 @@ git_status() {
 git_status_async() {
   (command git rev-parse --is-inside-work-tree &>/dev/null && {
     local git_status=""
+    local tmp
+    tmp=$(mktemp "/tmp/zsh_prompt_git_status.XXXXXX") || return
     [[ -n $(command git ls-files --others --exclude-standard 2>/dev/null) ]] && git_status+="%8F?%f" # untracked
     command git diff --no-ext-diff --quiet --exit-code || git_status+="%8F!%f" # unstaged
     command git diff --no-ext-diff --cached --quiet --exit-code || git_status+="%8F+%f" # staged
     command git rev-parse --verify refs/stash &>/dev/null && git_status+="%8F$%f" # stashed
-    grep -v "^$(pwd):" "/tmp/zsh_prompt_git_status" 2>/dev/null > "/tmp/zsh_prompt_git_status"
-    [ -n "$git_status" ] && echo "$(pwd): %8F[%f${git_status}%8F]%f" >> "/tmp/zsh_prompt_git_status"
+    grep -F -v "$(pwd):" "/tmp/zsh_prompt_git_status" 2>/dev/null > "${tmp}"
+    [ -n "$git_status" ] && echo "$(pwd): %8F[%f${git_status}%8F]%f" >> "${tmp}"
+    mv -f "${tmp}" "/tmp/zsh_prompt_git_status"
     kill -USR1 $$ 2>/dev/null
   }) &!
 }
