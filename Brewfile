@@ -11,7 +11,7 @@ brew "gnupg"
 brew "gnutls"
 brew "jq"
 brew "mas"
-brew "node@24", postinstall: 'test -e "${HOMEBREW_PREFIX}/bin/node" || ln -s "${HOMEBREW_PREFIX}/opt/node@24" "${HOMEBREW_PREFIX}/bin/node"' # link node@24 to the node directory brew-installed prettier requires
+brew "node@24", postinstall: 'test -e "${HOMEBREW_PREFIX}/opt/node" || ln -s "${HOMEBREW_PREFIX}/opt/node@24" "${HOMEBREW_PREFIX}/opt/node"' # link node@24 to the node directory brew-installed prettier requires
 brew "nvm"
 brew "overmind"
 brew "pinentry-mac"
