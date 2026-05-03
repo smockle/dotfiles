@@ -135,7 +135,7 @@ upgrade() {
   emulate -L zsh -o err_return
   [[ "$(command uname -s)" != "Darwin" ]] && return
 
-  local brewfile="${HOME}/Developer/smockle/dotfiles/Brewfile"
+  local brewfile="${HOME}/Developer/dotfiles/Brewfile"
 
   [[ -f "${brewfile}" ]] && command brew bundle upgrade --file "${brewfile}"
   command brew upgrade
