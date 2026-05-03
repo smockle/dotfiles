@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-# Link dotfiles
+# Copy dotfiles
 DOTFILES_DIRECTORY=$(cd "${0%/*}" && pwd -P)
 cp -f "${DOTFILES_DIRECTORY}/.gitconfig" "${HOME}/.gitconfig"
 cp -f "${DOTFILES_DIRECTORY}/.vimrc" "${HOME}/.vimrc"
