@@ -48,18 +48,23 @@ if [[ "$os" == "macOS" ]]; then
   git config --global "credential.helper" "osxkeychain"
 fi
 # Generate a throwaway GPG secret key for locally-signing public keys in Codespaces
-if [[ -n "${CODESPACES-}" ]] && ! gpg --with-colons --list-secret-keys 2>/dev/null | grep -q '^sec:'; then
+if [[ -n "${CODESPACES-}" ]] &&
+   ! gpg --with-colons --list-secret-keys 2>/dev/null | grep -q '^sec:'
+then
   gpg --batch --pinentry-mode loopback --passphrase '' --quick-gen-key "Codespace Local Trust <codespace@example.invalid>" default default never >/dev/null 2>&1
 fi
 # Import and locally-sign GPG public keys
-for key in \
-  "519E74EE9A65A441395531E91E6BEB6FED57655B https://github.com/smockle.gpg" \
+public_keys=(
+  "519E74EE9A65A441395531E91E6BEB6FED57655B https://github.com/smockle.gpg"
   "968479A1AFF927E37D1A566BB5690EEEBB952194 https://github.com/web-flow.gpg"
-do
-  fpr="${key%% *}"
+)
+for key in "${public_keys[@]}"; do
+  fingerprint="${key%% *}"
   url="${key#* }"
   curl -fsSL "$url" | gpg --import >/dev/null 2>&1
-  if gpg --list-secret-keys >/dev/null 2>&1 && gpg --with-colons --list-keys "$fpr" 2>/dev/null | grep -q '^pub:'; then
-    printf 'y\n' | gpg --batch --yes --command-fd 0 --edit-key "$fpr" lsign save >/dev/null 2>&1
+  if gpg --with-colons --list-secret-keys 2>/dev/null | grep -q '^sec:' &&
+     gpg --with-colons --list-keys "$fingerprint" 2>/dev/null | grep -q '^pub:'
+  then
+    printf 'y\n' | gpg --batch --yes --command-fd 0 --edit-key "$fingerprint" lsign save >/dev/null 2>&1
   fi
 done
