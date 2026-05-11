@@ -7,6 +7,7 @@ brew "gh", postinstall: <<~EOS
   gh extension install --force github/gh-models
 EOS
 brew "git"
+brew "git-lfs"
 brew "gnupg"
 brew "gnutls"
 brew "jq"
