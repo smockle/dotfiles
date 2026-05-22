@@ -141,6 +141,8 @@ upgrade() {
   command brew upgrade
   command npm update -g
   command gh extensions upgrade --all
+  command copilot update
+  command copilot plugin update --all
   command softwareupdate -ia
 
   rm -f "${HOME}/.zcompdump" "${HOME}/.zcompdump.zwc"
