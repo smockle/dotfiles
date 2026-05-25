@@ -20,6 +20,7 @@ npm config set init-license "MIT"
 npm config set init-author-email "clay@smockle.com"
 npm config set init-author-name "Clay Miller"
 npm config set init-author-url "https://www.smockle.com"
+npm config set min-release-age 3
 
 # Configure ruby
 if [[ "$os" == "macOS" ]]; then
