@@ -21,15 +21,16 @@ if [ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]; then
   esac
 fi
 
-# Add 'gem install --user-install'-installed package bin
-GEM_HOME=$([ -x "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" ] && "${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" -e 'print Gem.user_dir' || { command -v ruby >/dev/null 2>&1 && ruby -e 'print Gem.user_dir'; })
-if [ -n "${GEM_HOME}" ] && [ -d "${GEM_HOME}/bin" ]; then
+# Use brew-installed ruby’s gem directory
+if [ -d "${HOMEBREW_PREFIX}/lib/ruby/gems" ]; then
+  GEM_HOME=$("${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" -rrubygems -e 'print Gem.default_dir' 2>/dev/null)
+  GEM_PATH="${GEM_HOME}"
   case ":${PATH}:" in
     *:"${GEM_HOME}/bin":*) ;;
     *) PATH="${GEM_HOME}/bin${PATH+:$PATH}" ;;
   esac
+  export GEM_HOME GEM_PATH
 fi
-export GEM_HOME
 
 # NODE.JS
 

@@ -24,7 +24,11 @@ npm config set min-release-age 3
 
 # Configure ruby
 if [[ "$os" == "macOS" ]]; then
-  echo "gem: --user-install" > "${HOME}/.gemrc"
+  cat > "${HOME}/.gemrc" << EOF
+gem: --no-document --no-user-install
+install: --no-document --no-user-install
+update: --no-document --no-user-install
+EOF
 fi
 
 # Configure vim

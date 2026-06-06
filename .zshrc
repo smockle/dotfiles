@@ -139,6 +139,7 @@ upgrade() {
 
   [[ -f "${brewfile}" ]] && command brew bundle upgrade --file "${brewfile}"
   command brew upgrade
+  command gem update --no-document
   command npm update -g
   command gh extensions upgrade --all
   command copilot update
