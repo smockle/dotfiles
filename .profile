@@ -23,13 +23,15 @@ fi
 
 # Use brew-installed ruby’s gem directory
 if [ -d "${HOMEBREW_PREFIX}/lib/ruby/gems" ]; then
-  GEM_HOME=$("${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" -rrubygems -e 'print Gem.default_dir' 2>/dev/null)
-  GEM_PATH="${GEM_HOME}"
-  case ":${PATH}:" in
-    *:"${GEM_HOME}/bin":*) ;;
-    *) PATH="${GEM_HOME}/bin${PATH+:$PATH}" ;;
-  esac
-  export GEM_HOME GEM_PATH
+  GEM_PATH=$("${HOMEBREW_PREFIX}/opt/ruby/bin/ruby" -rrubygems -rrbconfig -e 'print [Gem.default_dir, File.join(RbConfig::CONFIG["rubylibprefix"], "gems", RbConfig::CONFIG["ruby_version"])].join(":")' 2>/dev/null)
+  GEM_HOME="${GEM_PATH%%:*}"
+  if [ -n "${GEM_HOME}" ]; then
+    case ":${PATH}:" in
+      *:"${GEM_HOME}/bin":*) ;;
+      *) PATH="${GEM_HOME}/bin${PATH+:$PATH}" ;;
+    esac
+    export GEM_HOME GEM_PATH
+  fi
 fi
 
 # NODE.JS
