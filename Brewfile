@@ -19,7 +19,7 @@ brew "pinentry-mac"
 brew "prettier", args: ["ignore-dependencies"] # ignore prettier’s dependency on node (providing node@24 instead)
 brew "ripgrep"
 brew "ruby"
-brew "oven-sh/bun/bun"
+brew "oven-sh/bun/bun", trusted: true
 
 # brew list --casks -1
 cask "1password"
