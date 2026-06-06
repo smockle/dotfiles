@@ -139,8 +139,10 @@ upgrade() {
 
   [[ -f "${brewfile}" ]] && command brew bundle upgrade --file "${brewfile}"
   command brew upgrade
+  command brew cleanup
   local -a gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir }.map(&:name).uniq.sort')"})
   (( $#gems )) && command gem update --no-document "${gems[@]}"
+  GEM_PATH="${GEM_HOME}" command gem cleanup
   command npm update -g
   command gh extensions upgrade --all
   command copilot update
