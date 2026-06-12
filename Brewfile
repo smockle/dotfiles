@@ -12,13 +12,13 @@ brew "gnupg"
 brew "gnutls"
 brew "jq"
 brew "mas"
-brew "node@24", postinstall: 'test -e "${HOMEBREW_PREFIX}/opt/node" || ln -s "${HOMEBREW_PREFIX}/opt/node@24" "${HOMEBREW_PREFIX}/opt/node"' # link node@24 to the node directory brew-installed prettier requires
+brew "node", link: :overwrite
 brew "nvm"
 brew "overmind"
 brew "pinentry-mac"
-brew "prettier", args: ["ignore-dependencies"] # ignore prettier’s dependency on node (providing node@24 instead)
+brew "prettier"
 brew "ripgrep"
-brew "ruby"
+brew "ruby", link: :overwrite
 brew "oven-sh/bun/bun", trusted: true
 
 # brew list --casks -1

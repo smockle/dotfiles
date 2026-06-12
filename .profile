@@ -38,10 +38,10 @@ fi
 # NODE.JS
 
 # Add brew-installed node, but let npm-installed npm take precedence
-if [ -d "${HOMEBREW_PREFIX}/opt/node@24/bin" ]; then
+if [ -d "${HOMEBREW_PREFIX}/opt/node/bin" ]; then
   case ":${PATH}:" in
-    *:"${HOMEBREW_PREFIX}/opt/node@24/bin":*) ;;
-    *) PATH="${PATH:+$PATH:}${HOMEBREW_PREFIX}/opt/node@24/bin" ;;
+    *:"${HOMEBREW_PREFIX}/opt/node/bin":*) ;;
+    *) PATH="${PATH:+$PATH:}${HOMEBREW_PREFIX}/opt/node/bin" ;;
   esac
 fi
 
