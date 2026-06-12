@@ -140,9 +140,10 @@ upgrade() {
   [[ -f "${brewfile}" ]] && command brew bundle upgrade --file "${brewfile}"
   command brew upgrade
   command brew cleanup
-  local -a gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir }.map(&:name).uniq.sort')"})
+  local -a gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && !File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
+  local -a excluded_gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
   (( $#gems )) && command gem update --no-document "${gems[@]}"
-  GEM_PATH="${GEM_HOME}" command gem cleanup
+  (( ${#${(@)gems:|excluded_gems}} )) && command gem cleanup "${(@)gems:|excluded_gems}"
   command npm update -g
   command gh extensions upgrade --all
   command copilot update
