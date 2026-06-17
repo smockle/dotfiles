@@ -15,6 +15,12 @@ cp -f "${DOTFILES_DIRECTORY}/.profile" "${HOME}/.profile"
 cp -f "${DOTFILES_DIRECTORY}/.bashrc" "${HOME}/.bashrc"
 cp -f "${DOTFILES_DIRECTORY}/.zshrc" "${HOME}/.zshrc"
 
+# Configure Homebrew
+if [[ "$os" == "macOS" && -f /opt/homebrew/bin/brew ]]; then
+  mkdir -p "${HOME}/.homebrew"
+  cp -f "${DOTFILES_DIRECTORY}/Brewfile" "${HOME}/.homebrew/Brewfile"
+fi
+
 # Configure npm
 npm config set init-license "MIT"
 npm config set init-author-email "clay@smockle.com"

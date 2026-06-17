@@ -135,10 +135,8 @@ upgrade() {
   emulate -L zsh -o err_return
   [[ "$(command uname -s)" != "Darwin" ]] && return
 
-  local brewfile="${HOME}/Developer/dotfiles/Brewfile"
-
-  [[ -f "${brewfile}" ]] && command brew bundle upgrade --file "${brewfile}"
-  command brew upgrade
+  command brew bundle upgrade --global
+  command brew upgrade --yes
   command brew cleanup
   local -a gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && !File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
   local -a excluded_gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
