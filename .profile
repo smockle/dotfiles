@@ -9,7 +9,6 @@ if [ -f /opt/homebrew/bin/brew ]; then
   esac
 fi
 export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
-export HOMEBREW_REQUIRE_TAP_TRUST=1
 export HOMEBREW_UPGRADE_GREEDY=1
 
 # RUBY
