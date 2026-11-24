@@ -23,9 +23,9 @@ brew "oven-sh/bun/bun", trusted: true
 
 # brew list --casks -1
 cask "1password"
-cask "bettertouchtool"
 cask "copilot-cli"
 cask "google-chrome"
+cask "karabiner-elements"
 cask "microsoft-auto-update"
 cask "microsoft-teams"
 cask "visual-studio-code"
