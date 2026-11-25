@@ -2,24 +2,15 @@
 tap "oven-sh/bun"
 
 # brew list --installed-on-request
-brew "gh", postinstall: <<~EOS
-  gh extension install --force github/gh-aw
-  gh extension install --force github/gh-models
-EOS
+brew "gh"
 brew "git"
 brew "git-lfs"
 brew "gnupg"
-brew "gnutls"
 brew "jq"
-brew "mas"
 brew "node", link: :overwrite
 brew "nvm"
-brew "overmind"
 brew "pinentry-mac"
 brew "prettier"
-brew "ripgrep"
-brew "ruby", link: :overwrite
-brew "oven-sh/bun/bun", trusted: true
 
 # brew list --casks -1
 cask "1password"
@@ -29,21 +20,13 @@ cask "karabiner-elements"
 cask "microsoft-auto-update"
 cask "microsoft-teams"
 cask "visual-studio-code"
-cask "zoom"
 
 # mas list
-mas "Amphetamine", id: 937984704
-mas "Apple Configurator", id: 1037126344
-mas "iMovie", id: 408981434
-mas "Keynote", id: 361285480
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Numbers", id: 361304891
-mas "Pages", id: 361309726
-mas "Parcel", id: 375589283
-mas "Pixelmator Pro", id: 1289583905
-mas "The Unarchiver", id: 425424353
-mas "Wipr", id: 1662217862
-mas "Xcode", id: 497799835
+# mas "Amphetamine", id: 937984704
+# mas "Microsoft Remote Desktop", id: 1295203466
+# mas "The Unarchiver", id: 425424353
+# mas "Wipr", id: 1662217862
+# mas "Xcode", id: 497799835
 
 # code --list-extensions
 vscode "esbenp.prettier-vscode"
