@@ -1,6 +1,3 @@
-# brew tap
-tap "oven-sh/bun"
-
 # brew list --installed-on-request
 brew "gh"
 brew "git"
