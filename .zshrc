@@ -133,20 +133,22 @@ git() {
 
 upgrade() {
   emulate -L zsh -o err_return
-  [[ "$(command uname -s)" != "Darwin" ]] && return
+  [[ "$(uname -s)" != "Darwin" ]] && return
 
-  command brew bundle upgrade --global
-  command brew upgrade --yes
-  command brew cleanup
-  local -a gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && !File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
-  local -a excluded_gems=(${(f)"$(command ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
-  (( $#gems )) && command gem update --no-document "${gems[@]}"
-  (( ${#${(@)gems:|excluded_gems}} )) && command gem cleanup "${(@)gems:|excluded_gems}"
-  command npm update -g
-  command gh extensions upgrade --all
-  command copilot update
-  command copilot plugin update --all
-  command softwareupdate -ia
+  brew bundle upgrade --global
+  brew upgrade --yes
+  brew cleanup
+  local -a gems=(${(f)"$(ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && !File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
+  local -a excluded_gems=(${(f)"$(ruby -rrubygems -e 'puts Gem::Specification.select { |s| s.base_dir == Gem.dir && File.symlink?(s.loaded_from) }.map(&:name).uniq.sort')"})
+  (( $#gems )) && gem update --no-document "${gems[@]}"
+  (( ${#${(@)gems:|excluded_gems}} )) && gem cleanup "${(@)gems:|excluded_gems}"
+  local -a pip_packages=(${(f)"$(pip3 list --outdated --format=freeze | cut -d= -f1)"})
+  (( $#pip_packages )) && pip3 install --upgrade "${pip_packages[@]}"
+  npm update -g
+  gh extensions upgrade --all
+  copilot update
+  copilot plugin update --all
+  softwareupdate -ia
 
   rm -f "${HOME}/.zcompdump" "${HOME}/.zcompdump.zwc"
   autoload -Uz compinit
